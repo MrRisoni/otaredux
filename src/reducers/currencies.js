@@ -17,6 +17,9 @@ const currencies = [
     }
 ];
 
+export function getCurrenciesReducer(state = currencies, action) {
+    return state
+}
 
 
 

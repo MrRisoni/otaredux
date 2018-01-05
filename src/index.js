@@ -10,8 +10,9 @@ import {Provider} from 'react-redux';
 
 
 import {bagsReducer} from './reducers/bags';
-import {currentCurrencyReducer} from './reducers/currencies';
+import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/currencies';
 import {passengersReducer} from './reducers/passengers';
+import {pricingReducer} from './reducers/pricing';
 
 
 import './index.css';
@@ -22,6 +23,8 @@ let store = createStore(combineReducers({
         bagsReducer,
         currentCurrencyReducer,
         passengersReducer,
+        getCurrenciesReducer,
+        pricingReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),

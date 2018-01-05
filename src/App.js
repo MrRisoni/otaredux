@@ -3,11 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {pricingReducer} from "./reducers/pricing";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(ev)
+    {
+        console.log(ev.target.value);
     }
 
     render() {
@@ -20,6 +27,22 @@ class App extends Component {
                 <p className="App-intro">
                     {this.props.currency.code}
                 </p>
+
+
+                <select className="form-control" onChange={this.handleChange}>
+                    {this.props.currencies.map((cur) => {
+                        return (<option key={cur.code} value={cur.code}>{cur.code}</option>)
+                    })}
+
+                </select>
+
+
+                {this.props.passengers.map((pax) => {
+                    return (<div key={pax.od}>{pax.type}</div>)
+                })}
+
+
+                Total Price {this.props.pricing}
             </div>
         );
     }
@@ -33,6 +56,8 @@ function mapStateToProps(state) {
     return {
         passengers: state.passengersReducer,
         currency: state.currentCurrencyReducer,
+        currencies: state.getCurrenciesReducer,
+        pricing: state.pricingReducer
     }
 }
 

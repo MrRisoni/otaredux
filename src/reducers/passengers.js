@@ -4,7 +4,8 @@ import {ADD_PASSENGER} from '../actions/index';
 const passengers = [
     {
         id: 0,
-        type: 'ADT'
+        type: 'ADT',
+        ticketPrice: 45
     }
 ];
 
@@ -20,7 +21,8 @@ export function passengersReducer(state = passengers, action) {
                 ...state,
                 {
                     id: state.length,
-                    type: 'ADT'
+                    type: 'ADT',
+                    ticketPrice: 45
                 }
             ];
             break;
