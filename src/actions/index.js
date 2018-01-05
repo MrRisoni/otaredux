@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export const ADD_PASSENGER = 'ADD_PASSENGER';
 export const CHANGE_CURRENCY = 'CHANGE_CURRENCY';
 

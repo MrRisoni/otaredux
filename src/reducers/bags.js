@@ -11,7 +11,7 @@ const bags = [
 
 
 
-export function bagsReducer(state = passengers, action) {
+export function bagsReducer(state = bags, action) {
     console.log('bagsReducer');
     console.log(action.type);
     switch (action.type) {
