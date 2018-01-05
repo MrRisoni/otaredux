@@ -4,6 +4,10 @@ import './App.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {pricingReducer} from "./reducers/pricing";
+import {changeCurrencyAction, firstLoadAction} from './actions';
+
+
+
 
 class App extends Component {
     constructor(props) {
@@ -12,9 +16,14 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentWillMount()
+    {
+        this.props.firstLoad();
+    }
     handleChange(ev)
     {
         console.log(ev.target.value);
+        this.props.changeCurrencyHandler(ev.target.value);
     }
 
     render() {
@@ -62,7 +71,10 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({}, dispatch);
+    return bindActionCreators({
+        changeCurrencyHandler: changeCurrencyAction,
+        firstLoad: firstLoadAction
+    }, dispatch);
 }
 
 

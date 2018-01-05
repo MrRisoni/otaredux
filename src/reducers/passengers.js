@@ -12,7 +12,7 @@ const passengers = [
 
 
 export function passengersReducer(state = passengers, action) {
-    console.log('fetching reducer');
+    console.log('passengers reducer');
     console.log(action.type);
     switch (action.type) {
         case ADD_PASSENGER:
