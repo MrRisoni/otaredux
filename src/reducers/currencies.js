@@ -28,7 +28,6 @@ export function currentCurrencyReducer(state = currentCurrency, action) {
     console.log(action.type);
     switch (action.type) {
         case CHANGE_CURRENCY:
-
             return {
                 code: 'DKK',
                 rate: 7.44

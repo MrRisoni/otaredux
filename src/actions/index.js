@@ -12,9 +12,26 @@ export function addPassengerAction() {
 
 
 
-export function changeCurrencyAction() {
-    return {type: CHANGE_CURRENCY}
+export function changeCurrencyAction(newCode) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: 'CHANGE_CURRENCY',
+            payload: {
+                passengers: getState().passengersReducer,
+                newCode :'DKK',
+                currencies: getState().getCurrenciesReducer
+            }
+        });
+
+
+    }
+
 }
+
+
+
+
 
 
 export function firstLoadAction() {

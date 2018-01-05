@@ -5,7 +5,7 @@ const passengers = [
     {
         id: 0,
         type: 'ADT',
-        ticketPrice: 45
+        ticketPriceEuro: 45
     }
 ];
 
@@ -22,7 +22,7 @@ export function passengersReducer(state = passengers, action) {
                 {
                     id: state.length,
                     type: 'ADT',
-                    ticketPrice: 45
+                    ticketPriceEuro: 45
                 }
             ];
             break;
