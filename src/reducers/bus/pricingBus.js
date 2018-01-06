@@ -1,15 +1,15 @@
-import {ADD_PASSENGER_BUS,PASSENGER_BUS_ADDED} from "../../actions/air/airActions";
+import {ADD_PASSENGER_BUS,FIRST_LOAD_BUS,PASSENGER_ADDED_BUS} from '../../actions/bus/actionsBus';
 
 
 const totalPrice = 5;
 
-export function pricingReducer(state = totalPrice, action) {
+export function pricingBusReducer(state = totalPrice, action) {
     console.log('**pricingReducer**');
     console.log('received action' + action.type);
     let total = 0;
     switch (action.type)
     {
-        case 'FIRST_LOAD':
+        case FIRST_LOAD_BUS:
             console.log(action.payload);
 
             action.payload.passengers.forEach( (px) => {
@@ -17,24 +17,7 @@ export function pricingReducer(state = totalPrice, action) {
             });
 
             return total;
-
-
-        case CHANGE_CURRENCY:
-            console.log(action.payload);
-
-            let newRate = 1.00;
-            action.payload.currencies.forEach( (cur) => {
-                if (cur.code === action.payload.newCode) {
-                    newRate = cur.rate;
-                }
-            });
-
-            action.payload.passengers.forEach( (px) => {
-                total += px.ticketPriceEuro *newRate ;
-            });
-
-            return total;
-        case PASSENGER_ADDED:
+        case PASSENGER_ADDED_BUS:
             action.payload.passengers.forEach( (px) => {
                 total += px.ticketPriceEuro * action.payload.currency.rate;
             });
@@ -42,6 +25,5 @@ export function pricingReducer(state = totalPrice, action) {
         default:
             return totalPrice;
     }
-
 
 }

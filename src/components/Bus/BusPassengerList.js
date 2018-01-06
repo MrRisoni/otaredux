@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
+import BusPassenger from "./BusPassenger";
 
-class BusPassengerList extends Component {
-    render() {
-        return (
-            <div> Component BusPassengerList </div>
+const BusPassengerList = function (props) {
 
-        );
-    }
-}
+    let paxList = [];
+
+   {props.passengers.forEach( (pax) => {
+       paxList.push(<BusPassenger passenger={pax}/>)
+    })}
+
+    return paxList;
+
+};
 
 export default BusPassengerList;
-
-

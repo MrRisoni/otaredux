@@ -5,7 +5,10 @@ const passengers = [
     {
         id: 0,
         type: 'ADT',
-        ticketPriceEuro: 45
+        reducedTicketPriceEuro: 35,
+        ticketPriceEuro: 45,
+        name: 'Leo',
+        surname:'Tolstoy'
     }
 ];
 

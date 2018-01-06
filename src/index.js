@@ -15,6 +15,8 @@ import {passengersReducer} from './reducers/air/passengers';
 import {pricingReducer} from './reducers/air/pricingAir';
 
 import {passengersBusReducer} from './reducers/bus/passengersBus';
+import {itineraryBusReducer} from './reducers/bus/itineraryBus';
+import {pricingBusReducer} from './reducers/bus/pricingBus';
 
 
 import './index.css';
@@ -30,6 +32,8 @@ let store = createStore(combineReducers({
         getCurrenciesReducer,
         pricingReducer,
         passengersBusReducer,
+        itineraryBusReducer,
+        pricingBusReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
