@@ -1,4 +1,4 @@
-import {ADD_PASSENGER} from '../actions/index';
+import {ADD_PASSENGER} from '../../actions/air/airActions';
 
 
 const bags = [

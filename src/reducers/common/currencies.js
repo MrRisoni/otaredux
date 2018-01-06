@@ -1,4 +1,4 @@
-import {CHANGE_CURRENCY} from '../actions/index';
+import {CHANGE_CURRENCY} from '../../actions/air/airActions';
 
 
 const currentCurrency = {

@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {pricingReducer} from "./reducers/pricing";
-import {changeCurrencyAction, firstLoadAction} from './actions';
+import {pricingReducer} from "./reducers/air/pricingAir";
+import {changeCurrencyAction, firstLoadAction, addPassengerAction} from './actions/air/airActions';
 
 
 
@@ -14,6 +14,13 @@ class App extends Component {
         super(props);
 
         this.handleChange = this.handleChange.bind(this);
+        this.addPax = this.addPax.bind(this);
+
+    }
+
+    addPax(ev)
+    {
+        this.props.addPaxHandler();
     }
 
     componentWillMount()
@@ -22,7 +29,7 @@ class App extends Component {
     }
     handleChange(ev)
     {
-        console.log(ev.target.value);
+        console.log('New Currency ' + ev.target.value);
         this.props.changeCurrencyHandler(ev.target.value);
     }
 
@@ -51,6 +58,7 @@ class App extends Component {
                 })}
 
 
+                <button onClick={this.addPax}>Add Passenger</button>
                 Total Price {this.props.pricing}
             </div>
         );
@@ -73,7 +81,8 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         changeCurrencyHandler: changeCurrencyAction,
-        firstLoad: firstLoadAction
+        firstLoad: firstLoadAction,
+        addPaxHandler:addPassengerAction,
     }, dispatch);
 }
 

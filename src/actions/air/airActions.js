@@ -1,14 +1,26 @@
-import {bagsReducer} from "../reducers/bags";
-import {passengersReducer} from "../reducers/passengers";
-
 export const ADD_PASSENGER = 'ADD_PASSENGER';
 export const CHANGE_CURRENCY = 'CHANGE_CURRENCY';
 export const FIRST_LOAD = 'FIRST_LOAD';
+export const PASSENGER_ADDED = 'PASSENGER_ADDED';
 
 
 export function addPassengerAction() {
-    return {type: ADD_PASSENGER}
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: 'ADD_PASSENGER'
+        });
+
+        dispatch({
+            type: 'PASSENGER_ADDED',
+            payload: {
+                passengers: getState().passengersReducer,
+            }
+        });
+    }
 }
+
+
 
 
 
@@ -19,7 +31,7 @@ export function changeCurrencyAction(newCode) {
             type: 'CHANGE_CURRENCY',
             payload: {
                 passengers: getState().passengersReducer,
-                newCode :'DKK',
+                newCode: newCode,
                 currencies: getState().getCurrenciesReducer
             }
         });
@@ -30,22 +42,18 @@ export function changeCurrencyAction(newCode) {
 }
 
 
-
-
-
-
 export function firstLoadAction() {
     return (dispatch, getState) => {
         console.log('first load action');
         console.log(getState().bagsReducer); // access entire state
 
         dispatch({
-                type: 'FIRST_LOAD',
-                payload: {
-                    passengers: getState().passengersReducer,
-                    currency: getState().currentCurrencyReducer
-                }
-            });
+            type: 'FIRST_LOAD',
+            payload: {
+                passengers: getState().passengersReducer,
+                currency: getState().currentCurrencyReducer
+            }
+        });
 
 
     }

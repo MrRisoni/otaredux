@@ -1,4 +1,5 @@
-import {CHANGE_CURRENCY} from "../actions";
+import {CHANGE_CURRENCY} from "../../actions/air/airActions";
+import {ADD_PASSENGER,PASSENGER_ADDED} from "../../actions/air/airActions";
 
 
 const totalPrice = 5;
@@ -18,6 +19,7 @@ export function pricingReducer(state = totalPrice, action) {
 
             return total;
 
+
         case CHANGE_CURRENCY:
             console.log(action.payload);
 
@@ -32,6 +34,11 @@ export function pricingReducer(state = totalPrice, action) {
                 total += px.ticketPriceEuro *newRate ;
             });
 
+            return total;
+        case PASSENGER_ADDED:
+            action.payload.passengers.forEach( (px) => {
+                total += px.ticketPriceEuro  ;
+            });
             return total;
         default:
             return totalPrice;

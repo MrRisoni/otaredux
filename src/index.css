@@ -1,5 +1,199 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.pricebox {
+    width: auto;
+    min-width: 30%;
+}
+
+.milesDiv {
+    margin-top: 25px;
+}
+
+body, input[type="text"], option, select
+{
+    font-size : 14px
+}
+
+.btnToggle {
+    font-size: 10px;
+}
+.passportDiv{
+    margin-top: 25px;
+}
+
+.leaflet-container {
+    height: 360px;
+    width: 860px;
+    margin-left: 5%;
+    margin-top: 20px;
+
+}
+
+.searchOptions {
+    margin-top: 1%;
+}
+
+.searchBar {
+    margin-top: 15%;
+    background-color: #cad8ff;
+    padding: 15px;
+    border: 1px solid #cad8ff;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 5px;
+}
+.seatShow {
+    margin-bottom: 3%;
+}
+
+
+.preSeatPaxSelector {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+ .CarCarousel {
+     margin-top: 5%;
+     margin-bottom: 2%;
+ }
+
+.CarCarousel .btn_next_prev {
+    margin-top: 55%;
+}
+
+.FinalCardTable {
+    margin-top: 5px;
+}
+
+.CarCarousel img {
+    margin-top: 12%;
+    height: 75%;
+    width: auto;
+}
+
+.currency {
+    margin-left: 5px;
+}
+
+.btnToggle {
+    width: 78px !important;
+}
+
+.passengerCompo, .contactDetails , .paymentDetails, .Leg, .passengerUpsaleCompo
+{
+    margin-top: 3%;
+}
+
+.gmtDate {
+    color:blue;
+}
+
+
+.upgradefare {
+    margin-top: 5%;
+}
+
+.addOnePassenger {
+    margin-top: 2%;
+}
+
+.purchasedLeg {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.jumbotron h1 {
+    text-align: center;
+}
+
+
+.mybtn {
+    padding: 3px 5px;
+    font-size: 5px;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+
+
+.pricebox h4 {
+    text-align: center;
+    color: yellow;
+}
+
+.passengerBagPriceBox {
+    margin-top: 3%;
+}
+
+.bagCarrier ,.itinerary , .bagComponent , .insuranceCard  {
+    margin-top: 5%;
+}
+
+.segments {
+    margin-top: 2%;
+}
+
+
+.flightTime {
+    font-size: 155%;
+}
+
+.gmtdiff {
+    font-size: 75%;
+}
+
+.gmt_warning {
+    color : red;
+    font-weight: bold;
+}
+
+
+.hotel_preview {
+    max-width: 95%;
+    height: auto;
+}
+
+.mapLabelClass {
+    background: rgba(255,255,230,1);
+    background: -moz-linear-gradient(left, rgba(255,255,230,1) 0%, rgba(245,245,186,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,255,230,1) 0%, rgba(245,245,186,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,230,1) 0%, rgba(245,245,186,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,230,1) 0%, rgba(245,245,186,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,230,1) 0%, rgba(245,245,186,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffe6', endColorstr='#f5f5ba', GradientType=1 );
+    font-family: "Times New Roman";
+    font-size: 15px;
+    padding: 6px;
+    border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+
+    -webkit-box-shadow: 10px 10px 97px 13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 97px 13px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 97px 13px rgba(0,0,0,0.75);
+}
+
+.seatButton {
+    width: 25px;
+    height: 15px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+.seatAvailable {
+    background-color : #292aff;
+}
+
+.seatChosen {
+    background-color : #00ff03;
+}
+
+.seatTaken {
+    background-color: #ece7ff;
+}
+
+.seatRowHeader {
+    text-align: center;
+    height: 45px;
+    background-color: #feffd7;
 }

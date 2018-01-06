@@ -9,14 +9,15 @@ import {combineReducers} from 'redux'
 import {Provider} from 'react-redux';
 
 
-import {bagsReducer} from './reducers/bags';
-import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/currencies';
-import {passengersReducer} from './reducers/passengers';
-import {pricingReducer} from './reducers/pricing';
+import {bagsReducer} from './reducers/air/bagsAir';
+import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/currencies';
+import {passengersReducer} from './reducers/common/passengers';
+import {pricingReducer} from './reducers/air/pricingAir';
 
 
 import './index.css';
 import App from './App';
+import Home from './components/Common/Home';
 
 
 let store = createStore(combineReducers({
@@ -35,7 +36,9 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route exact path="/" component={App}/>
+                <Route exact path="/test" component={App}/>
+                <Route exact path="/" component={Home}/>
+
             </div>
         </BrowserRouter>
     </Provider>,
