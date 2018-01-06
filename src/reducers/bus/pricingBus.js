@@ -1,5 +1,4 @@
-import {CHANGE_CURRENCY} from "../../actions/air/airActions";
-import {ADD_PASSENGER,PASSENGER_ADDED} from "../../actions/air/airActions";
+import {ADD_PASSENGER_BUS,PASSENGER_BUS_ADDED} from "../../actions/air/airActions";
 
 
 const totalPrice = 5;

@@ -11,12 +11,15 @@ import {Provider} from 'react-redux';
 
 import {bagsReducer} from './reducers/air/bagsAir';
 import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/currencies';
-import {passengersReducer} from './reducers/common/passengers';
+import {passengersReducer} from './reducers/air/passengers';
 import {pricingReducer} from './reducers/air/pricingAir';
+
+import {passengersBusReducer} from './reducers/bus/passengersBus';
 
 
 import './index.css';
 import App from './App';
+import Bus from './components/Bus/Bus';
 import Home from './components/Common/Home';
 
 
@@ -26,6 +29,7 @@ let store = createStore(combineReducers({
         passengersReducer,
         getCurrenciesReducer,
         pricingReducer,
+        passengersBusReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
@@ -38,6 +42,7 @@ ReactDOM.render(
             <div>
                 <Route exact path="/test" component={App}/>
                 <Route exact path="/" component={Home}/>
+                <Route exact path="/bus" component={Bus}/>
 
             </div>
         </BrowserRouter>

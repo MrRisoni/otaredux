@@ -15,6 +15,7 @@ export function addPassengerAction() {
             type: 'PASSENGER_ADDED',
             payload: {
                 passengers: getState().passengersReducer,
+                currency: getState().currentCurrencyReducer
             }
         });
     }

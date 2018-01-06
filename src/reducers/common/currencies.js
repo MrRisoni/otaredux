@@ -26,12 +26,26 @@ export function getCurrenciesReducer(state = currencies, action) {
 export function currentCurrencyReducer(state = currentCurrency, action) {
     console.log('currentCurrencyReducer');
     console.log(action.type);
+    console.log(action.payload);
+
+
+
+
     switch (action.type) {
         case CHANGE_CURRENCY:
-            return {
-                code: 'DKK',
-                rate: 7.44
-            }
+
+
+            let newRate = 1.00;
+            action.payload.currencies.forEach( (cur) => {
+                if (cur.code === action.payload.newCode) {
+                    newRate = cur.rate;
+                }
+            });
+
+            return Object.assign({}, state, {
+                code: action.payload.newCode,
+                rate: newRate
+            });
         default:
             return state
     }
