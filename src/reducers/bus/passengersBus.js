@@ -12,7 +12,7 @@ const passengers = [
 
 
 export function passengersBusReducer(state = passengers, action) {
-    console.log('passengers Bus reducer');
+    console.log('passengers BusApp reducer');
     console.log(action.type);
     switch (action.type) {
         case ADD_PASSENGER_BUS:

@@ -19,7 +19,7 @@ import {passengersBusReducer} from './reducers/bus/passengersBus';
 
 import './index.css';
 import App from './App';
-import Bus from './components/Bus/Bus';
+import Bus from './components/Bus/BusApp';
 import Home from './components/Common/Home';
 
 
