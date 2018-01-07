@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
-import BusItinerary from './BusItinerary';
-import BusPassengerList from './BusPassengerList';
+import BusItinerary from './Itinerary/BusItinerary';
+import BusPassengerList from './Passengers/BusPassengerList';
 import BusSideBar from './BusSideBar';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
-import {addPassengerAction, changeCurrencyAction, firstLoadAction} from "../../actions/air/airActions";
-import {passengersBusReducer} from "../../reducers/bus/passengersBus";
+import {addPassengerAction, changeCurrencyAction, firstLoadAction} from '../../actions/air/airActions';
+
 
 
 class BusApp extends Component {
@@ -23,7 +23,7 @@ class BusApp extends Component {
 
                 <div className="col-md-8">
 
-                    <BusItinerary/>
+                    <BusItinerary segments={this.props.itinerary}/>
                     <BusPassengerList passengers={this.props.passengers}/>
 
                 </div>
@@ -45,7 +45,8 @@ function mapStateToProps(state) {
     return {
         passengers: state.passengersBusReducer,
         currency: state.currentCurrencyReducer,
-        pricing: state.pricingBusReducer
+        pricing: state.pricingBusReducer,
+        itinerary: state.itineraryBusReducer
     }
 }
 

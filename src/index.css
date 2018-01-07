@@ -197,3 +197,13 @@ body, input[type="text"], option, select
     height: 45px;
     background-color: #feffd7;
 }
+
+.busSegment {
+    margin-top: 5px;
+}
+@media screen and (max-width: 250px) {
+
+    .busCity {
+        margin-top: 5px;
+    }
+}

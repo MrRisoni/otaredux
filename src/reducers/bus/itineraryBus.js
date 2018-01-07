@@ -1,6 +1,7 @@
 
 const busItinerary = [
     {
+        id:0,
         fromCity:'Athens',
         toCity:'Argostoli',
         departTime:'2018-03-27T10:00:00',
