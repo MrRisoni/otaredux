@@ -27,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bus": "mocha --require babel-core/register src/tests/bus/test*.js"
   },
   "devDependencies": {
     "assert": "^1.4.1",

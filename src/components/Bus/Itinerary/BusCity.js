@@ -9,7 +9,7 @@ const BusCity = function (props) {
                 <div className="col-sm-12">{props.data.city}</div>
             </div>
             <div className="row">
-                <div className="col-sm-12">28/12 12;00</div>
+                <div className="col-sm-12">{props.data.time}</div>
             </div>
         </div>
     )

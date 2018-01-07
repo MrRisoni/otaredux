@@ -25,18 +25,27 @@ const BusSegment = function (props) {
 
             <div className="card-body">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-sm-4">
                         <BusCity key={depPoint.city} data={depPoint}/>
                     </div>
 
-                    <div className="col-md-4 offset-md-4">
+                    <div className="col-sm-4 offset-sm-4">
                         <BusCity key={arrPoint.city} data={arrPoint}/>
                     </div>
                 </div>
             </div>
 
             <div className="card-footer">
-                {segTitle}
+                <div className="row">
+                    <div className="col-sm-4">
+                        Duration
+                    </div>
+
+                    <div className="col-sm-4">
+                        {props.data.duration.hours}h  {props.data.duration.minutes}m
+                    </div>
+
+                </div>
             </div>
         </div>
     )
