@@ -7,8 +7,6 @@ const passengers = [
         humanId:1,
         active:true,
         type: 'ADT',
-        reducedTicketPriceEuro: 35,
-        ticketPriceEuro: 45,
         name: '',
         surname:''
     }
@@ -37,8 +35,6 @@ export function passengersBusReducer(state = passengers, action) {
                     humanId:maxHumanId,
                     active:true,
                     type: 'ADT',
-                    reducedTicketPriceEuro: 35,
-                    ticketPriceEuro: 45,
                     name: '',
                     surname:''
                 }

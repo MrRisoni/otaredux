@@ -32,7 +32,8 @@ class BusApp extends Component {
 
                 <div className="col-md-3">
 
-                    <BusSideBar/>
+                    <BusSideBar currency={this.props.currency}
+                                pricing={this.props.pricing} />
                 </div>
             </div>
 
@@ -43,11 +44,13 @@ class BusApp extends Component {
 function mapStateToProps(state) {
     console.log('App Component: map state to props');
     console.log(state);
-
     return {
         passengers: state.passengersBusReducer,
         currency: state.currentCurrencyReducer,
-        pricing: state.pricingBusReducer,
+        pricing:  {
+            total: state.pricingBusReducer,
+            analysis: state.pricingBusAnalysisReducer
+        },
         itinerary: state.itineraryBusReducer
     }
 }

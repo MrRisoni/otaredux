@@ -1,7 +1,7 @@
 import React from 'react';
-import BusPassenger from "./BusPassenger";
+import BusPassenger from './BusPassenger';
 
-const BusPassengerList = function (props) {
+const BusPassengerList = (props) => {
 
     let paxList = [];
 

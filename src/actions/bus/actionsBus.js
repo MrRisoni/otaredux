@@ -14,7 +14,8 @@ export function addBusPassengerAction() {
             type: PASSENGER_ADDED_BUS,
             payload: {
                 passengers: getState().passengersBusReducer,
-                currency: getState().currentCurrencyReducer
+                currency: getState().currentCurrencyReducer,
+                pricesPerPax: getState().pricingBusAnalysisReducer
             }
         });
     }
