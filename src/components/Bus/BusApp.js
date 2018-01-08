@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
-import {addPassengerAction, changeCurrencyAction, firstLoadAction} from '../../actions/air/airActions';
+import {addBusPassengerAction} from '../../actions/bus/actionsBus';
 
 
 
@@ -24,7 +24,9 @@ class BusApp extends Component {
                 <div className="col-md-8">
 
                     <BusItinerary segments={this.props.itinerary}/>
-                    <BusPassengerList passengers={this.props.passengers}/>
+                    <BusPassengerList
+                        addPaxHandler={this.props.addPaxHandler}
+                        passengers={this.props.passengers}/>
 
                 </div>
 
@@ -52,11 +54,11 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-
+        addPaxHandler: addBusPassengerAction,
     }, dispatch);
 }
 
 
-export default connect(mapStateToProps, )(BusApp);
+export default connect(mapStateToProps,matchDispatchToProps )(BusApp);
 
 

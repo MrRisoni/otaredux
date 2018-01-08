@@ -201,6 +201,23 @@ body, input[type="text"], option, select
 .busSegment {
     margin-top: 5px;
 }
+
+.busPassengerList {
+    margin-top: 15px;
+}
+
+.textInputErr {
+    color:red;
+    display: inline-block;
+}
+
+
+.errorBorder {
+    border: 2px;
+    border-style: solid;
+    border-color:red;
+}
+
 @media screen and (max-width: 250px) {
 
     .busCity {

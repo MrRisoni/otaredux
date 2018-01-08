@@ -3,7 +3,7 @@ export const FIRST_LOAD_BUS = 'FIRST_LOAD_BUS';
 export const PASSENGER_ADDED_BUS = 'PASSENGER_ADDED_BUS';
 
 
-export function addPassengerAction() {
+export function addBusPassengerAction() {
     return (dispatch, getState) => {
 
         dispatch({
@@ -22,7 +22,7 @@ export function addPassengerAction() {
 
 
 
-export function firstLoadAction() {
+export function firstLoadBusAction() {
     return (dispatch, getState) => {
         console.log('first load action');
 

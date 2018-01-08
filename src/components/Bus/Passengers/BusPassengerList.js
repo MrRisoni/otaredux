@@ -9,7 +9,17 @@ const BusPassengerList = function (props) {
        paxList.push(<BusPassenger passenger={pax}/>)
     })}
 
-    return paxList;
+    return (<div className="busPassengerList">
+        {paxList}
+
+            <div className="row addOnePassenger">
+                <div className="col-sm-4 offset-md-4">
+                    <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>Add
+                        Passenger
+                    </button>
+                </div>
+            </div>
+    </div>);
 
 };
 
