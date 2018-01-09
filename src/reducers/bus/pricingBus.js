@@ -28,10 +28,11 @@ export function pricingBusReducer(state = totalPrice, action) {
     switch (action.type)
     {
         case FIRST_LOAD_BUS:
+            console.log('first load bus');
             console.log(action.payload);
 
-            action.payload.passengers.forEach( (px) => {
-                total += px.ticketPriceEuro;
+            action.payload.paxTypes.forEach( (px) => {
+                total += px.count * px.ticketPriceEuro;
             });
 
             return total;
@@ -50,6 +51,8 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
 {
     switch (action.type)
     {
+        case FIRST_LOAD_BUS:
+            return state;
         case ADD_PASSENGER_BUS:
 
             return [

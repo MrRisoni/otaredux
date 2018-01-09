@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
-import {addBusPassengerAction} from '../../actions/bus/actionsBus';
+import {addBusPassengerAction,firstLoadBusAction} from '../../actions/bus/actionsBus';
 
 
 
@@ -15,6 +15,12 @@ class BusApp extends Component {
     constructor(props) {
         super(props);
         this.state = {}
+    }
+
+
+    componentWillMount()
+    {
+        this.props.firstLoad();
     }
 
     render() {
@@ -58,6 +64,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         addPaxHandler: addBusPassengerAction,
+        firstLoad: firstLoadBusAction
     }, dispatch);
 }
 

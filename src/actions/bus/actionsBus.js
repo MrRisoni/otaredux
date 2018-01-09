@@ -30,7 +30,7 @@ export function firstLoadBusAction() {
         dispatch({
             type: FIRST_LOAD_BUS,
             payload: {
-                passengers: getState().passengersBusReducer,
+                paxTypes: getState().pricingBusAnalysisReducer,
                 currency: getState().currentCurrencyReducer
             }
         });

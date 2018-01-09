@@ -3,7 +3,19 @@ import React, {Component} from 'react';
 
 const BusSideBar = (props) => {
     //let priceBoxStyle = {marginTop :  props.priceBoxMargin + 'px'};
+    console.log(props.analysis);
 
+    let paxPrices = [];
+
+    props.pricing.analysis.forEach( (paxType) => {
+		    if (paxType.count >0) {
+		    	paxPrices.push(<div className="row">
+                    	<div className="col-sm-12">
+                    		{paxType.type} x {paxType.count}  {paxType.ticketPriceEuro} {props.currency.code} 
+                    	</div>
+		    		</div>)
+		    }
+    })
 
     return (
         <div className="pricebox">
@@ -15,13 +27,14 @@ const BusSideBar = (props) => {
                 <div className="card-body text-white">
 
                     <div className="row">
-
                         <div className="col-sm-12">
                             <h4>Ticket Price</h4>
                             <hr/>
                         </div>
                     </div>
 
+					{paxPrices}
+                
 
                 </div>
 
