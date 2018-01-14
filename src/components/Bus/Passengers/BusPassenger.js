@@ -51,7 +51,7 @@ class BusPassenger extends Component {
 
     render() {
         return (
-            <div className="row passengerCompo">
+            <div className="row passengerCompo show passengerListCollapse">
                 <div className="col-sm-12">
 
 

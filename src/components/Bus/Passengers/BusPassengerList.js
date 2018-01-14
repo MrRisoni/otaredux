@@ -5,20 +5,42 @@ const BusPassengerList = (props) => {
 
     let paxList = [];
 
-   {props.passengers.forEach( (pax) => {
-       paxList.push(<BusPassenger passenger={pax}/>)
-    })}
+    {
+        props.passengers.forEach((pax) => {
+            paxList.push(<BusPassenger passenger={pax}/>)
+        })
+    }
 
     return (<div className="busPassengerList">
-        {paxList}
 
-            <div className="row addOnePassenger">
-                <div className="col-sm-4 offset-md-4">
-                    <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>Add
-                        Passenger
+        <div className="alert alert-primary" role="alert">
+            <div className="row">
+                <div className="col-md-3">
+                    Fill in the passenger data
+                </div>
+
+                <div className="col-md-2 offset-md-7">
+                    <button className="btn btn-sm btn-dark btn-block btnToggle"
+                            data-toggle="collapse"
+                            data-target={`.passengerListCollapse`} aria-expanded="false"
+                            aria-controls="collapseExample">
+                        Toggle
                     </button>
                 </div>
+
             </div>
+        </div>
+
+
+        {paxList}
+
+        <div className="row addOnePassenger show passengerListCollapse">
+            <div className="col-sm-4 offset-md-4">
+                <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>Add
+                    Passenger
+                </button>
+            </div>
+        </div>
     </div>);
 
 };
