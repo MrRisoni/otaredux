@@ -7,7 +7,11 @@ const BusPassengerList = (props) => {
 
     {
         props.passengers.forEach((pax) => {
-            paxList.push(<BusPassenger passenger={pax}/>)
+            if (pax.active) {
+                paxList.push(<BusPassenger key={pax.id}
+                                           passenger={pax}
+                                           removePaxHandler={props.removePaxHandler}/>)
+            }
         })
     }
 

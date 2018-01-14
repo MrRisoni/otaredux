@@ -19,10 +19,19 @@ class BusPassenger extends Component {
         this.editSurname = this.editSurname.bind(this);
         this.editName = this.editName.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.removeMe = this.removeMe.bind(this);
+
     }
     handleChange()
     {
     }
+
+    removeMe()
+    {
+        console.log(this.props.passenger);
+        this.props.removePaxHandler(this.props.passenger.id);
+    }
+
 
 
     editSurname(ev) {
@@ -117,6 +126,17 @@ class BusPassenger extends Component {
 
                             </div>
 
+                        </div>
+
+
+                        <div className="card-footer">
+                            <div className="row">
+                                <div className="col-md-4 offset-md-4">
+                                    <button className="btn btn-primary btn-sm btn-danger" onClick={this.removeMe}>
+                                        Remove this Passenger
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

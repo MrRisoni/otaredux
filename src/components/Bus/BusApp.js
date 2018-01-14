@@ -7,9 +7,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
-import {addBusPassengerAction,firstLoadBusAction} from '../../actions/bus/actionsBus';
-import BusContact from "./Passengers/BusContact";
-import BusPayment from "./BusPayment";
+import {addBusPassengerAction,firstLoadBusAction,removeBusPassengerAction} from '../../actions/bus/actionsBus';
+import BusContact from './Passengers/BusContact';
+import BusPayment from './BusPayment';
 
 
 
@@ -27,32 +27,33 @@ class BusApp extends Component {
 
     render() {
         return (
-            <div className="busApp">
-                <div className="row">
+            <div className='busApp'>
+                <div className='row'>
 
-                    <div className="col-md-8">
+                    <div className='col-md-8'>
 
                         <BusItinerary segments={this.props.itinerary}/>
                         <BusPassengerList
                             addPaxHandler={this.props.addPaxHandler}
+                            removePaxHandler={this.props.removePaxHandler}
                             passengers={this.props.passengers}/>
                     </div>
 
-                    <div className="col-md-3">
+                    <div className='col-md-3'>
                         <BusSideBar currency={this.props.currency}
                                     pricing={this.props.pricing}/>
                     </div>
                 </div>
 
 
-                <div className="row">
-                    <div className="col-md-8">
+                <div className='row'>
+                    <div className='col-md-8'>
                         <BusContact/>
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-md-8">
+                <div className='row'>
+                    <div className='col-md-8'>
                         <BusPayment/>
                     </div>
                 </div>
@@ -79,6 +80,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         addPaxHandler: addBusPassengerAction,
+        removePaxHandler:removeBusPassengerAction,
         firstLoad: firstLoadBusAction
     }, dispatch);
 }

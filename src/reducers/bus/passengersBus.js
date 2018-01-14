@@ -1,4 +1,5 @@
-import {ADD_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+import update from 'immutability-helper';
 
 
 const passengers = [
@@ -39,6 +40,31 @@ export function passengersBusReducer(state = passengers, action) {
                     surname:''
                 }
             ];
+        case REMOVE_PASSENGER_BUS:
+            console.log('remove pax');
+            console.log(action.payload);
+
+            const newPaxes = [...state];
+
+            const paxIdRemoval = action.payload.passengerId;
+
+            // reorder human ids
+            let newHumanId =1;
+
+            newPaxes.forEach( (pax) => {
+                if (pax.id == paxIdRemoval) {
+                    pax.active = false;
+                }
+
+                if (pax.active) {
+                    pax.humanId = newHumanId;
+                    newHumanId++;
+                }
+            });
+            console.log(newPaxes);
+
+            //return update(state, {$set: newPaxes});
+            return newPaxes;
         default:
             return state
     }
