@@ -1,6 +1,9 @@
 import update from 'immutability-helper';
 
-import {ADD_PASSENGER_BUS,FIRST_LOAD_BUS,PASSENGER_ADDED_BUS} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_BUS,FIRST_LOAD_BUS,
+    PASSENGER_ADDED_BUS,
+    PASSENGER_REMOVED_BUS,
+    REMOVE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
 
 
 const totalPrice = 5;
@@ -39,10 +42,13 @@ export function pricingBusReducer(state = totalPrice, action) {
 
             return total;
         case PASSENGER_ADDED_BUS:
+        case PASSENGER_REMOVED_BUS:
+
             action.payload.pricesPerPax.forEach( (px) => {
                 total += px.ticketPriceEuro * px.count;
             });
             return total;
+
         default:
             return state;
     }
@@ -60,7 +66,21 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
             let ADTs = paxTypes[0];
             ADTs.count++;
             return update(state, {0: {$set: ADTs}});
+        case REMOVE_PASSENGER_BUS:
 
+            let typeId = 0;
+            switch (action.payload.type) {
+                case 'CNN':
+                    typeId = 1;
+                    break;
+                case 'STD':
+                    typeId = 2;
+                    break;
+            }
+
+            let newPaxTypes = [...state];
+            newPaxTypes[typeId].count--;
+            return newPaxTypes;
         default:
             return state;
     }
