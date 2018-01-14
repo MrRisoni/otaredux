@@ -8,8 +8,28 @@ class BusContact extends Component {
                 <div className="col-md-12">
 
                     <div className="card">
-                        <div className="card-header bg-light">Contact Details</div>
-                        <div className="card-body">
+                        <div className="card-header bg-light">
+
+                            <div className="row">
+
+                                <div className="col-sm-3">
+                                    Contact Details
+                                </div>
+
+                                <div className="col-sm-2 offset-sm-7">
+                                    <button className="btn btn-sm btn-dark btn-block btnToggle"
+                                            data-toggle="collapse"
+                                            data-target="#busContactCollapse" aria-expanded="false"
+                                            aria-controls="collapseExample">
+                                        Toggle
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div className="card-body collapse show" id="busContactCollapse">
 
 
                             <div className="row">
