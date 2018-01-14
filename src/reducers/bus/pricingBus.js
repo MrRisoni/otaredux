@@ -1,3 +1,5 @@
+import update from 'immutability-helper';
+
 import {ADD_PASSENGER_BUS,FIRST_LOAD_BUS,PASSENGER_ADDED_BUS} from '../../actions/bus/actionsBus';
 
 
@@ -55,23 +57,10 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
             return state;
         case ADD_PASSENGER_BUS:
 
-            return [
-                {
-                    type:'ADT',
-                    ticketPriceEuro: 45,
-                    count:2
-                },
-                {
-                    type:'CNN',
-                    ticketPriceEuro: 30,
-                    count:0
-                },
-                {
-                    type:'STD',
-                    ticketPriceEuro: 10,
-                    count:0
-                }
-            ];
+            let ADTs = paxTypes[0];
+            ADTs.count++;
+            return update(state, {0: {$set: ADTs}});
+
         default:
             return state;
     }

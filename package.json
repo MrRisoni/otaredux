@@ -6,6 +6,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "immutability-helper": "^2.6.4",
     "moment": "^2.20.1",
     "mysql2": "^1.5.1",
     "react": "^16.2.0",
