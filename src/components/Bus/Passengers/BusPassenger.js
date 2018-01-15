@@ -22,8 +22,10 @@ class BusPassenger extends Component {
         this.removeMe = this.removeMe.bind(this);
 
     }
-    handleChange()
+    handleChange(ev)
     {
+        console.log(this.props.passenger);
+        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, 'STD');
     }
 
     removeMe()
@@ -79,7 +81,7 @@ class BusPassenger extends Component {
                                         <option key="" value="">Select Type</option>
                                         <option key="ADT" value="ADT">Adult</option>
                                         <option key="CNN" value="CNN">Child</option>
-                                        <option key="STD" value="INF">Student</option>
+                                        <option key="STD" value="STD">Student</option>
                                     </select>
                                 </div>
 

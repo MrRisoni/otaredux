@@ -10,6 +10,7 @@ const BusPassengerList = (props) => {
             if (pax.active) {
                 paxList.push(<BusPassenger key={pax.id}
                                            passenger={pax}
+                                           editPaxHandler={props.editPaxHandler}
                                            removePaxHandler={props.removePaxHandler}/>)
             }
         })

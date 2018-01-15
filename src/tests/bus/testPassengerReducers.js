@@ -10,11 +10,11 @@ describe('Passengers Bus Reducer', () => {
         const initState =  [
             {
                 id: 0,
+                humanId:1,
+                active:true,
                 type: 'ADT',
-                reducedTicketPriceEuro: 35,
-                ticketPriceEuro: 45,
-                name: 'Leo',
-                surname:'Tolstoy'
+                name: '',
+                surname:''
             }
         ];
 

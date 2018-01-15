@@ -3,6 +3,7 @@ import update from 'immutability-helper';
 import {ADD_PASSENGER_BUS,FIRST_LOAD_BUS,
     PASSENGER_ADDED_BUS,
     PASSENGER_REMOVED_BUS,
+    CHANGE_PASSENGER_BUS,
     REMOVE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
 
 
@@ -78,9 +79,46 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
                     break;
             }
 
-            let newPaxTypes = [...state];
+            var newPaxTypes = [...state];
             newPaxTypes[typeId].count--;
             return newPaxTypes;
+        case CHANGE_PASSENGER_BUS:
+
+
+            let newTypeId = 0;
+            let oldTypeId = 0;
+            switch (action.payload.oldType) {
+                case 'CNN':
+                    oldTypeId = 1;
+                    break;
+                case 'STD':
+                    oldTypeId = 2;
+                    break;
+            }
+
+            switch (action.payload.newType) {
+                case 'CNN':
+                    newTypeId = 1;
+                    break;
+                case 'STD':
+                    newTypeId = 2;
+                    break;
+            }
+
+            let changedPaxTypes = [...state];
+
+            console.log('change pax bus before');
+            console.log(state);
+            console.log(action.payload);
+            console.log(newTypeId +  ' ' + oldTypeId);
+            changedPaxTypes[newTypeId].count++;
+            changedPaxTypes[oldTypeId].count--;
+            if ( changedPaxTypes[oldTypeId].count <0 ) {
+                changedPaxTypes[oldTypeId].count = 0;
+            }
+            console.log('change pax bus after');
+            console.log(changedPaxTypes);
+            return changedPaxTypes;
         default:
             return state;
     }

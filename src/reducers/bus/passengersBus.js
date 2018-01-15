@@ -65,6 +65,9 @@ export function passengersBusReducer(state = passengers, action) {
 
             //return update(state, {$set: newPaxes});
             return newPaxes;
+       // case CHANGE_PASSENGER_BUS:
+
+        //    return update(state,  action.payload.passengerId, $)
         default:
             return state
     }
