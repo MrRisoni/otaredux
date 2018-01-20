@@ -11,7 +11,7 @@ import {Provider} from 'react-redux';
 
 import {bagsReducer} from './reducers/air/bagsAir';
 import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/currencies';
-import {passengersReducer} from './reducers/air/passengers';
+import {passengersAirReducer} from './reducers/air/passengers';
 import {pricingReducer} from './reducers/air/pricingAir';
 
 import {passengersBusReducer} from './reducers/bus/passengersBus';
@@ -28,7 +28,7 @@ import Home from './components/Common/Home';
 let store = createStore(combineReducers({
         bagsReducer,
         currentCurrencyReducer,
-        passengersReducer,
+        passengersAirReducer,
         getCurrenciesReducer,
         pricingReducer,
         passengersBusReducer,

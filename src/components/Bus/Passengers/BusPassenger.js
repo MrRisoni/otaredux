@@ -31,7 +31,7 @@ class BusPassenger extends Component {
     removeMe()
     {
         console.log(this.props.passenger);
-        this.props.removePaxHandler(this.props.passenger.id);
+        this.props.removePaxHandler(this.props.passenger.id,this.props.passenger.type);
     }
 
 
@@ -75,6 +75,7 @@ class BusPassenger extends Component {
                                     Passenger # {this.props.passenger.humanId}
                                 </div>
 
+                                {this.props.passenger.type}
 
                                 <div className="col-sm-4">
                                     <select className="form-control" onChange={this.handleChange}>

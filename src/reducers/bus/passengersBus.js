@@ -1,4 +1,4 @@
-import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
 import update from 'immutability-helper';
 
 
@@ -65,9 +65,22 @@ export function passengersBusReducer(state = passengers, action) {
 
             //return update(state, {$set: newPaxes});
             return newPaxes;
-       // case CHANGE_PASSENGER_BUS:
+        case CHANGE_PASSENGER_BUS:
+            console.log(action.payload);
+            return state.map( (pax, index) => {
+               if (index == action.payload.passengerId) {
+                   let newPax = pax;
+                   newPax.type = action.payload.newType;
+                   return {
+                       ...pax,
+                       ...newPax
+                   }
+               }
+               else {
+                   return pax;
+               }
+            });
 
-        //    return update(state,  action.payload.passengerId, $)
         default:
             return state
     }

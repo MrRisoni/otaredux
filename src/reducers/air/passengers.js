@@ -11,7 +11,7 @@ const passengers = [
 
 
 
-export function passengersReducer(state = passengers, action) {
+export function passengersAirReducer(state = passengers, action) {
     console.log('passengers reducer');
     console.log(action.type);
     switch (action.type) {

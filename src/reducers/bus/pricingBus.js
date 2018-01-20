@@ -17,12 +17,12 @@ const paxTypes = [
     },
     {
         type:'CNN',
-        ticketPriceEuro: 30,
+        ticketPriceEuro: 10,
         count:0
     },
     {
         type:'STD',
-        ticketPriceEuro: 10,
+        ticketPriceEuro: 27,
         count:0
     }
 ];
@@ -44,6 +44,7 @@ export function pricingBusReducer(state = totalPrice, action) {
             return total;
         case PASSENGER_ADDED_BUS:
         case PASSENGER_REMOVED_BUS:
+
 
             action.payload.pricesPerPax.forEach( (px) => {
                 total += px.ticketPriceEuro * px.count;
@@ -79,9 +80,28 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
                     break;
             }
 
-            var newPaxTypes = [...state];
-            newPaxTypes[typeId].count--;
-            return newPaxTypes;
+            return state.map( (item, index) => {
+
+                if (index !== typeId) {
+                    // This isn't the item we care about - keep it as-is
+                    return item;
+                }
+                else {
+                    var oldItem = item;
+                    oldItem.count--;
+                    if (oldItem.count <0) {
+                        oldItem.count =0;
+                    }
+
+                    return {
+                        ...item,
+                        ...oldItem
+                    };
+                }
+
+            });
+
+
         case CHANGE_PASSENGER_BUS:
 
             let newTypeId = 0;

@@ -18,27 +18,26 @@ export function changeBusPassengerAction(paxId,newCode,oldCode) {
                 oldType: oldCode
             }
         });
-        // dispatch update passenger reducer to update type
 
-      /*  // after the passenger has been removed
+       // after the passenger has been updated
         dispatch({
             type: PASSENGER_REMOVED_BUS,
             payload: {
                 pricesPerPax: getState().pricingBusAnalysisReducer
             }
-        }); */
+        });
 
     }
 }
 
-export function removeBusPassengerAction(paxId) {
+export function removeBusPassengerAction(paxId,paxType) {
     return (dispatch, getState) => {
 
         dispatch({
             type: REMOVE_PASSENGER_BUS,
             payload: {
                 passengerId: paxId,
-                type: 'ADT'
+                type: paxType
             }
         });
 
