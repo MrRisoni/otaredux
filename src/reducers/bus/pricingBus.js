@@ -84,7 +84,6 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
             return newPaxTypes;
         case CHANGE_PASSENGER_BUS:
 
-
             let newTypeId = 0;
             let oldTypeId = 0;
             switch (action.payload.oldType) {
@@ -105,20 +104,40 @@ export function pricingBusAnalysisReducer(state = paxTypes, action )
                     break;
             }
 
-            let changedPaxTypes = [...state];
+            return state.map( (item, index) => {
 
-            console.log('change pax bus before');
-            console.log(state);
-            console.log(action.payload);
-            console.log(newTypeId +  ' ' + oldTypeId);
-            changedPaxTypes[newTypeId].count++;
-            changedPaxTypes[oldTypeId].count--;
-            if ( changedPaxTypes[oldTypeId].count <0 ) {
-                changedPaxTypes[oldTypeId].count = 0;
-            }
-            console.log('change pax bus after');
-            console.log(changedPaxTypes);
-            return changedPaxTypes;
+                if ((index !== oldTypeId) && (index !== newTypeId)) {
+                    // This isn't the item we care about - keep it as-is
+                    return item;
+                }
+
+                if (index === oldTypeId) {
+                    // Otherwise, this is the one we want - return an updated value
+                    var oldItem = item;
+                    oldItem.count--;
+                    if (oldItem.count <0) {
+                        oldItem.count =0;
+                    }
+
+                    return {
+                        ...item,
+                        ...oldItem
+                    };
+                }
+
+                if (index === newTypeId) {
+                    // Otherwise, this is the one we want - return an updated value
+                    var newItem = item;
+                    newItem.count++;
+
+                    return {
+                        ...item,
+                        ...newItem
+                    };
+                }
+            });
+
+
         default:
             return state;
     }

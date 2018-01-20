@@ -21,4 +21,22 @@ describe('Passengers Bus Reducer', () => {
 
         expect(passengersBusReducer(initState, {type:ADD_PASSENGER_BUS}).length).to.equal(2);
     });
+
+
+    it('Double cost', () => {
+
+        const initState =  [
+            {
+                id: 0,
+                humanId:1,
+                active:true,
+                type: 'ADT',
+                name: '',
+                surname:''
+            }
+        ];
+
+
+        expect(passengersBusReducer(initState, {type:ADD_PASSENGER_BUS}).length).to.equal(2);
+    });
 });

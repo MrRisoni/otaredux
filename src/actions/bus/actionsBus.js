@@ -16,9 +16,9 @@ export function changeBusPassengerAction(paxId,newCode,oldCode) {
                 passengerId: paxId,
                 newType: newCode,
                 oldType: oldCode
-
             }
         });
+        // dispatch update passenger reducer to update type
 
       /*  // after the passenger has been removed
         dispatch({

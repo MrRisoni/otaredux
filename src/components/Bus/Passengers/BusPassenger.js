@@ -25,7 +25,7 @@ class BusPassenger extends Component {
     handleChange(ev)
     {
         console.log(this.props.passenger);
-        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, 'STD');
+        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
     }
 
     removeMe()
