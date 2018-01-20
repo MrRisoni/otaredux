@@ -75,12 +75,10 @@ class BusPassenger extends Component {
                                     Passenger # {this.props.passenger.humanId}
                                 </div>
 
-                                {this.props.passenger.type}
-
                                 <div className="col-sm-4">
                                     <select className="form-control" onChange={this.handleChange}>
                                         <option key="" value="">Select Type</option>
-                                        <option key="ADT" value="ADT">Adult</option>
+                                        <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
                                         <option key="CNN" value="CNN">Child</option>
                                         <option key="STD" value="STD">Student</option>
                                     </select>
