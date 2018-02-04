@@ -46,6 +46,8 @@ class BusPassenger extends Component {
             surname: fieldInput
         });
 
+        this.props.editNameHandler(this.props.passenger.id,'MrRisoni','foo')
+
     }
 
 

@@ -1,6 +1,5 @@
-import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS,EDIT_NAME_PASSENGER_BUS} from '../../actions/bus/actionsBus';
 import update from 'immutability-helper';
-
 
 const passengers = [
     {
@@ -13,6 +12,19 @@ const passengers = [
     }
 ];
 
+
+const contactData = { surname : '', name:''};
+
+export function contactBusReducer(state = contactData, action) {
+    let firstActivePax =  { surname : '', name:''};
+
+    switch (action.type) {
+        case EDIT_NAME_PASSENGER_BUS:
+
+        default:
+            return contactData;
+    }
+}
 
 
 export function passengersBusReducer(state = passengers, action) {

@@ -11,6 +11,7 @@ const BusPassengerList = (props) => {
                 paxList.push(<BusPassenger key={pax.id}
                                            passenger={pax}
                                            editPaxHandler={props.editPaxHandler}
+                                           editNameHandler={props.editNameHandler}
                                            removePaxHandler={props.removePaxHandler}/>)
             }
         })

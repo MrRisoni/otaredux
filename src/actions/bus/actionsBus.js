@@ -4,7 +4,22 @@ export const PASSENGER_ADDED_BUS = 'PASSENGER_ADDED_BUS';
 export const REMOVE_PASSENGER_BUS = 'REMOVE_PASSENGER_BUS';
 export const PASSENGER_REMOVED_BUS = 'PASSENGER_REMOVED_BUS';
 export const CHANGE_PASSENGER_BUS = 'CHANGE_PASSENGER_BUS';
+export const EDIT_NAME_PASSENGER_BUS = 'EDIT_NAME_PASSENGER_BUS';
 
+
+export function editBusPassengerNameAction(paxId, surname, name) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: EDIT_NAME_PASSENGER_BUS,
+            payload: {
+                passengerId: paxId,
+                surname: surname,
+                name: name,
+                passengers: getState().passengersBusReducer            }
+        });
+    }
+}
 
 
 export function changeBusPassengerAction(paxId,newCode,oldCode) {
