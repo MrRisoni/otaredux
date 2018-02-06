@@ -1,4 +1,5 @@
-import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS,EDIT_NAME_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS,
+    EDITED_NAME_PASSENGER_BUS, EDIT_NAME_PASSENGER_BUS} from '../../actions/bus/actionsBus';
 import update from 'immutability-helper';
 
 const passengers = [
@@ -13,19 +14,37 @@ const passengers = [
 ];
 
 
-const contactData = { surname : '', name:''};
+const contactData = { surname : 'FOO', name:'BAR'};
 
 export function contactBusReducer(state = contactData, action) {
-    let firstActivePax =  { surname : '', name:''};
+    let firstActivePax =   { surname : 'KTO', name:''};
 
-    switch (action.type) {
-        case EDIT_NAME_PASSENGER_BUS:
-
-        default:
+   switch (action.type) {
+        case EDITED_NAME_PASSENGER_BUS:
+            console.log(EDITED_NAME_PASSENGER_BUS);
+            console.log(action.payload.passengers);
+            firstActivePax = getFirstActivePax(action.payload.passengers);
+            return Object.assign({}, state, {
+                surname: firstActivePax.surname,
+                name: firstActivePax.name
+            });
+       default:
             return contactData;
     }
 }
 
+function getFirstActivePax(passengers) {
+    // get first adult
+    let firstActivePax =  { surname : '', name:''};
+    let maxId = 50;
+    passengers.forEach( (pax) => {
+        if (pax.active ** pax.id < maxId) {
+            maxId = pax.id;
+            firstActivePax.surname = pax.surname;
+        }
+    });
+    return firstActivePax;
+}
 
 export function passengersBusReducer(state = passengers, action) {
     console.log('passengers BusApp reducer');
@@ -92,7 +111,22 @@ export function passengersBusReducer(state = passengers, action) {
                    return pax;
                }
             });
-
+        case  EDIT_NAME_PASSENGER_BUS:
+            console.log(action.payload);
+            return state.map( (pax, index) => {
+                if (index == action.payload.passengerId) {
+                    let newPax = pax;
+                    newPax.surname = action.payload.surname;
+                    newPax.name = action.payload.name;
+                    return {
+                        ...pax,
+                        ...newPax
+                    }
+                }
+                else {
+                    return pax;
+                }
+            });
         default:
             return state
     }

@@ -5,9 +5,12 @@ export const REMOVE_PASSENGER_BUS = 'REMOVE_PASSENGER_BUS';
 export const PASSENGER_REMOVED_BUS = 'PASSENGER_REMOVED_BUS';
 export const CHANGE_PASSENGER_BUS = 'CHANGE_PASSENGER_BUS';
 export const EDIT_NAME_PASSENGER_BUS = 'EDIT_NAME_PASSENGER_BUS';
+export const EDITED_NAME_PASSENGER_BUS = 'EDITED_NAME_PASSENGER_BUS';
 
 
 export function editBusPassengerNameAction(paxId, surname, name) {
+
+    console.log('edit bus action ' + paxId + ' ' + surname);
     return (dispatch, getState) => {
 
         dispatch({
@@ -15,9 +18,21 @@ export function editBusPassengerNameAction(paxId, surname, name) {
             payload: {
                 passengerId: paxId,
                 surname: surname,
-                name: name,
-                passengers: getState().passengersBusReducer            }
+                name: name
+            }
         });
+
+
+        dispatch({
+            type: EDITED_NAME_PASSENGER_BUS,
+            payload: {
+                passengerId: paxId,
+                surname: surname,
+                name: name,
+                passengers: getState().passengersBusReducer
+            }
+        });
+
     }
 }
 

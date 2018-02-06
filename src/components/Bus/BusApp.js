@@ -11,6 +11,7 @@ import {addBusPassengerAction,firstLoadBusAction,editBusPassengerNameAction,
     changeBusPassengerAction,removeBusPassengerAction} from '../../actions/bus/actionsBus';
 import BusContact from './Passengers/BusContact';
 import BusPayment from './BusPayment';
+import {contactBusReducer} from "../../reducers/bus/passengersBus";
 
 
 
@@ -51,7 +52,7 @@ class BusApp extends Component {
 
                 <div className='row'>
                     <div className='col-md-8'>
-                        <BusContact/>
+                        <BusContact contact={this.props.contact}/>
                     </div>
                 </div>
 
@@ -76,7 +77,8 @@ function mapStateToProps(state) {
             total: state.pricingBusReducer,
             analysis: state.pricingBusAnalysisReducer
         },
-        itinerary: state.itineraryBusReducer
+        itinerary: state.itineraryBusReducer,
+        contact: state.contactBusReducer
     }
 }
 

@@ -14,7 +14,8 @@ import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/cur
 import {passengersAirReducer} from './reducers/air/passengers';
 import {pricingReducer} from './reducers/air/pricingAir';
 
-import {passengersBusReducer} from './reducers/bus/passengersBus';
+
+import {contactBusReducer,passengersBusReducer} from './reducers/bus/passengersBus';
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {pricingBusReducer,pricingBusAnalysisReducer} from './reducers/bus/pricingBus';
 
@@ -31,6 +32,7 @@ let store = createStore(combineReducers({
         passengersAirReducer,
         getCurrenciesReducer,
         pricingReducer,
+        contactBusReducer,
         passengersBusReducer,
         itineraryBusReducer,
         pricingBusReducer,

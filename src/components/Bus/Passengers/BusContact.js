@@ -45,12 +45,14 @@ class BusContact extends Component {
 
                                 <div className="col-md-5">
                                     <input type="text" placeholder="Surname"
+                                           value={this.props.contact.surname}
                                            className="form-control"/>
                                 </div>
 
 
                                 <div className="col-md-5">
                                     <input type="text" placeholder="Name"
+                                           value={this.props.contact.name}
                                            className="form-control"/>
                                 </div>
 
