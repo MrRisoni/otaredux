@@ -1,6 +1,41 @@
 import React, {Component} from 'react';
 
 class BusContact extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+        this.liftState = this.liftState.bind(this);
+        this.handleSurname = this.handleSurname(this);
+    }
+
+    liftState()
+    {
+        this.props.editContactHandler({
+            surname: 'surname',
+            name:  'name',
+            gender: 'gender',
+            prefix: 'contactData.prefix',
+            mobile:'contactData.mobile',
+            email: 'contactData.email',
+            country:'contactData.country',
+            city: 'contactData.city',
+            address:'contactData.address',
+            postcode:'contactData.postcode'
+        })
+    }
+
+    handleSurname(ev)
+    {
+        this.liftState();
+    }
+
+    handleName(ev)
+    {
+
+    }
+
+
     render() {
         return (
 
@@ -46,6 +81,7 @@ class BusContact extends Component {
                                 <div className="col-md-5">
                                     <input type="text" placeholder="Surname"
                                            value={this.props.contact.surname}
+                                           onChange={this.handleSurname}
                                            className="form-control"/>
                                 </div>
 

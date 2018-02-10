@@ -47,7 +47,7 @@ class BusPassenger extends Component {
         });
 
 
-        this.props.editNameHandler(this.props.passenger.id,fieldInput,'foo')
+        this.props.editNameHandler(this.props.passenger.id,fieldInput,this.state.name);
 
     }
 
@@ -61,6 +61,9 @@ class BusPassenger extends Component {
             showNameErr: !VP.validateNameSurname(fieldInput),
             name: fieldInput
         });
+
+        this.props.editNameHandler(this.props.passenger.id,this.state.surname,fieldInput);
+
     }
 
     render() {

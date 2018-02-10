@@ -1,5 +1,7 @@
 import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS,
-    EDITED_NAME_PASSENGER_BUS, EDIT_NAME_PASSENGER_BUS} from '../../actions/bus/actionsBus';
+    EDIT_CONTACT_PASSENGER_BUS,
+    EDITED_NAME_PASSENGER_BUS, EDIT_NAME_PASSENGER_BUS,
+    PASSENGER_ARRAY_CHANGED} from '../../actions/bus/actionsBus';
 import update from 'immutability-helper';
 
 const passengers = [
@@ -14,19 +16,51 @@ const passengers = [
 ];
 
 
-const contactData = { surname : 'FOO', name:'BAR'};
+const contactData = { surname : 'FOO',
+                    name:'BAR',
+                    changed:false,
+                    gender:'',
+                    prefix:'',
+                    mobile:'',
+                    email:'',
+                    country:'',
+                    city:'',
+                    address:'',
+                    postcode:''};
+
 
 export function contactBusReducer(state = contactData, action) {
     let firstActivePax =   { surname : 'KTO', name:''};
 
    switch (action.type) {
         case EDITED_NAME_PASSENGER_BUS:
+        case PASSENGER_ARRAY_CHANGED:
             console.log(EDITED_NAME_PASSENGER_BUS);
             console.log(action.payload.passengers);
-            firstActivePax = getFirstActivePax(action.payload.passengers);
+            if (!contactData.changed) {
+                firstActivePax = getFirstActivePax(action.payload.passengers);
+                return Object.assign({}, state, {
+                    surname: firstActivePax.surname,
+                    name: firstActivePax.name
+                });
+            }
+            else {
+                return state;
+            }
+       case EDIT_CONTACT_PASSENGER_BUS:
+       // { key action.payload.key}
             return Object.assign({}, state, {
-                surname: firstActivePax.surname,
-                name: firstActivePax.name
+                surname: action.payload.surname,
+                name:  action.payload.name,
+                changed: true,
+                gender: action.payload.gender,
+                prefix: action.payload.prefix,
+                mobile:action.payload.mobile,
+                email: action.payload.email,
+                country:action.payload.country,
+                city: action.payload.city,
+                address:action.payload.address,
+                postcode:action.payload.postcode
             });
        default:
             return contactData;
@@ -38,9 +72,11 @@ function getFirstActivePax(passengers) {
     let firstActivePax =  { surname : '', name:''};
     let maxId = 50;
     passengers.forEach( (pax) => {
-        if (pax.active ** pax.id < maxId) {
+        if (pax.active && pax.id < maxId && pax.type === 'ADT') { // ADULT PAX
             maxId = pax.id;
             firstActivePax.surname = pax.surname;
+            firstActivePax.name = pax.name;
+
         }
     });
     return firstActivePax;

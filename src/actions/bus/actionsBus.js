@@ -6,7 +6,26 @@ export const PASSENGER_REMOVED_BUS = 'PASSENGER_REMOVED_BUS';
 export const CHANGE_PASSENGER_BUS = 'CHANGE_PASSENGER_BUS';
 export const EDIT_NAME_PASSENGER_BUS = 'EDIT_NAME_PASSENGER_BUS';
 export const EDITED_NAME_PASSENGER_BUS = 'EDITED_NAME_PASSENGER_BUS';
+export const EDIT_CONTACT_PASSENGER_BUS = 'EDIT_CONTACT_PASSENGER_BUS';
+export const PASSENGER_ARRAY_CHANGED = 'PASSENGER_ARRAY_CHANGED';
 
+
+
+export function editBusContactAction(contactData) {
+    return { type: EDIT_CONTACT_PASSENGER_BUS, payload : {
+            surname: contactData.surname,
+            name:  contactData.name,
+            gender: contactData.gender,
+            prefix: contactData.prefix,
+            mobile:contactData.mobile,
+            email: contactData.email,
+            country:contactData.country,
+            city: contactData.city,
+            address:contactData.address,
+            postcode:contactData.postcode
+        }
+    }
+}
 
 export function editBusPassengerNameAction(paxId, surname, name) {
 
@@ -57,6 +76,14 @@ export function changeBusPassengerAction(paxId,newCode,oldCode) {
             }
         });
 
+
+        dispatch({
+            type:PASSENGER_ARRAY_CHANGED,
+            payload: {
+                passengers: getState().passengersBusReducer
+            }
+        });
+
     }
 }
 
@@ -76,6 +103,13 @@ export function removeBusPassengerAction(paxId,paxType) {
             type: PASSENGER_REMOVED_BUS,
             payload: {
                 pricesPerPax: getState().pricingBusAnalysisReducer
+            }
+        });
+
+        dispatch({
+            type:PASSENGER_ARRAY_CHANGED,
+            payload: {
+                passengers: getState().passengersBusReducer
             }
         });
 

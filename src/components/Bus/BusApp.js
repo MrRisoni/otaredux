@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
-import {addBusPassengerAction,firstLoadBusAction,editBusPassengerNameAction,
+import {addBusPassengerAction,firstLoadBusAction,editBusPassengerNameAction,editBusContactAction,
     changeBusPassengerAction,removeBusPassengerAction} from '../../actions/bus/actionsBus';
 import BusContact from './Passengers/BusContact';
 import BusPayment from './BusPayment';
@@ -52,7 +52,8 @@ class BusApp extends Component {
 
                 <div className='row'>
                     <div className='col-md-8'>
-                        <BusContact contact={this.props.contact}/>
+                        <BusContact contact={this.props.contact}
+                                    editContactHandler={this.props.editContactHandler}/>
                     </div>
                 </div>
 
@@ -88,7 +89,8 @@ function matchDispatchToProps(dispatch) {
         removePaxHandler:removeBusPassengerAction,
         editPaxHandler:changeBusPassengerAction,
         firstLoad: firstLoadBusAction,
-        editPaxNameHandler: editBusPassengerNameAction
+        editPaxNameHandler: editBusPassengerNameAction,
+        editContactHandler: editBusContactAction
     }, dispatch);
 }
 
