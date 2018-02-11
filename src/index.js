@@ -11,8 +11,10 @@ import {Provider} from 'react-redux';
 
 import {bagsReducer} from './reducers/air/bagsAir';
 import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/currencies';
-import {passengersAirReducer} from './reducers/air/passengers';
-import {pricingReducer} from './reducers/air/pricingAir';
+
+
+import {contactAirReducer,passengersAirReducer} from './reducers/air/passengers';
+import {pricingAirReducer,pricingAirAnalysisReducer} from './reducers/air/pricingAir';
 
 
 import {contactBusReducer,passengersBusReducer} from './reducers/bus/passengersBus';
@@ -23,13 +25,14 @@ import {pricingBusReducer,pricingBusAnalysisReducer} from './reducers/bus/pricin
 import './index.css';
 import App from './App';
 import Bus from './components/Bus/BusApp';
+import AirApp from './components/Air/AirApp';
+
 import Home from './components/Common/Home';
 
 
 let store = createStore(combineReducers({
         bagsReducer,
         currentCurrencyReducer,
-        passengersAirReducer,
         getCurrenciesReducer,
         pricingReducer,
         contactBusReducer,
@@ -37,6 +40,11 @@ let store = createStore(combineReducers({
         itineraryBusReducer,
         pricingBusReducer,
         pricingBusAnalysisReducer,
+        contactAirReducer,
+        passengersAirReducer,
+        itineraryAirReducer,
+        pricingAirReducer,
+        pricingAirAnalysisReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
@@ -50,6 +58,7 @@ ReactDOM.render(
                 <Route exact path="/test" component={App}/>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/bus" component={Bus}/>
+                <Route exact path="/air" component={AirApp}/>
 
             </div>
         </BrowserRouter>
