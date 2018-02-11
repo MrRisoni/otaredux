@@ -82,6 +82,10 @@ body, input[type="text"], option, select
     margin-top: 3%;
 }
 
+.paymentDetails {
+    margin-bottom: 5%;
+}
+
 .gmtDate {
     color:blue;
 }
