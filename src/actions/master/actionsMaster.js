@@ -151,3 +151,20 @@ export function firstLoadMasterAction() {
         });
     }
 }
+
+export function changeCurrencyAction(newCode) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: 'CHANGE_CURRENCY',
+            payload: {
+                passengers: getState().passengersReducer,
+                newCode: newCode,
+                currencies: getState().getCurrenciesReducer
+            }
+        });
+
+
+    }
+}
+
