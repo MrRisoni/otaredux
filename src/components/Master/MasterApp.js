@@ -21,8 +21,8 @@ class MasterApp extends Component {
     }
 
 
-    componentWillMount()
-    {
+    componentWillMount() {
+        console.log('PROPS ' + this.props.product);
         this.props.firstLoad();
     }
 
@@ -34,6 +34,7 @@ class MasterApp extends Component {
                     <div className='col-md-8'>
 
                         <MasterPassengerList
+                            product={this.props.product}
                             addPaxHandler={this.props.addPaxHandler}
                             removePaxHandler={this.props.removePaxHandler}
                             editPaxHandler={this.props.editPaxHandler}

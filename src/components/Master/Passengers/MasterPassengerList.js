@@ -10,6 +10,7 @@ const MasterPassengerList = (props) => {
             if (pax.active) {
                 paxList.push(<MasterPassenger key={pax.id}
                                            passenger={pax}
+                                           product={props.product}
                                            editPaxHandler={props.editPaxHandler}
                                            editNameHandler={props.editNameHandler}
                                            removePaxHandler={props.removePaxHandler}/>)

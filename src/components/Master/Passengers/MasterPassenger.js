@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
+import MasterPassport from "./MasterPassport";
 
 
 class MasterPassenger extends Component {
@@ -132,6 +133,10 @@ class MasterPassenger extends Component {
                                 </div>
 
                             </div>
+
+                            {this.props.product === 'air' &&
+                                <MasterPassport />
+                            }
 
                         </div>
 

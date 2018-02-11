@@ -61,9 +61,8 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/master" component={MasterApp}/>
-                <Route exact path="/bus" component={Bus}/>
-                <Route exact path="/air" component={AirApp}/>
+                <Route exact path="/bus"  render={()=><MasterApp product="bus"/>}/>
+                <Route exact path="/air"  render={()=><MasterApp product="air"/>}/>
 
             </div>
         </BrowserRouter>
