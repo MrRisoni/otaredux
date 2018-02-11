@@ -2,7 +2,10 @@ Gargantuan Online Travel Agency Booking App (still a work in infancy...)
 
 Largely inspired from kiwi.com as well as other sites
 
-Front-End Stack : React, Redux   https://morning-dusk-36932.herokuapp.com/bus
+Front-End Stack : React, Redux  
+
+ https://morning-dusk-36932.herokuapp.com/bus
+ 
 https://morning-dusk-36932.herokuapp.com/air
 
 -----------------
