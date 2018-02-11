@@ -10,21 +10,25 @@ import {Provider} from 'react-redux';
 
 
 import {bagsReducer} from './reducers/air/bagsAir';
-import {currentCurrencyReducer,getCurrenciesReducer} from './reducers/common/currencies';
+import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/currencies';
 
 
-import {contactAirReducer,passengersAirReducer} from './reducers/air/passengers';
-import {pricingAirReducer,pricingAirAnalysisReducer} from './reducers/air/pricingAir';
+import {contactAirReducer, passengersAirReducer} from './reducers/air/passengers';
+import {pricingAirReducer, pricingAirAnalysisReducer} from './reducers/air/pricingAir';
 
 
-import {contactBusReducer,passengersBusReducer} from './reducers/bus/passengersBus';
+import {contactBusReducer, passengersBusReducer} from './reducers/bus/passengersBus';
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
-import {pricingBusReducer,pricingBusAnalysisReducer} from './reducers/bus/pricingBus';
+import {pricingBusReducer, pricingBusAnalysisReducer} from './reducers/bus/pricingBus';
 
+
+import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
+import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
 
 import './index.css';
 import Bus from './components/Bus/BusApp';
 import AirApp from './components/Air/AirApp';
+import MasterApp from './components/Master/MasterApp';
 
 import Home from './components/Common/Home';
 
@@ -42,6 +46,10 @@ let store = createStore(combineReducers({
         passengersAirReducer,
         pricingAirReducer,
         pricingAirAnalysisReducer,
+        contactMasterReducer,
+        passengersMasterReducer,
+        pricingMasterReducer,
+        pricingMasterAnalysisReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
@@ -53,6 +61,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Route exact path="/" component={Home}/>
+                <Route exact path="/master" component={MasterApp}/>
                 <Route exact path="/bus" component={Bus}/>
                 <Route exact path="/air" component={AirApp}/>
 

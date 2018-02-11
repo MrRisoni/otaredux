@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 //import CarCarousel from './CarCarousel';
 //import OtaSpaDatePicker from './../OtaSpaDatePicker';
 import SearchBar from './SearchBar';
+import PopularDestinations from "./PopularDestinations";
 //import AirlineFlasher from './AirlineFlasher';
 
 //import PriceMap from './PriceMap';
@@ -27,7 +28,8 @@ class Home extends Component {
 
             <div>
                 <SearchBar/>
-
+                {/* Google maps here */}
+                <PopularDestinations/>
 
 
             </div>
