@@ -153,7 +153,7 @@ export function firstLoadAirAction() {
 }
 
 
-/*
+
 export function changeCurrencyAction(newCode) {
     return (dispatch, getState) => {
 
@@ -169,4 +169,4 @@ export function changeCurrencyAction(newCode) {
 
     }
 }
-*/
+

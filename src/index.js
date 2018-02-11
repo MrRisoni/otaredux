@@ -23,7 +23,6 @@ import {pricingBusReducer,pricingBusAnalysisReducer} from './reducers/bus/pricin
 
 
 import './index.css';
-import App from './App';
 import Bus from './components/Bus/BusApp';
 import AirApp from './components/Air/AirApp';
 
@@ -34,7 +33,6 @@ let store = createStore(combineReducers({
         bagsReducer,
         currentCurrencyReducer,
         getCurrenciesReducer,
-        pricingReducer,
         contactBusReducer,
         passengersBusReducer,
         itineraryBusReducer,
@@ -42,7 +40,6 @@ let store = createStore(combineReducers({
         pricingBusAnalysisReducer,
         contactAirReducer,
         passengersAirReducer,
-        itineraryAirReducer,
         pricingAirReducer,
         pricingAirAnalysisReducer,
         routing: routerReducer
@@ -55,7 +52,6 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route exact path="/test" component={App}/>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/bus" component={Bus}/>
                 <Route exact path="/air" component={AirApp}/>

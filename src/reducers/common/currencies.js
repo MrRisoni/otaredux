@@ -1,4 +1,3 @@
-import {CHANGE_CURRENCY} from '../../actions/air/airActions';
 
 
 const currentCurrency = {
@@ -32,7 +31,7 @@ export function currentCurrencyReducer(state = currentCurrency, action) {
 
 
     switch (action.type) {
-        case CHANGE_CURRENCY:
+        case 'CHANGE_CURRENCY':
 
 
             let newRate = 1.00;

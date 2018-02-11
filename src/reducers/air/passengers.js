@@ -1,7 +1,7 @@
-import {ADD_PASSENGER_BUS,REMOVE_PASSENGER_BUS,CHANGE_PASSENGER_BUS,
-    EDIT_CONTACT_PASSENGER_BUS,
-    EDITED_NAME_PASSENGER_BUS, EDIT_NAME_PASSENGER_BUS,
-    PASSENGER_ARRAY_CHANGED} from '../../actions/bus/actionsBus';
+import {ADD_PASSENGER_AIR,REMOVE_PASSENGER_AIR,CHANGE_PASSENGER_AIR,
+    EDIT_CONTACT_PASSENGER_AIR,
+    EDITED_NAME_PASSENGER_AIR, EDIT_NAME_PASSENGER_AIR,
+    PASSENGER_ARRAY_CHANGED} from '../../actions/air/airActions';
 import update from 'immutability-helper';
 
 const passengers = [
@@ -29,13 +29,13 @@ const contactData = { surname : 'FOO',
     postcode:''};
 
 
-export function contactBusReducer(state = contactData, action) {
+export function contactAirReducer(state = contactData, action) {
     let firstActivePax =   { surname : 'KTO', name:''};
 
     switch (action.type) {
-        case EDITED_NAME_PASSENGER_BUS:
+        case EDITED_NAME_PASSENGER_AIR:
         case PASSENGER_ARRAY_CHANGED:
-            console.log(EDITED_NAME_PASSENGER_BUS);
+            console.log(EDITED_NAME_PASSENGER_AIR);
             console.log(action.payload.passengers);
             if (!contactData.changed) {
                 firstActivePax = getFirstActivePax(action.payload.passengers);
@@ -47,7 +47,7 @@ export function contactBusReducer(state = contactData, action) {
             else {
                 return state;
             }
-        case EDIT_CONTACT_PASSENGER_BUS:
+        case EDIT_CONTACT_PASSENGER_AIR:
             // { key action.payload.key}
             return Object.assign({}, state, {
                 surname: action.payload.surname,
@@ -82,11 +82,11 @@ function getFirstActivePax(passengers) {
     return firstActivePax;
 }
 
-export function passengersBusReducer(state = passengers, action) {
-    console.log('passengers BusApp reducer');
+export function passengersAirReducer(state = passengers, action) {
+    console.log('passengers AirApp reducer');
     console.log(action.type);
     switch (action.type) {
-        case ADD_PASSENGER_BUS:
+        case ADD_PASSENGER_AIR:
             let maxHumanId =0;
             state.forEach( (pax) => {
                 if (pax.active && maxHumanId < pax.humanId) {
@@ -107,7 +107,7 @@ export function passengersBusReducer(state = passengers, action) {
                     surname:''
                 }
             ];
-        case REMOVE_PASSENGER_BUS:
+        case REMOVE_PASSENGER_AIR:
             console.log('remove pax');
             console.log(action.payload);
 
@@ -132,7 +132,7 @@ export function passengersBusReducer(state = passengers, action) {
 
             //return update(state, {$set: newPaxes});
             return newPaxes;
-        case CHANGE_PASSENGER_BUS:
+        case CHANGE_PASSENGER_AIR:
             console.log(action.payload);
             return state.map( (pax, index) => {
                 if (index == action.payload.passengerId) {
@@ -147,7 +147,7 @@ export function passengersBusReducer(state = passengers, action) {
                     return pax;
                 }
             });
-        case  EDIT_NAME_PASSENGER_BUS:
+        case  EDIT_NAME_PASSENGER_AIR:
             console.log(action.payload);
             return state.map( (pax, index) => {
                 if (index == action.payload.passengerId) {

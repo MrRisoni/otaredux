@@ -1,4 +1,4 @@
-import {ADD_PASSENGER} from '../../actions/air/airActions';
+import {ADD_PASSENGER_AIR} from '../../actions/air/airActions';
 
 
 const bags = [
@@ -15,7 +15,7 @@ export function bagsReducer(state = bags, action) {
     console.log('bagsReducer');
     console.log(action.type);
     switch (action.type) {
-        case ADD_PASSENGER:
+        case ADD_PASSENGER_AIR:
 
             return [
                 ...state,
