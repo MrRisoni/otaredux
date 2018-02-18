@@ -40,6 +40,7 @@ class MasterApp extends Component {
                             editPaxHandler={this.props.editPaxHandler}
                             editNameHandler={this.props.editPaxNameHandler}
                             passengers={this.props.passengers}
+                            currency={this.props.currency}
                             insurances={this.props.insuranceAir}/>
                     </div>
 

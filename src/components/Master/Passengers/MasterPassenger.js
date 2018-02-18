@@ -3,6 +3,7 @@ import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from "./MasterPassport";
+import Insurance from "./InsuranceAir/Insurance";
 
 
 class MasterPassenger extends Component {
@@ -139,7 +140,12 @@ class MasterPassenger extends Component {
                             }
 
                             {this.props.product === 'air' &&
-                                <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
+                                <div>
+                                    <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
+                                    <Insurance
+                                        currency={this.props.currency}
+                                        insurances={this.props.insurances}/>
+                                </div>
                             }
                         </div>
 

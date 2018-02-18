@@ -18,12 +18,6 @@ class Insurance extends Component {
 
         self.setState({checkedInsurance: ev.target.value});
 
-        this.props.otastore.updateInsurance({
-            id: this.props.passengerid,
-            insurance: ev.target.value
-        });
-
-
     }
 
     render() {
@@ -54,7 +48,7 @@ class Insurance extends Component {
                 <div className="collapse" id={`insuranceCollapse${this.props.passengerid}`}>
 
                     <div className="row">
-                        {this.props.otastore.insuranceInfo.map((ins) => {
+                        {this.props.insurances.map((ins) => {
 
                             return (<div key={ins.id} className="col-md-3">
 
@@ -62,7 +56,7 @@ class Insurance extends Component {
                                     <div className="card-header bg-warning">{ins.title}</div>
 
                                     <div className="card-body">
-                                        {ins.description}
+                                        ins.description
 
                                         <input type="radio" value={ins.id}
                                                onChange={this.handleOptionChange}
@@ -71,7 +65,7 @@ class Insurance extends Component {
                                     </div>
 
                                     <div className="card-footer">
-                                        {ins.convertedPrice} {this.props.otastore.currency}
+                                        {ins.price} {this.props.currency.code}
                                     </div>
                                 </div>
 
