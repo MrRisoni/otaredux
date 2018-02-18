@@ -14,6 +14,18 @@ const bags = [
 ];
 
 
+const bagAllowance =  [
+    {
+        id: 1,
+        key:'xfRGRTR3445dd',
+        type: 'ADT',
+        price: 5.00,
+        legId:0,
+        priceEuro:25,
+        airline:'FR'
+    }
+];
+
 
 export function bagsReducer(state = bags, action) {
     console.log('bagsReducer');

@@ -4,6 +4,7 @@ import Error from '../../Common/Error';
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from "./MasterPassport";
 import Insurance from "./InsuranceAir/Insurance";
+import BagComponent from "./BagsAir/BagComponent";
 
 
 class MasterPassenger extends Component {
@@ -145,6 +146,8 @@ class MasterPassenger extends Component {
                                     <Insurance
                                         currency={this.props.currency}
                                         insurances={this.props.insurances}/>
+
+                                    <BagComponent/>
                                 </div>
                             }
                         </div>
