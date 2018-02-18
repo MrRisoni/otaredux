@@ -13,6 +13,7 @@ import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/cu
 
 
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
+import {airInsuranceReducer} from './reducers/air/insuranceAir';
 import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
 
@@ -20,6 +21,7 @@ import './index.css';
 import MasterApp from './components/Master/MasterApp';
 
 import Home from './components/Common/Home';
+import Upsales from "./components/Master/Upsales";
 
 
 let store = createStore(combineReducers({
@@ -29,6 +31,7 @@ let store = createStore(combineReducers({
         passengersMasterReducer,
         pricingMasterReducer,
         pricingMasterAnalysisReducer,
+        airInsuranceReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
@@ -45,7 +48,7 @@ ReactDOM.render(
                 <Route exact path="/hotel"  render={()=><MasterApp product="hotel"/>}/>
                 <Route exact path="/ship"  render={()=><MasterApp product="ship"/>}/>
                 <Route exact path="/train"  render={()=><MasterApp product="train"/>}/>
-
+                <Route exact path="/" component={Upsales}/>
             </div>
         </BrowserRouter>
     </Provider>,

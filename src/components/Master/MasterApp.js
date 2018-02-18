@@ -39,7 +39,8 @@ class MasterApp extends Component {
                             removePaxHandler={this.props.removePaxHandler}
                             editPaxHandler={this.props.editPaxHandler}
                             editNameHandler={this.props.editPaxNameHandler}
-                            passengers={this.props.passengers}/>
+                            passengers={this.props.passengers}
+                            insurances={this.props.insuranceAir}/>
                     </div>
 
                     <div className='col-md-3'>
@@ -56,11 +57,23 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
-                <div className='row'>
-                    <div className='col-md-8'>
-                        <MasterPayment/>
+
+                {this.props.product !== 'air' &&
+                    <div className='row'>
+                        <div className='col-md-8'>
+                            <MasterPayment/>
+                        </div>
+                    </div>
+                }
+
+                {this.props.product === 'air' &&
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <button className="btn btn-success btn-lg">Continue</button>
                     </div>
                 </div>
+                }
             </div>
 
         );
@@ -77,7 +90,8 @@ function mapStateToProps(state) {
             total: state.pricingMasterReducer,
             analysis: state.pricingMasterAnalysisReducer
         },
-        contact: state.contactMasterReducer
+        contact: state.contactMasterReducer,
+        insuranceAir: state.airInsuranceReducer
     }
 }
 

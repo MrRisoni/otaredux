@@ -20,7 +20,8 @@ const passengers = [
             nationality:'',
             expiresAt:'',
             passNo:''
-        }
+        },
+        insuranceAir:0
     }
 ];
 
@@ -113,7 +114,17 @@ export function passengersMasterReducer(state = passengers, action) {
                     active:true,
                     type: 'ADT',
                     name: '',
-                    surname:''
+                    surname:'',
+                    gender:'',
+                    dob:'',
+                    milesCard: { company:'',cardNo: ''},
+                    passport: {
+                        issueCountry:'',
+                        nationality:'',
+                        expiresAt:'',
+                        passNo:''
+                    },
+                    insuranceAir:0
                 }
             ];
         case REMOVE_PASSENGER_MASTER:

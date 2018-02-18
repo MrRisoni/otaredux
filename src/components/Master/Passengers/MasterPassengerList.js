@@ -11,6 +11,7 @@ const MasterPassengerList = (props) => {
                 paxList.push(<MasterPassenger key={pax.id}
                                            passenger={pax}
                                            product={props.product}
+                                           insurances={props.insurances}
                                            editPaxHandler={props.editPaxHandler}
                                            editNameHandler={props.editNameHandler}
                                            removePaxHandler={props.removePaxHandler}/>)

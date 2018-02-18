@@ -5,7 +5,11 @@ const bags = [
     {
         id: 0,
         type: 'ADT',
-        price: 5.00
+        price: 5.00,
+        legId:0,
+        passengerId:0,
+        priceEuro:25,
+        airline:''
     }
 ];
 
