@@ -147,7 +147,8 @@ class MasterPassenger extends Component {
                                         currency={this.props.currency}
                                         insurances={this.props.insurances}/>
 
-                                    <BagComponent/>
+                                    <BagComponent bagsAir={this.props.bagsAir}
+                                    />
                                 </div>
                             }
                         </div>

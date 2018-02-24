@@ -11,6 +11,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from "../../reducers/master/passengersMaster";
+import {getBagsReducer} from "../../reducers/air/bagsAir";
 
 
 
@@ -41,7 +42,8 @@ class MasterApp extends Component {
                             editNameHandler={this.props.editPaxNameHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
-                            insurances={this.props.insuranceAir}/>
+                            insurances={this.props.insuranceAir}
+                            bagsAir={this.props.bagsAir}/>
                     </div>
 
                     <div className='col-md-3'>
@@ -92,7 +94,8 @@ function mapStateToProps(state) {
             analysis: state.pricingMasterAnalysisReducer
         },
         contact: state.contactMasterReducer,
-        insuranceAir: state.airInsuranceReducer
+        insuranceAir: state.airInsuranceReducer,
+        bagsAir : state.getBagsReducer
     }
 }
 

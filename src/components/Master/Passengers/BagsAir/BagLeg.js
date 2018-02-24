@@ -1,16 +1,10 @@
 import React from 'react';
-import BagAirline from "./BagAirline";
+import BagSelection from "./BagSelection";
 
 const BagLeg = function (props) {
     return (
-        <div> Bag Leg
-
-            <BagAirline/>
-            <BagAirline/>
-
-            <BagAirline/>
-
-
+        <div>
+            <BagSelection bagsAir={props.bagsAir}/>
         </div>
     )
 }

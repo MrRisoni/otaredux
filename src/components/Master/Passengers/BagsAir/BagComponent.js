@@ -2,13 +2,17 @@ import React from 'react';
 import BagLeg from "./BagLeg";
 
 const BagComponent = function (props) {
+
     return (
-        <div> Stateless Component {props.name}
+        <div className="row">
 
-            <BagLeg/>
+            <div className="col-md-5">
+                <BagLeg key={0} leg={0} bagsAir={props.bagsAir}/>
+            </div>
 
-            <BagLeg/>
-
+            <div className="col-md-5">
+                <BagLeg key={1} leg={1} bagsAir={props.bagsAir}/>
+            </div>
         </div>
     )
 }
