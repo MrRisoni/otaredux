@@ -8,7 +8,7 @@ const BagSelection = function (props) {
                 <div className="col-md-7">
                     <button className="button btn-primary btn">+
                     </button>
-                        {bag.price.toFixed(2)} {bag.weight}
+                         {bag.weight} {bag.price.toFixed(2)} {props.currency.code}
                 </div>
             </div>);
     });

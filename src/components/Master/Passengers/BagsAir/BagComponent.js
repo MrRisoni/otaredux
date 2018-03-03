@@ -7,14 +7,14 @@ const BagComponent = function (props) {
         <div className="row">
 
             <div className="col-md-5">
-                <BagLeg key={0} leg={0} bagsAir={props.bagsAir}/>
+                <BagLeg key={0} leg={0} bagsAir={props.bagsAir} currency={props.currency}/>
             </div>
 
             <div className="col-md-5">
-                <BagLeg key={1} leg={1} bagsAir={props.bagsAir}/>
+                <BagLeg key={1} leg={1} bagsAir={props.bagsAir} currency={props.currency}/>
             </div>
         </div>
     )
-}
+};
 
 export default BagComponent;
