@@ -2,11 +2,7 @@ import {ADD_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
 
 
 const bags = [
-    {
-        bagId:0,
-        passengerId:0,
-    }
-];
+   ];
 
 
 const bagAllowance =  [

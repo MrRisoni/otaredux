@@ -4,7 +4,9 @@ import BagSelection from "./BagSelection";
 const BagLeg = function (props) {
     return (
         <div>
-            <BagSelection bagsAir={props.bagsAir}  currency={props.currency}/>
+            <BagSelection bagsAir={props.bagsAir}
+                          currency={props.currency}
+                          paxId={props.paxId}/>
         </div>
     )
 }
