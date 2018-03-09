@@ -16,7 +16,7 @@ import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {airInsuranceReducer} from './reducers/air/insuranceAir';
 import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
-import {getBagsReducer,addBagReducer} from './reducers/air/bagsAir';
+import {getBagsReducer,addBagReducer,getPurchasedBagsReducer} from './reducers/air/bagsAir';
 
 
 
@@ -36,6 +36,7 @@ let store = createStore(combineReducers({
         pricingMasterAnalysisReducer,
         airInsuranceReducer,
         getBagsReducer,
+        getPurchasedBagsReducer,
         addBagReducer,
         routing: routerReducer
     }),

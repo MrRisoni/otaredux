@@ -108,6 +108,12 @@ body, input[type="text"], option, select
     text-align: center;
 }
 
+.btnPlusMinusBags {
+    padding: 3px 5px;
+    font-size: 10px;
+    border-radius: 2px;
+    margin-right: 5px;
+}
 
 .mybtn {
     padding: 3px 5px;

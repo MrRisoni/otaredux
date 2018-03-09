@@ -11,7 +11,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from "../../reducers/master/passengersMaster";
-import {getBagsReducer} from "../../reducers/air/bagsAir";
+import {getBagsReducer, getPurchasedBagsReducer} from "../../reducers/air/bagsAir";
 
 
 
@@ -43,7 +43,8 @@ class MasterApp extends Component {
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
-                            bagsAir={this.props.bagsAir}/>
+                            bagsAir={this.props.bagsAir}
+                            purchasedBags={this.props.purchasedBags}/>
                     </div>
 
                     <div className='col-md-3'>
@@ -84,8 +85,7 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('App Component: map state to props');
-    console.log(state);
+
     return {
         passengers: state.passengersMasterReducer,
         currency: state.currentCurrencyReducer,
@@ -95,7 +95,8 @@ function mapStateToProps(state) {
         },
         contact: state.contactMasterReducer,
         insuranceAir: state.airInsuranceReducer,
-        bagsAir : state.getBagsReducer
+        bagsAir : state.getBagsReducer,
+        purchasedBags: state.getPurchasedBagsReducer
     }
 }
 

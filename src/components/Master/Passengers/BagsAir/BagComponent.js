@@ -4,20 +4,34 @@ import BagLeg from "./BagLeg";
 const BagComponent = function (props) {
 
     return (
-        <div className="row">
 
-            <div className="col-md-5">
-                <BagLeg key={0} leg={0}
-                        bagsAir={props.bagsAir}
-                        currency={props.currency}
-                        paxId={props.paxId}/>
+        <div>
+
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="alert alert-success" role="alert">
+                        Purchase Bags!
+                    </div>
+                </div>
             </div>
 
-            <div className="col-md-5">
-                <BagLeg key={1} leg={1}
-                        bagsAir={props.bagsAir}
-                        currency={props.currency}
-                        paxId={props.paxId}/>
+            <div className="row">
+
+                <div className="col-md-6">
+                    <BagLeg key={0} leg={0}
+                            bagsAir={props.bagsAir}
+                            purchasedBags={props.purchasedBags}
+                            currency={props.currency}
+                            paxId={props.paxId}/>
+                </div>
+
+                <div className="col-md-6">
+                    <BagLeg key={1} leg={1}
+                            bagsAir={props.bagsAir}
+                            purchasedBags={props.purchasedBags}
+                            currency={props.currency}
+                            paxId={props.paxId}/>
+                </div>
             </div>
         </div>
     )

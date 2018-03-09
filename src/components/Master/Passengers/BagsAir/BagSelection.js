@@ -7,26 +7,27 @@ class BagSelection extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(bagId,paxId) {
-        console.log(bagId + ' ' + paxId);
+    handleClick() {
+        console.log(' bag click');
     }
 
     render() {
-        let bagArray = [];
-        this.props.bagsAir.forEach((bag) => {
-            bagArray.push(
-                <div className="row">
-                    <div className="col-md-7">
-                        <button onClick={this.handleClick(bag.id,this.props.paxId)}
-                                className="button btn-primary btn">+
-                        </button>
-                        {bag.weight} {bag.price.toFixed(2)} {this.props.currency.code}
-                    </div>
-                </div>);
-        });
         return (
-            <div>{bagArray}</div>
-        )
+            <div className="row">
+                <div className="col-md-8">
+
+                    XYZ
+                    <button onClick={this.handleClick}
+                            className="btn-primary btn btnPlusMinusBags">+
+                    </button>
+
+                    <button onClick={this.handleClick}
+                            className="btn-danger btn btnPlusMinusBags">-
+                    </button>
+                    {this.props.bagData.weight} {this.props.bagData.price.toFixed(2)} {this.props.currency.code}
+
+                </div>
+            </div>);
     }
 }
 
