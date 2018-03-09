@@ -12,11 +12,27 @@ class BagSelection extends Component {
     }
 
     render() {
+
+        let bagCount =0; // bag count for this passenger
+        console.log('purchased bag for this pax '+ this.props.paxId);
+        console.log(this.props.purchasedBags);
+
+        this.props.purchasedBags.forEach((purchasedBag) => {
+            if (purchasedBag.paxId === this.props.paxId) {
+                if (purchasedBag.bagId === this.props.bagData.id) {
+                    if (purchasedBag.legId === this.props.legId) {
+                        bagCount++;
+                    }
+                }
+            }
+        });
+
         return (
             <div className="row">
                 <div className="col-md-8">
 
-                    XYZ
+                    {bagCount}
+
                     <button onClick={this.handleClick}
                             className="btn-primary btn btnPlusMinusBags">+
                     </button>
