@@ -23,11 +23,9 @@ class BagSelection extends Component {
         console.log(this.props.purchasedBags);
 
         this.props.purchasedBags.forEach((purchasedBag) => {
-            if (purchasedBag.paxId === this.props.paxId) {
-                if (purchasedBag.bagId === this.props.bagData.id) {
-                    if (purchasedBag.legId === this.props.legId) {
-                        bagCount++;
-                    }
+            if (purchasedBag.bagId === this.props.bagData.id) {
+                if (purchasedBag.legId === this.props.legId) {
+                    bagCount++;
                 }
             }
         });

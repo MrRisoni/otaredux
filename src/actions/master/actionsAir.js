@@ -1,5 +1,4 @@
 export const ADD_BAG_AIR = 'ADD_BAG_AIR';
-export const FETCH_BAGS_ANEW = 'FETCH_BAGS_ANEW';
 
 
 export function airAirBagAction(data) {
@@ -12,12 +11,3 @@ export function airAirBagAction(data) {
 }
 
 
-export function updateBagsAction() {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: FETCH_BAGS_ANEW,
-            payload: {}
-        });
-    }
-}

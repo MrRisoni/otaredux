@@ -29,8 +29,6 @@ class MasterApp extends Component {
         console.log('PROPS ' + this.props.product);
         this.props.firstLoad();
 
-        this.props.updateBags();
-
     }
 
     render() {
@@ -50,8 +48,7 @@ class MasterApp extends Component {
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
-                            bagsAir={this.props.bagsAir}
-                            purchasedBags={this.props.purchasedBags}/>
+                            bagsAir={this.props.bagsAir}/>
                     </div>
 
                     <div className='col-md-3'>
@@ -92,9 +89,6 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('map state to props');
-    console.log(state.getPurchasedBagsReducer);
-
     return {
         passengers: state.passengersMasterReducer,
         currency: state.currentCurrencyReducer,
@@ -104,8 +98,7 @@ function mapStateToProps(state) {
         },
         contact: state.contactMasterReducer,
         insuranceAir: state.airInsuranceReducer,
-        bagsAir : state.getBagsReducer,
-        purchasedBags: state.getPurchasedBagsReducer
+        bagsAir : state.getBagsReducer
     }
 }
 
@@ -115,7 +108,6 @@ function matchDispatchToProps(dispatch) {
         removePaxHandler:removeMasterPassengerAction,
         editPaxHandler:changeMasterPassengerAction,
         firstLoad: firstLoadMasterAction,
-        updateBags:updateBagsAction,
         editPaxNameHandler: editMasterPassengerNameAction,
         editContactHandler: editMasterContactAction,
         addBagHandler: airAirBagAction

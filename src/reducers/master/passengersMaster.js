@@ -2,6 +2,9 @@ import {ADD_PASSENGER_MASTER,REMOVE_PASSENGER_MASTER,CHANGE_PASSENGER_MASTER,
     EDIT_CONTACT_PASSENGER_MASTER,
     EDITED_NAME_PASSENGER_MASTER, EDIT_NAME_PASSENGER_MASTER,
     PASSENGER_ARRAY_CHANGED} from '../../actions/master/actionsMaster';
+
+import {ADD_BAG_AIR}  from '../../actions/master/actionsAir';
+
 import update from 'immutability-helper';
 
 const passengers = [
@@ -21,6 +24,12 @@ const passengers = [
             expiresAt:'',
             passNo:''
         },
+        bags: [
+            {
+                bagId: 1,
+                legId: 0
+            }
+        ],
         insuranceAir:0
     }
 ];
@@ -124,6 +133,12 @@ export function passengersMasterReducer(state = passengers, action) {
                         expiresAt:'',
                         passNo:''
                     },
+                    bags: [
+                        {
+                            bagId: 1,
+                            legId: 0
+                        }
+                    ],
                     insuranceAir:0
                 }
             ];
@@ -183,8 +198,23 @@ export function passengersMasterReducer(state = passengers, action) {
                     return pax;
                 }
             });
-        default:
+        case ADD_BAG_AIR:
+            return [
+                ...state,
+                {
+                    paxId : 0,
+                    bagId: 1,
+                    legId: 0
+                }
+            ];
+         default:
             return state
     }
 }
+
+
+
+
+
+
 

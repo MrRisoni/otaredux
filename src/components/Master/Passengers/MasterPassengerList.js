@@ -13,7 +13,6 @@ const MasterPassengerList = (props) => {
                                            product={props.product}
                                            insurances={props.insurances}
                                            bagsAir={props.bagsAir}
-                                           purchasedBags={props.purchasedBags}
                                            currency={props.currency}
                                            editPaxHandler={props.editPaxHandler}
                                            editNameHandler={props.editNameHandler}

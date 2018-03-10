@@ -149,7 +149,7 @@ class MasterPassenger extends Component {
 
                                     <BagComponent   paxId={this.props.passenger.id}
                                                     currency={this.props.currency}
-                                                    purchasedBags={this.props.purchasedBags}
+                                                    purchasedBags={this.props.passenger.bags}
                                                     bagsAir={this.props.bagsAir}
                                                     addBagHandler={this.props.addBagHandler}/>
 
