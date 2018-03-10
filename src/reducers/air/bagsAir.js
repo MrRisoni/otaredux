@@ -1,4 +1,4 @@
-import {ADD_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
+import {ADD_BAG_AIR,ADDED_BAG_AIR} from '../../actions/master/actionsAir';
 
 
 const bags = [
@@ -33,8 +33,24 @@ const bagAllowance =  [
 
 
 export function addBagReducer( state = bags, action) {
-    return state;
+    console.log('addBagReducer');
+    console.log(action.payload);
+    console.log(action.type);
+    switch (action.type) {
+        case ADD_BAG_AIR:
+            return [
+                ...state,
+                {
+                    paxId : 0,
+                    bagId: 1,
+                    legId: 0
+                }
+            ];
+        default:
+            return state;
+    }
 }
+
 
 
 export function removeBagReducer( state = bags, action) {
@@ -42,7 +58,7 @@ export function removeBagReducer( state = bags, action) {
 }
 
 export function getPurchasedBagsReducer(state = bags, action) {
-    return state;
+   return state;
 }
 
 

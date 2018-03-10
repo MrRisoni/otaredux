@@ -11,12 +11,16 @@ const BagLeg = function (props) {
                                     legId={props.leg}
                                     currency={props.currency}
                                     purchasedBags={props.purchasedBags}
-                                    paxId={props.paxId}/>);
+                                    paxId={props.paxId}
+                                    addBagHandler={props.addBagHandler} />);
 
     });
 
     return (
+        <div>
+            {props.legTitle}
         <div>{bagArray}</div>
+        </div>
     )
 
 };

@@ -7,7 +7,10 @@ import {connect} from 'react-redux';
 
 import FontAwesome from 'react-fontawesome';
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
-    changeMasterPassengerAction,removeMasterPassengerAction} from '../../actions/master/actionsMaster';
+    changeMasterPassengerAction,removeMasterPassengerAction
+    } from '../../actions/master/actionsMaster';
+
+import {airAirBagAction,updateBagsAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from "../../reducers/master/passengersMaster";
@@ -25,6 +28,9 @@ class MasterApp extends Component {
     componentWillMount() {
         console.log('PROPS ' + this.props.product);
         this.props.firstLoad();
+
+        this.props.updateBags();
+
     }
 
     render() {
@@ -40,6 +46,7 @@ class MasterApp extends Component {
                             removePaxHandler={this.props.removePaxHandler}
                             editPaxHandler={this.props.editPaxHandler}
                             editNameHandler={this.props.editPaxNameHandler}
+                            addBagHandler={this.props.addBagHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
@@ -85,6 +92,8 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log('map state to props');
+    console.log(state.getPurchasedBagsReducer);
 
     return {
         passengers: state.passengersMasterReducer,
@@ -106,8 +115,10 @@ function matchDispatchToProps(dispatch) {
         removePaxHandler:removeMasterPassengerAction,
         editPaxHandler:changeMasterPassengerAction,
         firstLoad: firstLoadMasterAction,
+        updateBags:updateBagsAction,
         editPaxNameHandler: editMasterPassengerNameAction,
-        editContactHandler: editMasterContactAction
+        editContactHandler: editMasterContactAction,
+        addBagHandler: airAirBagAction
     }, dispatch);
 }
 

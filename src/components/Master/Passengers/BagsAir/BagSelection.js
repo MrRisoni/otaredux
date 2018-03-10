@@ -8,7 +8,12 @@ class BagSelection extends Component {
     }
 
     handleClick() {
-        console.log(' bag click');
+        console.log(' bag click '  + this.props.paxId + ' ' + this.props.bagData.id + ' ' + this.props.legId);
+        this.props.addBagHandler({
+            paxId : this.props.paxId,
+            bagId: this.props.bagData.id,
+            legId: this.props.legId
+        })
     }
 
     render() {

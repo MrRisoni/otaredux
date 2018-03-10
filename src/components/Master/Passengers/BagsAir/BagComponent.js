@@ -19,18 +19,22 @@ const BagComponent = function (props) {
 
                 <div className="col-md-6">
                     <BagLeg key={0} leg={0}
+                            legTitle="departure"
                             bagsAir={props.bagsAir}
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}
-                            paxId={props.paxId}/>
+                            paxId={props.paxId}
+                            addBagHandler={props.addBagHandler}/>
                 </div>
 
                 <div className="col-md-6">
                     <BagLeg key={1} leg={1}
+                            legTitle="return"
                             bagsAir={props.bagsAir}
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}
-                            paxId={props.paxId}/>
+                            paxId={props.paxId}
+                            addBagHandler={props.addBagHandler}/>
                 </div>
             </div>
         </div>
