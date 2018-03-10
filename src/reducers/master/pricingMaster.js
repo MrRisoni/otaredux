@@ -6,6 +6,8 @@ import {ADD_PASSENGER_MASTER,FIRST_LOAD_MASTER,
     CHANGE_PASSENGER_MASTER,
     REMOVE_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
 
+import {ADDED_BAG_AIR} from '../../actions/master/actionsAir';
+
 
 const totalPrice = 5;
 
@@ -44,6 +46,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
     console.log('**pricingReducer**');
     console.log('received action' + action.type);
     let total = 0;
+
     switch (action.type)
     {
         case FIRST_LOAD_MASTER:
@@ -57,7 +60,21 @@ export function pricingMasterReducer(state = totalPrice, action) {
             return total;
         case PASSENGER_ADDED_MASTER:
         case PASSENGER_REMOVED_MASTER:
+        case ADDED_BAG_AIR:
+            console.log(action.payload.bagAllowance);
 
+            // active passengers
+            action.payload.passengers.forEach( (pax) => {
+                if (pax.active) {
+                    pax.bags.forEach( (boughtBag) => {
+                        action.payload.bagAllowance.forEach( (bag) => {
+                           if (bag.id === boughtBag.bagId) {
+                               total += bag.priceEuro;
+                           }
+                        });
+                    });
+                }
+            });
 
             action.payload.pricesPerPax.forEach( (px) => {
                 total += px.ticketPriceEuro * px.count;

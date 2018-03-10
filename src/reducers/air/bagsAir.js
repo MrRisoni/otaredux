@@ -16,7 +16,7 @@ const bagAllowance =  [
         dimensions :'',
         type: 'ADT',
         price: 25.00,
-        priceEuro:25
+        priceEuro:25.00
     }
 ];
 
