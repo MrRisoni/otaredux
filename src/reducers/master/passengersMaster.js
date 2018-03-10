@@ -199,14 +199,28 @@ export function passengersMasterReducer(state = passengers, action) {
                 }
             });
         case ADD_BAG_AIR:
-            return [
-                ...state,
-                {
-                    paxId : 0,
-                    bagId: 1,
-                    legId: 0
+            console.log('add new bag fired');
+            console.log(action.payload);
+
+            return state.map( (pax, index) => {
+                if (index === action.payload.paxId) {
+                    let newPax = pax;
+
+
+                    newPax.bags = [
+                        ...newPax.bags,
+                        {
+                            bagId: action.payload.bagId,
+                            legId: action.payload.legId
+                        }
+                    ];
+
+                    return {
+                        ...pax,
+                        ...newPax
+                    }
                 }
-            ];
+            });
          default:
             return state
     }

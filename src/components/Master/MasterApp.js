@@ -10,7 +10,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
     changeMasterPassengerAction,removeMasterPassengerAction
     } from '../../actions/master/actionsMaster';
 
-import {airAirBagAction,updateBagsAction} from '../../actions/master/actionsAir';
+import {airAirBagAction,removeAirBagAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from "../../reducers/master/passengersMaster";
@@ -45,6 +45,7 @@ class MasterApp extends Component {
                             editPaxHandler={this.props.editPaxHandler}
                             editNameHandler={this.props.editPaxNameHandler}
                             addBagHandler={this.props.addBagHandler}
+                            removeBagHandler={this.props.removeBagHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
@@ -110,7 +111,8 @@ function matchDispatchToProps(dispatch) {
         firstLoad: firstLoadMasterAction,
         editPaxNameHandler: editMasterPassengerNameAction,
         editContactHandler: editMasterContactAction,
-        addBagHandler: airAirBagAction
+        addBagHandler: airAirBagAction,
+        removeBagHandler:removeAirBagAction
     }, dispatch);
 }
 

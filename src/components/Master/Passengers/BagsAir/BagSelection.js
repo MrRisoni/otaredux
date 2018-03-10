@@ -5,11 +5,23 @@ class BagSelection extends Component {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
+
     }
 
     handleClick() {
         console.log(' bag click '  + this.props.paxId + ' ' + this.props.bagData.id + ' ' + this.props.legId);
         this.props.addBagHandler({
+            paxId : this.props.paxId,
+            bagId: this.props.bagData.id,
+            legId: this.props.legId
+        })
+    }
+
+
+    handleRemove() {
+        console.log(' bag click '  + this.props.paxId + ' ' + this.props.bagData.id + ' ' + this.props.legId);
+        this.props.removeBagHandler({
             paxId : this.props.paxId,
             bagId: this.props.bagData.id,
             legId: this.props.legId
@@ -40,7 +52,7 @@ class BagSelection extends Component {
                             className="btn-primary btn btnPlusMinusBags">+
                     </button>
 
-                    <button onClick={this.handleClick}
+                    <button onClick={this.handleRemove}
                             className="btn-danger btn btnPlusMinusBags">-
                     </button>
                     {this.props.bagData.weight} {this.props.bagData.price.toFixed(2)} {this.props.currency.code}

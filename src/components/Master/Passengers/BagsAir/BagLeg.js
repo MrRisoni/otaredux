@@ -12,7 +12,8 @@ const BagLeg = function (props) {
                                     currency={props.currency}
                                     purchasedBags={props.purchasedBags}
                                     paxId={props.paxId}
-                                    addBagHandler={props.addBagHandler} />);
+                                    addBagHandler={props.addBagHandler}
+                                    removeBagHandler={props.removeBagHandler}/>);
 
     });
 

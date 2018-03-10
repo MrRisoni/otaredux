@@ -24,7 +24,8 @@ const BagComponent = function (props) {
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}
                             paxId={props.paxId}
-                            addBagHandler={props.addBagHandler}/>
+                            addBagHandler={props.addBagHandler}
+                            removeBagHandler={props.removeBagHandler}/>
                 </div>
 
                 <div className="col-md-6">
@@ -34,7 +35,8 @@ const BagComponent = function (props) {
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}
                             paxId={props.paxId}
-                            addBagHandler={props.addBagHandler}/>
+                            addBagHandler={props.addBagHandler}
+                            removeBagHandler={props.removeBagHandler}/>
                 </div>
             </div>
         </div>
