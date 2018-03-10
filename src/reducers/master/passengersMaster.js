@@ -24,12 +24,7 @@ const passengers = [
             expiresAt:'',
             passNo:''
         },
-        bags: [
-            {
-                bagId: 1,
-                legId: 0
-            }
-        ],
+        bags: [],
         insuranceAir:0
     }
 ];
@@ -133,12 +128,7 @@ export function passengersMasterReducer(state = passengers, action) {
                         expiresAt:'',
                         passNo:''
                     },
-                    bags: [
-                        {
-                            bagId: 1,
-                            legId: 0
-                        }
-                    ],
+                    bags: [],
                     insuranceAir:0
                 }
             ];

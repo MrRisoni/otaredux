@@ -69,7 +69,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
                     pax.bags.forEach( (boughtBag) => {
                         action.payload.bagAllowance.forEach( (bag) => {
                            if (bag.id === boughtBag.bagId) {
-                               total += bag.priceEuro;
+                               total += bag.price;
                            }
                         });
                     });

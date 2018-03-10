@@ -15,7 +15,27 @@ const MasterSideBar = (props) => {
                     	</div>
 		    		</div>)
 		    }
-    })
+    });
+
+
+    let bagPrices = [];
+    props.passengers.forEach( (pax) => {
+        if (pax.active) {
+            pax.bags.forEach( (boughtBag) => {
+                props.bagAllowance.forEach( (bag) => {
+                    if (bag.id === boughtBag.bagId) {
+                        bagPrices.push(<div className="row">
+                            <div className="col-sm-12">
+                               1 x {bag.weight}  {bag.price.toFixed(2)} {props.currency.code}
+                            </div>
+                        </div>)
+                    }
+                });
+            });
+        }
+    });
+
+
 
     return (
         <div className="pricebox">
@@ -34,7 +54,16 @@ const MasterSideBar = (props) => {
                     </div>
 
 					{paxPrices}
-                
+
+
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <h4>Bags</h4>
+                            <hr/>
+                        </div>
+                    </div>
+                    {bagPrices}
+
 
                 </div>
 

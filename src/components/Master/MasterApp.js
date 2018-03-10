@@ -54,7 +54,9 @@ class MasterApp extends Component {
 
                     <div className='col-md-3'>
                         <MasterSideBar currency={this.props.currency}
-                                    pricing={this.props.pricing}/>
+                                       bagAllowance={this.props.bagsAir}
+                                       passengers={this.props.passengers}
+                                       pricing={this.props.pricing}/>
                     </div>
                 </div>
 
