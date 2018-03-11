@@ -21,9 +21,7 @@ const passengers = [
             nationality:'',
             expiresAt:'',
             passNo:''
-        },
-        bags: [],
-        insuranceAir:0
+        }
     }
 ];
 
@@ -125,9 +123,7 @@ export function passengersMasterReducer(state = passengers, action) {
                         nationality:'',
                         expiresAt:'',
                         passNo:''
-                    },
-                    bags: [],
-                    insuranceAir:0
+                    }
                 }
             ];
         case REMOVE_PASSENGER_MASTER:
@@ -186,55 +182,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     return pax;
                 }
             });
-        case ADD_BAG_AIR:
-            console.log('add new bag fired');
-            console.log(action.payload);
 
-            // BUG ***
-            return state.map( (pax, index) => {
-                if (index === action.payload.paxId) {
-                    let newPax = pax;
-
-                    if (pax.bags.length < 2) { // 2 in each leg !
-
-                        newPax.bags = [
-                            ...newPax.bags,
-                            {
-                                bagId: action.payload.bagId,
-                                legId: action.payload.legId
-                            }
-                        ];
-
-                        return {
-                            ...pax,
-                            ...newPax
-                        }
-                    }
-                    else {
-                        return pax;
-                    }
-                }
-            });
-        case REMOVE_BAG_AIR:
-            console.log('remove new bag fired');
-            console.log(action.payload);
-
-            return state.map( (pax, index) => {
-                if (index === action.payload.paxId) {
-                    let newPax = pax;
-
-
-                    // REMOVES ALL BAGS WITH THAT ID
-                    // REMOVE BLUE RIBBON
-                    newPax.bags  =  newPax.bags.filter(bag => bag.bagId != action.payload.bagId);
-
-                    return {
-                            ...pax,
-                            ...newPax
-                        }
-
-                }
-            });
         default:
             return state
     }

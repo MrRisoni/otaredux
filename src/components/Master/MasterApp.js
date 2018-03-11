@@ -13,8 +13,8 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 import {airAirBagAction,removeAirBagAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
-import {contactMasterReducer} from "../../reducers/master/passengersMaster";
-import {buyBagsAnewReducer, getBagsReducer, getPurchasedBagsReducer} from "../../reducers/air/bagsAir";
+import {contactMasterReducer} from '../../reducers/master/passengersMaster';
+import {purchasedBagsReducer, getBagsReducer} from '../../reducers/air/bagsAir';
 
 
 
@@ -50,6 +50,7 @@ class MasterApp extends Component {
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
                             bagsAir={this.props.bagsAir}
+                            purchasedBags={this.props.purchasedBags}
                             blueRibbon={this.props.blueRibbon}/>
                     </div>
 
@@ -57,7 +58,7 @@ class MasterApp extends Component {
                         <MasterSideBar currency={this.props.currency}
                                        bagAllowance={this.props.bagsAir}
                                        passengers={this.props.passengers}
-                                       bagsNew={this.props.buyBagsAnewReducer}
+                                       purchasedBags={this.props.purchasedBags}
                                        pricing={this.props.pricing}/>
                     </div>
                 </div>
@@ -95,7 +96,7 @@ class MasterApp extends Component {
 
 function mapStateToProps(state) {
     console.log('master app');
-    console.log(state.buyBagsAnewReducer);
+    console.log(state.purchasedBagsReducer);
 
     return {
         passengers: state.passengersMasterReducer,
@@ -108,7 +109,7 @@ function mapStateToProps(state) {
         insuranceAir: state.airInsuranceReducer,
         bagsAir : state.getBagsReducer,
         blueRibbon: state.getBlueRibbonReducer,
-        buyBagsAnewReducer: state.buyBagsAnewReducer
+        purchasedBags: state.purchasedBagsReducer
     }
 }
 

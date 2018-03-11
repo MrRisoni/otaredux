@@ -29,6 +29,12 @@ const insurancesAir = [
 ];
 
 
+const boughtInsurances = [];
+
+
+export function purchasedInsuranceReducer(state = insurancesAir, action) {
+    return state
+}
 
 export function airInsuranceReducer(state = insurancesAir, action) {
     return state

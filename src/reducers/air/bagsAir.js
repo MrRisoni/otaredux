@@ -1,4 +1,4 @@
-import {ADD_BAG_AIR} from "../../actions/master/actionsAir";
+import {ADD_BAG_AIR, REMOVE_BAG_AIR} from "../../actions/master/actionsAir";
 
 const bagAllowance =  [
     {
@@ -30,7 +30,7 @@ const blueRibbonPrices = {
     priceEuro:6.00
 };
 
-export function buyBagsAnewReducer(state= boughtPaxBags, action) {
+export function purchasedBagsReducer(state= boughtPaxBags, action) {
     console.log('buy bags anew reducer ' + action.type);
     console.log(action.payload);
 
@@ -40,14 +40,28 @@ export function buyBagsAnewReducer(state= boughtPaxBags, action) {
             console.log('try to mutate');
             return [
                 ...state,
-                {
-                    paxId: 2,
-                    bagId: 1
-                }
+               action.payload
                 ];
+        case REMOVE_BAG_AIR:
+            console.log('remove new bag fired');
+            console.log(action.payload);
+
+            return state.map( (pax, index) => {
+                if (index === action.payload.paxId) {
+                    let newPax = pax;
 
 
+                    // REMOVES ALL BAGS WITH THAT ID
+                    // REMOVE BLUE RIBBON
+                    newPax.bags  =  newPax.bags.filter(bag => bag.bagId != action.payload.bagId);
 
+                    return {
+                        ...pax,
+                        ...newPax
+                    }
+
+                }
+            });
         default:
             return state;
     }

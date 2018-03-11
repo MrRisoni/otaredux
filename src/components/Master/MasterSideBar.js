@@ -19,13 +19,16 @@ const MasterSideBar = (props) => {
 
 
     let bagPrices = [];
+
     props.passengers.forEach( (pax) => {
         if (pax.active) {
             props.bagAllowance.forEach( (bag) => {
                 let bagCountId =0;
-                pax.bags.forEach( (boughtBag) => {
+                props.purchasedBags.forEach( (boughtBag) => {
                     if (bag.id === boughtBag.bagId) {
-                        bagCountId++;
+                        if (boughtBag.paxId === pax.id) {
+                            bagCountId++;
+                        }
                     }
                 });
                 if (bagCountId >0) {
@@ -76,8 +79,6 @@ const MasterSideBar = (props) => {
                         </div>
                     </div>
                     {bagPrices}
-
-                    {props.bagsNew.length}
 
 
                 </div>

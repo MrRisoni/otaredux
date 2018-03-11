@@ -66,12 +66,14 @@ export function pricingMasterReducer(state = totalPrice, action) {
             // active passengers
             action.payload.passengers.forEach( (pax) => {
                 if (pax.active) {
-                    pax.bags.forEach( (boughtBag) => {
-                        action.payload.bagAllowance.forEach( (bag) => {
-                            if (bag.id === boughtBag.bagId) {
-                                total += bag.price;
-                            }
-                        });
+                    action.payload.boughtBags.forEach( (boughtBag) => {
+                        if (boughtBag.paxId === pax.id) {
+                            action.payload.bagAllowance.forEach((bag) => {
+                                if (bag.id === boughtBag.bagId) {
+                                    total += bag.price;
+                                }
+                            });
+                        }
                     });
                 }
             });

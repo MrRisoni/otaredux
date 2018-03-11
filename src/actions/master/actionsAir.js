@@ -17,15 +17,16 @@ export function airAirBagAction(data) {
             }
         });
 
-        /*// after bag is bought , dispatch the updated passenger array
+        // after bag is bought , dispatch the updated passenger array
         dispatch({
             type: CHANGED_BAG_AIR,
             payload: {
                 passengers: getState().passengersMasterReducer,
                 bagAllowance: getState().getBagsReducer,
-                pricesPerPax: getState().pricingMasterAnalysisReducer
+                pricesPerPax: getState().pricingMasterAnalysisReducer,
+                boughtBags: getState().purchasedBagsReducer
             }
-        });*/
+        });
     }
 }
 
