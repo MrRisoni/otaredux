@@ -21,16 +21,29 @@ const MasterSideBar = (props) => {
     let bagPrices = [];
     props.passengers.forEach( (pax) => {
         if (pax.active) {
-            pax.bags.forEach( (boughtBag) => {
-                props.bagAllowance.forEach( (bag) => {
+            props.bagAllowance.forEach( (bag) => {
+                let bagCountId =0;
+                pax.bags.forEach( (boughtBag) => {
                     if (bag.id === boughtBag.bagId) {
-                        bagPrices.push(<div className="row">
-                            <div className="col-sm-12">
-                               1 x {bag.weight}  {bag.price.toFixed(2)} {props.currency.code}
-                            </div>
-                        </div>)
+                        bagCountId++;
                     }
                 });
+                if (bagCountId >0) {
+                    bagPrices.push(
+                        <div>
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    {pax.surname} {pax.name}
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    {bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}
+                                </div>
+                            </div>
+                        </div>)
+                }
             });
         }
     });

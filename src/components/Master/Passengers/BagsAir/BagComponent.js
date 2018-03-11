@@ -10,7 +10,15 @@ const BagComponent = function (props) {
             <div className="row">
                 <div className="col-md-12">
                     <div className="alert alert-success" role="alert">
-                        Purchase Bags!
+
+                        <div className="row">
+                            <div className="col-md-6">
+                                Purchase Bags!
+                            </div>
+                            <div className="col-md-2">
+                                <i className="fas fa-suitcase"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -19,7 +27,7 @@ const BagComponent = function (props) {
 
                 <div className="col-md-6">
                     <BagLeg key={0} leg={0}
-                            legTitle="departure"
+                            legTitle="Departure"
                             bagsAir={props.bagsAir}
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}
@@ -30,7 +38,7 @@ const BagComponent = function (props) {
 
                 <div className="col-md-6">
                     <BagLeg key={1} leg={1}
-                            legTitle="return"
+                            legTitle="Return"
                             bagsAir={props.bagsAir}
                             purchasedBags={props.purchasedBags}
                             currency={props.currency}

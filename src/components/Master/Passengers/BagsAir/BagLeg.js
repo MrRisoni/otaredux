@@ -18,12 +18,17 @@ const BagLeg = function (props) {
     });
 
     return (
-        <div>
-            {props.legTitle}
-        <div>{bagArray}</div>
+        <div className="card">
+            <div className="card-header">
+                {props.legTitle} (Max 2)
+            </div>
+            <div className="card-body">
+                    {bagArray}
+            </div>
         </div>
     )
 
 };
 
 export default BagLeg;
+
