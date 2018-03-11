@@ -6,7 +6,7 @@ import {ADD_PASSENGER_MASTER,FIRST_LOAD_MASTER,
     CHANGE_PASSENGER_MASTER,
     REMOVE_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
 
-import {ADDED_BAG_AIR} from '../../actions/master/actionsAir';
+import {CHANGED_BAG_AIR} from '../../actions/master/actionsAir';
 
 
 const totalPrice = 5;
@@ -60,7 +60,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
             return total;
         case PASSENGER_ADDED_MASTER:
         case PASSENGER_REMOVED_MASTER:
-        case ADDED_BAG_AIR:
+        case CHANGED_BAG_AIR:
             console.log(action.payload.bagAllowance);
 
             // active passengers
