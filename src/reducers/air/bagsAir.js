@@ -1,3 +1,4 @@
+import {ADD_BAG_AIR} from "../../actions/master/actionsAir";
 
 const bagAllowance =  [
     {
@@ -20,11 +21,46 @@ const bagAllowance =  [
     }
 ];
 
+const boughtPaxBags = [];
+
+
+
+const blueRibbonPrices = {
+    price: 6.00,
+    priceEuro:6.00
+};
+
+export function buyBagsAnewReducer(state= boughtPaxBags, action) {
+    console.log('buy bags anew reducer ' + action.type);
+    console.log(action.payload);
+
+
+    switch (action.type) {
+        case ADD_BAG_AIR:
+            console.log('try to mutate');
+            return [
+                ...state,
+                {
+                    paxId: 2,
+                    bagId: 1
+                }
+                ];
+
+
+
+        default:
+            return state;
+    }
+}
+
 
 export function getBagsReducer(state = bagAllowance, action) {
     return state;
 }
 
+export function getBlueRibbonReducer( state = blueRibbonPrices, action) {
+    return state;
+}
 
 
 

@@ -68,19 +68,13 @@ export function changeMasterPassengerAction(paxId,newCode,oldCode) {
             }
         });
 
-       // after the passenger has been updated
         dispatch({
-            type: PASSENGER_REMOVED_MASTER,
+            type: PASSENGER_ARRAY_CHANGED,
             payload: {
-                pricesPerPax: getState().pricingMasterAnalysisReducer
-            }
-        });
-
-
-        dispatch({
-            type:PASSENGER_ARRAY_CHANGED,
-            payload: {
-                passengers: getState().passengersMasterReducer
+                pricesPerPax: getState().pricingMasterAnalysisReducer,
+                bagAllowance: getState().getBagsReducer,
+                passengers: getState().passengersMasterReducer,
+                currency: getState().currentCurrencyReducer
             }
         });
 
@@ -100,18 +94,15 @@ export function removeMasterPassengerAction(paxId,paxType) {
 
         // after the passenger has been removed
         dispatch({
-            type: PASSENGER_REMOVED_MASTER,
+            type: PASSENGER_ARRAY_CHANGED,
             payload: {
-                pricesPerPax: getState().pricingMasterAnalysisReducer
+                pricesPerPax: getState().pricingMasterAnalysisReducer,
+                bagAllowance: getState().getBagsReducer,
+                passengers: getState().passengersMasterReducer,
+                currency: getState().currentCurrencyReducer
             }
         });
 
-        dispatch({
-            type:PASSENGER_ARRAY_CHANGED,
-            payload: {
-                passengers: getState().passengersMasterReducer
-            }
-        });
 
     }
 }
@@ -126,11 +117,12 @@ export function addMasterPassengerAction() {
         });
 
         dispatch({
-            type: PASSENGER_ADDED_MASTER,
+            type: PASSENGER_ARRAY_CHANGED,
             payload: {
+                pricesPerPax: getState().pricingMasterAnalysisReducer,
+                bagAllowance: getState().getBagsReducer,
                 passengers: getState().passengersMasterReducer,
-                currency: getState().currentCurrencyReducer,
-                pricesPerPax: getState().pricingMasterAnalysisReducer
+                currency: getState().currentCurrencyReducer
             }
         });
     }

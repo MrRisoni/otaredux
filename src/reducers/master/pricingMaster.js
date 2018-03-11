@@ -1,10 +1,10 @@
 import update from 'immutability-helper';
 
-import {ADD_PASSENGER_MASTER,FIRST_LOAD_MASTER,
-    PASSENGER_ADDED_MASTER,
-    PASSENGER_REMOVED_MASTER,
+import {
+    ADD_PASSENGER_MASTER, FIRST_LOAD_MASTER,
     CHANGE_PASSENGER_MASTER,
-    REMOVE_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
+    REMOVE_PASSENGER_MASTER, PASSENGER_ARRAY_CHANGED
+} from '../../actions/master/actionsMaster';
 
 import {CHANGED_BAG_AIR} from '../../actions/master/actionsAir';
 
@@ -58,19 +58,19 @@ export function pricingMasterReducer(state = totalPrice, action) {
             });
 
             return total;
-        case PASSENGER_ADDED_MASTER:
-        case PASSENGER_REMOVED_MASTER:
+        case PASSENGER_ARRAY_CHANGED:
         case CHANGED_BAG_AIR:
-            console.log(action.payload.bagAllowance);
+            console.log(action.type);
 
+            console.log(action.payload);
             // active passengers
             action.payload.passengers.forEach( (pax) => {
                 if (pax.active) {
                     pax.bags.forEach( (boughtBag) => {
                         action.payload.bagAllowance.forEach( (bag) => {
-                           if (bag.id === boughtBag.bagId) {
-                               total += bag.price;
-                           }
+                            if (bag.id === boughtBag.bagId) {
+                                total += bag.price;
+                            }
                         });
                     });
                 }

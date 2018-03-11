@@ -190,6 +190,7 @@ export function passengersMasterReducer(state = passengers, action) {
             console.log('add new bag fired');
             console.log(action.payload);
 
+            // BUG ***
             return state.map( (pax, index) => {
                 if (index === action.payload.paxId) {
                     let newPax = pax;
@@ -224,6 +225,7 @@ export function passengersMasterReducer(state = passengers, action) {
 
 
                     // REMOVES ALL BAGS WITH THAT ID
+                    // REMOVE BLUE RIBBON
                     newPax.bags  =  newPax.bags.filter(bag => bag.bagId != action.payload.bagId);
 
                     return {

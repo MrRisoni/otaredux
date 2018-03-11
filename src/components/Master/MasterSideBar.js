@@ -77,6 +77,8 @@ const MasterSideBar = (props) => {
                     </div>
                     {bagPrices}
 
+                    {props.bagsNew.length}
+
 
                 </div>
 

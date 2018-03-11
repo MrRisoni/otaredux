@@ -1,4 +1,4 @@
-import {ADD_PASSENGER_MASTER, PASSENGER_ADDED_MASTER} from "./actionsMaster";
+import {ADD_PASSENGER_MASTER, PASSENGER_ADDED_MASTER} from './actionsMaster';
 
 export const ADD_BAG_AIR = 'ADD_BAG_AIR';
 export const REMOVE_BAG_AIR = 'REMOVE_BAG_AIR';
@@ -17,7 +17,7 @@ export function airAirBagAction(data) {
             }
         });
 
-        // after bag is bought , dispatch the updated passenger array
+        /*// after bag is bought , dispatch the updated passenger array
         dispatch({
             type: CHANGED_BAG_AIR,
             payload: {
@@ -25,7 +25,7 @@ export function airAirBagAction(data) {
                 bagAllowance: getState().getBagsReducer,
                 pricesPerPax: getState().pricingMasterAnalysisReducer
             }
-        });
+        });*/
     }
 }
 

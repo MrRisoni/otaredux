@@ -151,6 +151,7 @@ class MasterPassenger extends Component {
                                                     currency={this.props.currency}
                                                     purchasedBags={this.props.passenger.bags}
                                                     bagsAir={this.props.bagsAir}
+                                                    blueRibbon={this.props.blueRibbon}
                                                     addBagHandler={this.props.addBagHandler}
                                                     removeBagHandler={this.props.removeBagHandler}/>
 

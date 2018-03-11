@@ -95,6 +95,10 @@ body, input[type="text"], option, select
     margin-top: 5%;
 }
 
+.brbCardHeader {
+    margin-top: 5%;
+}
+
 .addOnePassenger {
     margin-top: 2%;
 }

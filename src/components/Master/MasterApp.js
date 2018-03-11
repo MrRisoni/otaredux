@@ -14,7 +14,7 @@ import {airAirBagAction,removeAirBagAction} from '../../actions/master/actionsAi
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from "../../reducers/master/passengersMaster";
-import {getBagsReducer, getPurchasedBagsReducer} from "../../reducers/air/bagsAir";
+import {buyBagsAnewReducer, getBagsReducer, getPurchasedBagsReducer} from "../../reducers/air/bagsAir";
 
 
 
@@ -49,13 +49,15 @@ class MasterApp extends Component {
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
-                            bagsAir={this.props.bagsAir}/>
+                            bagsAir={this.props.bagsAir}
+                            blueRibbon={this.props.blueRibbon}/>
                     </div>
 
                     <div className='col-md-3'>
                         <MasterSideBar currency={this.props.currency}
                                        bagAllowance={this.props.bagsAir}
                                        passengers={this.props.passengers}
+                                       bagsNew={this.props.buyBagsAnewReducer}
                                        pricing={this.props.pricing}/>
                     </div>
                 </div>
@@ -92,6 +94,9 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log('master app');
+    console.log(state.buyBagsAnewReducer);
+
     return {
         passengers: state.passengersMasterReducer,
         currency: state.currentCurrencyReducer,
@@ -101,7 +106,9 @@ function mapStateToProps(state) {
         },
         contact: state.contactMasterReducer,
         insuranceAir: state.airInsuranceReducer,
-        bagsAir : state.getBagsReducer
+        bagsAir : state.getBagsReducer,
+        blueRibbon: state.getBlueRibbonReducer,
+        buyBagsAnewReducer: state.buyBagsAnewReducer
     }
 }
 

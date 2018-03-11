@@ -1,5 +1,5 @@
 import React from 'react';
-import BagSelection from "./BagSelection";
+import BagSelection from './BagSelection';
 
 const BagLeg = function (props) {
 
@@ -17,15 +17,22 @@ const BagLeg = function (props) {
 
     });
 
+
     return (
-        <div className="card">
-            <div className="card-header">
-                {props.legTitle} (Max 2)
-            </div>
-            <div className="card-body">
-                    {bagArray}
+        <div className="row">
+            <div className="col-md-12">
+
+                <div className="card">
+                    <div className="card-header">
+                        {props.legTitle} (Max 2)
+                    </div>
+                    <div className="card-body">
+                        {bagArray}
+                    </div>
+                </div>
             </div>
         </div>
+
     )
 
 };
