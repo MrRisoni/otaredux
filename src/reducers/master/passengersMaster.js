@@ -3,9 +3,7 @@ import {ADD_PASSENGER_MASTER,REMOVE_PASSENGER_MASTER,CHANGE_PASSENGER_MASTER,
     EDITED_NAME_PASSENGER_MASTER, EDIT_NAME_PASSENGER_MASTER,
     PASSENGER_ARRAY_CHANGED} from '../../actions/master/actionsMaster';
 
-import {ADD_BAG_AIR}  from '../../actions/master/actionsAir';
-
-import update from 'immutability-helper';
+import {ADD_BAG_AIR,REMOVE_BAG_AIR}  from '../../actions/master/actionsAir';
 
 const passengers = [
     {
@@ -216,7 +214,26 @@ export function passengersMasterReducer(state = passengers, action) {
                     }
                 }
             });
-         default:
+        case REMOVE_BAG_AIR:
+            console.log('remove new bag fired');
+            console.log(action.payload);
+
+            return state.map( (pax, index) => {
+                if (index === action.payload.paxId) {
+                    let newPax = pax;
+
+
+                    // REMOVES ALL BAGS WITH THAT ID
+                    newPax.bags  =  newPax.bags.filter(bag => bag.bagId != action.payload.bagId);
+
+                    return {
+                            ...pax,
+                            ...newPax
+                        }
+
+                }
+            });
+        default:
             return state
     }
 }
