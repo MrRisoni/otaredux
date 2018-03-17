@@ -5,7 +5,7 @@ class Insurance extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkedInsurance: 1
+            checkedInsurance: 0
         };
 
         this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -53,7 +53,7 @@ class Insurance extends Component {
                 <div className="collapse" id={`insuranceCollapse${this.props.passengerid}`}>
 
                     <div className="row">
-                        {this.props.insurances.map((ins) => {
+                        {this.props.insurances.map( (ins) => {
 
                             return (<div key={ins.id} className="col-md-3">
 
@@ -61,11 +61,11 @@ class Insurance extends Component {
                                     <div className="card-header bg-warning">{ins.title}</div>
 
                                     <div className="card-body">
-                                        ins.description
+
 
                                         <input type="radio" value={ins.id}
                                                onChange={this.handleOptionChange}
-                                               checked={this.state.checkedInsurance == ins.id}/>
+                                               checked={this.state.checkedInsurance === ins.id}/>
 
                                     </div>
 

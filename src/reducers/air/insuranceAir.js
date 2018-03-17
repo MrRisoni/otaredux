@@ -9,19 +9,19 @@ const insurancesAir = [
         price: 0
     },
     {
-        id: 0,
+        id: 1,
         title: 'Globy Classic',
         priceEuro: 15,
         price: 15
     },
     {
-        id: 0,
+        id: 2,
         title: 'Globy Cancellation',
         priceEuro: 22,
         price: 22
     },
     {
-        id: 0,
+        id: 3,
         title: 'Globy Schengen',
         priceEuro: 35,
         price: 35

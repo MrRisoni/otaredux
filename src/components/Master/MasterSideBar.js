@@ -9,7 +9,7 @@ const MasterSideBar = (props) => {
 
     props.pricing.analysis.forEach( (paxType) => {
 		    if (paxType.count >0) {
-		    	paxPrices.push(<div className="row">
+		    	paxPrices.push(<div key={paxType} className="row">
                     	<div className="col-sm-12">
                     		{paxType.type} x {paxType.count}  {paxType.ticketPriceEuro} {props.currency.code} 
                     	</div>
@@ -33,7 +33,7 @@ const MasterSideBar = (props) => {
                 });
                 if (bagCountId >0) {
                     bagPrices.push(
-                        <div>
+                        <div key={pax.id}>
                             <div className="row">
                                 <div className="col-sm-12">
                                     {pax.surname} {pax.name}

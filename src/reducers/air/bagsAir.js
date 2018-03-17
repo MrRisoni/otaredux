@@ -46,22 +46,8 @@ export function purchasedBagsReducer(state= boughtPaxBags, action) {
             console.log('remove new bag fired');
             console.log(action.payload);
 
-            return state.map( (pax, index) => {
-                if (index === action.payload.paxId) {
-                    let newPax = pax;
+            return state.filter(bag => bag.bagId !== action.payload.bagId);
 
-
-                    // REMOVES ALL BAGS WITH THAT ID
-                    // REMOVE BLUE RIBBON
-                    newPax.bags  =  newPax.bags.filter(bag => bag.bagId != action.payload.bagId);
-
-                    return {
-                        ...pax,
-                        ...newPax
-                    }
-
-                }
-            });
         default:
             return state;
     }

@@ -48,7 +48,8 @@ export function removeAirBagAction(data) {
             payload: {
                 passengers: getState().passengersMasterReducer,
                 bagAllowance: getState().getBagsReducer,
-                pricesPerPax: getState().pricingMasterAnalysisReducer
+                pricesPerPax: getState().pricingMasterAnalysisReducer,
+                boughtBags: getState().purchasedBagsReducer
             }
         });
     }
