@@ -1,5 +1,6 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
+import Preseat from "../Preseat/Preseat";
 
 const MasterPassengerList = (props) => {
 
@@ -49,6 +50,7 @@ const MasterPassengerList = (props) => {
 
         {paxList}
 
+
         <div className="row addOnePassenger show passengerListCollapse">
             <div className="col-sm-4 offset-md-4">
                 <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>Add
@@ -56,6 +58,8 @@ const MasterPassengerList = (props) => {
                 </button>
             </div>
         </div>
+
+        <Preseat/>
     </div>);
 
 };

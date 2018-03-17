@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import SeatColumn from './SeatColumn';
 
-import {observer, inject} from 'mobx-react';
 import FontAwesome from 'react-fontawesome';
 
 
-@inject('otastore')
-@observer
+
 class Preseat extends Component {
 
     constructor(props) {
@@ -16,40 +14,8 @@ class Preseat extends Component {
             currentPaxID:0
         };
 
-        this.handleNextPax = this.handleNextPax.bind(this);
-        this.handlePrevPax = this.handlePrevPax.bind(this);
-
-        this.handleNextLeg = this.handleNextLeg.bind(this);
-        this.handlePrevLeg = this.handlePrevLeg.bind(this);
     }
 
-    handleNextPax() {
-
-    }
-
-    handlePrevPax() {
-
-    }
-
-
-    handleNextLeg() {
-        this.props.otastore.nextPreseatLeg();
-    }
-
-    handlePrevLeg() {
-        this.props.otastore.previousPreseatLeg();
-    }
-
-    componentWillMount() {
-        let firstActivePaxID = 12230;
-        this.props.otastore.passengers.forEach((pax) => {
-            if (pax.active && pax.id < firstActivePaxID) {
-                firstActivePaxID = pax.id;
-            }
-        });
-
-        this.setState({currentPaxID: firstActivePaxID});
-    }
 
     render() {
 
@@ -106,8 +72,6 @@ class Preseat extends Component {
                                                 />
                                             </button>
 
-                                            {this.props.otastore.passengers[this.state.currentPaxID].surname}
-                                            {this.props.otastore.passengers[this.state.currentPaxID].name}
 
                                             <button className="btn btn-sm btn-success" onClick={this.handleNextPax}>
                                                 <FontAwesome
@@ -140,7 +104,6 @@ class Preseat extends Component {
                                                 />
                                             </button>
 
-                                            {this.props.otastore.currentPreasetLeg}
 
                                             <button className="btn btn-sm btn-success" onClick={this.handleNextLeg}>
                                                 <FontAwesome
