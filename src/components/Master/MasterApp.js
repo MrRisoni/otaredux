@@ -10,7 +10,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
     changeMasterPassengerAction,removeMasterPassengerAction
     } from '../../actions/master/actionsMaster';
 
-import {airAirBagAction,removeAirBagAction} from '../../actions/master/actionsAir';
+import {addAirBagAction,removeAirBagAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
 import {contactMasterReducer} from '../../reducers/master/passengersMaster';
@@ -27,7 +27,7 @@ class MasterApp extends Component {
 
     componentWillMount() {
         console.log('PROPS ' + this.props.product);
-        this.props.firstLoad();
+      //  this.props.firstLoad();
 
     }
 
@@ -59,7 +59,8 @@ class MasterApp extends Component {
                                        bagAllowance={this.props.bagsAir}
                                        passengers={this.props.passengers}
                                        purchasedBags={this.props.purchasedBags}
-                                       pricing={this.props.pricing}/>
+                                       boughtInsurances={this.props.boughtInsurances}
+                        pricing={this.props.pricing}/>
                     </div>
                 </div>
 
@@ -96,7 +97,7 @@ class MasterApp extends Component {
 
 function mapStateToProps(state) {
     console.log('master app');
-    console.log(state.purchasedBagsReducer);
+    console.log(state.airInsuranceReducer);
 
     return {
         passengers: state.passengersMasterReducer,
@@ -109,7 +110,8 @@ function mapStateToProps(state) {
         insuranceAir: state.airInsuranceReducer,
         bagsAir : state.getBagsReducer,
         blueRibbon: state.getBlueRibbonReducer,
-        purchasedBags: state.purchasedBagsReducer
+        purchasedBags: state.purchasedBagsReducer,
+        boughtInsurances: state.purchasedInsuranceReducer
     }
 }
 
@@ -121,7 +123,7 @@ function matchDispatchToProps(dispatch) {
         firstLoad: firstLoadMasterAction,
         editPaxNameHandler: editMasterPassengerNameAction,
         editContactHandler: editMasterContactAction,
-        addBagHandler: airAirBagAction,
+        addBagHandler: addAirBagAction,
         removeBagHandler:removeAirBagAction
     }, dispatch);
 }

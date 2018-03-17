@@ -6,7 +6,7 @@ import {
     REMOVE_PASSENGER_MASTER, PASSENGER_ARRAY_CHANGED
 } from '../../actions/master/actionsMaster';
 
-import {CHANGED_BAG_AIR} from '../../actions/master/actionsAir';
+import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
 
 
 const totalPrice = 5;
@@ -59,7 +59,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
 
             return total;
         case PASSENGER_ARRAY_CHANGED:
-        case CHANGED_BAG_AIR:
+        case UPSALES_CHANGED:
             console.log(action.type);
 
             console.log(action.payload);

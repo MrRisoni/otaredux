@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
+import InsuranceOption from "./InsuranceOption";
 
 
 class Insurance extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             checkedInsurance: 0
         };
 
-        this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.handleOptionsChange = this.handleOptionsChange.bind(this);
 
     }
 
-    handleOptionChange(ev) {
+    handleOptionsChange(optionId) {
         var self = this;
-        console.log(ev.target.value);
+        self.setState({checkedInsurance: optionId});
 
-        self.setState({checkedInsurance: ev.target.value});
-
+        console.log('pax ' + this.props.paxId + ' purchased ' + optionId);
     }
 
     render() {
@@ -29,7 +30,7 @@ class Insurance extends Component {
                     <div className="row">
 
 
-                        <div className="col-md-8">
+                        <div className="col-md-5">
                             Select an Insurance
                         </div>
                         <div className="col-md-2">
@@ -55,26 +56,11 @@ class Insurance extends Component {
                     <div className="row">
                         {this.props.insurances.map( (ins) => {
 
-                            return (<div key={ins.id} className="col-md-3">
-
-                                <div className="card text-center">
-                                    <div className="card-header bg-warning">{ins.title}</div>
-
-                                    <div className="card-body">
-
-
-                                        <input type="radio" value={ins.id}
-                                               onChange={this.handleOptionChange}
-                                               checked={this.state.checkedInsurance === ins.id}/>
-
-                                    </div>
-
-                                    <div className="card-footer">
-                                        {ins.price} {this.props.currency.code}
-                                    </div>
-                                </div>
-
-                            </div>);
+                            return (<InsuranceOption  key={ins.id} insData ={ins}
+                                                      updateOptions={this.handleOptionsChange}
+                                                      selectedOption={this.state.checkedInsurance}
+                                                      currency={this.props.currency}
+                            />)
                         })}
                     </div>
                 </div>

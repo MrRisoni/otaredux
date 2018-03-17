@@ -1,4 +1,4 @@
-
+import {ADD_BAG_AIR, PURCHASE_INSURANCE_AIR} from "../../actions/master/actionsAir";
 
 
 const insurancesAir = [
@@ -32,8 +32,17 @@ const insurancesAir = [
 const boughtInsurances = [];
 
 
-export function purchasedInsuranceReducer(state = insurancesAir, action) {
-    return state
+export function purchasedInsuranceReducer(state = boughtInsurances, action) {
+    switch (action.type) {
+        case PURCHASE_INSURANCE_AIR:
+
+            return [
+                ...state,
+                action.payload
+            ];
+        default:
+            return state
+    }
 }
 
 export function airInsuranceReducer(state = insurancesAir, action) {

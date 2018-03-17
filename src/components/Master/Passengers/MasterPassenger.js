@@ -93,7 +93,7 @@ class MasterPassenger extends Component {
                                     </select>
                                 </div>
 
-                                <div className="col-sm-2 offset-sm-3">
+                                <div className="col-sm-2 offset-sm-2">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target={`#passengerCollapse${this.props.passenger.id}`} aria-expanded="false"
@@ -144,6 +144,7 @@ class MasterPassenger extends Component {
                                 <div>
                                     <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
                                     <Insurance
+                                        paxId={this.props.passenger.id}
                                         currency={this.props.currency}
                                         insurances={this.props.insurances}/>
 
