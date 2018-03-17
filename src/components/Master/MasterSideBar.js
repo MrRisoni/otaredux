@@ -19,19 +19,20 @@ const MasterSideBar = (props) => {
 
 
     let bagPrices = [];
+    let insurancePrices = [];
 
-    props.passengers.forEach( (pax) => {
+    props.passengers.forEach((pax) => {
         if (pax.active) {
-            props.bagAllowance.forEach( (bag) => {
-                let bagCountId =0;
-                props.purchasedBags.forEach( (boughtBag) => {
+            props.bagAllowance.forEach((bag) => {
+                let bagCountId = 0;
+                props.purchasedBags.forEach((boughtBag) => {
                     if (bag.id === boughtBag.bagId) {
                         if (boughtBag.paxId === pax.id) {
                             bagCountId++;
                         }
                     }
                 });
-                if (bagCountId >0) {
+                if (bagCountId > 0) {
                     bagPrices.push(
                         <div key={pax.id}>
                             <div className="row">
@@ -48,6 +49,30 @@ const MasterSideBar = (props) => {
                         </div>)
                 }
             });
+
+
+            props.boughtInsurances.forEach((boughtIns) => {
+
+                props.insuranceOptions.forEach((insOption) => {
+
+                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
+                        insurancePrices.push(
+                            <div key={pax.id}>
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        {pax.surname} {pax.name}
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}
+                                    </div>
+                                </div>
+                            </div>)
+                    }
+                });
+            });
+
         }
     });
 
@@ -80,6 +105,14 @@ const MasterSideBar = (props) => {
                     </div>
                     {bagPrices}
 
+
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <h4>Insurances</h4>
+                            <hr/>
+                        </div>
+                    </div>
+                    {insurancePrices}
 
                 </div>
 

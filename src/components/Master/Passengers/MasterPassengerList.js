@@ -20,7 +20,8 @@ const MasterPassengerList = (props) => {
                                            editNameHandler={props.editNameHandler}
                                            removePaxHandler={props.removePaxHandler}
                                            addBagHandler={props.addBagHandler}
-                                           removeBagHandler={props.removeBagHandler} />)
+                                           removeBagHandler={props.removeBagHandler}
+                                           selectInsuranceHandler={props.selectInsuranceHandler}/>)
             }
         })
     }

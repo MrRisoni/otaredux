@@ -146,7 +146,8 @@ class MasterPassenger extends Component {
                                     <Insurance
                                         paxId={this.props.passenger.id}
                                         currency={this.props.currency}
-                                        insurances={this.props.insurances}/>
+                                        insurances={this.props.insurances}
+                                        selectInsuranceHandler={this.props.selectInsuranceHandler}/>
 
                                     <BagComponent   paxId={this.props.passenger.id}
                                                     currency={this.props.currency}

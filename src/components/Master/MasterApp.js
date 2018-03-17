@@ -10,11 +10,9 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
     changeMasterPassengerAction,removeMasterPassengerAction
     } from '../../actions/master/actionsMaster';
 
-import {addAirBagAction,removeAirBagAction} from '../../actions/master/actionsAir';
+import {addAirBagAction,removeAirBagAction,changeAirInsuranceAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
-import {contactMasterReducer} from '../../reducers/master/passengersMaster';
-import {purchasedBagsReducer, getBagsReducer} from '../../reducers/air/bagsAir';
 
 
 
@@ -46,6 +44,7 @@ class MasterApp extends Component {
                             editNameHandler={this.props.editPaxNameHandler}
                             addBagHandler={this.props.addBagHandler}
                             removeBagHandler={this.props.removeBagHandler}
+                            selectInsuranceHandler={this.props.selectInsuranceHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
@@ -60,7 +59,8 @@ class MasterApp extends Component {
                                        passengers={this.props.passengers}
                                        purchasedBags={this.props.purchasedBags}
                                        boughtInsurances={this.props.boughtInsurances}
-                        pricing={this.props.pricing}/>
+                                       insuranceOptions={this.props.insuranceOptions}
+                                       pricing={this.props.pricing}/>
                     </div>
                 </div>
 
@@ -111,7 +111,8 @@ function mapStateToProps(state) {
         bagsAir : state.getBagsReducer,
         blueRibbon: state.getBlueRibbonReducer,
         purchasedBags: state.purchasedBagsReducer,
-        boughtInsurances: state.purchasedInsuranceReducer
+        boughtInsurances: state.purchasedInsuranceReducer,
+        insuranceOptions: state.airInsuranceReducer
     }
 }
 
@@ -124,7 +125,8 @@ function matchDispatchToProps(dispatch) {
         editPaxNameHandler: editMasterPassengerNameAction,
         editContactHandler: editMasterContactAction,
         addBagHandler: addAirBagAction,
-        removeBagHandler:removeAirBagAction
+        removeBagHandler:removeAirBagAction,
+        selectInsuranceHandler:changeAirInsuranceAction
     }, dispatch);
 }
 

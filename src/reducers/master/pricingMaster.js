@@ -75,6 +75,14 @@ export function pricingMasterReducer(state = totalPrice, action) {
                             });
                         }
                     });
+
+                    action.payload.boughtInsurances.forEach((boughtIns) => {
+                        action.payload.insuranceOptions.forEach((insOption) => {
+                            if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
+                                total += insOption.price;
+                            }
+                        });
+                    });
                 }
             });
 

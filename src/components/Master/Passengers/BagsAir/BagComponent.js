@@ -23,40 +23,54 @@ const BagComponent = function (props) {
                             <div className="col-md-2">
                                 <i className="fas fa-suitcase"/>
                             </div>
+
+                            <div className="col-md-2">
+                                <button className="btn btn-sm btn-dark btn-block btnToggle"
+                                        data-toggle="collapse"
+                                        data-target={`#bagCollapse${props.paxId}`}
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                    Toggle
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="row">
+            <div className="collapse" id={`bagCollapse${props.paxId}`}>
 
-                <div className="col-md-6">
-                    <BagLeg key={0} leg={0}
-                            legTitle="Departure"
-                            bagsAir={props.bagsAir}
-                            purchasedBags={props.purchasedBags}
-                            currency={props.currency}
-                            paxId={props.paxId}
-                            addBagHandler={props.addBagHandler}
-                            removeBagHandler={props.removeBagHandler}/>
+                <div className="row">
+
+                    <div className="col-md-6">
+                        <BagLeg key={0} leg={0}
+                                legTitle="Departure"
+                                bagsAir={props.bagsAir}
+                                purchasedBags={props.purchasedBags}
+                                currency={props.currency}
+                                paxId={props.paxId}
+                                addBagHandler={props.addBagHandler}
+                                removeBagHandler={props.removeBagHandler}/>
+                    </div>
+
+                    <div className="col-md-6">
+                        <BagLeg key={1} leg={1}
+                                legTitle="Return"
+                                bagsAir={props.bagsAir}
+                                purchasedBags={props.purchasedBags}
+                                currency={props.currency}
+                                paxId={props.paxId}
+                                addBagHandler={props.addBagHandler}
+                                removeBagHandler={props.removeBagHandler}/>
+                    </div>
                 </div>
 
-                <div className="col-md-6">
-                    <BagLeg key={1} leg={1}
-                            legTitle="Return"
-                            bagsAir={props.bagsAir}
-                            purchasedBags={props.purchasedBags}
-                            currency={props.currency}
-                            paxId={props.paxId}
-                            addBagHandler={props.addBagHandler}
-                            removeBagHandler={props.removeBagHandler}/>
-                </div>
+
+                {hasBoughtBag &&
+                    <BlueRibbon/>
+                }
+
             </div>
-
-
-            {hasBoughtBag &&
-                <BlueRibbon/>
-            }
 
         </div>
     )

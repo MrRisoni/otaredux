@@ -16,7 +16,8 @@ const upsalesDispatcher = function (status) {
             bagAllowance: status().getBagsReducer,
             pricesPerPax: status().pricingMasterAnalysisReducer,
             boughtBags: status().purchasedBagsReducer,
-            boughtInsurances: status().purchasedInsuranceReducer
+            boughtInsurances: status().purchasedInsuranceReducer,
+            insuranceOptions: status().airInsuranceReducer
         }
     }
 };
@@ -64,7 +65,7 @@ export function changeAirInsuranceAction(data) {
         dispatch({
             type: PURCHASE_INSURANCE_AIR, payload : {
                 paxId : data.paxId,
-                insuranceId: data.bagId
+                insuranceId: data.insuranceId
             }
         });
 

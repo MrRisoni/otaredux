@@ -19,6 +19,10 @@ class Insurance extends Component {
         self.setState({checkedInsurance: optionId});
 
         console.log('pax ' + this.props.paxId + ' purchased ' + optionId);
+        this.props.selectInsuranceHandler({
+            paxId : this.props.paxId,
+            insuranceId: optionId
+        });
     }
 
     render() {
@@ -41,7 +45,7 @@ class Insurance extends Component {
                         <div className="col-md-2">
                             <button className="btn btn-sm btn-dark btn-block btnToggle"
                                     data-toggle="collapse"
-                                    data-target={`#insuranceCollapse${this.props.passengerid}`}
+                                    data-target={`#insuranceCollapse${this.props.paxId}`}
                                     aria-expanded="false" aria-controls="collapseExample">
                                 Toggle
                             </button>
@@ -51,7 +55,7 @@ class Insurance extends Component {
                 </div>
 
 
-                <div className="collapse" id={`insuranceCollapse${this.props.passengerid}`}>
+                <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
 
                     <div className="row">
                         {this.props.insurances.map( (ins) => {

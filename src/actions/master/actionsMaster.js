@@ -1,3 +1,5 @@
+import {UPSALES_CHANGED} from "./actionsAir";
+
 export const ADD_PASSENGER_MASTER = 'ADD_PASSENGER_MASTER';
 export const FIRST_LOAD_MASTER = 'FIRST_LOAD_MASTER';
 export const PASSENGER_ADDED_MASTER = 'PASSENGER_ADDED_MASTER';
@@ -9,6 +11,22 @@ export const EDITED_NAME_PASSENGER_MASTER = 'EDITED_NAME_PASSENGER_MASTER';
 export const EDIT_CONTACT_PASSENGER_MASTER = 'EDIT_CONTACT_PASSENGER_MASTER';
 export const PASSENGER_ARRAY_CHANGED = 'PASSENGER_ARRAY_CHANGED';
 
+
+
+const paxArrayChangerDispatcher = function (status) {
+    return {
+        type: PASSENGER_ARRAY_CHANGED,
+        payload: {
+            pricesPerPax: status().pricingMasterAnalysisReducer,
+            bagAllowance: status().getBagsReducer,
+            passengers: status().passengersMasterReducer,
+            currency: status().currentCurrencyReducer,
+            boughtBags: status().purchasedBagsReducer,
+            boughtInsurances: status().purchasedInsuranceReducer,
+            insuranceOptions: status().airInsuranceReducer
+        }
+    }
+};
 
 
 export function editMasterContactAction(contactData) {
@@ -68,16 +86,7 @@ export function changeMasterPassengerAction(paxId,newCode,oldCode) {
             }
         });
 
-        dispatch({
-            type: PASSENGER_ARRAY_CHANGED,
-            payload: {
-                pricesPerPax: getState().pricingMasterAnalysisReducer,
-                bagAllowance: getState().getBagsReducer,
-                passengers: getState().passengersMasterReducer,
-                currency: getState().currentCurrencyReducer
-            }
-        });
-
+        dispatch(paxArrayChangerDispatcher(getState));
     }
 }
 
@@ -92,18 +101,7 @@ export function removeMasterPassengerAction(paxId,paxType) {
             }
         });
 
-        // after the passenger has been removed
-        dispatch({
-            type: PASSENGER_ARRAY_CHANGED,
-            payload: {
-                pricesPerPax: getState().pricingMasterAnalysisReducer,
-                bagAllowance: getState().getBagsReducer,
-                passengers: getState().passengersMasterReducer,
-                currency: getState().currentCurrencyReducer
-            }
-        });
-
-
+        dispatch(paxArrayChangerDispatcher(getState));
     }
 }
 
@@ -116,15 +114,8 @@ export function addMasterPassengerAction() {
             type: ADD_PASSENGER_MASTER
         });
 
-        dispatch({
-            type: PASSENGER_ARRAY_CHANGED,
-            payload: {
-                pricesPerPax: getState().pricingMasterAnalysisReducer,
-                bagAllowance: getState().getBagsReducer,
-                passengers: getState().passengersMasterReducer,
-                currency: getState().currentCurrencyReducer
-            }
-        });
+        dispatch(paxArrayChangerDispatcher(getState));
+
     }
 }
 
