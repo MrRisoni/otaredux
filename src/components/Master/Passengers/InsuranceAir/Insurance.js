@@ -58,7 +58,7 @@ class Insurance extends Component {
                 <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
 
                     <div className="row">
-                        {this.props.insurances.map( (ins) => {
+                        {this.props.insurances.map( ins => {
 
                             return (<InsuranceOption  key={ins.id} insData ={ins}
                                                       updateOptions={this.handleOptionsChange}

@@ -142,7 +142,9 @@ class MasterPassenger extends Component {
                             }
 
                             {this.props.product === 'air' &&
+
                                 <div>
+                                    <br/>
                                     <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
                                     <Insurance
                                         paxId={this.props.passenger.id}

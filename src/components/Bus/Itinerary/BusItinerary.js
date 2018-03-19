@@ -4,7 +4,7 @@ import BusSegment from "./BusSegment";
 const BusItinerary = function (props) {
 
     let segments = [];
-    props.segments.forEach((seg) => {
+    props.segments.forEach(seg => {
         segments.push(<BusSegment key={seg.id} data={seg}/>)
     });
 

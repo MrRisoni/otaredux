@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
 const MasterSideBar = (props) => {
@@ -7,7 +7,7 @@ const MasterSideBar = (props) => {
 
     let paxPrices = [];
 
-    props.pricing.analysis.forEach( (paxType) => {
+    props.pricing.analysis.forEach( paxType => {
 		    if (paxType.count >0) {
 		    	paxPrices.push(<div key={paxType} className="row">
                     	<div className="col-sm-12">
@@ -21,11 +21,11 @@ const MasterSideBar = (props) => {
     let bagPrices = [];
     let insurancePrices = [];
 
-    props.passengers.forEach((pax) => {
+    props.passengers.forEach( pax => {
         if (pax.active) {
-            props.bagAllowance.forEach((bag) => {
+            props.bagAllowance.forEach( bag => {
                 let bagCountId = 0;
-                props.purchasedBags.forEach((boughtBag) => {
+                props.purchasedBags.forEach( boughtBag => {
                     if (bag.id === boughtBag.bagId) {
                         if (boughtBag.paxId === pax.id) {
                             bagCountId++;
@@ -51,9 +51,9 @@ const MasterSideBar = (props) => {
             });
 
 
-            props.boughtInsurances.forEach((boughtIns) => {
+            props.boughtInsurances.forEach( boughtIns => {
 
-                props.insuranceOptions.forEach((insOption) => {
+                props.insuranceOptions.forEach(insOption => {
 
                     if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
                         insurancePrices.push(
@@ -114,6 +114,22 @@ const MasterSideBar = (props) => {
                     </div>
                     {insurancePrices}
 
+
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <h4>Meals</h4>
+                            <hr/>
+                        </div>
+                    </div>
+
+
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <h4>Other upsales</h4>
+                            <hr/>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -131,7 +147,7 @@ const MasterSideBar = (props) => {
         </div>
 
     );
-}
+};
 
 export default MasterSideBar;
 

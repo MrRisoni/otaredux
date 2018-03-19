@@ -7,7 +7,7 @@ const MasterPassengerList = (props) => {
     let paxList = [];
 
     {
-        props.passengers.forEach((pax) => {
+        props.passengers.forEach(pax => {
             if (pax.active) {
                 paxList.push(<MasterPassenger key={pax.id}
                                            passenger={pax}

@@ -57,6 +57,7 @@ class MasterApp extends Component {
                             mealOptions={this.props.mealOptions}
                             boughtMeals={this.props.boughtMeals} />
 
+
                     </div>
 
                     <div className='col-md-3'>
@@ -79,6 +80,13 @@ class MasterApp extends Component {
                                     editContactHandler={this.props.editContactHandler}/>
                     </div>
                 </div>
+
+                <div className='row'>
+                    <div className='col-md-8'>
+                        <MasterPayment/>
+                    </div>
+                </div>
+
 
 
                 {this.props.product !== 'air' &&

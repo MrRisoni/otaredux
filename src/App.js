@@ -45,14 +45,14 @@ class App extends Component {
 
 
                 <select className="form-control" onChange={this.handleChange}>
-                    {this.props.currencies.map((cur) => {
+                    {this.props.currencies.map( cur => {
                         return (<option key={cur.code} value={cur.code}>{cur.code}</option>)
                     })}
 
                 </select>
 
 
-                {this.props.passengers.map((pax) => {
+                {this.props.passengers.map( pax => {
                     return (<div key={pax.od}>{pax.type}</div>)
                 })}
 

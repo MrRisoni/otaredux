@@ -32,12 +32,11 @@ const MealsComponent = function (props) {
                 </div>
             </div>
 
+
             <div className="collapse" id={`mealsCollapse${props.paxId}`}>
 
                 <div className="row">
-
-                    <div className="col-md-6">
-
+                    <div className="col-md-12">
                         <MealLeg key={0} leg={0}
                                  legTitle="Departure"
                                  mealOptions={props.mealOptions}
@@ -46,8 +45,10 @@ const MealsComponent = function (props) {
                                  paxId={props.paxId}
                                  addMealHandler={props.addBagHandler}/>
                     </div>
+                </div>
 
-                    <div className="col-md-6">
+                <div className="row">
+                    <div className="col-md-12">
                         <MealLeg key={1} leg={1}
                                  legTitle="Return"
                                  mealOptions={props.mealOptions}

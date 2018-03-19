@@ -81,7 +81,7 @@ function getFirstActivePax(passengers) {
     // get first adult
     let firstActivePax =  { surname : '', name:''};
     let maxId = 50;
-    passengers.forEach( (pax) => {
+    passengers.forEach( pax => {
         if (pax.active && pax.id < maxId && pax.type === 'ADT') { // ADULT PAX
             maxId = pax.id;
             firstActivePax.surname = pax.surname;
@@ -98,7 +98,7 @@ export function passengersMasterReducer(state = passengers, action) {
     switch (action.type) {
         case ADD_PASSENGER_MASTER:
             let maxHumanId =0;
-            state.forEach( (pax) => {
+            state.forEach( pax => {
                if (pax.active && maxHumanId < pax.humanId) {
                    maxHumanId = pax.humanId;
                }
@@ -137,7 +137,7 @@ export function passengersMasterReducer(state = passengers, action) {
             // reorder human ids
             let newHumanId =1;
 
-            newPaxes.forEach( (pax) => {
+            newPaxes.forEach( pax => {
                 if (pax.id == paxIdRemoval) {
                     pax.active = false;
                 }

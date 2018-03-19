@@ -53,7 +53,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
             console.log('first load bus');
             console.log(action.payload);
 
-            action.payload.paxTypes.forEach( (px) => {
+            action.payload.paxTypes.forEach( px => {
                 total += px.count * px.ticketPriceEuro;
             });
 
@@ -64,11 +64,11 @@ export function pricingMasterReducer(state = totalPrice, action) {
 
             console.log(action.payload);
             // active passengers
-            action.payload.passengers.forEach( (pax) => {
+            action.payload.passengers.forEach( pax => {
                 if (pax.active) {
-                    action.payload.boughtBags.forEach( (boughtBag) => {
+                    action.payload.boughtBags.forEach( boughtBag => {
                         if (boughtBag.paxId === pax.id) {
-                            action.payload.bagAllowance.forEach((bag) => {
+                            action.payload.bagAllowance.forEach( bag => {
                                 if (bag.id === boughtBag.bagId) {
                                     total += bag.price;
                                 }
@@ -76,8 +76,8 @@ export function pricingMasterReducer(state = totalPrice, action) {
                         }
                     });
 
-                    action.payload.boughtInsurances.forEach((boughtIns) => {
-                        action.payload.insuranceOptions.forEach((insOption) => {
+                    action.payload.boughtInsurances.forEach(boughtIns => {
+                        action.payload.insuranceOptions.forEach(insOption => {
                             if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
                                 total += insOption.price;
                             }
@@ -86,7 +86,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
                 }
             });
 
-            action.payload.pricesPerPax.forEach( (px) => {
+            action.payload.pricesPerPax.forEach( px => {
                 total += px.ticketPriceEuro * px.count;
             });
             return total;

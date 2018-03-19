@@ -9,7 +9,7 @@ class ValidatePassengers {
         let truthy =0;
         let totalValids =0;
 
-        papList.forEach( (px) => {
+        papList.forEach( px => {
             if (px.active) {
                 truthy += this.validateNameSurname(px.surname);
                 truthy += this.validateNameSurname(px.name);

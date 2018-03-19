@@ -19,15 +19,10 @@ const MealLeg = function (props) {
     return (
         <div className="row">
             <div className="col-md-12">
-
-                <div className="card">
-                    <div className="card-header">
-                        {props.legTitle}
-                    </div>
-                    <div className="card-body">
-                        {mealSegments}
-                    </div>
+                <div className="alert alert-primary" role="alert">
+                    {props.legTitle}
                 </div>
+                    {mealSegments}
             </div>
         </div>
 
