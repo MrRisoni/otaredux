@@ -5,14 +5,16 @@ import MasterSideBar from './MasterSideBar';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import FontAwesome from 'react-fontawesome';
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
     changeMasterPassengerAction,removeMasterPassengerAction
     } from '../../actions/master/actionsMaster';
 
-import {addAirBagAction,removeAirBagAction,changeAirInsuranceAction} from '../../actions/master/actionsAir';
+import {addAirBagAction,removeAirBagAction,
+    changeAirInsuranceAction,
+    addMealAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './MasterPayment';
+
 
 
 
@@ -44,13 +46,17 @@ class MasterApp extends Component {
                             editNameHandler={this.props.editPaxNameHandler}
                             addBagHandler={this.props.addBagHandler}
                             removeBagHandler={this.props.removeBagHandler}
+                            addMealHandler={this.props.addMealHandler}
                             selectInsuranceHandler={this.props.selectInsuranceHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
                             bagsAir={this.props.bagsAir}
                             purchasedBags={this.props.purchasedBags}
-                            blueRibbon={this.props.blueRibbon}/>
+                            blueRibbon={this.props.blueRibbon}
+                            mealOptions={this.props.mealOptions}
+                            boughtMeals={this.props.boughtMeals} />
+
                     </div>
 
                     <div className='col-md-3'>
@@ -60,6 +66,8 @@ class MasterApp extends Component {
                                        purchasedBags={this.props.purchasedBags}
                                        boughtInsurances={this.props.boughtInsurances}
                                        insuranceOptions={this.props.insuranceOptions}
+                                       mealOptions={this.props.mealOptions}
+                                       boughtMeals={this.props.boughtMeals}
                                        pricing={this.props.pricing}/>
                     </div>
                 </div>
@@ -112,7 +120,9 @@ function mapStateToProps(state) {
         blueRibbon: state.getBlueRibbonReducer,
         purchasedBags: state.purchasedBagsReducer,
         boughtInsurances: state.purchasedInsuranceReducer,
-        insuranceOptions: state.airInsuranceReducer
+        insuranceOptions: state.airInsuranceReducer,
+        mealOptions: state.getMealsReducer,
+        boughtMeals: state.purchasedMealsReducer
     }
 }
 
@@ -126,7 +136,8 @@ function matchDispatchToProps(dispatch) {
         editContactHandler: editMasterContactAction,
         addBagHandler: addAirBagAction,
         removeBagHandler:removeAirBagAction,
-        selectInsuranceHandler:changeAirInsuranceAction
+        selectInsuranceHandler:changeAirInsuranceAction,
+        addMealHandler:addMealAction
     }, dispatch);
 }
 

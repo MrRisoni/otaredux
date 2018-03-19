@@ -1,0 +1,37 @@
+[
+  {
+    "airport_id": 1,
+    "title": "Lisbon",
+    "latitude": 38.7436057,
+    "longitude": -9.2302436,
+    "price": 456
+  },
+  {
+    "airport_id": 2,
+    "title": "Madrid",
+    "latitude": 40.4378698,
+    "longitude": -3.8196221,
+    "price": 125
+  },
+  {
+    "airport_id": 3,
+    "title": "Paris",
+    "latitude": 48.8588377,
+    "longitude": 2.2770199,
+    "price": 67
+  },
+  {
+    "airport_id": 4,
+    "title": "Rome",
+    "latitude": 41.909986,
+    "longitude": 12.3959127,
+    "price": 120
+  },
+  {
+    "airport_id": 5,
+    "title": "Istabul",
+    "latitude": 41.0049823,
+    "longitude": 28.7319895,
+    "price": 80
+  }
+]

@@ -1,4 +1,4 @@
-import {ADD_BAG_AIR, REMOVE_BAG_AIR} from "../../actions/master/actionsAir";
+import {ADD_BAG_AIR, REMOVE_BAG_AIR} from '../../actions/master/actionsAir';
 
 const bagAllowance =  [
     {

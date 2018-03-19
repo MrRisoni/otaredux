@@ -5,6 +5,7 @@ import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from "./MasterPassport";
 import Insurance from "./InsuranceAir/Insurance";
 import BagComponent from "./BagsAir/BagComponent";
+import MealsComponent from "./MealsAir/MealsComponent";
 
 
 class MasterPassenger extends Component {
@@ -156,6 +157,14 @@ class MasterPassenger extends Component {
                                                     blueRibbon={this.props.blueRibbon}
                                                     addBagHandler={this.props.addBagHandler}
                                                     removeBagHandler={this.props.removeBagHandler}/>
+
+                                    <MealsComponent paxId={this.props.passenger.id}
+                                                    currency={this.props.currency}
+                                                    boughtMeals={this.props.boughtMeals}
+                                                    mealOptions={this.props.mealOptions}
+                                                    addMealHandler={this.props.addMealHandler}/>
+
+
 
                                 </div>
                             }

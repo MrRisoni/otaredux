@@ -5,7 +5,7 @@ const BagLeg = function (props) {
 
     let bagArray = [];
 
-    props.bagsAir.forEach((bag) => {
+    props.bagsAir.forEach( bag => {
 
         bagArray.push(<BagSelection bagData={bag}
                                     legId={props.leg}

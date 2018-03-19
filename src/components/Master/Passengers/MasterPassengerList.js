@@ -16,13 +16,16 @@ const MasterPassengerList = (props) => {
                                            bagsAir={props.bagsAir}
                                            purchasedBags={props.purchasedBags}
                                            blueRibbon={props.blueRibbon}
+                                           mealOptions={props.mealOptions}
+                                           boughtMeals={props.boughtMeals}
                                            currency={props.currency}
                                            editPaxHandler={props.editPaxHandler}
                                            editNameHandler={props.editNameHandler}
                                            removePaxHandler={props.removePaxHandler}
                                            addBagHandler={props.addBagHandler}
                                            removeBagHandler={props.removeBagHandler}
-                                           selectInsuranceHandler={props.selectInsuranceHandler}/>)
+                                           selectInsuranceHandler={props.selectInsuranceHandler}
+                                           addMealHandler={props.addMealHandler}  />)
             }
         })
     }

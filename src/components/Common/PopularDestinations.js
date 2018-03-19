@@ -2,7 +2,7 @@ import React from 'react';
 
 const PopularDestinations = function (props) {
     return (
-        <div> Stateless Component {props.name} </div>
+        <div> PopularDestinations {props.name} </div>
     )
 }
 
