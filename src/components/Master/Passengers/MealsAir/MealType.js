@@ -9,7 +9,6 @@ const MealType = function (props) {
 
                     <select className="form-control">
                         <option key="" value=""></option>
-                        {this.props.countriesList}
                     </select>
 
                 </p>

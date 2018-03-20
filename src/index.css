@@ -233,6 +233,11 @@ body, input[type="text"], option, select
     border-color:red;
 }
 
+
+.paymentLogo img {
+    width: 125px; /* you can use % */
+    height: auto;
+}
 @media screen and (max-width: 250px) {
 
     .busCity {

@@ -14,6 +14,7 @@ import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/cu
 
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {airSegmentsReducer} from './reducers/air/itineraryAir';
+import {paymentMethodsReducer} from './reducers/air/masterAir';
 import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
 import {getBagsReducer,getBlueRibbonReducer,purchasedBagsReducer} from './reducers/air/bagsAir';
@@ -44,6 +45,7 @@ let store = createStore(combineReducers({
         getMealsReducer,
         purchasedMealsReducer,
         airSegmentsReducer,
+        paymentMethodsReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),

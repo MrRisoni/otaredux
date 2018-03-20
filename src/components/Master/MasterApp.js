@@ -13,7 +13,7 @@ import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
-import MasterPayment from './MasterPayment';
+import MasterPayment from './Payment/MasterPayment';
 
 
 
@@ -82,31 +82,16 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
-                <div className='row'>
-                    <div className='col-md-8'>
-                        <MasterPayment/>
-                    </div>
-                </div>
-
-
-
-                {this.props.product !== 'air' &&
+                {this.props.product === 'air' &&
                     <div className='row'>
                         <div className='col-md-8'>
-                            <MasterPayment/>
+                            <MasterPayment paymentMethods={this.props.paymentMethods}/>
                         </div>
                     </div>
                 }
 
-                {this.props.product === 'air' &&
-                <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                        <button className="btn btn-success btn-lg">Continue</button>
-                    </div>
+
                 </div>
-                }
-            </div>
 
         );
     }
@@ -132,7 +117,8 @@ function mapStateToProps(state) {
         insuranceOptions: state.airInsuranceReducer,
         mealOptions: state.getMealsReducer,
         boughtMeals: state.purchasedMealsReducer,
-        segments:state.airSegmentsReducer
+        segments:state.airSegmentsReducer,
+        paymentMethods:state.paymentMethodsReducer
     }
 }
 
