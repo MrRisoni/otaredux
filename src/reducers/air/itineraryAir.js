@@ -26,6 +26,6 @@ const legs = [
 ];
 
 
-export function airLegsReducer(state = legs, action) {
+export function airSegmentsReducer(state = legs, action) {
     return state;
 }

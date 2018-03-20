@@ -18,6 +18,7 @@ const MasterPassengerList = (props) => {
                                            blueRibbon={props.blueRibbon}
                                            mealOptions={props.mealOptions}
                                            boughtMeals={props.boughtMeals}
+                                           segments={props.segments}
                                            currency={props.currency}
                                            editPaxHandler={props.editPaxHandler}
                                            editNameHandler={props.editNameHandler}

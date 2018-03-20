@@ -38,24 +38,24 @@ const MealsComponent = function (props) {
                 <div className="row">
                     <div className="col-md-12">
                         <MealLeg key={0} leg={0}
-                                 legTitle="Departure"
                                  mealOptions={props.mealOptions}
                                  boughtMeals={props.boughtMeals}
                                  currency={props.currency}
                                  paxId={props.paxId}
-                                 addMealHandler={props.addBagHandler}/>
+                                 addMealHandler={props.addBagHandler}
+                                 segments={props.segments}/>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-md-12">
                         <MealLeg key={1} leg={1}
-                                 legTitle="Return"
                                  mealOptions={props.mealOptions}
                                  boughtMeals={props.boughtMeals}
                                  currency={props.currency}
                                  paxId={props.paxId}
-                                 addMealHandler={props.addBagHandler}/>
+                                 addMealHandler={props.addBagHandler}
+                                 segments={props.segments}/>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ export function addAirBagAction(data) {
         });
 
         // after bag is bought , dispatch the updated passenger array
-        dispatch(upsalesDispatcher(getState));
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
     }
 }
 
@@ -43,7 +43,7 @@ export function removeAirBagAction(data) {
         });
 
         // after bag is bought , dispatch the updated passenger array
-        dispatch(upsalesDispatcher(getState));
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
 
     }
 }
@@ -61,7 +61,7 @@ export function changeAirInsuranceAction(data) {
         });
 
         // after bag is bought , dispatch the updated passenger array
-        dispatch(upsalesDispatcher(getState));
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
 
     }
 }
@@ -79,6 +79,6 @@ export function addMealAction(data) {
         });
 
         // after bag is bought , dispatch the updated passenger array
-        dispatch(upsalesDispatcher(getState));
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
     }
 }

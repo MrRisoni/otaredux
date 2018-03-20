@@ -2,12 +2,37 @@ import React from 'react';
 import MealSegment from "./MealSegment";
 
 const MealLeg = function (props) {
+
     let mealSegments = [];
 
-    props.mealOptions.forEach( meal => {
+    props.segments.forEach( seg => {
+        // for each segment
+        let appetizers = [];
+        let mainCourses = [];
+        let desserts = [];
+        const segRoute = seg.from + '-' + seg.to;
 
-        if (meal.legId === props.leg) {
-            mealSegments.push(<MealSegment mealData={meal}
+
+        props.mealOptions.forEach(meal => {
+
+           if (meal.route === segRoute) {
+
+               if (meal.legId === props.leg) {
+                   if (meal.type === 'Main Course') {
+                       mainCourses.push(meal);
+                   }
+                   if (meal.type === 'Dessert') {
+                       desserts.push(meal);
+                   }
+               }
+           }
+        });
+
+        if ((appetizers.length + mainCourses.length + desserts.length) > 0) {
+            mealSegments.push(<MealSegment appetizers={appetizers}
+                                           main={mainCourses}
+                                           desserts={desserts}
+                                           segData={segRoute}
                                            legId={props.leg}
                                            currency={props.currency}
                                            paxId={props.paxId}
@@ -19,10 +44,7 @@ const MealLeg = function (props) {
     return (
         <div className="row">
             <div className="col-md-12">
-                <div className="alert alert-primary" role="alert">
-                    {props.legTitle}
-                </div>
-                    {mealSegments}
+                {mealSegments}
             </div>
         </div>
 

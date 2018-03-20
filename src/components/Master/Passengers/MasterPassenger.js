@@ -164,7 +164,8 @@ class MasterPassenger extends Component {
                                                     currency={this.props.currency}
                                                     boughtMeals={this.props.boughtMeals}
                                                     mealOptions={this.props.mealOptions}
-                                                    addMealHandler={this.props.addMealHandler}/>
+                                                    addMealHandler={this.props.addMealHandler}
+                                                    segments={this.props.segments} />
 
 
 

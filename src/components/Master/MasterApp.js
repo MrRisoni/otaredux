@@ -55,7 +55,8 @@ class MasterApp extends Component {
                             purchasedBags={this.props.purchasedBags}
                             blueRibbon={this.props.blueRibbon}
                             mealOptions={this.props.mealOptions}
-                            boughtMeals={this.props.boughtMeals} />
+                            boughtMeals={this.props.boughtMeals}
+                            segments={this.props.segments}/>
 
 
                     </div>
@@ -130,7 +131,8 @@ function mapStateToProps(state) {
         boughtInsurances: state.purchasedInsuranceReducer,
         insuranceOptions: state.airInsuranceReducer,
         mealOptions: state.getMealsReducer,
-        boughtMeals: state.purchasedMealsReducer
+        boughtMeals: state.purchasedMealsReducer,
+        segments:state.airSegmentsReducer
     }
 }
 

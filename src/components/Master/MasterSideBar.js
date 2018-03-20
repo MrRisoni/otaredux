@@ -20,6 +20,8 @@ const MasterSideBar = (props) => {
 
     let bagPrices = [];
     let insurancePrices = [];
+    let totalBagCount =0;
+    let insuranceCount =0;
 
     props.passengers.forEach( pax => {
         if (pax.active) {
@@ -29,6 +31,7 @@ const MasterSideBar = (props) => {
                     if (bag.id === boughtBag.bagId) {
                         if (boughtBag.paxId === pax.id) {
                             bagCountId++;
+                            totalBagCount++;
                         }
                     }
                 });
@@ -56,6 +59,7 @@ const MasterSideBar = (props) => {
                 props.insuranceOptions.forEach(insOption => {
 
                     if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
+                        insuranceCount++;
                         insurancePrices.push(
                             <div key={pax.id}>
                                 <div className="row">
@@ -76,6 +80,58 @@ const MasterSideBar = (props) => {
         }
     });
 
+    let bagsDiv = (<div></div>);
+
+    if (totalBagCount > 0) {
+
+        bagsDiv =
+            (<div>
+                <hr/>
+                <div className="row">
+                    <div className="col-sm-12">
+                        <h4>Bags</h4>
+                        <hr/>
+                    </div>
+                </div>
+                {bagPrices}
+            </div>);
+    }
+
+
+
+    let insuranceDiv = (<div></div>);
+
+    if (insuranceCount > 0) {
+
+        bagsDiv =
+            (<div>
+                <hr/>
+                <div className="row">
+                    <div className="col-sm-12">
+                        <h4>Insurances</h4>
+                        <hr/>
+                    </div>
+                </div>
+                {insurancePrices}
+            </div>);
+    }
+
+
+    let mealsDiv = (<div className="row">
+        <div className="col-sm-12">
+            <h4>Meals</h4>
+            <hr/>
+        </div>
+    </div>);
+
+
+    let otherUpsalesDiv = (
+        <div className="row">
+            <div className="col-sm-12">
+                <h4>Other upsales</h4>
+                <hr/>
+            </div>
+        </div>);
 
 
     return (
@@ -95,40 +151,11 @@ const MasterSideBar = (props) => {
                     </div>
 
 					{paxPrices}
+                    {bagsDiv}
+                    {insuranceDiv}
+                    {mealsDiv}
+                    {otherUpsalesDiv}
 
-
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h4>Bags</h4>
-                            <hr/>
-                        </div>
-                    </div>
-                    {bagPrices}
-
-
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h4>Insurances</h4>
-                            <hr/>
-                        </div>
-                    </div>
-                    {insurancePrices}
-
-
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h4>Meals</h4>
-                            <hr/>
-                        </div>
-                    </div>
-
-
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h4>Other upsales</h4>
-                            <hr/>
-                        </div>
-                    </div>
 
                 </div>
 
