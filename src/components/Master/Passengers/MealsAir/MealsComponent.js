@@ -42,7 +42,7 @@ const MealsComponent = function (props) {
                                  boughtMeals={props.boughtMeals}
                                  currency={props.currency}
                                  paxId={props.paxId}
-                                 addMealHandler={props.addBagHandler}
+                                 addMealHandler={props.addMealHandler}
                                  segments={props.segments}/>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ const MealsComponent = function (props) {
                                  boughtMeals={props.boughtMeals}
                                  currency={props.currency}
                                  paxId={props.paxId}
-                                 addMealHandler={props.addBagHandler}
+                                 addMealHandler={props.addMealHandler}
                                  segments={props.segments}/>
                     </div>
                 </div>

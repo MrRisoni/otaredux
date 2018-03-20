@@ -7,7 +7,7 @@ const meals =  [
         price: 15.00,
         legId:0,
         route:'Athens-Dublin',
-        type:'Main course',
+        type:'Main',
         title:'Beef wellington'
     },
     {
@@ -16,7 +16,7 @@ const meals =  [
         price: 12.00,
         legId:0,
         route:'Athens-Dublin',
-        type:'Main course',
+        type:'Main',
         title:'Spagheti Bolognese'
     },
     {
@@ -25,7 +25,7 @@ const meals =  [
         price: 20.00,
         legId:0,
         route:'Athens-Dublin',
-        type:'Main course',
+        type:'Main',
         title:'Risotto al frutti di mare'
     },
     {
@@ -34,7 +34,7 @@ const meals =  [
         price: 20.00,
         legId:0,
         route:'Athens-Dublin',
-        type:'Main course',
+        type:'Main',
         title:'Beef Stroganov'
     },
     {

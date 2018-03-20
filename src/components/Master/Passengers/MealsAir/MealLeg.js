@@ -18,7 +18,7 @@ const MealLeg = function (props) {
            if (meal.route === segRoute) {
 
                if (meal.legId === props.leg) {
-                   if (meal.type === 'Main Course') {
+                   if (meal.type === 'Main') {
                        mainCourses.push(meal);
                    }
                    if (meal.type === 'Dessert') {
@@ -30,7 +30,7 @@ const MealLeg = function (props) {
 
         if ((appetizers.length + mainCourses.length + desserts.length) > 0) {
             mealSegments.push(<MealSegment appetizers={appetizers}
-                                           main={mainCourses}
+                                           mainCourses={mainCourses}
                                            desserts={desserts}
                                            segData={segRoute}
                                            legId={props.leg}

@@ -31,11 +31,11 @@ const MasterSideBar = (props) => {
                     if (bag.id === boughtBag.bagId) {
                         if (boughtBag.paxId === pax.id) {
                             bagCountId++;
-                            totalBagCount++;
                         }
                     }
                 });
                 if (bagCountId > 0) {
+                    totalBagCount++;
                     bagPrices.push(
                         <div key={pax.id}>
                             <div className="row">
@@ -83,7 +83,6 @@ const MasterSideBar = (props) => {
     let bagsDiv = (<div></div>);
 
     if (totalBagCount > 0) {
-
         bagsDiv =
             (<div>
                 <hr/>
@@ -103,7 +102,7 @@ const MasterSideBar = (props) => {
 
     if (insuranceCount > 0) {
 
-        bagsDiv =
+        insuranceDiv =
             (<div>
                 <hr/>
                 <div className="row">

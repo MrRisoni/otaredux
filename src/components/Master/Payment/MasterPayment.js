@@ -11,28 +11,41 @@ class MasterPayment extends Component {
                         <div className="card-header bg-light">
 
                             <div className="row">
-
-                                <div className="col-sm-3">
+                                <div className="col-md-6">
                                     Select Payment Method
                                 </div>
-
+                                <div className="col-md-2">
+                                    <i className="fas fa-credit-card"/>
+                                </div>
                             </div>
                         </div>
 
-
-                       <CreditCard/>
-
+                        <CreditCard/>
 
 
                     {this.props.paymentMethods.map( method => {
                         return(<div className="card">
                             <div className="card-header">
-                                <b>{method.title}</b>
+                                <div className="row">
+                                    <div className="col-sm-3">
+                                        <b>{method.title}</b>
+                                    </div>
+                                    <div className="col-sm-2 offset-sm-7">
+                                        <button className="btn btn-sm btn-dark btn-block btnToggle"
+                                                data-toggle="collapse"
+                                                data-target={`#payMethodCollapse${method.code}`}
+                                                aria-expanded="false" aria-controls="collapseExample">
+                                            Toggle
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div className="card-body paymentLogo">
+
+                            <div className="card-body paymentLogo collapse" id={`payMethodCollapse${method.code}`}>
                                 <div className="row">
                                     <div className="col-md-4">
-                                        <img src="https://pbs.twimg.com/profile_images/917661388822208512/4XX3jcH5_400x400.jpg" />
+                                        <img src={method.img} />
                                     </div>
                                     <div className="col-md-4">
                                         <button className="btn btn-success">Complete Payment!</button>
