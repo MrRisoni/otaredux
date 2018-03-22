@@ -83,6 +83,14 @@ export function pricingMasterReducer(state = totalPrice, action) {
                             }
                         });
                     });
+
+                    action.payload.boughtMeals.forEach(boughtMl => {
+                        action.payload.mealOptions.forEach(availbMeal => {
+                            if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
+                                total += availbMeal.price;
+                            }
+                        });
+                    });
                 }
             });
 

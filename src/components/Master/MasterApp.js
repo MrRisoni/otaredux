@@ -27,7 +27,7 @@ class MasterApp extends Component {
 
     componentWillMount() {
         console.log('PROPS ' + this.props.product);
-      //  this.props.firstLoad();
+        this.props.firstLoad();
 
     }
 
@@ -99,7 +99,7 @@ class MasterApp extends Component {
 
 function mapStateToProps(state) {
     console.log('master app');
-    console.log(state.airInsuranceReducer);
+    console.log(state);
 
     return {
         passengers: state.passengersMasterReducer,

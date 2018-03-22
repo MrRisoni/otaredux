@@ -8,6 +8,7 @@ const BagLeg = function (props) {
     props.bagsAir.forEach( bag => {
 
         bagArray.push(<BagSelection bagData={bag}
+                                    key={bag.key}
                                     legId={props.leg}
                                     currency={props.currency}
                                     purchasedBags={props.purchasedBags}

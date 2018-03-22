@@ -13,7 +13,10 @@ const MealType = function (props) {
                         <p className="card-text">
 
                            <MealSelection mealData={props.data}
-                                          currency={props.currency}/>
+                                          legId={props.legId}
+                                          paxId={props.paxId}
+                                          currency={props.currency}
+                                          addMealHandler={props.addMealHandler}/>
 
                         </p>
                     </div>

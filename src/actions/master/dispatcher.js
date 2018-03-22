@@ -10,8 +10,7 @@ export function upsalesDispatcher (status, actionType) {
             boughtInsurances: status().purchasedInsuranceReducer,
             insuranceOptions: status().airInsuranceReducer,
             mealOptions: status().getMealsReducer,
-            selectedMeals: status().airInsuranceReducer
-
+            boughtMeals: status().purchasedMealsReducer
         }
     }
 };

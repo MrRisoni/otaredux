@@ -24,7 +24,7 @@ class MasterPayment extends Component {
 
 
                     {this.props.paymentMethods.map( method => {
-                        return(<div className="card">
+                        return(<div key={method.title} className="card">
                             <div className="card-header">
                                 <div className="row">
                                     <div className="col-sm-3">

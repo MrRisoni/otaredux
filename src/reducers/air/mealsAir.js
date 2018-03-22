@@ -4,6 +4,7 @@ const meals =  [
     {
         id: 1,
         carrier:'BA',
+        key:'ge534dhfg73567777==',
         price: 15.00,
         legId:0,
         route:'Athens-Dublin',
@@ -13,6 +14,7 @@ const meals =  [
     {
         id: 2,
         carrier:'BA',
+        key:'e5636352ff66==',
         price: 12.00,
         legId:0,
         route:'Athens-Dublin',
@@ -22,6 +24,7 @@ const meals =  [
     {
         id: 3,
         carrier:'BA',
+        key:'hdg733747353==',
         price: 20.00,
         legId:0,
         route:'Athens-Dublin',
@@ -31,6 +34,7 @@ const meals =  [
     {
         id: 4,
         carrier:'BA',
+        key:'62gwreyu4467==',
         price: 20.00,
         legId:0,
         route:'Athens-Dublin',
@@ -40,6 +44,7 @@ const meals =  [
     {
         id: 5,
         carrier:'BA',
+        key:'35567==3434341d',
         price: 8.00,
         legId:0,
         route:'Athens-Dublin',
@@ -49,6 +54,7 @@ const meals =  [
     {
         id: 6,
         carrier:'BA',
+        key:'85hrt35565htrtrg',
         price: 7.00,
         legId:0,
         route:'Athens-Dublin',
@@ -63,6 +69,8 @@ const boughtPaxMeals = [];
 
 
 export function purchasedMealsReducer(state= boughtPaxMeals, action) {
+    console.log('purchasedMealsReducer');
+    console.log(action);
     switch (action.type) {
         case ADD_MEAL_AIR:
             return [

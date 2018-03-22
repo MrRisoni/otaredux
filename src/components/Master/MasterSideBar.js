@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const MasterSideBar = (props) => {
-    //let priceBoxStyle = {marginTop :  props.priceBoxMargin + 'px'};
-    console.log(props.analysis);
 
     let paxPrices = [];
+    console.log('sidebar meals ');
+    console.log(props.boughtMeals);
 
     props.pricing.analysis.forEach( paxType => {
 		    if (paxType.count >0) {
@@ -20,8 +20,11 @@ const MasterSideBar = (props) => {
 
     let bagPrices = [];
     let insurancePrices = [];
+    let mealsPrices = [];
+
     let totalBagCount =0;
     let insuranceCount =0;
+    let mealsCount = 0;
 
     props.passengers.forEach( pax => {
         if (pax.active) {
@@ -77,6 +80,28 @@ const MasterSideBar = (props) => {
                 });
             });
 
+            props.boughtMeals.forEach(boughtMl => {
+                props.mealOptions.forEach(availbMeal => {
+                    if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
+                        mealsCount++;
+
+                        mealsPrices.push(
+                            <div key={pax.id}>
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        {pax.surname} {pax.name}
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        {availbMeal.title} {availbMeal.price.toFixed(2)} {props.currency.code}
+                                    </div>
+                                </div>
+                            </div>)
+                    }
+                });
+            });
+
         }
     });
 
@@ -115,14 +140,18 @@ const MasterSideBar = (props) => {
             </div>);
     }
 
+    let mealsDiv = (<div></div>);
 
-    let mealsDiv = (<div className="row">
-        <div className="col-sm-12">
-            <h4>Meals</h4>
-            <hr/>
-        </div>
-    </div>);
 
+    if (mealsCount > 0) {
+        mealsDiv = (<div className="row">
+            <div className="col-sm-12">
+                <h4>Meals</h4>
+                <hr/>
+            </div>
+            {mealsPrices}
+        </div>);
+    }
 
     let otherUpsalesDiv = (
         <div className="row">
@@ -153,7 +182,6 @@ const MasterSideBar = (props) => {
                     {bagsDiv}
                     {insuranceDiv}
                     {mealsDiv}
-                    {otherUpsalesDiv}
 
 
                 </div>

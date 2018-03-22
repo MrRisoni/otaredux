@@ -29,10 +29,12 @@ const MealLeg = function (props) {
         });
 
         if ((appetizers.length + mainCourses.length + desserts.length) > 0) {
+            const key = 'mleg' + props.paxId + props.leg;
             mealSegments.push(<MealSegment appetizers={appetizers}
                                            mainCourses={mainCourses}
                                            desserts={desserts}
                                            segData={segRoute}
+                                           key={key}
                                            legId={props.leg}
                                            currency={props.currency}
                                            paxId={props.paxId}
