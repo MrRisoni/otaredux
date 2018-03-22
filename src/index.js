@@ -27,7 +27,6 @@ import './index.css';
 import MasterApp from './components/Master/MasterApp';
 
 import Home from './components/Common/Home';
-import Upsales from './components/Master/Upsales';
 
 
 let store = createStore(combineReducers({
@@ -62,7 +61,6 @@ ReactDOM.render(
                 <Route exact path="/hotel"  render={()=><MasterApp product="hotel"/>}/>
                 <Route exact path="/ship"  render={()=><MasterApp product="ship"/>}/>
                 <Route exact path="/train"  render={()=><MasterApp product="train"/>}/>
-                <Route exact path="/upsales" component={Upsales}/>
             </div>
         </BrowserRouter>
     </Provider>,

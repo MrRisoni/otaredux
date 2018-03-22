@@ -63,7 +63,6 @@ const MasterPassengerList = (props) => {
             </div>
         </div>
 
-        <Preseat/>
     </div>);
 
 };
