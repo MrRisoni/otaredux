@@ -12,7 +12,8 @@ export function upsalesDispatcher (status, actionType) {
             mealOptions: status().getMealsReducer,
             boughtMeals: status().purchasedMealsReducer,
             currency: status().currentCurrencyReducer,
-
+            hasFlexibleTicket:status().hasFlexibleTicketReducer,
+            flexibleTicket:status().flexibleTicketReducer
         }
     }
 };

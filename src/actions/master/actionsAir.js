@@ -12,6 +12,7 @@ export const UPSALES_CHANGED = 'UPSALES_CHANGED';
 
 export const PURCHASE_INSURANCE_AIR = 'PURCHASE_INSURANCE_AIR';
 
+export const ADD_FLEXIBLE_TICKET = 'ADD_FLEXIBLE_TICKET';
 
 
 export function addAirBagAction(data) {
@@ -82,6 +83,20 @@ export function addMealAction(data) {
         });
 
         // after bag is bought , dispatch the updated passenger array
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
+    }
+}
+
+
+
+export function changeFlexibleTicketAction(data) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: ADD_FLEXIBLE_TICKET,
+            payload:data
+        });
+
         dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
     }
 }

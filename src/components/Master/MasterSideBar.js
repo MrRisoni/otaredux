@@ -6,16 +6,19 @@ const MasterSideBar = (props) => {
     let paxPrices = [];
     console.log('sidebar meals ');
     console.log(props.boughtMeals);
+    let activePaxCount =0;
 
     props.pricing.analysis.forEach( paxType => {
 		    if (paxType.count >0) {
 		    	paxPrices.push(<div key={paxType} className="row">
                     	<div className="col-sm-12">
-                    		{paxType.type} x {paxType.count}  {paxType.ticketPriceEuro} {props.currency.code} 
+                    		{paxType.type} x {paxType.count}  {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
                     	</div>
 		    		</div>)
 		    }
     });
+
+
 
 
     let bagPrices = [];
@@ -25,9 +28,11 @@ const MasterSideBar = (props) => {
     let totalBagCount =0;
     let insuranceCount =0;
     let mealsCount = 0;
+    let otherUpsalesCount =0;
 
     props.passengers.forEach( pax => {
         if (pax.active) {
+            activePaxCount++;
             props.bagAllowance.forEach( bag => {
                 let bagCountId = 0;
                 props.purchasedBags.forEach( boughtBag => {
@@ -153,13 +158,28 @@ const MasterSideBar = (props) => {
         </div>);
     }
 
-    let otherUpsalesDiv = (
-        <div className="row">
-            <div className="col-sm-12">
-                <h4>Other upsales</h4>
-                <hr/>
-            </div>
-        </div>);
+
+
+    let otherUpsalesDiv = (<div></div>);
+
+    if (props.hasFlexibleTicket) {
+        const flexiblePrice = (activePaxCount* props.flexibleTicket.pricePerPax).toFixed(2);
+
+        otherUpsalesDiv = (
+            <div className="row">
+                <div className="col-sm-12">
+                    <h4>Flexible TIcket</h4>
+                    <hr/>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12">
+                        Price {flexiblePrice} {props.currency.code}
+                    </div>
+                </div>
+            </div>);
+
+    }
+
 
 
     return (
@@ -182,6 +202,7 @@ const MasterSideBar = (props) => {
                     {bagsDiv}
                     {insuranceDiv}
                     {mealsDiv}
+                    {otherUpsalesDiv}
 
 
                 </div>
@@ -191,7 +212,7 @@ const MasterSideBar = (props) => {
                     <div className="row">
                         <div className="col-md-12">
 
-                            <h4> Total Price : {props.pricing.total} {props.currency.code} </h4>
+                            <h4> Total Price : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
 
                         </div>
                     </div>

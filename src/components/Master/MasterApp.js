@@ -11,7 +11,8 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
-    addMealAction} from '../../actions/master/actionsAir';
+    addMealAction,
+    changeFlexibleTicketAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
 
@@ -48,6 +49,7 @@ class MasterApp extends Component {
                             removeBagHandler={this.props.removeBagHandler}
                             addMealHandler={this.props.addMealHandler}
                             selectInsuranceHandler={this.props.selectInsuranceHandler}
+                            changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
@@ -56,7 +58,9 @@ class MasterApp extends Component {
                             blueRibbon={this.props.blueRibbon}
                             mealOptions={this.props.mealOptions}
                             boughtMeals={this.props.boughtMeals}
-                            segments={this.props.segments}/>
+                            segments={this.props.segments}
+                            hasFlexibleTicket={this.props.hasFlexibleTicket}
+                            flexibleTicket={this.props.flexibleTicket}/>
 
 
                     </div>
@@ -70,7 +74,9 @@ class MasterApp extends Component {
                                        insuranceOptions={this.props.insuranceOptions}
                                        mealOptions={this.props.mealOptions}
                                        boughtMeals={this.props.boughtMeals}
-                                       pricing={this.props.pricing}/>
+                                       pricing={this.props.pricing}
+                                       hasFlexibleTicket={this.props.hasFlexibleTicket}
+                                       flexibleTicket={this.props.flexibleTicket}/>
                     </div>
                 </div>
 
@@ -118,7 +124,9 @@ function mapStateToProps(state) {
         mealOptions: state.getMealsReducer,
         boughtMeals: state.purchasedMealsReducer,
         segments:state.airSegmentsReducer,
-        paymentMethods:state.paymentMethodsReducer
+        paymentMethods:state.paymentMethodsReducer,
+        hasFlexibleTicket:state.hasFlexibleTicketReducer,
+        flexibleTicket:state.flexibleTicketReducer,
     }
 }
 
@@ -133,7 +141,8 @@ function matchDispatchToProps(dispatch) {
         addBagHandler: addAirBagAction,
         removeBagHandler:removeAirBagAction,
         selectInsuranceHandler:changeAirInsuranceAction,
-        addMealHandler:addMealAction
+        addMealHandler:addMealAction,
+        changeFlexibleTicketHandler:changeFlexibleTicketAction
     }, dispatch);
 }
 

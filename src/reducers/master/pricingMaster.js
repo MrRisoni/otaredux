@@ -60,12 +60,14 @@ export function pricingMasterReducer(state = totalPrice, action) {
             return total;
         case PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
-            console.log(action.type);
+            console.log('UPSALES_CHANGED');
 
             console.log(action.payload);
             // active passengers
+            let activePaxes =0;
             action.payload.passengers.forEach( pax => {
                 if (pax.active) {
+                    activePaxes++;
                     action.payload.boughtBags.forEach( boughtBag => {
                         if (boughtBag.paxId === pax.id) {
                             action.payload.bagAllowance.forEach( bag => {
@@ -93,6 +95,10 @@ export function pricingMasterReducer(state = totalPrice, action) {
                     });
                 }
             });
+
+            if (action.payload.hasFlexibleTicket) {
+                total +=  (activePaxes * action.payload.flexibleTicket.pricePerPax);
+            }
 
             action.payload.pricesPerPax.forEach( px => {
                 total += px.ticketPriceEuro * px.count;

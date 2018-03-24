@@ -1,35 +1,37 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
-import Preseat from "../Preseat/Preseat";
+import Preseat from '../Preseat/Preseat';
+import FlexibleTicket from "./FlexibleTicket";
 
 const MasterPassengerList = (props) => {
 
     let paxList = [];
+    let activePaxes =0;
 
-    {
-        props.passengers.forEach(pax => {
-            if (pax.active) {
-                paxList.push(<MasterPassenger key={pax.id}
-                                           passenger={pax}
-                                           product={props.product}
-                                           insurances={props.insurances}
-                                           bagsAir={props.bagsAir}
-                                           purchasedBags={props.purchasedBags}
-                                           blueRibbon={props.blueRibbon}
-                                           mealOptions={props.mealOptions}
-                                           boughtMeals={props.boughtMeals}
-                                           segments={props.segments}
-                                           currency={props.currency}
-                                           editPaxHandler={props.editPaxHandler}
-                                           editNameHandler={props.editNameHandler}
-                                           removePaxHandler={props.removePaxHandler}
-                                           addBagHandler={props.addBagHandler}
-                                           removeBagHandler={props.removeBagHandler}
-                                           selectInsuranceHandler={props.selectInsuranceHandler}
-                                           addMealHandler={props.addMealHandler}  />)
-            }
-        })
-    }
+    props.passengers.forEach(pax => {
+        if (pax.active) {
+            activePaxes++;
+            paxList.push(<MasterPassenger key={pax.id}
+                                       passenger={pax}
+                                       product={props.product}
+                                       insurances={props.insurances}
+                                       bagsAir={props.bagsAir}
+                                       purchasedBags={props.purchasedBags}
+                                       blueRibbon={props.blueRibbon}
+                                       mealOptions={props.mealOptions}
+                                       boughtMeals={props.boughtMeals}
+                                       segments={props.segments}
+                                       currency={props.currency}
+                                       editPaxHandler={props.editPaxHandler}
+                                       editNameHandler={props.editNameHandler}
+                                       removePaxHandler={props.removePaxHandler}
+                                       addBagHandler={props.addBagHandler}
+                                       removeBagHandler={props.removeBagHandler}
+                                       selectInsuranceHandler={props.selectInsuranceHandler}
+                                       addMealHandler={props.addMealHandler}  />)
+        }
+    });
+
 
     return (<div className="busPassengerList">
 
@@ -62,6 +64,13 @@ const MasterPassengerList = (props) => {
                 </button>
             </div>
         </div>
+
+
+        <FlexibleTicket paxes={activePaxes}
+                        changeFlexibleTicketHandler={props.changeFlexibleTicketHandler}
+                        currency={props.currency}
+                        hasFlexibleTicket={props.hasFlexibleTicket}
+                        flexibleTicket={props.flexibleTicket}/>
 
     </div>);
 
