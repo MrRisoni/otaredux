@@ -1,5 +1,6 @@
 import React from 'react';
-import SideBarUpsale from "./SideBarUpsale";
+import SideBarUpsale from './SideBarUpsale';
+import SideBarPersonUpsale from './SideBarPersonUpsale';
 
 
 const MasterSideBar = (props) => {
@@ -45,22 +46,15 @@ const MasterSideBar = (props) => {
                 });
                 if (bagCountId > 0) {
                     totalBagCount++;
-                    bagPrices.push(
-                        <div key={pax.id}>
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    {pax.surname} {pax.name}
-                                </div>
-                            </div>
+                    const  bagDescr = (<div>{bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}</div>)
 
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    {bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}
-                                </div>
-                            </div>
-                        </div>)
+                    bagPrices.push( <SideBarPersonUpsale
+                                        pax={pax}
+                                        description={bagDescr} />)
                 }
             });
+
+
 
 
             props.boughtInsurances.forEach( boughtIns => {
@@ -69,19 +63,13 @@ const MasterSideBar = (props) => {
 
                     if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
                         insuranceCount++;
-                        insurancePrices.push(
-                            <div key={pax.id}>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        {pax.surname} {pax.name}
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}
-                                    </div>
-                                </div>
-                            </div>)
+
+                        const  insuranceDescr = (<div>  {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}</div>)
+
+                        insurancePrices.push( <SideBarPersonUpsale
+                            pax={pax}
+                            description={insuranceDescr} />);
+
                     }
                 });
             });
@@ -115,16 +103,10 @@ const MasterSideBar = (props) => {
 
     if (totalBagCount > 0) {
         bagsDiv =
-            (<div>
-                <hr/>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <h4>Bags</h4>
-                        <hr/>
-                    </div>
-                </div>
-                {bagPrices}
-            </div>);
+            (<SideBarUpsale title="Bags"
+                            price={bagPrices}
+                            currency={props.currency}
+            />);
     }
 
 
@@ -134,29 +116,22 @@ const MasterSideBar = (props) => {
     if (insuranceCount > 0) {
 
         insuranceDiv =
-            (<div>
-                <hr/>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <h4>Insurances</h4>
-                        <hr/>
-                    </div>
-                </div>
-                {insurancePrices}
-            </div>);
+            (<SideBarUpsale title="Insurance"
+                            price={insurancePrices}
+                            currency={props.currency}
+            />);
     }
+
+
 
     let mealsDiv = (<div></div>);
 
 
     if (mealsCount > 0) {
-        mealsDiv = (<div className="row">
-            <div className="col-sm-12">
-                <h4>Meals</h4>
-                <hr/>
-            </div>
-            {mealsPrices}
-        </div>);
+        mealsDiv = ( <SideBarUpsale title="Meals"
+                                    price={mealsPrices}
+                                    currency={props.currency}
+        />);
     }
 
 
