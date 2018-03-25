@@ -1,7 +1,8 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
 import Preseat from '../Preseat/Preseat';
-import FlexibleTicket from "./FlexibleTicket";
+import FlexibleTicket from './FlexibleTicket';
+import BlueRibbon from './BlueRibbon';
 
 const MasterPassengerList = (props) => {
 
@@ -71,6 +72,14 @@ const MasterPassengerList = (props) => {
                         currency={props.currency}
                         hasFlexibleTicket={props.hasFlexibleTicket}
                         flexibleTicket={props.flexibleTicket}/>
+
+
+
+        <BlueRibbon paxes={activePaxes}
+                    changeBlueRibbonHandler={props.changeBlueRibbonHandler}
+                    currency={props.currency}
+                    hasBlueRibbon={props.hasBlueRibbon}
+                    blueRibbonPrices={props.blueRibbonPrices}/>
 
     </div>);
 

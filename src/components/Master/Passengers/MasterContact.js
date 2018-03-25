@@ -51,7 +51,7 @@ class MasterContact extends Component {
                                     Contact Details
                                 </div>
 
-                                <div className="col-sm-2 offset-sm-7">
+                                <div className="col-sm-2 offset-sm-6">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target="#busContactCollapse" aria-expanded="false"

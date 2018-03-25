@@ -1,11 +1,10 @@
 import React from 'react';
 import BagLeg from "./BagLeg";
-import BlueRibbon from './BlueRibbon';
+import BlueRibbon from '../BlueRibbon';
 
 
 const BagComponent = function (props) {
 
-    let hasBoughtBag = (props.purchasedBags.length >0);
 
 
     return (
@@ -64,11 +63,6 @@ const BagComponent = function (props) {
                                 removeBagHandler={props.removeBagHandler}/>
                     </div>
                 </div>
-
-
-                {hasBoughtBag &&
-                    <BlueRibbon/>
-                }
 
             </div>
 

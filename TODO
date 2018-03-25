@@ -1,13 +1,16 @@
-HOCs
+Preseat (for entire trip)
+Passenger Validator
+HOCs ???
+TESTS Enzyme !!!
 
 clean up code ( add comments)
+
+
 DatePicker with prices
 Hotels
-Preseat (per leg)
 Search Page and filters
 React google maps
 Fake Result server
-Passenger Validator
 Complete Page tickets
 GMT time in segments
 TIMEZONE CONVERSION
@@ -15,13 +18,12 @@ TIMEZONE CONVERSION
 DEP RET SEGMENTS
 
 fix removal of one bag
-brb sms web checkin extra packages
+web checkin
 
 
 React Google maps journey for the bundle
 
+currency change
 
 branded fares
 
-TESTS
-Enzyme

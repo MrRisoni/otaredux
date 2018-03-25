@@ -1,4 +1,3 @@
-import {ADD_PASSENGER_MASTER, PASSENGER_ADDED_MASTER} from './actionsMaster';
 import {upsalesDispatcher} from './dispatcher';
 
 
@@ -13,6 +12,9 @@ export const UPSALES_CHANGED = 'UPSALES_CHANGED';
 export const PURCHASE_INSURANCE_AIR = 'PURCHASE_INSURANCE_AIR';
 
 export const ADD_FLEXIBLE_TICKET = 'ADD_FLEXIBLE_TICKET';
+
+
+export const ADD_BLUE_RIBBON = 'ADD_BLUE_RIBBON';
 
 
 export function addAirBagAction(data) {
@@ -94,6 +96,21 @@ export function changeFlexibleTicketAction(data) {
 
         dispatch({
             type: ADD_FLEXIBLE_TICKET,
+            payload:data
+        });
+
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
+    }
+}
+
+
+
+
+export function changeBlueRibbonAction(data) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: ADD_BLUE_RIBBON,
             payload:data
         });
 

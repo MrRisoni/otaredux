@@ -12,7 +12,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
-    changeFlexibleTicketAction} from '../../actions/master/actionsAir';
+    changeFlexibleTicketAction,changeBlueRibbonAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
 
@@ -50,17 +50,19 @@ class MasterApp extends Component {
                             addMealHandler={this.props.addMealHandler}
                             selectInsuranceHandler={this.props.selectInsuranceHandler}
                             changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
+                            changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
                             bagsAir={this.props.bagsAir}
                             purchasedBags={this.props.purchasedBags}
-                            blueRibbon={this.props.blueRibbon}
                             mealOptions={this.props.mealOptions}
                             boughtMeals={this.props.boughtMeals}
                             segments={this.props.segments}
                             hasFlexibleTicket={this.props.hasFlexibleTicket}
-                            flexibleTicket={this.props.flexibleTicket}/>
+                            flexibleTicket={this.props.flexibleTicket}
+                            hasBlueRibbon={this.props.hasBlueRibbon}
+                            blueRibbonPrices={this.props.blueRibbonPrices}/>
 
 
                     </div>
@@ -76,7 +78,9 @@ class MasterApp extends Component {
                                        boughtMeals={this.props.boughtMeals}
                                        pricing={this.props.pricing}
                                        hasFlexibleTicket={this.props.hasFlexibleTicket}
-                                       flexibleTicket={this.props.flexibleTicket}/>
+                                       flexibleTicket={this.props.flexibleTicket}
+                                       hasBlueRibbon={this.props.hasBlueRibbon}
+                                       blueRibbonPrices={this.props.blueRibbonPrices}/>
                     </div>
                 </div>
 
@@ -117,7 +121,6 @@ function mapStateToProps(state) {
         contact: state.contactMasterReducer,
         insuranceAir: state.airInsuranceReducer,
         bagsAir : state.getBagsReducer,
-        blueRibbon: state.getBlueRibbonReducer,
         purchasedBags: state.purchasedBagsReducer,
         boughtInsurances: state.purchasedInsuranceReducer,
         insuranceOptions: state.airInsuranceReducer,
@@ -127,6 +130,8 @@ function mapStateToProps(state) {
         paymentMethods:state.paymentMethodsReducer,
         hasFlexibleTicket:state.hasFlexibleTicketReducer,
         flexibleTicket:state.flexibleTicketReducer,
+        hasBlueRibbon: state.hasBlueRibbonReducer,
+        blueRibbonPrices: state.getBlueRibbonReducer,
     }
 }
 
@@ -142,7 +147,8 @@ function matchDispatchToProps(dispatch) {
         removeBagHandler:removeAirBagAction,
         selectInsuranceHandler:changeAirInsuranceAction,
         addMealHandler:addMealAction,
-        changeFlexibleTicketHandler:changeFlexibleTicketAction
+        changeFlexibleTicketHandler:changeFlexibleTicketAction,
+        changeBlueRibbonHandler:changeBlueRibbonAction
     }, dispatch);
 }
 

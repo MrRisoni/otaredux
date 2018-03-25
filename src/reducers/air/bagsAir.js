@@ -24,12 +24,6 @@ const bagAllowance =  [
 const boughtPaxBags = [];
 
 
-
-const blueRibbonPrices = {
-    price: 6.00,
-    priceEuro:6.00
-};
-
 export function purchasedBagsReducer(state= boughtPaxBags, action) {
     console.log('buy bags anew reducer ' + action.type);
     console.log(action.payload);
@@ -58,9 +52,7 @@ export function getBagsReducer(state = bagAllowance, action) {
     return state;
 }
 
-export function getBlueRibbonReducer( state = blueRibbonPrices, action) {
-    return state;
-}
+
 
 
 

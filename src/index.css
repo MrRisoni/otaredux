@@ -97,9 +97,7 @@ body, input[type="text"], option, select
     margin-top: 5%;
 }
 
-.brbCardHeader {
-    margin-top: 5%;
-}
+
 
 .addOnePassenger {
     margin-top: 2%;
@@ -233,6 +231,9 @@ body, input[type="text"], option, select
     border-color:red;
 }
 
+.sideBarPrice {
+    text-align: center;
+}
 
 .paymentLogo img {
     width: 125px; /* you can use % */
@@ -244,3 +245,5 @@ body, input[type="text"], option, select
         margin-top: 5px;
     }
 }
+
+

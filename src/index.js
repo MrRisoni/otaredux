@@ -17,12 +17,11 @@ import {airSegmentsReducer} from './reducers/air/itineraryAir';
 import {paymentMethodsReducer} from './reducers/air/masterAir';
 import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
-import {getBagsReducer,getBlueRibbonReducer,purchasedBagsReducer} from './reducers/air/bagsAir';
+import {getBagsReducer,purchasedBagsReducer} from './reducers/air/bagsAir';
 import {airInsuranceReducer,purchasedInsuranceReducer} from './reducers/air/insuranceAir';
 import {getMealsReducer,purchasedMealsReducer} from './reducers/air/mealsAir';
 import {hasFlexibleTicketReducer,flexibleTicketReducer} from './reducers/air/flexibleTicket';
-
-
+import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibbon';
 
 
 import './index.css';
@@ -40,7 +39,6 @@ let store = createStore(combineReducers({
         pricingMasterAnalysisReducer,
         airInsuranceReducer,
         getBagsReducer,
-        getBlueRibbonReducer,
         purchasedBagsReducer,
         purchasedInsuranceReducer,
         getMealsReducer,
@@ -49,6 +47,8 @@ let store = createStore(combineReducers({
         paymentMethodsReducer,
         hasFlexibleTicketReducer,
         flexibleTicketReducer,
+        hasBlueRibbonReducer,
+        getBlueRibbonReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),

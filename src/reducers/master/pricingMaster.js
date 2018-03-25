@@ -96,8 +96,12 @@ export function pricingMasterReducer(state = totalPrice, action) {
                 }
             });
 
-            if (action.payload.hasFlexibleTicket) {
+            if (action.payload.hasFlexibleTicket.state === true) {
                 total +=  (activePaxes * action.payload.flexibleTicket.pricePerPax);
+            }
+
+            if (action.payload.hasBlueRibbon.state === true) {
+                total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
             }
 
             action.payload.pricesPerPax.forEach( px => {

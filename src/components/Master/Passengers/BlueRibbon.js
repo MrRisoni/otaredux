@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 
-class FlexibleTicket extends Component {
-    constructor(props) {
+class BlueRibbon extends Component {
+    constructor(props)
+    {
         super(props);
-
-        this.handleClick = this.handleClick.bind(this);
+        this.handleSelection = this.handleSelection.bind(this);
     }
 
-    handleClick(ev)
+    handleSelection(ev)
     {
         console.log(ev.target.value);
-        this.props.changeFlexibleTicketHandler( (ev.target.value ==1) );
+        this.props.changeBlueRibbonHandler( (ev.target.value ==1) );
     }
 
     render() {
-        const price = (this.props.paxes * this.props.flexibleTicket.pricePerPax).toFixed(2);
+        const price = (this.props.paxes * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
+
 
         return (
-
             <div className="row contactDetails">
                 <div className="col-md-12">
 
@@ -27,13 +27,13 @@ class FlexibleTicket extends Component {
                             <div className="row">
 
                                 <div className="col-sm-3">
-                                    Flexible Ticket
+                                    Buy Blue Ribbon Bag Insurance!
                                 </div>
 
                                 <div className="col-sm-2 offset-sm-6">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
-                                            data-target="#flexibleTicketCollapse" aria-expanded="false"
+                                            data-target="#blueRibbonCollapse" aria-expanded="false"
                                             aria-controls="collapseExample">
                                         Toggle
                                     </button>
@@ -43,17 +43,17 @@ class FlexibleTicket extends Component {
                         </div>
 
 
-                        <div className="card-body collapse show" id="flexibleTicketCollapse">
+                        <div className="card-body collapse show" id="blueRibbonCollapse">
 
                             <div className="row">
                                 <div className="col-md-8">
-                                    Pay {price} {this.props.currency.code} and you may
-                                    cancel/amend your ticket for free!
+                                    Pay {price} {this.props.currency.code} and you
+                                    will receive {this.props.currency.code} reimbursement for each lost baggage
                                 </div>
 
                                 <div className="col-md-3">
 
-                                    <select className="form-control" onChange={this.handleClick}>
+                                    <select className="form-control" onChange={this.handleSelection}>
                                         <option key="no" value="0">No thanks</option>
                                         <option key="yes" value="1">Yes please</option>
                                     </select>
@@ -68,8 +68,10 @@ class FlexibleTicket extends Component {
 
             </div>
 
-        )
+        );
     }
-};
+}
 
-export default FlexibleTicket;
+export default BlueRibbon;
+
+
