@@ -1,4 +1,5 @@
 import React from 'react';
+import SideBarUpsale from "./SideBarUpsale";
 
 
 const MasterSideBar = (props) => {
@@ -165,35 +166,21 @@ const MasterSideBar = (props) => {
     if (props.hasFlexibleTicket.state === true) {
         const flexiblePrice = (activePaxCount* props.flexibleTicket.pricePerPax).toFixed(2);
 
-        otherUpsalesDiv.push(
-            <div className="row">
-                <div className="col-sm-12">
-                    <hr/>
-                    <h4>Flexible TIcket</h4>
-                </div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <p className="sideBarPrice">Price {flexiblePrice} {props.currency.code}</p>
-                    </div>
-                </div>
-            </div>);
+        otherUpsalesDiv.push(<SideBarUpsale title="Flexible Ticket"
+                                            price={flexiblePrice}
+                                            currency={props.currency}
+        />);
     }
 
     if (props.hasBlueRibbon.state === true) {
         const brbPrice = (activePaxCount* props.blueRibbonPrices.pricePerPax).toFixed(2);
 
         otherUpsalesDiv.push(
-            <div className="row">
-                <div className="col-sm-12">
-                    <hr/>
-                    <h4>Blue Ribbon</h4>
-                </div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        Price {brbPrice} {props.currency.code}
-                    </div>
-                </div>
-            </div>);
+            <SideBarUpsale title="Blue Ribbon"
+                           price={brbPrice}
+                           currency={props.currency}
+                            />
+            );
     }
 
 

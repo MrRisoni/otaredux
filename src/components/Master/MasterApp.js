@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
-import MasterSideBar from './MasterSideBar';
+import MasterSideBar from './SideBar/MasterSideBar';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
