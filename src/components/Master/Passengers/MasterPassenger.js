@@ -3,9 +3,9 @@ import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from "./MasterPassport";
-import Insurance from "./InsuranceAir/Insurance";
-import BagComponent from "./BagsAir/BagComponent";
-import MealsComponent from "./MealsAir/MealsComponent";
+import Insurance from './InsuranceAir/Insurance';
+import BagComponent from './BagsAir/BagComponent';
+import MealsComponent from './MealsAir/MealsComponent';
 
 
 class MasterPassenger extends Component {
