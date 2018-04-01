@@ -67,19 +67,26 @@ const MasterPassengerList = (props) => {
         </div>
 
 
-        <FlexibleTicket paxes={activePaxes}
-                        changeFlexibleTicketHandler={props.changeFlexibleTicketHandler}
-                        currency={props.currency}
-                        hasFlexibleTicket={props.hasFlexibleTicket}
-                        flexibleTicket={props.flexibleTicket}/>
+        {props.product === 'air' &&
+            <FlexibleTicket paxes={activePaxes}
+                            changeFlexibleTicketHandler={props.changeFlexibleTicketHandler}
+                            currency={props.currency}
+                            hasFlexibleTicket={props.hasFlexibleTicket}
+                            flexibleTicket={props.flexibleTicket}/>
+
+        }
 
 
+        {props.product === 'air' &&
+            <BlueRibbon paxes={activePaxes}
+                         changeBlueRibbonHandler={props.changeBlueRibbonHandler}
+                         currency={props.currency}
+                         hasBlueRibbon={props.hasBlueRibbon}
+                         blueRibbonPrices={props.blueRibbonPrices}/>
+        }
 
-        <BlueRibbon paxes={activePaxes}
-                    changeBlueRibbonHandler={props.changeBlueRibbonHandler}
-                    currency={props.currency}
-                    hasBlueRibbon={props.hasBlueRibbon}
-                    blueRibbonPrices={props.blueRibbonPrices}/>
+        {/* <Preseat/> */}
+
 
     </div>);
 

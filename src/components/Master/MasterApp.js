@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import ItineraryData from './Segments/ItineraryData';
+
+
 
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
     changeMasterPassengerAction,removeMasterPassengerAction
@@ -38,6 +41,8 @@ class MasterApp extends Component {
                 <div className='row'>
 
                     <div className='col-md-8'>
+
+                        <ItineraryData tripData={this.props.tripData}/>
 
                         <MasterPassengerList
                             product={this.props.product}
@@ -126,7 +131,8 @@ function mapStateToProps(state) {
         insuranceOptions: state.airInsuranceReducer,
         mealOptions: state.getMealsReducer,
         boughtMeals: state.purchasedMealsReducer,
-        segments:state.airSegmentsReducer,
+        segments:state.getLegsReducer,
+        tripData:state.airTripReducer,
         paymentMethods:state.paymentMethodsReducer,
         hasFlexibleTicket:state.hasFlexibleTicketReducer,
         flexibleTicket:state.flexibleTicketReducer,

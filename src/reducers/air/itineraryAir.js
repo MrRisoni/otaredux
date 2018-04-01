@@ -25,7 +25,49 @@ const legs = [
     }
 ];
 
+const trip = [
+    {
+        id:0,
+        legId:0,
+        from: {
+            iata: 'RHO',
+            city:'Rhodes',
+            name:'Diagoras Arpt',
+            flyTime: '10:00',
+            flyTimeGMT: '10:00',
+            day:'Tues',
+            date:'15/06/2018'
+        },
+        stops:1,
+        duration : {
+            h:3,
+            m: 45
+        },
+        waiting : {
+            h:2,
+            m: 10
+        }
 
-export function airSegmentsReducer(state = legs, action) {
+    }
+];
+
+
+
+const segments = [
+    {
+        id:0,
+        legId:0,
+        depAirport:'RHo'
+    }
+];
+
+
+export function airTripReducer(state = trip, action) {
+    return state;
+}
+
+
+
+export function getLegsReducer(state = legs, action) {
     return state;
 }

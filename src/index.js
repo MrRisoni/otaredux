@@ -13,7 +13,7 @@ import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/cu
 
 
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
-import {airSegmentsReducer} from './reducers/air/itineraryAir';
+import {getLegsReducer,airTripReducer} from './reducers/air/itineraryAir';
 import {paymentMethodsReducer} from './reducers/air/masterAir';
 import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
@@ -43,7 +43,8 @@ let store = createStore(combineReducers({
         purchasedInsuranceReducer,
         getMealsReducer,
         purchasedMealsReducer,
-        airSegmentsReducer,
+        getLegsReducer,
+        airTripReducer,
         paymentMethodsReducer,
         hasFlexibleTicketReducer,
         flexibleTicketReducer,
