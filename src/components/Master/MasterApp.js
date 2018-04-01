@@ -42,7 +42,8 @@ class MasterApp extends Component {
 
                     <div className='col-md-8'>
 
-                        <ItineraryData tripData={this.props.tripData}/>
+                    <ItineraryData   product={this.props.product}
+                                    tripData={this.props.tripData}/>
 
                         <MasterPassengerList
                             product={this.props.product}

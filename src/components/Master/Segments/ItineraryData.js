@@ -1,5 +1,5 @@
 import React from 'react';
-import Leg from "./Leg";
+import Leg from './Leg';
 
 const ItineraryData = function (props) {
     return (

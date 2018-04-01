@@ -1,5 +1,7 @@
 import React from 'react';
-import Port from './Port';
+import HOCStation from './HOCStation';
+import Airport from './Airport'
+
 
 const Leg = function (props) {
     return (
@@ -31,7 +33,9 @@ const Leg = function (props) {
                     <div className="row">
 
 
-                        <Port iata={props.data.from.iata}
+                        <Airport
+                                 product={props.product}
+                                 iata={props.data.from.iata}
                                  city={props.data.from.city}
                                  name={props.data.from.name}
                                  flyTime={props.data.from.flyTime}
@@ -39,13 +43,18 @@ const Leg = function (props) {
                                  day={props.data.from.day}
                                  date={props.data.from.date}/>
 
-                        <Port iata={props.data.from.iata}
-                              city={props.data.from.city}
-                              name={props.data.from.name}
-                              flyTime={props.data.from.flyTime}
-                              flyTimeGMT={props.data.from.flyTimeGMT}
-                              day={props.data.from.day}
-                              date={props.data.from.date}/>
+                        <Airport
+                            product={props.product}
+                            iata={props.data.to.iata}
+                            city={props.data.to.city}
+                            name={props.data.to.name}
+                            flyTime={props.data.to.flyTime}
+                            flyTimeGMT={props.data.to.flyTimeGMT}
+                            day={props.data.to.day}
+                            date={props.data.to.date}/>
+
+
+
 
 
 

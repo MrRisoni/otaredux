@@ -38,6 +38,15 @@ const trip = [
             day:'Tues',
             date:'15/06/2018'
         },
+        to: {
+            iata: 'LHR',
+            city:'London',
+            name:'Heathrow Arpt',
+            flyTime: '20:00',
+            flyTimeGMT: '20:00',
+            day:'Tues',
+            date:'15/06/2018'
+        },
         stops:1,
         duration : {
             h:3,
