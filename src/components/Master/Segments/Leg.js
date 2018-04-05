@@ -4,15 +4,21 @@ import Airport from './Airport'
 
 
 const Leg = function (props) {
+
+    const waitDiv = props.data.waiting.total >0 ? (  <div className="col-md-4">
+        Wait time: {props.data.waiting.h}h {props.data.waiting.m}m
+    </div>) : (<div></div>);
+
+
+    let segmentsDiv =(<div></div>);
+
     return (
         <div className="Leg">
             <div className="card  bg-light mb-3 border-primary mb-3">
 
                 <div className="card-header">
                     <div className="row">
-                        <div className="col-md-2">
 
-                        </div>
 
                         <div className="col-md-2 offset-md-8">
                             <button className="btn btn-sm btn-dark btn-block btnToggle"
@@ -81,14 +87,13 @@ const Leg = function (props) {
                             Duration: {props.data.duration.h}h {props.data.duration.m}m
                         </div>
 
-                        <div className="col-md-4">
-                            Wait time: {props.data.waiting.h}h {props.data.waiting.m}m
-                        </div>
+
+                        {waitDiv}
                     </div>
 
 
                     <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
-                        segmentsDiv
+                        {segmentsDiv}
                     </div>
 
                 </div>

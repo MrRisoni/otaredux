@@ -49,26 +49,49 @@ const trip = [
         },
         stops:1,
         duration : {
-            h:3,
-            m: 45
+            h:5,
+            m: 35
         },
         waiting : {
+            total:130,
             h:2,
             m: 10
         }
-
-    }
-];
-
-
-
-const segments = [
+    },
     {
-        id:0,
-        legId:0,
-        depAirport:'RHo'
+        id:1,
+        legId:1,
+        from:  {
+            iata: 'LHR',
+            city:'London',
+            name:'Heathrow Arpt',
+            flyTime: '09:00',
+            flyTimeGMT: '09:00',
+            day:'Tues',
+            date:'22/06/2018'
+        },
+        to: {
+            iata: 'RHO',
+            city:'Rhodes',
+            name:'Diagoras Arpt',
+            flyTime: '13:00',
+            flyTimeGMT: '14:00',
+            day:'Tues',
+            date:'22/06/2018'
+        },
+        stops:0,
+        duration : {
+            h:2,
+            m: 45
+        },
+        waiting : {
+            total:0,
+            h:0,
+            m: 0
+        }
     }
 ];
+
 
 
 export function airTripReducer(state = trip, action) {

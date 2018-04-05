@@ -25,6 +25,7 @@ const ItineraryData = function (props) {
 
 
             <Leg data={props.tripData[0]}/>
+            <Leg data={props.tripData[1]}/>
 
         </div>
     )
