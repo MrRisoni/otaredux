@@ -56,7 +56,65 @@ const trip = [
             total:130,
             h:2,
             m: 10
-        }
+        },
+        segments: [
+            {
+                segId:1,
+                from: {
+                    iata: 'RHO',
+                    city:'Rhodes',
+                    name:'Diagoras Arpt',
+                    flyTime: '10:00',
+                    flyTimeGMT: '10:00',
+                    day:'Tues',
+                    date:'15/06/2018'
+                },
+                to: {
+                    iata: 'ATH',
+                    city:'Athens',
+                    name:'Venizelos Arpt',
+                    flyTime: '10:00',
+                    flyTimeGMT: '10:00',
+                    day:'Tues',
+                    date:'15/06/2018'
+                },
+                airline: "OA,OlympicAir",
+                img: {
+                    url: "/logos/OA.jpg",
+                    width: 100
+                },
+                waitTime: { hours :0, mins :0, total:0},
+                durationTime: { hours :0, mins :0}
+            },
+            {
+                segId:2,
+                from: {
+                    iata: 'ATH',
+                    city:'Athens',
+                    name:'Venizelos Arpt',
+                    flyTime: '10:00',
+                    flyTimeGMT: '10:00',
+                    day:'Tues',
+                    date:'15/06/2018'
+                },
+                to: {
+                    iata: 'LHR',
+                    city:'London',
+                    name:'Heathrow Arpt',
+                    flyTime: '09:00',
+                    flyTimeGMT: '09:00',
+                    day:'Tues',
+                    date:'22/06/2018'
+                },
+                airline: "AF,AirFrance",
+                img: {
+                    url: "/logos/AF.png",
+                    width: 100
+                },
+                waitTime: { hours :0, mins :0, total:0},
+                durationTime: { hours :0, mins :0}
+            }
+        ]
     },
     {
         id:1,
@@ -88,7 +146,38 @@ const trip = [
             total:0,
             h:0,
             m: 0
-        }
+        },
+        segments: [
+            {
+                segId:1,
+                from: {
+                    iata: 'LHR',
+                    city:'London',
+                    name:'Heathrow Arpt',
+                    flyTime: '09:00',
+                    flyTimeGMT: '09:00',
+                    day:'Tues',
+                    date:'22/06/2018'
+                },
+                to: {
+                    iata: 'RHO',
+                    city:'Rhodes',
+                    name:'Diagoras Arpt',
+                    flyTime: '10:00',
+                    flyTimeGMT: '10:00',
+                    day:'Tues',
+                    date:'15/06/2018'
+                },
+                airline: "FR,Ryanair",
+                img: {
+                    url: "/logos/FR.png",
+                    width: 100
+                },
+                waitTime: { hours :0, mins :0, total:0},
+                durationTime: { hours :0, mins :0}
+            }
+        ]
+
     }
 ];
 

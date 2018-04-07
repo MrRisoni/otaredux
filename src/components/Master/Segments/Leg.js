@@ -1,6 +1,7 @@
 import React from 'react';
 import HOCStation from './HOCStation';
 import Airport from './Airport'
+import Segment from './Segment'
 
 
 const Leg = function (props) {
@@ -10,7 +11,11 @@ const Leg = function (props) {
     </div>) : (<div></div>);
 
 
-    let segmentsDiv =(<div></div>);
+
+    let segmentsDiv =[];
+    props.data.segments.forEach( (sg) => {
+       segmentsDiv.push(<Segment data={sg}/>);
+    });
 
     return (
         <div className="Leg">
@@ -58,11 +63,6 @@ const Leg = function (props) {
                             flyTimeGMT={props.data.to.flyTimeGMT}
                             day={props.data.to.day}
                             date={props.data.to.date}/>
-
-
-
-
-
 
                         <div className="col-md-2">
                             <button className="btn btn-sm btn-primary"
