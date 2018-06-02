@@ -18,6 +18,7 @@ import {addAirBagAction,removeAirBagAction,
     changeFlexibleTicketAction,changeBlueRibbonAction} from '../../actions/master/actionsAir';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
+import CabinSelection from "../Ship/CabinSelection";
 
 
 
@@ -97,6 +98,11 @@ class MasterApp extends Component {
                                     editContactHandler={this.props.editContactHandler}/>
                     </div>
                 </div>
+
+
+                { this.props.product === 'ship' &&
+                    <CabinSelection/>
+                }
 
                 { (this.props.product === 'air' || this.props.product === 'ship') &&
                     <div className='row'>
