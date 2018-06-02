@@ -104,13 +104,12 @@ class MasterApp extends Component {
                     <CabinSelection/>
                 }
 
-                { (this.props.product === 'air' || this.props.product === 'ship') &&
-                    <div className='row'>
-                        <div className='col-md-8'>
-                            <MasterPayment paymentMethods={this.props.paymentMethods}/>
-                        </div>
+                <div className='row'>
+                    <div className='col-md-8'>
+                        <MasterPayment paymentMethods={this.props.paymentMethods}/>
                     </div>
-                }
+                </div>
+                
 
 
                 </div>
