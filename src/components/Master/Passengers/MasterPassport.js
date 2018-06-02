@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class MasterPassport extends Component {
     constructor(props) {
         super(props);
         this.state = {
             expires: moment(),
-            minExpiryDate: moment()
+            minExpiryDate: moment(),
+            maxExpiryDate: moment().add(15, 'years'),
         };
 
         this.changeExpiry = this.changeExpiry.bind(this);

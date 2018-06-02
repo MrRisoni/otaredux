@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
+
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
@@ -14,20 +18,35 @@ class MasterPassenger extends Component {
         super(props);
 
         this.state = {
+            ageGroup:'ADT',
             surname: '',
             name: '',
             gender: '',
+            birthDate: moment(),
+            minBirthDate:moment().subtract(150, 'years'),
+            minInfantBirthDate: moment().subtract(2, 'years'),
+            minChildBirthDate: moment().subtract(15, 'years'),
+            minAdultBirthDate: moment().subtract(150, 'years'),
             showSurnameErr: false,
             showNameErr: false
         };
 
         this.editSurname = this.editSurname.bind(this);
         this.editName = this.editName.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleAgeGroupChange = this.handleAgeGroupChange.bind(this);
         this.removeMe = this.removeMe.bind(this);
         this.handleGenderChange = this.handleGenderChange.bind(this);
+        this.changeBirthDate = this.changeBirthDate.bind(this);
 
     }
+
+
+    changeBirthDate(date) {
+        this.setState({
+            birthDate: date
+        });
+    }
+
 
     handleGenderChange(ev)
     {
@@ -42,10 +61,32 @@ class MasterPassenger extends Component {
 
     }
 
-    handleChange(ev)
+    handleAgeGroupChange(ev)
     {
         console.log(this.props.passenger);
         this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
+
+        let minDate = '';
+        switch (ev.target.value)
+        {
+            case 'ADT':
+            case 'STD':
+                minDate = this.state.minAdultBirthDate;
+                break;
+            case 'CNN':
+                minDate = this.state.minChildBirthDate;
+                break;
+            case 'INF':
+                minDate = this.state.minInfantBirthDate;
+                break;
+        }
+
+
+        this.setState({
+            minBirthDate: minDate,
+            ageGroup:ev.target.value
+        });
+
     }
 
     removeMe()
@@ -102,7 +143,7 @@ class MasterPassenger extends Component {
                                 </div>
 
                                 <div className="col-sm-4">
-                                    <select className="form-control" onChange={this.handleChange}>
+                                    <select className="form-control" onChange={this.handleAgeGroupChange}>
                                         <option key="" value="">Select Type</option>
                                         <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
                                         <option key="CNN" value="CNN">Child</option>
@@ -164,8 +205,23 @@ class MasterPassenger extends Component {
                                 </div>
 
 
-
                             </div>
+
+                        {(this.state.ageGroup === 'CNN' || this.state.ageGroup === 'INF') &&
+
+
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <label htmlFor="birthday">Birth Date</label>
+                                        <DatePicker className="form-control"
+                                                    dateFormat="d MMM YYYY"
+                                                    minDate={this.state.minBirthDate}
+                                                    selected={this.state.birthDate}
+                                                    onChange={this.changeBirthDate}
+                                        />
+                                    </div>
+                                </div>
+                            }
 
                             {this.props.product === 'air' &&
                                 <MasterPassport />
