@@ -90,6 +90,7 @@ class MasterPassenger extends Component {
                                         <option key="" value="">Select Type</option>
                                         <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
                                         <option key="CNN" value="CNN">Child</option>
+                                        <option key="INF" value="INF">Infant</option>
                                         {this.props.product === 'ship' &&
                                              <option key="STD" value="STD">Student</option>
                                         }

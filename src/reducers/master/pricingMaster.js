@@ -171,6 +171,9 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                 case 'STD':
                     oldTypeId = 2;
                     break;
+                case 'INF':
+                    oldTypeId = 3;
+                    break;
             }
 
             switch (action.payload.newType) {
@@ -179,6 +182,9 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                     break;
                 case 'STD':
                     newTypeId = 2;
+                    break;
+                case 'INF':
+                    newTypeId = 3;
                     break;
             }
 
