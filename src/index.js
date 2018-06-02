@@ -8,6 +8,7 @@ import {syncHistoryWithStore, routerReducer} from 'react-router-redux'
 import {combineReducers} from 'redux'
 import {Provider} from 'react-redux';
 
+import DefaultLayout from './DefaultLayout';
 
 import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/currencies';
 
@@ -56,19 +57,25 @@ let store = createStore(combineReducers({
 );
 
 
+
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/bus"  render={()=><MasterApp product="bus"/>}/>
-                <Route exact path="/air"  render={()=><MasterApp product="air"/>}/>
-                <Route exact path="/hotel"  render={()=><MasterApp product="hotel"/>}/>
-                <Route exact path="/ship"  render={()=><MasterApp product="ship"/>}/>
-                <Route exact path="/train"  render={()=><MasterApp product="train"/>}/>
+                <DefaultLayout exact path="/" component={Home}/>
+                <DefaultLayout exact path="/air" component={()=><MasterApp product="bus"/>}/>
+                <DefaultLayout exact path="/ship" component={()=><MasterApp product="ship"/>}/>
             </div>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );
 registerServiceWorker();
+
+
+/*
+<Route exact path="/bus"  render={()=><MasterApp product="bus"/>}/>
+<Route exact path="/hotel"  render={()=><MasterApp product="hotel"/>}/>
+<Route exact path="/train"  render={()=><MasterApp product="train"/>}/>
+*/
