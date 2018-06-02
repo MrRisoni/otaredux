@@ -173,6 +173,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     let newPax = pax;
                     newPax.surname = action.payload.surname;
                     newPax.name = action.payload.name;
+                    newPax.gender = action.payload.gender;
                     return {
                         ...pax,
                         ...newPax

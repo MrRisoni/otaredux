@@ -30,7 +30,7 @@ export function editMasterContactAction(contactData) {
     }
 }
 
-export function editMasterPassengerNameAction(paxId, surname, name) {
+export function editMasterPassengerNameAction(paxId, surname, name,gender) {
 
     console.log('edit bus action ' + paxId + ' ' + surname);
     return (dispatch, getState) => {
@@ -40,7 +40,8 @@ export function editMasterPassengerNameAction(paxId, surname, name) {
             payload: {
                 passengerId: paxId,
                 surname: surname,
-                name: name
+                name: name,
+                gender:gender
             }
         });
 
@@ -51,6 +52,7 @@ export function editMasterPassengerNameAction(paxId, surname, name) {
                 passengerId: paxId,
                 surname: surname,
                 name: name,
+                gender:gender,
                 passengers: getState().passengersMasterReducer
             }
         });

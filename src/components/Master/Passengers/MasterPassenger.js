@@ -16,6 +16,7 @@ class MasterPassenger extends Component {
         this.state = {
             surname: '',
             name: '',
+            gender: '',
             showSurnameErr: false,
             showNameErr: false
         };
@@ -24,8 +25,23 @@ class MasterPassenger extends Component {
         this.editName = this.editName.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.removeMe = this.removeMe.bind(this);
+        this.handleGenderChange = this.handleGenderChange.bind(this);
 
     }
+
+    handleGenderChange(ev)
+    {
+        const fieldInput = ev.target.value;
+
+        this.setState({
+            gender: fieldInput
+        });
+
+        this.props.editNameHandler(this.props.passenger.id,this.state.surname,this.state.name,fieldInput);
+
+
+    }
+
     handleChange(ev)
     {
         console.log(this.props.passenger);
@@ -51,7 +67,7 @@ class MasterPassenger extends Component {
         });
 
 
-        this.props.editNameHandler(this.props.passenger.id,fieldInput,this.state.name);
+        this.props.editNameHandler(this.props.passenger.id,fieldInput,this.state.name, this.state.gender);
 
     }
 
@@ -66,7 +82,7 @@ class MasterPassenger extends Component {
             name: fieldInput
         });
 
-        this.props.editNameHandler(this.props.passenger.id,this.state.surname,fieldInput);
+        this.props.editNameHandler(this.props.passenger.id,this.state.surname,fieldInput,this.state.gender);
 
     }
 
@@ -110,10 +126,19 @@ class MasterPassenger extends Component {
                         </div>
 
                         <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
-                            {this.props.passenger.name} {this.props.passenger.surname}
+                            {this.props.passenger.gender} {this.props.passenger.name} {this.props.passenger.surname}
 
 
                             <div className="row">
+
+
+                                <div className="col-sm-3">
+                                    <select className="form-control" onChange={this.handleGenderChange}>
+                                        <option key="" value="">Select Gender</option>
+                                        <option key="M" value="M">Male</option>
+                                        <option key="F" value="F">Female</option>
+                                    </select>
+                                </div>
 
 
                                 <div className="col-sm-5">
@@ -137,6 +162,8 @@ class MasterPassenger extends Component {
                                            msg="Only letters are allowed"/>
 
                                 </div>
+
+
 
                             </div>
 
