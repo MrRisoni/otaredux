@@ -37,6 +37,9 @@ class MasterApp extends Component {
     }
 
     render() {
+        console.log('Master App Render ' + this.props.product);
+        const routeTripData = (this.props.product == 'air')  ? this.props.tripData : this.props.shipTripData;
+
         return (
             <div className='busApp'>
                 <div className='row'>
@@ -44,7 +47,7 @@ class MasterApp extends Component {
                     <div className='col-md-8'>
 
                     <ItineraryData   product={this.props.product}
-                                    tripData={this.props.tripData}/>
+                                    tripData={routeTripData}/>
 
                         <MasterPassengerList
                             product={this.props.product}
@@ -139,6 +142,8 @@ function mapStateToProps(state) {
         boughtMeals: state.purchasedMealsReducer,
         segments:state.getLegsReducer,
         tripData:state.airTripReducer,
+        shipSegments:state.getShipLegsReducer,
+        shipTripData:state.shipTripReducer,
         paymentMethods:state.paymentMethodsReducer,
         hasFlexibleTicket:state.hasFlexibleTicketReducer,
         flexibleTicket:state.flexibleTicketReducer,

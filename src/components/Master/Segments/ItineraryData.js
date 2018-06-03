@@ -2,6 +2,14 @@ import React from 'react';
 import Leg from './Leg';
 
 const ItineraryData = function (props) {
+
+    let legsDiv = [ <Leg data={props.tripData[0]}/>];
+
+    if (props.tripData.length>1) {
+        legsDiv.push(<Leg data={props.tripData[1]}/>)
+    }
+
+
     return (
         <div className="segmentsList">
 
@@ -23,9 +31,10 @@ const ItineraryData = function (props) {
                 </div>
             </div>
 
+            {legsDiv}
 
-            <Leg data={props.tripData[0]}/>
-            <Leg data={props.tripData[1]}/>
+
+
 
         </div>
     )

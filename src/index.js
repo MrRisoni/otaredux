@@ -24,6 +24,8 @@ import {getMealsReducer,purchasedMealsReducer} from './reducers/air/mealsAir';
 import {hasFlexibleTicketReducer,flexibleTicketReducer} from './reducers/air/flexibleTicket';
 import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibbon';
 
+import {getShipLegsReducer,shipTripReducer} from './reducers/ship/itineraryShip';
+
 
 import './index.css';
 import MasterApp from './components/Master/MasterApp';
@@ -51,6 +53,8 @@ let store = createStore(combineReducers({
         flexibleTicketReducer,
         hasBlueRibbonReducer,
         getBlueRibbonReducer,
+        getShipLegsReducer,
+        shipTripReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
@@ -64,7 +68,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <DefaultLayout exact path="/" component={Home}/>
-                <DefaultLayout exact path="/air" component={()=><MasterApp product="bus"/>}/>
+                <DefaultLayout exact path="/air" component={()=><MasterApp product="air"/>}/>
                 <DefaultLayout exact path="/ship" component={()=><MasterApp product="ship"/>}/>
             </div>
         </BrowserRouter>
