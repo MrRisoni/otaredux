@@ -25,7 +25,7 @@ import {hasFlexibleTicketReducer,flexibleTicketReducer} from './reducers/air/fle
 import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibbon';
 
 import {getShipLegsReducer,shipTripReducer} from './reducers/ship/itineraryShip';
-
+import {cabinsReducer} from './reducers/ship/cabins';
 
 import './index.css';
 import MasterApp from './components/Master/MasterApp';
@@ -55,6 +55,7 @@ let store = createStore(combineReducers({
         getBlueRibbonReducer,
         getShipLegsReducer,
         shipTripReducer,
+        cabinsReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),

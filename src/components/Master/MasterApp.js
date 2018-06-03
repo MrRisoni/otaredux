@@ -94,6 +94,18 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
+                { this.props.product === 'ship' &&
+                    <div className='row'>
+                        <div className='col-md-8'>
+                            <CabinSelection
+                                tripData={routeTripData}
+                                passengers={this.props.passengers}
+                                cabins={this.props.cabins}
+                            />
+                        </div>
+                    </div>
+                }
+
 
                 <div className='row'>
                     <div className='col-md-8'>
@@ -103,9 +115,7 @@ class MasterApp extends Component {
                 </div>
 
 
-                { this.props.product === 'ship' &&
-                    <CabinSelection/>
-                }
+
 
                 <div className='row'>
                     <div className='col-md-8'>
@@ -149,6 +159,7 @@ function mapStateToProps(state) {
         flexibleTicket:state.flexibleTicketReducer,
         hasBlueRibbon: state.hasBlueRibbonReducer,
         blueRibbonPrices: state.getBlueRibbonReducer,
+        cabins:state.cabinsReducer,
     }
 }
 
