@@ -3,7 +3,7 @@ import React from 'react';
 const CabinPerPax = function (props) {
     return (
         <div className="row cabinPaxSelection">
-            <div className="col-7"> {props.pax.gender} {props.pax.surname} {props.pax.name}  </div>
+            <div className="col-7"> {props.pax.humanId} {props.pax.gender} {props.pax.surname} {props.pax.name}  </div>
 
             <div className="col-5">
                 <select className="form-control">

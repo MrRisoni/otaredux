@@ -5,11 +5,12 @@ class CabinPerLeg extends Component {
     render() {
         return (
             <div>
-                    {this.props.passengers.map( pax => {
-
-                        return (<CabinPerPax pax={pax}
-                                             cabins={this.props.cabins}/>)
-                    })}
+                {this.props.passengers.filter( pax => {
+                    return pax.active === true;
+                }).map( pax => {
+                    return (<CabinPerPax pax={pax}
+                                            cabins={this.props.cabins}/>)
+                })}
             </div>)
     }
 }
