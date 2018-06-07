@@ -29,7 +29,7 @@ const MasterPassengerList = (props) => {
                                        addBagHandler={props.addBagHandler}
                                        removeBagHandler={props.removeBagHandler}
                                        selectInsuranceHandler={props.selectInsuranceHandler}
-                                       addMealHandler={props.addMealHandler}  />)
+                                       addMealHandler={props.addMealHandler} />)
         }
     });
 

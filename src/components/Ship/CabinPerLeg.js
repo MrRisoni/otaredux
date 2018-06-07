@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CabinPerPax from "./CabinPerPax";
+import CabinPerPax from './CabinPerPax';
 
 class CabinPerLeg extends Component {
     render() {
@@ -9,7 +9,8 @@ class CabinPerLeg extends Component {
                     return pax.active === true;
                 }).map( pax => {
                     return (<CabinPerPax pax={pax}
-                                            cabins={this.props.cabins}/>)
+                                         selectCabinHandler={this.props.selectCabinHandler}
+                                         cabins={this.props.cabins}/>)
                 })}
             </div>)
     }

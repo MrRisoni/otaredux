@@ -16,9 +16,12 @@ import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
     changeFlexibleTicketAction,changeBlueRibbonAction} from '../../actions/master/actionsAir';
+
+import {selectCabinAction} from '../../actions/master/actionsShip';
+
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
-import CabinSelection from "../Ship/CabinSelection";
+import CabinSelection from '../Ship/CabinSelection';
 
 
 
@@ -98,6 +101,7 @@ class MasterApp extends Component {
                     <div className='row'>
                         <div className='col-md-8'>
                             <CabinSelection
+                                selectCabinHandler={this.props.selectCabinHandler}
                                 tripData={routeTripData}
                                 passengers={this.props.passengers}
                                 cabins={this.props.cabins}
@@ -160,6 +164,7 @@ function mapStateToProps(state) {
         hasBlueRibbon: state.hasBlueRibbonReducer,
         blueRibbonPrices: state.getBlueRibbonReducer,
         cabins:state.cabinsReducer,
+        cabinSelection:state.cabinSelectionReducer
     }
 }
 
@@ -176,7 +181,8 @@ function matchDispatchToProps(dispatch) {
         selectInsuranceHandler:changeAirInsuranceAction,
         addMealHandler:addMealAction,
         changeFlexibleTicketHandler:changeFlexibleTicketAction,
-        changeBlueRibbonHandler:changeBlueRibbonAction
+        changeBlueRibbonHandler:changeBlueRibbonAction,
+        selectCabinHandler:selectCabinAction
     }, dispatch);
 }
 

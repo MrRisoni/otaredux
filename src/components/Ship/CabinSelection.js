@@ -4,12 +4,14 @@ import CabinPerLeg from './CabinPerLeg';
 const CabinSelection = function (props) {
 
     let legsDiv = [<CabinPerLeg trip={props.tripData[0]}
+                                selectCabinHandler={props.selectCabinHandler}
                                 passengers={props.passengers}
                                 cabins={props.cabins}
                     />];
 
     if (props.tripData.CabinPerLeg > 1) {
         legsDiv.push(<CabinPerLeg trip={props.tripData[1]}
+                                  selectCabinHandler={props.selectCabinHandler}
                                   passengers={props.passengers}
                                   cabins={props.cabins}/>)
     }
