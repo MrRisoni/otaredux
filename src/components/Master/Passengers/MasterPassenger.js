@@ -10,6 +10,7 @@ import MasterPassport from "./MasterPassport";
 import Insurance from './InsuranceAir/Insurance';
 import BagComponent from './BagsAir/BagComponent';
 import MealsComponent from './MealsAir/MealsComponent';
+import MilesCards from './MilesAir/MilesCards';
 
 
 class MasterPassenger extends Component {
@@ -207,24 +208,27 @@ class MasterPassenger extends Component {
 
                             </div>
 
-                        {(this.state.ageGroup === 'CNN' || this.state.ageGroup === 'INF') &&
 
 
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <label htmlFor="birthday">Birth Date</label>
-                                        <DatePicker className="form-control"
-                                                    dateFormat="d MMM YYYY"
-                                                    minDate={this.state.minBirthDate}
-                                                    selected={this.state.birthDate}
-                                                    onChange={this.changeBirthDate}
-                                        />
-                                    </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <label htmlFor="birthday">Birth Date</label>
+                                    <DatePicker className="form-control"
+                                                dateFormat="d MMM YYYY"
+                                                minDate={this.state.minBirthDate}
+                                                selected={this.state.birthDate}
+                                                onChange={this.changeBirthDate}
+                                    />
                                 </div>
-                            }
+                            </div>
+
 
                             {this.props.product === 'air' &&
                                 <MasterPassport />
+                            }
+
+                            {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN' && this.props.product === 'air') &&
+                                <MilesCards  carrierList={this.props.carrierList}/>
                             }
 
                             {this.props.product === 'air' &&
@@ -238,21 +242,28 @@ class MasterPassenger extends Component {
                                         insurances={this.props.insurances}
                                         selectInsuranceHandler={this.props.selectInsuranceHandler}/>
 
-                                    <BagComponent   paxId={this.props.passenger.id}
-                                                    currency={this.props.currency}
-                                                    purchasedBags={this.props.purchasedBags}
-                                                    bagsAir={this.props.bagsAir}
-                                                    blueRibbon={this.props.blueRibbon}
-                                                    addBagHandler={this.props.addBagHandler}
-                                                    removeBagHandler={this.props.removeBagHandler}/>
+                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
 
-                                    <MealsComponent paxId={this.props.passenger.id}
+
+                                        <BagComponent paxId={this.props.passenger.id}
+                                                  currency={this.props.currency}
+                                                  purchasedBags={this.props.purchasedBags}
+                                                  bagsAir={this.props.bagsAir}
+                                                  blueRibbon={this.props.blueRibbon}
+                                                  addBagHandler={this.props.addBagHandler}
+                                                  removeBagHandler={this.props.removeBagHandler}/>
+                                    }
+
+                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+
+                                        <MealsComponent paxId={this.props.passenger.id}
                                                     currency={this.props.currency}
                                                     boughtMeals={this.props.boughtMeals}
                                                     mealOptions={this.props.mealOptions}
                                                     addMealHandler={this.props.addMealHandler}
-                                                    segments={this.props.segments} />
+                                                    segments={this.props.segments}/>
 
+                                    }
 
 
                                 </div>

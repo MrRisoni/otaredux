@@ -67,6 +67,7 @@ class MasterApp extends Component {
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
+                            carrierList={this.props.carrierList}
                             bagsAir={this.props.bagsAir}
                             purchasedBags={this.props.purchasedBags}
                             mealOptions={this.props.mealOptions}
@@ -141,6 +142,7 @@ function mapStateToProps(state) {
 
     return {
         passengers: state.passengersMasterReducer,
+        carrierList: state.uniqueCarriersReducer,
         currency: state.currentCurrencyReducer,
         pricing:  {
             total: state.pricingMasterReducer,

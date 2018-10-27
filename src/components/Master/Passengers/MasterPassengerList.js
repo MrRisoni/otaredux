@@ -17,6 +17,7 @@ const MasterPassengerList = (props) => {
                                        product={props.product}
                                        insurances={props.insurances}
                                        bagsAir={props.bagsAir}
+                                       carrierList={props.carrierList}
                                        purchasedBags={props.purchasedBags}
                                        blueRibbon={props.blueRibbon}
                                        mealOptions={props.mealOptions}
@@ -85,7 +86,7 @@ const MasterPassengerList = (props) => {
                          blueRibbonPrices={props.blueRibbonPrices}/>
         }
 
-        
+
         {props.product === 'air' &&
              <Preseat/>
         }

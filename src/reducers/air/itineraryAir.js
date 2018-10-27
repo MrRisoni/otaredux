@@ -1,5 +1,9 @@
 
-
+const uniqueCarriers = [
+    {code:'OA',name:'Olympic Air'},
+    {code:'AF',name:'Air France'},
+    {code:'FR',name:'Ryanair'}
+    ];
 
 const legs = [
     {
@@ -7,21 +11,21 @@ const legs = [
         from:'Rhodes',
         to:'Athens',
         legId: 0,
-        carrier: 'FR'
+        carrier: 'OA'
     },
     {
         id:1,
         from:'Athens',
         to:'Dublin',
         legId: 0,
-        carrier: 'BA'
+        carrier: 'AF'
     },
     {
         id:2,
         from:'Dublin',
         to:'Rhodes',
         legId: 1,
-        carrier: 'U2'
+        carrier: 'FR'
     }
 ];
 
@@ -190,5 +194,10 @@ export function airTripReducer(state = trip, action) {
 
 
 export function getLegsReducer(state = legs, action) {
+    return state;
+}
+
+
+export function uniqueCarriersReducer(state = uniqueCarriers, action) {
     return state;
 }
