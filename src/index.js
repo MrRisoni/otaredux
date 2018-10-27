@@ -31,7 +31,6 @@ import {cabinSelectionReducer} from './reducers/ship/cabinSelection';
 import './index.css';
 import MasterApp from './components/Master/MasterApp';
 
-import Home from './components/Common/Home';
 
 
 let store = createStore(combineReducers({
@@ -70,7 +69,6 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <DefaultLayout exact path="/" component={Home}/>
                 <DefaultLayout exact path="/air" component={()=><MasterApp product="air"/>}/>
                 <DefaultLayout exact path="/ship" component={()=><MasterApp product="ship"/>}/>
             </div>

@@ -85,8 +85,10 @@ const MasterPassengerList = (props) => {
                          blueRibbonPrices={props.blueRibbonPrices}/>
         }
 
-        {/* <Preseat/> */}
-
+        
+        {props.product === 'air' &&
+             <Preseat/>
+        }
 
     </div>);
 
