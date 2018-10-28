@@ -11,6 +11,7 @@ const MealSegment = function (props) {
         dessertsDiv = <MealType type="Dessert"
                                 legId={props.legId}
                                 paxId={props.paxId}
+                                paxData={props.paxData}
                                 currency={props.currency}
                                 data={props.desserts}
                                 addMealHandler={props.addMealHandler}/>
@@ -22,6 +23,7 @@ const MealSegment = function (props) {
         mainCourses = <MealType type="Main Course"
                                 legId={props.legId}
                                 paxId={props.paxId}
+                                paxData={props.paxData}
                                 currency={props.currency}
                                 data={props.mainCourses}
                                 addMealHandler={props.addMealHandler}/>

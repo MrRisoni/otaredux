@@ -24,12 +24,18 @@ class MealSelection extends Component {
 
 
     render() {
+        console.log('Meal selection');
+        console.log(this.props.paxData);
+        console.log(this.props.mealData);
+
         return (
             <select className="form-control" onChange={this.handleClick}>
                 <option key="" value=""></option>
                 {this.props.mealData.map(ml => {
-                    return (<option key={ml.key}
-                        value={ml.id}>{ml.title} {ml.price.toFixed(2)} {this.props.currency.code}</option>)
+                    if (ml.classes.indexOf(this.props.paxData.cabinClass) > -1) {
+                        return (<option key={ml.key}
+                                        value={ml.id}>{ml.title} {ml.price.toFixed(2)} {this.props.currency.code}</option>)
+                    }
                 })}
             </select>
         );

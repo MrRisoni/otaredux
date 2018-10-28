@@ -5,6 +5,9 @@ const MealLeg = function (props) {
 
     let mealSegments = [];
 
+    let isYankee =   (['W','Y'].indexOf(props.paxData.cabinClass) >-1);
+
+
     props.segments.forEach( seg => {
         // for each segment
         let appetizers = [];
@@ -21,8 +24,10 @@ const MealLeg = function (props) {
                    if (meal.type === 'Main') {
                        mainCourses.push(meal);
                    }
-                   if (meal.type === 'Dessert') {
-                       desserts.push(meal);
+                   if (isYankee === false) {
+                       if (meal.type === 'Dessert') {
+                           desserts.push(meal);
+                       }
                    }
                }
            }
@@ -34,6 +39,7 @@ const MealLeg = function (props) {
                                            mainCourses={mainCourses}
                                            desserts={desserts}
                                            segData={segRoute}
+                                           paxData={props.paxData}
                                            key={key}
                                            legId={props.leg}
                                            currency={props.currency}

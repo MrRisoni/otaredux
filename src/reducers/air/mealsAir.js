@@ -9,7 +9,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
-        classes:['W','Y','C','F'],
+        classes:['C','F'],
         title:'Beef wellington'
     },
     {
@@ -20,7 +20,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
-        classes:['W','Y','C','F'],
+        classes:['C','F'],
         title:'Spagheti Bolognese'
     },
     {
@@ -66,6 +66,39 @@ const meals =  [
         type:'Dessert',
         classes:['C','F'],
         title:'Chocolate ice-cream'
+    },
+    {
+        id: 7,
+        carrier:'BA',
+        key:'ge534dhfg7356ewewwewe7777==',
+        price: 5.00,
+        legId:0,
+        route:'Athens-Dublin',
+        type:'Main',
+        classes:['W','Y'],
+        title:'Vegeterian'
+    },
+    {
+        id: 8,
+        carrier:'BA',
+        key:'ge534dhfg7356ewsdsdsdswewe7777==',
+        price: 5.00,
+        legId:0,
+        route:'Athens-Dublin',
+        type:'Main',
+        classes:['W','Y'],
+        title:'Vegan'
+    },
+    {
+        id: 9,
+        carrier:'BA',
+        key:'ge534dhfg7356ffdfddfdewsdsdsdswewe7777==',
+        price: 5.00,
+        legId:0,
+        route:'Athens-Dublin',
+        type:'Main',
+        classes:['W','Y'],
+        title:'Muslim'
     }
 ];
 
