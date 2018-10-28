@@ -194,7 +194,6 @@ class MasterPassenger extends Component {
                         </div>
 
                         <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
-                            {this.props.passenger.gender} {this.props.passenger.name} {this.props.passenger.surname}
 
 
                             <div className="row">
@@ -208,8 +207,24 @@ class MasterPassenger extends Component {
                                     </select>
                                 </div>
 
+                                <div className="col-sm-6">
+                                    <DatePicker className="form-control"
+                                                dateFormat="d MMM YYYY"
+                                                minDate={this.state.minBirthDate}
+                                                selected={this.state.birthDate}
+                                                onChange={this.changeBirthDate}
+                                    />
+                                </div>
 
-                                <div className="col-sm-5">
+
+                            </div>
+
+
+                            <div className="row">
+
+                                <br/>
+
+                                <div className="col-sm-6">
                                     <input type="text" placeholder="Surname"
                                            id={`#paxSurname${this.props.passenger.id}`}
                                            value={this.state.surname}
@@ -221,7 +236,7 @@ class MasterPassenger extends Component {
                                 </div>
 
 
-                                <div className="col-sm-3">
+                                <div className="col-sm-5">
                                     <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
                                            value={this.state.name}
                                            onChange={this.editName} className="form-control"/>
@@ -234,19 +249,6 @@ class MasterPassenger extends Component {
 
                             </div>
 
-
-
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <label htmlFor="birthday">Birth Date</label>
-                                    <DatePicker className="form-control"
-                                                dateFormat="d MMM YYYY"
-                                                minDate={this.state.minBirthDate}
-                                                selected={this.state.birthDate}
-                                                onChange={this.changeBirthDate}
-                                    />
-                                </div>
-                            </div>
 
 
                             {this.props.product === 'air' &&

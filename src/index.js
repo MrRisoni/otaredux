@@ -79,10 +79,3 @@ ReactDOM.render(
     document.getElementById('root')
 );
 registerServiceWorker();
-
-
-/*
-<Route exact path="/bus"  render={()=><MasterApp product="bus"/>}/>
-<Route exact path="/hotel"  render={()=><MasterApp product="hotel"/>}/>
-<Route exact path="/train"  render={()=><MasterApp product="train"/>}/>
-*/

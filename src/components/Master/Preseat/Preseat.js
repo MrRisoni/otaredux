@@ -53,7 +53,7 @@ class Preseat extends Component {
             <div className="row contactDetails">
                 <div className="col-md-12">
                     <div className="card">
-                        <div className="card-header  bg-primary">Select your Seat</div>
+                        <div className="card-header  bg-info">Select your Seat</div>
                         <div className="card-body">
 
                             <div className="row preSeatPaxSelector">
@@ -74,38 +74,6 @@ class Preseat extends Component {
 
 
                                             <button className="btn btn-sm btn-success" onClick={this.handleNextPax}>
-                                                <FontAwesome
-                                                    className='fa fa-forward'
-                                                    name='forward'
-                                                    size='lg'
-                                                    style={{textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'}}
-                                                />
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="row preSeatPaxSelector">
-
-                                <div className="col-md-12">
-                                    <div className="card">
-                                        <div className="card-header  bg-primary">Select Leg</div>
-                                        <div className="card-body">
-
-                                            <button className="btn btn-sm btn-success" onClick={this.handlePrevLeg}>
-                                                <FontAwesome
-                                                    className='fa fa-backward'
-                                                    name='forward'
-                                                    size='lg'
-                                                    style={{textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'}}
-                                                />
-                                            </button>
-
-
-                                            <button className="btn btn-sm btn-success" onClick={this.handleNextLeg}>
                                                 <FontAwesome
                                                     className='fa fa-forward'
                                                     name='forward'

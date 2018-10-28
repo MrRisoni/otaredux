@@ -20,10 +20,10 @@ class SeatButton extends Component {
         if (this.props.isAvailable) {
             // clear other classes for that leg...
             this.setState({seatClassName: 'seatChosen seatButton col-md-1'});
-            this.props.otastore.selectSeat({
+            /*this.props.otastore.selectSeat({
                 seat: this.props.seatID,
                 paxId: 0
-            });
+            });*/
         }
 
     }

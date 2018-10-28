@@ -20,6 +20,7 @@ change meals bag prices according to class
 CHANGE_PASSENGER_AIR_CABIN Reducer
 
 max number of bags
+Redux async actions
 
 Heroku push
 
