@@ -9,7 +9,7 @@ import ItineraryData from './Segments/ItineraryData';
 
 
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
-    changeMasterPassengerAction,removeMasterPassengerAction
+    changeMasterPassengerAction,removeMasterPassengerAction,changeAirCabinClassPassengerAction
     } from '../../actions/master/actionsMaster';
 
 import {addAirBagAction,removeAirBagAction,
@@ -57,6 +57,7 @@ class MasterApp extends Component {
                             addPaxHandler={this.props.addPaxHandler}
                             removePaxHandler={this.props.removePaxHandler}
                             editPaxHandler={this.props.editPaxHandler}
+                            changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
                             editNameHandler={this.props.editPaxNameHandler}
                             addBagHandler={this.props.addBagHandler}
                             removeBagHandler={this.props.removeBagHandler}
@@ -175,6 +176,7 @@ function matchDispatchToProps(dispatch) {
         addPaxHandler: addMasterPassengerAction,
         removePaxHandler:removeMasterPassengerAction,
         editPaxHandler:changeMasterPassengerAction,
+        changePaxCabinClassHandler:changeAirCabinClassPassengerAction,
         firstLoad: firstLoadMasterAction,
         editPaxNameHandler: editMasterPassengerNameAction,
         editContactHandler: editMasterContactAction,

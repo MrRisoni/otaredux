@@ -3,7 +3,7 @@ import update from 'immutability-helper';
 import {
     ADD_PASSENGER_MASTER, FIRST_LOAD_MASTER,
     CHANGE_PASSENGER_MASTER,
-    REMOVE_PASSENGER_MASTER, PASSENGER_ARRAY_CHANGED
+    REMOVE_PASSENGER_MASTER, PASSENGER_ARRAY_CHANGED, CHANGE_PASSENGER_AIR_CABIN
 } from '../../actions/master/actionsMaster';
 
 import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
@@ -14,21 +14,64 @@ const totalPrice = 5;
 const paxTypes = [
     {
         type:'ADT',
-        ticketPriceEuro: 45,
+        cabinClass:'Y',
+        ticketPriceEuro: 145,
         fareEuro:0,
         taxEuro:0,
         count:1
     },
     {
+        type:'ADT',
+        cabinClass:'W',
+        ticketPriceEuro: 180,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
+    {
+        type:'ADT',
+        cabinClass:'C',
+        ticketPriceEuro: 200,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
+    {
+        type:'ADT',
+        cabinClass:'F',
+        ticketPriceEuro: 250,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
+    {
         type:'CNN',
+        cabinClass:'Y',
         ticketPriceEuro: 10,
         fareEuro:0,
         taxEuro:0,
         count:0
     },
     {
-        type:'STD',
-        ticketPriceEuro: 27,
+        type:'CNN',
+        cabinClass:'W',
+        ticketPriceEuro: 10,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
+    {
+        type:'CNN',
+        cabinClass:'C',
+        ticketPriceEuro: 10,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
+    {
+        type:'CNN',
+        cabinClass:'F',
+        ticketPriceEuro: 10,
         fareEuro:0,
         taxEuro:0,
         count:0
@@ -39,7 +82,14 @@ const paxTypes = [
         fareEuro:0,
         taxEuro:0,
         count:0
-    }
+    },
+    {
+        type:'STD',
+        ticketPriceEuro: 5,
+        fareEuro:0,
+        taxEuro:0,
+        count:0
+    },
 ];
 
 export function pricingMasterReducer(state = totalPrice, action) {

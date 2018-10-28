@@ -11,6 +11,7 @@ export const EDIT_NAME_PASSENGER_MASTER = 'EDIT_NAME_PASSENGER_MASTER';
 export const EDITED_NAME_PASSENGER_MASTER = 'EDITED_NAME_PASSENGER_MASTER';
 export const EDIT_CONTACT_PASSENGER_MASTER = 'EDIT_CONTACT_PASSENGER_MASTER';
 export const PASSENGER_ARRAY_CHANGED = 'PASSENGER_ARRAY_CHANGED';
+export const CHANGE_PASSENGER_AIR_CABIN = 'CHANGE_PASSENGER_AIR_CABIN';
 
 
 
@@ -57,6 +58,24 @@ export function editMasterPassengerNameAction(paxId, surname, name,gender) {
             }
         });
 
+    }
+}
+
+
+export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxage ='ADT') {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: CHANGE_PASSENGER_AIR_CABIN,
+            payload: {
+                paxAge: paxage,
+                passengerId: paxId,
+                newClass: newClass,
+                oldClass: oldClass
+            }
+        });
+
+        dispatch(upsalesDispatcher(getState,PASSENGER_ARRAY_CHANGED));
     }
 }
 

@@ -4,17 +4,23 @@ import BagSelection from './BagSelection';
 const BagLeg = function (props) {
 
     let bagArray = [];
+    console.log('Props BagLeg');
 
+    console.log(props);
     props.bagsAir.forEach( bag => {
 
-        bagArray.push(<BagSelection bagData={bag}
-                                    key={bag.key}
-                                    legId={props.leg}
-                                    currency={props.currency}
-                                    purchasedBags={props.purchasedBags}
-                                    paxId={props.paxId}
-                                    addBagHandler={props.addBagHandler}
-                                    removeBagHandler={props.removeBagHandler}/>);
+        console.log(bag);
+        if (bag.classes.indexOf(props.paxData.cabinClass) > -1) {
+
+            bagArray.push(<BagSelection bagData={bag}
+                                        key={bag.key}
+                                        legId={props.leg}
+                                        currency={props.currency}
+                                        purchasedBags={props.purchasedBags}
+                                        paxId={props.paxId}
+                                        addBagHandler={props.addBagHandler}
+                                        removeBagHandler={props.removeBagHandler}/>);
+        }
 
     });
 

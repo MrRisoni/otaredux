@@ -1,6 +1,5 @@
 import React from 'react';
-import BagLeg from "./BagLeg";
-import BlueRibbon from '../BlueRibbon';
+import BagLeg from './BagLeg';
 
 
 const BagComponent = function (props) {
@@ -47,6 +46,7 @@ const BagComponent = function (props) {
                                 bagsAir={props.bagsAir}
                                 purchasedBags={props.purchasedBags}
                                 currency={props.currency}
+                                paxData={props.paxData}
                                 paxId={props.paxId}
                                 addBagHandler={props.addBagHandler}
                                 removeBagHandler={props.removeBagHandler}/>
@@ -58,6 +58,7 @@ const BagComponent = function (props) {
                                 bagsAir={props.bagsAir}
                                 purchasedBags={props.purchasedBags}
                                 currency={props.currency}
+                                paxData={props.paxData}
                                 paxId={props.paxId}
                                 addBagHandler={props.addBagHandler}
                                 removeBagHandler={props.removeBagHandler}/>

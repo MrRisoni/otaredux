@@ -1,7 +1,9 @@
-import {ADD_PASSENGER_MASTER,REMOVE_PASSENGER_MASTER,CHANGE_PASSENGER_MASTER,
+import {
+    ADD_PASSENGER_MASTER, REMOVE_PASSENGER_MASTER, CHANGE_PASSENGER_MASTER,
     EDIT_CONTACT_PASSENGER_MASTER,
     EDITED_NAME_PASSENGER_MASTER, EDIT_NAME_PASSENGER_MASTER,
-    PASSENGER_ARRAY_CHANGED} from '../../actions/master/actionsMaster';
+    PASSENGER_ARRAY_CHANGED, CHANGE_PASSENGER_AIR_CABIN
+} from '../../actions/master/actionsMaster';
 
 import {ADD_BAG_AIR,REMOVE_BAG_AIR}  from '../../actions/master/actionsAir';
 
@@ -11,6 +13,7 @@ const passengers = [
         humanId:1,
         active:true,
         type: 'ADT',
+        cabinClass: 'Y',
         name: '',
         surname:'',
         gender:'',
@@ -113,6 +116,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     humanId:maxHumanId,
                     active:true,
                     type: 'ADT',
+                    cabinClass: 'Y',
                     name: '',
                     surname:'',
                     gender:'',
@@ -165,6 +169,21 @@ export function passengersMasterReducer(state = passengers, action) {
                else {
                    return pax;
                }
+            });
+        case CHANGE_PASSENGER_AIR_CABIN:
+            console.log(action.payload);
+            return state.map( (pax, index) => {
+                if (index == action.payload.passengerId) {
+                    let newPax = pax;
+                    newPax.cabinClass = action.payload.newClass;
+                    return {
+                        ...pax,
+                        ...newPax
+                    }
+                }
+                else {
+                    return pax;
+                }
             });
         case  EDIT_NAME_PASSENGER_MASTER:
             console.log(action.payload);

@@ -34,7 +34,7 @@ class Insurance extends Component {
                     <div className="row">
 
 
-                        <div className="col-md-5">
+                        <div className="col-md-6">
                             Select an Insurance
                         </div>
                         <div className="col-md-2">

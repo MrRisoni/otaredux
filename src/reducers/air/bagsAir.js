@@ -6,18 +6,30 @@ const bagAllowance =  [
         key:'xfRGRTR3445dd',
         weight: '20kg',
         dimensions :'',
-        type: 'ADT',
+        type: ['ADT','CNN'],
+        classes:['W','Y','C','F'],
         price: 18.00,
         priceEuro:18.00
     },
     {
         id: 2,
-        key:'xfsfgrdtrtXFS',
+        key:'xfsfgrdtrtXFSCFGnotY',
         weight: '25kg',
         dimensions :'',
-        type: 'ADT',
+        type: ['ADT','CNN'],
+        classes:['W','C','F'],
         price: 25.00,
         priceEuro:25.00
+    },
+    {
+        id: 3,
+        key:'xfsfgrdtrtWCFXFS',
+        weight: '30kg',
+        dimensions :'',
+        type: ['ADT'],
+        classes:['C','F'],
+        price: 35.00,
+        priceEuro:35.00
     }
 ];
 

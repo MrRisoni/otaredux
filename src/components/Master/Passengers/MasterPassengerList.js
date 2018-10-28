@@ -25,6 +25,7 @@ const MasterPassengerList = (props) => {
                                        segments={props.segments}
                                        currency={props.currency}
                                        editPaxHandler={props.editPaxHandler}
+                                       changePaxCabinClassHandler={props.changePaxCabinClassHandler}
                                        editNameHandler={props.editNameHandler}
                                        removePaxHandler={props.removePaxHandler}
                                        addBagHandler={props.addBagHandler}

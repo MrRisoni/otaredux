@@ -9,6 +9,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
+        classes:['W','Y','C','F'],
         title:'Beef wellington'
     },
     {
@@ -19,6 +20,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
+        classes:['W','Y','C','F'],
         title:'Spagheti Bolognese'
     },
     {
@@ -29,6 +31,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
+        classes:['C','F'],
         title:'Risotto al frutti di mare'
     },
     {
@@ -39,6 +42,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Main',
+        classes:['C','F'],
         title:'Beef Stroganov'
     },
     {
@@ -49,6 +53,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Dessert',
+        classes:['C','F'],
         title:'Schwarzwälder Kirschtorte'
     },
     {
@@ -59,6 +64,7 @@ const meals =  [
         legId:0,
         route:'Athens-Dublin',
         type:'Dessert',
+        classes:['C','F'],
         title:'Chocolate ice-cream'
     }
 ];

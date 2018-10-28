@@ -6,9 +6,6 @@ TESTS Enzyme !!!
 
 DatePicker with prices
 Hotels
-Search Page and filters
-Fake Result server
-Complete Page tickets
 
 
 fix removal of one bag
@@ -18,4 +15,13 @@ currency change
 
 
 
-miles card
+change meals bag prices according to class
+
+CHANGE_PASSENGER_AIR_CABIN Reducer
+
+max number of bags
+
+Heroku push
+
+
+languages ???

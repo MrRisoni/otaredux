@@ -20,6 +20,7 @@ class MasterPassenger extends Component {
 
         this.state = {
             ageGroup:'ADT',
+            cabinClass:'Y',
             surname: '',
             name: '',
             gender: '',
@@ -38,7 +39,7 @@ class MasterPassenger extends Component {
         this.removeMe = this.removeMe.bind(this);
         this.handleGenderChange = this.handleGenderChange.bind(this);
         this.changeBirthDate = this.changeBirthDate.bind(this);
-
+        this.handleCabinClassChange = this.handleCabinClassChange.bind(this);
     }
 
 
@@ -58,6 +59,20 @@ class MasterPassenger extends Component {
         });
 
         this.props.editNameHandler(this.props.passenger.id,this.state.surname,this.state.name,fieldInput);
+
+
+    }
+
+
+    handleCabinClassChange(ev)
+    {
+
+        this.props.changePaxCabinClassHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
+
+
+        this.setState({
+            cabinClass:ev.target.value
+        });
 
 
     }
@@ -139,7 +154,7 @@ class MasterPassenger extends Component {
 
                             <div className="row">
 
-                                <div className="col-sm-3">
+                                <div className="col-sm-2">
                                     Passenger # {this.props.passenger.humanId}
                                 </div>
 
@@ -155,7 +170,18 @@ class MasterPassenger extends Component {
                                     </select>
                                 </div>
 
-                                <div className="col-sm-2 offset-sm-2">
+
+                                <div className="col-sm-3">
+                                    <select className="form-control" onChange={this.handleCabinClassChange}>
+                                        <option key="Yankee" value="Y">Cabin Class</option>
+                                        <option key="Y" value="Y" selected={'Y' == this.props.passenger.cabinClass}>Economy</option>
+                                        <option key="W" value="W">Premium Economy</option>
+                                        <option key="C" value="C">Business</option>
+                                        <option key="F" value="F">First Class</option>
+                                    </select>
+                                </div>
+
+                                <div className="col-sm-2 offset-sm-1">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target={`#passengerCollapse${this.props.passenger.id}`} aria-expanded="false"
@@ -247,6 +273,7 @@ class MasterPassenger extends Component {
 
                                         <BagComponent paxId={this.props.passenger.id}
                                                   currency={this.props.currency}
+                                                  paxData={this.props.passenger}
                                                   purchasedBags={this.props.purchasedBags}
                                                   bagsAir={this.props.bagsAir}
                                                   blueRibbon={this.props.blueRibbon}
