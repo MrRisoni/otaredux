@@ -18,7 +18,6 @@ class Insurance extends Component {
         var self = this;
         self.setState({checkedInsurance: optionId});
 
-        console.log('pax ' + this.props.paxId + ' purchased ' + optionId);
         this.props.selectInsuranceHandler({
             paxId : this.props.paxId,
             insuranceId: optionId

@@ -3,8 +3,6 @@ import MealType from "./MealType";
 
 const MealSegment = function (props) {
 
-    console.log('meals segment');
-    console.log(props);
 
     let dessertsDiv = (<div></div>);
     if (props.desserts.length >0) {

@@ -9,7 +9,6 @@ class BlueRibbon extends Component {
 
     handleSelection(ev)
     {
-        console.log(ev.target.value);
         this.props.changeBlueRibbonHandler( (ev.target.value ==1) );
     }
 

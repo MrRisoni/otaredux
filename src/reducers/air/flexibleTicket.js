@@ -12,8 +12,7 @@ export function hasFlexibleTicketReducer(state= chosenFlexibleTicket, action) {
     switch (action.type)
     {
         case ADD_FLEXIBLE_TICKET:
-            console.log(ADD_FLEXIBLE_TICKET);
-            console.log(action.payload);
+
             return Object.assign({}, state, {
                 state: action.payload
             });

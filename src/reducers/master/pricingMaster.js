@@ -55,7 +55,7 @@ const paxTypes = [
     {
         type:'CNN',
         cabinClass:'W',
-        ticketPriceEuro: 10,
+        ticketPriceEuro: 40,
         fareEuro:0,
         taxEuro:0,
         count:0
@@ -63,7 +63,7 @@ const paxTypes = [
     {
         type:'CNN',
         cabinClass:'C',
-        ticketPriceEuro: 10,
+        ticketPriceEuro: 50,
         fareEuro:0,
         taxEuro:0,
         count:0
@@ -71,7 +71,7 @@ const paxTypes = [
     {
         type:'CNN',
         cabinClass:'F',
-        ticketPriceEuro: 10,
+        ticketPriceEuro: 55,
         fareEuro:0,
         taxEuro:0,
         count:0
@@ -154,6 +154,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
                 total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
             }
 
+            console.log(action.payload);
             action.payload.pricesPerPax.forEach( px => {
                 total += px.ticketPriceEuro * px.count;
             });
@@ -209,43 +210,71 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
 
             });
 
+        case CHANGE_PASSENGER_AIR_CABIN:
+
+            let newClass = action.payload.newClass;
+            let oldClass = action.payload.oldClass;
+            let ageGroup = action.payload.paxAge;
+            console.log('Reducer CHANGE_PASSENGER_AIR_CABIN');
+            console.log(state);
+            console.log('foo');
+            return state.map( (item, index) => {
+                console.log('Examining item ');
+                console.log(item);
+                if ((item.cabinClass !== oldClass) && (item.type !== ageGroup) ) {
+                    // This isn't the item we care about - keep it as-is
+                    return item;
+                }
+                else {
+                    if (item.cabinClass === oldClass) {
+                        var oldItem = item;
+                        oldItem.count--;
+                        if (oldItem.count <0) {
+                            oldItem.count =0;
+                        }
+
+                        return {
+                            ...item,
+                            ...oldItem
+                        };
+                    }
+
+
+                    if (item.cabinClass === newClass) {
+                        var newItem = item;
+                        newItem.count++;
+
+                        return {
+                            ...item,
+                            ...newItem
+                        }
+                    }
+                }
+
+            });
+
 
         case CHANGE_PASSENGER_MASTER:
 
-            let newTypeId = 0;
-            let oldTypeId = 0;
-            switch (action.payload.oldType) {
-                case 'CNN':
-                    oldTypeId = 1;
-                    break;
-                case 'STD':
-                    oldTypeId = 2;
-                    break;
-                case 'INF':
-                    oldTypeId = 3;
-                    break;
-            }
+            console.log('Reducer CHANGE_PASSENGER_MASTER');
+            console.log(action.payload);
 
-            switch (action.payload.newType) {
-                case 'CNN':
-                    newTypeId = 1;
-                    break;
-                case 'STD':
-                    newTypeId = 2;
-                    break;
-                case 'INF':
-                    newTypeId = 3;
-                    break;
-            }
+            let newTypeId = action.payload.newType;
+            let oldTypeId = action.payload.oldType;
+            let cabin = action.payload.cabin;
 
             return state.map( (item, index) => {
 
-                if ((index !== oldTypeId) && (index !== newTypeId)) {
+                console.log('Loop item');
+                console.log(item);
+                if ((item.type !== oldTypeId)) {
                     // This isn't the item we care about - keep it as-is
                     return item;
                 }
 
-                if (index === oldTypeId) {
+                if ((item.type === oldTypeId) && (item.cabinClass == cabin)) {
+                    console.log('matched old ' + item);
+                    console.log(item);
                     // Otherwise, this is the one we want - return an updated value
                     var oldItem = item;
                     oldItem.count--;
@@ -259,7 +288,9 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                     };
                 }
 
-                if (index === newTypeId) {
+                if ((item.type == newTypeId) && (item.cabinClass == cabin)) {
+                    console.log('matched new' + item);
+                    console.log(item);
                     // Otherwise, this is the one we want - return an updated value
                     var newItem = item;
                     newItem.count++;

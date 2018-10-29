@@ -14,9 +14,7 @@ class SeatButton extends Component {
 
     handleClick()
     {
-        console.log('---------');
-        console.log("Click seat " + this.props.seatID );
-        console.log("rowID " + this.props.rowID );
+
         if (this.props.isAvailable) {
             // clear other classes for that leg...
             this.setState({seatClassName: 'seatChosen seatButton col-md-1'});

@@ -23,10 +23,6 @@ export function getCurrenciesReducer(state = currencies, action) {
 
 
 export function currentCurrencyReducer(state = currentCurrency, action) {
-    console.log('currentCurrencyReducer');
-    console.log(action.type);
-    console.log(action.payload);
-
 
 
 

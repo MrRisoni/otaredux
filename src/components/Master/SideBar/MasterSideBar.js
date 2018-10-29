@@ -6,8 +6,6 @@ import SideBarPersonUpsale from './SideBarPersonUpsale';
 const MasterSideBar = (props) => {
 
     let paxPrices = [];
-    console.log('sidebar meals ');
-    console.log(props.boughtMeals);
     let activePaxCount =0;
 
     props.pricing.analysis.forEach( paxType => {

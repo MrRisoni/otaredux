@@ -108,8 +108,8 @@ const boughtPaxMeals = [];
 
 
 export function purchasedMealsReducer(state= boughtPaxMeals, action) {
-    console.log('purchasedMealsReducer');
-    console.log(action);
+
+
     switch (action.type) {
         case ADD_MEAL_AIR:
             return [

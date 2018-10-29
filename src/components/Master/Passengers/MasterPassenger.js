@@ -79,8 +79,7 @@ class MasterPassenger extends Component {
 
     handleAgeGroupChange(ev)
     {
-        console.log(this.props.passenger);
-        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
+        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type,this.props.passenger.cabinClass);
 
         let minDate = '';
         switch (ev.target.value)
@@ -107,7 +106,6 @@ class MasterPassenger extends Component {
 
     removeMe()
     {
-        console.log(this.props.passenger);
         this.props.removePaxHandler(this.props.passenger.id,this.props.passenger.type);
     }
 

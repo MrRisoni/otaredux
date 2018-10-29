@@ -37,20 +37,17 @@ const boughtPaxBags = [];
 
 
 export function purchasedBagsReducer(state= boughtPaxBags, action) {
-    console.log('buy bags anew reducer ' + action.type);
-    console.log(action.payload);
+
 
 
     switch (action.type) {
         case ADD_BAG_AIR:
-            console.log('try to mutate');
             return [
                 ...state,
                action.payload
                 ];
         case REMOVE_BAG_AIR:
-            console.log('remove new bag fired');
-            console.log(action.payload);
+
 
             return state.filter(bag => bag.bagId !== action.payload.bagId);
 

@@ -18,7 +18,6 @@ class Home extends Component {
     }
 
     handleClick() {
-        console.log('clicked text');
     }
 
     render() {

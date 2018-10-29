@@ -34,13 +34,11 @@ class MasterApp extends Component {
 
 
     componentWillMount() {
-        console.log('PROPS ' + this.props.product);
         this.props.firstLoad();
 
     }
 
     render() {
-        console.log('Master App Render ' + this.props.product);
         const routeTripData = (this.props.product == 'air')  ? this.props.tripData : this.props.shipTripData;
 
         return (
@@ -138,7 +136,6 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('master app');
     console.log(state);
 
     return {

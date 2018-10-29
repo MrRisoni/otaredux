@@ -33,7 +33,6 @@ const boughtInsurances = [];
 
 
 export function purchasedInsuranceReducer(state = boughtInsurances, action) {
-    console.log('updating insurances')
     switch (action.type) {
         case PURCHASE_INSURANCE_AIR:
 

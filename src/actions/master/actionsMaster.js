@@ -33,7 +33,6 @@ export function editMasterContactAction(contactData) {
 
 export function editMasterPassengerNameAction(paxId, surname, name,gender) {
 
-    console.log('edit bus action ' + paxId + ' ' + surname);
     return (dispatch, getState) => {
 
         dispatch({
@@ -80,7 +79,7 @@ export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxag
 }
 
 
-export function changeMasterPassengerAction(paxId,newCode,oldCode) {
+export function changeMasterPassengerAction(paxId,newCode,oldCode,cls) {
     return (dispatch, getState) => {
 
         dispatch({
@@ -88,7 +87,8 @@ export function changeMasterPassengerAction(paxId,newCode,oldCode) {
             payload: {
                 passengerId: paxId,
                 newType: newCode,
-                oldType: oldCode
+                oldType: oldCode,
+                cabin:cls
             }
         });
 
@@ -128,7 +128,6 @@ export function addMasterPassengerAction() {
 
 export function firstLoadMasterAction() {
     return (dispatch, getState) => {
-        console.log('first load action');
 
         dispatch({
             type: FIRST_LOAD_MASTER,

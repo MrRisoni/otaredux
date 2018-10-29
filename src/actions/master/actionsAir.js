@@ -73,8 +73,6 @@ export function changeAirInsuranceAction(data) {
 export function addMealAction(data) {
     return (dispatch, getState) => {
 
-        console.log('adding meal action ');
-        console.log(data);
 
         dispatch({
             type: ADD_MEAL_AIR, payload : {

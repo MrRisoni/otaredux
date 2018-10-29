@@ -5,7 +5,6 @@ class MilesCards extends Component {
 
     render() {
 
-        console.log('miles card ' + this.props.carrierList);
         return (
             <div>
                 <br/>

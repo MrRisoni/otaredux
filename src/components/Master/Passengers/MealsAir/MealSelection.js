@@ -10,8 +10,7 @@ class MealSelection extends Component {
 
     handleClick(ev)
     {
-        console.log('meal selection for ' + this.props.legId + ' ' + this.props.paxId );
-        console.log(ev.target.value);
+
 
         this.props.addMealHandler(
             {
@@ -24,9 +23,7 @@ class MealSelection extends Component {
 
 
     render() {
-        console.log('Meal selection');
-        console.log(this.props.paxData);
-        console.log(this.props.mealData);
+
 
         return (
             <select className="form-control" onChange={this.handleClick}>

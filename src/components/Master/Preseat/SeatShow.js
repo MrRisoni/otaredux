@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
 
 
-@inject('otastore')
-@observer
 class SeatShow extends Component {
 
     render() {

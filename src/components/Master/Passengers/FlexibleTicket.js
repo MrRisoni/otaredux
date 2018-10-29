@@ -9,7 +9,6 @@ class FlexibleTicket extends Component {
 
     handleClick(ev)
     {
-        console.log(ev.target.value);
         this.props.changeFlexibleTicketHandler( (ev.target.value ==1) );
     }
 

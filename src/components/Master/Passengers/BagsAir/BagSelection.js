@@ -10,7 +10,6 @@ class BagSelection extends Component {
     }
 
     handleClick() {
-        console.log(' bag click '  + this.props.paxId + ' ' + this.props.bagData.id + ' ' + this.props.legId);
         this.props.addBagHandler({
             paxId : this.props.paxId,
             bagId: this.props.bagData.id,
@@ -20,7 +19,6 @@ class BagSelection extends Component {
 
 
     handleRemove() {
-        console.log(' bag click '  + this.props.paxId + ' ' + this.props.bagData.id + ' ' + this.props.legId);
         this.props.removeBagHandler({
             paxId : this.props.paxId,
             bagId: this.props.bagData.id,
@@ -31,8 +29,6 @@ class BagSelection extends Component {
     render() {
 
         let bagCount =0; // bag count for this passenger
-        console.log('purchased bag for this pax '+ this.props.paxId);
-        console.log(this.props.purchasedBags);
 
         this.props.purchasedBags.forEach( purchasedBag => {
             if (purchasedBag.bagId === this.props.bagData.id) {

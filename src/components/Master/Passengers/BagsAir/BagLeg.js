@@ -4,12 +4,9 @@ import BagSelection from './BagSelection';
 const BagLeg = function (props) {
 
     let bagArray = [];
-    console.log('Props BagLeg');
 
-    console.log(props);
     props.bagsAir.forEach( bag => {
 
-        console.log(bag);
         if (bag.classes.indexOf(props.paxData.cabinClass) > -1) {
 
             bagArray.push(<BagSelection bagData={bag}

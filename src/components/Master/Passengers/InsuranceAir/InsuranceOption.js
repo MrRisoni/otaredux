@@ -8,7 +8,6 @@ class InsuranceOption extends Component {
     }
 
     handleChange() {
-        console.log('Selecting ' + this.props.insData.id);
         this.props.updateOptions(this.props.insData.id)
     }
 
