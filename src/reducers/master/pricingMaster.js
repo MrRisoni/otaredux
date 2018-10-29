@@ -257,29 +257,45 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
         case CHANGE_PASSENGER_MASTER:
 
             console.log('Reducer CHANGE_PASSENGER_MASTER');
-            console.log(action.payload);
+          //  console.log(action.payload);
 
             let newTypeId = action.payload.newType;
             let oldTypeId = action.payload.oldType;
             let cabin = action.payload.cabin;
 
+            console.log(cabin  + ' ' + oldTypeId + ' ' + newTypeId);
+
             return state.map( (item, index) => {
 
                 console.log('Loop item');
                 console.log(item);
-                if ((item.type !== oldTypeId)) {
+
+                var returnSame = false;
+
+                if ((item.type !== oldTypeId) && (item.type !== newTypeId)) {
+                    returnSame = true;
+                }
+
+                if ((item.type === newTypeId) && (item.cabinClass !== cabin)) {
+                    returnSame = true;
+                }
+
+                if ((item.type === oldTypeId) && (item.cabinClass !== cabin)) {
+                    returnSame = true;
+                }
+
+                if (returnSame === true) {
                     // This isn't the item we care about - keep it as-is
                     return item;
                 }
 
-                if ((item.type === oldTypeId) && (item.cabinClass == cabin)) {
+                if ((item.type === oldTypeId) && (item.cabinClass === cabin)) {
                     console.log('matched old ' + item);
-                    console.log(item);
                     // Otherwise, this is the one we want - return an updated value
                     var oldItem = item;
                     oldItem.count--;
-                    if (oldItem.count <0) {
-                        oldItem.count =0;
+                    if (oldItem.count < 0) {
+                        oldItem.count = 0;
                     }
 
                     return {
@@ -288,9 +304,8 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                     };
                 }
 
-                if ((item.type == newTypeId) && (item.cabinClass == cabin)) {
-                    console.log('matched new' + item);
-                    console.log(item);
+                if ((item.type === newTypeId) && (item.cabinClass === cabin)) {
+                        console.log('matched new' + item);
                     // Otherwise, this is the one we want - return an updated value
                     var newItem = item;
                     newItem.count++;
