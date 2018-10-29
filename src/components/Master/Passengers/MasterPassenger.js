@@ -11,6 +11,7 @@ import Insurance from './InsuranceAir/Insurance';
 import BagComponent from './BagsAir/BagComponent';
 import MealsComponent from './MealsAir/MealsComponent';
 import MilesCards from './MilesAir/MilesCards';
+import {CHANGE_PASSENGER_AIR_CABIN} from "../../../actions/master/actionsMaster";
 
 
 class MasterPassenger extends Component {
@@ -67,7 +68,8 @@ class MasterPassenger extends Component {
     handleCabinClassChange(ev)
     {
 
-        this.props.changePaxCabinClassHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
+
+        this.props.changePaxCabinClassHandler(this.props.passenger.id, ev.target.value,this.props.passenger.cabinClass ,this.props.passenger.type);
 
 
         this.setState({
@@ -171,11 +173,12 @@ class MasterPassenger extends Component {
 
                                 <div className="col-sm-3">
                                     <select className="form-control" onChange={this.handleCabinClassChange}>
-                                        <option key="Yankee" value="Y">Cabin Class</option>
                                         <option key="Y" value="Y" selected={'Y' == this.props.passenger.cabinClass}>Economy</option>
-                                        <option key="W" value="W">Premium Economy</option>
-                                        <option key="C" value="C">Business</option>
-                                        <option key="F" value="F">First Class</option>
+
+                                                <option key="W" value="W">Premium Economy</option>
+                                                <option key="C" value="C">Business</option>
+                                                <option key="F" value="F">First Class</option>
+
                                     </select>
                                 </div>
 

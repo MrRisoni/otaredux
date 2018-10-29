@@ -78,6 +78,7 @@ const paxTypes = [
     },
     {
         type:'INF',
+        cabinClass:'Y',
         ticketPriceEuro: 5,
         fareEuro:0,
         taxEuro:0,
@@ -216,40 +217,57 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
             let oldClass = action.payload.oldClass;
             let ageGroup = action.payload.paxAge;
             console.log('Reducer CHANGE_PASSENGER_AIR_CABIN');
-            console.log(state);
-            console.log('foo');
+
+            console.log(newClass + ' ' + oldClass + ' ' + ageGroup);
+
             return state.map( (item, index) => {
-                console.log('Examining item ');
-                console.log(item);
-                if ((item.cabinClass !== oldClass) && (item.type !== ageGroup) ) {
-                    // This isn't the item we care about - keep it as-is
+
+
+
+                var returnSame = true;
+
+
+                if ((item.cabinClass === oldClass) && (item.type === ageGroup)) {
+                    returnSame = false;
+                }
+
+                if ((item.cabinClass === newClass) && (item.type === ageGroup)) {
+                    returnSame = false;
+                }
+
+
+                if (returnSame === true) {
+                    // This isn't the item we care about - keep it as-is//
+                   /* console.log('Retaining ');
+                    console.log(newClass + ' ' + oldClass + ' ' + ageGroup);
+                    console.log(item);*/
                     return item;
                 }
-                else {
-                    if (item.cabinClass === oldClass) {
-                        var oldItem = item;
-                        oldItem.count--;
-                        if (oldItem.count <0) {
-                            oldItem.count =0;
-                        }
 
-                        return {
-                            ...item,
-                            ...oldItem
-                        };
+
+                if ((item.cabinClass === oldClass) && (item.type === ageGroup)) {
+                    var oldItem = item;
+                    oldItem.count--;
+                    if (oldItem.count < 0) {
+                        oldItem.count = 0;
                     }
 
+                    return {
+                        ...item,
+                        ...oldItem
+                    };
+                }
 
-                    if (item.cabinClass === newClass) {
-                        var newItem = item;
-                        newItem.count++;
+                if ((item.cabinClass === newClass) && (item.type === ageGroup)) {
+                    var newItem = item;
+                    newItem.count++;
 
-                        return {
-                            ...item,
-                            ...newItem
-                        }
+                    return {
+                        ...item,
+                        ...newItem
                     }
                 }
+
 
             });
 
