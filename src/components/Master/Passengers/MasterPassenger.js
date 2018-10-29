@@ -175,9 +175,15 @@ class MasterPassenger extends Component {
                                     <select className="form-control" onChange={this.handleCabinClassChange}>
                                         <option key="Y" value="Y" selected={'Y' == this.props.passenger.cabinClass}>Economy</option>
 
-                                                <option key="W" value="W">Premium Economy</option>
-                                                <option key="C" value="C">Business</option>
-                                                <option key="F" value="F">First Class</option>
+                                        {this.props.passenger.type !== 'INF' &&
+                                            <option key="W" value="W">Premium Economy</option>
+                                        }
+                                        {this.props.passenger.type !== 'INF' &&
+                                            <option key="C" value="C">Business</option>
+                                        }
+                                        {this.props.passenger.type !== 'INF' &&
+                                            <option key="F" value="F">First Class</option>
+                                        }
 
                                     </select>
                                 </div>
