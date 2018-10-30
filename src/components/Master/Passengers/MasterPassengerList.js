@@ -89,7 +89,9 @@ const MasterPassengerList = (props) => {
 
 
         {props.product === 'air' &&
-             <Preseat/>
+             <Preseat passengers={props.passengers}
+                      selectSeatHandler={props.selectSeatHandler}
+             />
         }
 
     </div>);

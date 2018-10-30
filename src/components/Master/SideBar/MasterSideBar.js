@@ -30,8 +30,16 @@ const MasterSideBar = (props) => {
     let mealsCount = 0;
     let otherUpsalesCount =0;
 
+    let preSeated = false;
+
     props.passengers.forEach( pax => {
         if (pax.active) {
+
+            if (pax.seat.letter !== '')
+            {
+                preSeated = true;
+            }
+
             activePaxCount++;
             props.bagAllowance.forEach( bag => {
                 let bagCountId = 0;
@@ -156,7 +164,14 @@ const MasterSideBar = (props) => {
             );
     }
 
-
+    if (preSeated === true) {
+        otherUpsalesDiv.push(
+            <SideBarUpsale title="Preaseting"
+                           price={5}
+                currency={props.currency}
+            />
+        );
+    }
 
     return (
         <div className="pricebox">

@@ -10,12 +10,14 @@ import ItineraryData from './Segments/ItineraryData';
 
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
     changeMasterPassengerAction,removeMasterPassengerAction,changeAirCabinClassPassengerAction
+
     } from '../../actions/master/actionsMaster';
 
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
-    changeFlexibleTicketAction,changeBlueRibbonAction} from '../../actions/master/actionsAir';
+    changeFlexibleTicketAction,changeBlueRibbonAction,
+    selectAirSeatAction} from '../../actions/master/actionsAir';
 
 import {selectCabinAction} from '../../actions/master/actionsShip';
 
@@ -63,6 +65,7 @@ class MasterApp extends Component {
                             selectInsuranceHandler={this.props.selectInsuranceHandler}
                             changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
                             changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
+                            selectSeatHandler={this.props.selectSeatHandler}
                             passengers={this.props.passengers}
                             currency={this.props.currency}
                             insurances={this.props.insuranceAir}
@@ -183,7 +186,8 @@ function matchDispatchToProps(dispatch) {
         addMealHandler:addMealAction,
         changeFlexibleTicketHandler:changeFlexibleTicketAction,
         changeBlueRibbonHandler:changeBlueRibbonAction,
-        selectCabinHandler:selectCabinAction
+        selectCabinHandler:selectCabinAction,
+        selectSeatHandler:selectAirSeatAction
     }, dispatch);
 }
 

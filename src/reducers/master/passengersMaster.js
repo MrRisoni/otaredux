@@ -5,7 +5,7 @@ import {
     PASSENGER_ARRAY_CHANGED, CHANGE_PASSENGER_AIR_CABIN
 } from '../../actions/master/actionsMaster';
 
-import {ADD_BAG_AIR,REMOVE_BAG_AIR}  from '../../actions/master/actionsAir';
+import {SELECT_AIR_SEAT}  from '../../actions/master/actionsAir';
 
 const passengers = [
     {
@@ -19,6 +19,7 @@ const passengers = [
         gender:'',
         dob:'',
         milesCard: { company:'',cardNo: ''},
+        seat: {letter:'',number:0},
         passport: {
             issueCountry:'',
             nationality:'',
@@ -121,6 +122,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     surname:'',
                     gender:'',
                     dob:'',
+                    seat: {letter:'',number:0},
                     milesCard: { company:'',cardNo: ''},
                     passport: {
                         issueCountry:'',
@@ -155,6 +157,20 @@ export function passengersMasterReducer(state = passengers, action) {
 
             //return update(state, {$set: newPaxes});
             return newPaxes;
+        case   SELECT_AIR_SEAT:
+            return state.map( (pax, index) => {
+                if (index == action.payload.paxId) {
+                    let newPax = pax;
+                    newPax.seat = {letter:action.payload.letter,number:12};
+                    return {
+                        ...pax,
+                        ...newPax
+                    }
+                }
+                else {
+                    return pax;
+                }
+            });
         case CHANGE_PASSENGER_MASTER:
             console.log(action.payload);
             return state.map( (pax, index) => {

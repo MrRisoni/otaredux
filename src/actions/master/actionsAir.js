@@ -16,6 +16,24 @@ export const ADD_FLEXIBLE_TICKET = 'ADD_FLEXIBLE_TICKET';
 
 export const ADD_BLUE_RIBBON = 'ADD_BLUE_RIBBON';
 
+export const SELECT_AIR_SEAT = 'SELECT_AIR_SEAT';
+
+
+export function selectAirSeatAction(data) {
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: SELECT_AIR_SEAT, payload : {
+                paxId : data.paxId,
+                letter: data.letter,
+                number: data.letter
+            }
+        });
+
+        // after bag is bought , dispatch the updated passenger array
+        dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));
+    }
+}
 
 export function addAirBagAction(data) {
     return (dispatch, getState) => {

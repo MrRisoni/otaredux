@@ -2,14 +2,14 @@ import React from 'react';
 
 const SideBarUpsale = function (props) {
     return (
-        <div className="row">
-            <div className="col-sm-12">
-                <hr/>
-                <h4>{props.title}</h4>
-            </div>
+        <div>
+            <hr/>
             <div className="row">
-                <div className="col-sm-12">
-                    Price {props.price} {props.currency.code}
+                <div className="col-sm-5">
+                    <h3>{props.title} </h3>
+                </div>
+                <div className="col-sm-5">
+                    <h6>{props.price} {props.currency.code}</h6>
                 </div>
             </div>
         </div>

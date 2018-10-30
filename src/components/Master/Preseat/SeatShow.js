@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {observer, inject} from 'mobx-react';
-
 
 class SeatShow extends Component {
 
@@ -9,7 +7,11 @@ class SeatShow extends Component {
             <div className="card bg-info seatShow">
                 <div className="card-header"><b>Your seats!</b></div>
                 <div className="card-body text-white">
-
+                    {this.props.passengers.map( (pax,idx) => {
+                        if(pax.active) {
+                            return (<div>{pax.surname} {pax.name} {pax.seat.letter}{pax.seat.number}</div>)
+                        }
+                    })}
                 </div>
             </div>
 

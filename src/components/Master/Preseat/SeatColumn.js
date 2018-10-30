@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import SeatRow from './SeatRow';
+import Preseat from "./Preseat";
 
 class SeatColumn extends Component {
     constructor(props)
@@ -18,6 +19,7 @@ class SeatColumn extends Component {
             // how many rows in the fuselage
             RowDiv.push(<SeatRow key={key}
                                  colNo={this.props.colNo}
+                                 selectSeatHandler={this.props.selectSeatHandler}
                                  colLetter={this.props.colLetter}
                                  rowID={r}/>)
         }

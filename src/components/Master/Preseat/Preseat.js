@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SeatColumn from './SeatColumn';
 
 import FontAwesome from 'react-fontawesome';
+import SeatShow from './SeatShow';
 
 
 
@@ -39,6 +40,7 @@ class Preseat extends Component {
                         {/*  // how many columns in the aircraft fuselage */}
                         <div className="row">
                             <SeatColumn key={colRowsContainers}
+                                        selectSeatHandler={this.props.selectSeatHandler}
                                         colNo={sc}
                                         colLetter={alphabet[sc]}/>
                         </div>
@@ -55,6 +57,9 @@ class Preseat extends Component {
                     <div className="card">
                         <div className="card-header  bg-info">Select your Seat</div>
                         <div className="card-body">
+
+
+                            <SeatShow passengers={this.props.passengers}/>
 
                             <div className="row preSeatPaxSelector">
 

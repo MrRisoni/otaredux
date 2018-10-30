@@ -22,6 +22,7 @@ class SeatRow extends Component {
 
             SeatDiv.push(<SeatButton key={key}
                                      isAvailable={isAvailable}
+                                     selectSeatHandler={this.props.selectSeatHandler}
                                      rowID={this.props.rowID}
                                      seatID={seatID}/>)
         }
