@@ -9,6 +9,9 @@ const MasterPassengerList = (props) => {
     let paxList = [];
     let activePaxes =0;
 
+    console.log('MasterPassengerList');
+    console.log(props.seatMap);
+
     props.passengers.forEach(pax => {
         if (pax.active) {
             activePaxes++;
@@ -89,8 +92,9 @@ const MasterPassengerList = (props) => {
         }
 
 
-        {props.product === 'air' &&
+        {(props.product === 'air' && props.seatMap !== undefined) &&
              <Preseat passengers={props.passengers}
+                      seatMap={props.seatMap}
                       selectSeatHandler={props.selectSeatHandler}
              />
         }

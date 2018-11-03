@@ -213,7 +213,13 @@ body, input[type="text"], option, select
     text-align: center;
     height: 45px;
     background-color: #feffd7;
+
 }
+
+.seatLetterGroup {
+    margin-right:8%;
+}
+
 
 .busSegment {
     margin-top: 5px;

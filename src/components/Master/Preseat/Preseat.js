@@ -22,19 +22,19 @@ class Preseat extends Component {
 
         let ColHeaders = [];
 
-        const alphabet = ['A', 'B', 'C', 'D'];
+        const alphabet = ['A', 'B', 'C'];
 
 
-        for (let sc = 0; sc < 4; sc++) {
+        for (let sc = 0; sc < 3; sc++) {
 
             let colHeaderKey = 'keyColH' + alphabet[sc];
 
             let colRowsContainers = 'keyRowsCon' + alphabet[sc];
 
-            ColHeaders.push(<div className="col-md-3" key={colHeaderKey}>
+            ColHeaders.push(<div className="col-md-3 seatLetterGroup" key={colHeaderKey}>
                 <div className="card">
                     <div className="card-header seatRowHeader">
-                        <p>{alphabet[sc]}</p>
+                        <p><b>{alphabet[sc]}</b></p>
                     </div>
                     <div className="card-body">
                         {/*  // how many columns in the aircraft fuselage */}
