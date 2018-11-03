@@ -259,7 +259,8 @@ class MasterPassenger extends Component {
 
 
                             {this.props.product === 'air' &&
-                                <MasterPassport />
+                                <MasterPassport countryList={this.props.countryList}
+                                />
                             }
 
                             {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN' && this.props.product === 'air') &&

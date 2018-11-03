@@ -13,6 +13,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 
     } from '../../actions/master/actionsMaster';
 
+import { asyncActions} from '../../actions/master/asyncActions';
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
@@ -36,71 +37,78 @@ class MasterApp extends Component {
 
 
     componentWillMount() {
+        this.props.asyncActions();
+
         this.props.firstLoad();
 
     }
 
     render() {
         const routeTripData = (this.props.product == 'air')  ? this.props.tripData : this.props.shipTripData;
+        console.log('master app render ');
+        console.log(this.props.asyncData);
 
-        return (
-            <div className='busApp'>
-                <div className='row'>
+        if (this.props.asyncData !== undefined) {
+            return (
+                <div className='busApp'>
+                    <div className='row'>
 
-                    <div className='col-md-8'>
+                        <div className='col-md-8'>
 
-                    <ItineraryData   product={this.props.product}
-                                    tripData={routeTripData}/>
+                            <ItineraryData product={this.props.product}
+                                           tripData={routeTripData}/>
 
-                        <MasterPassengerList
-                            product={this.props.product}
-                            addPaxHandler={this.props.addPaxHandler}
-                            removePaxHandler={this.props.removePaxHandler}
-                            editPaxHandler={this.props.editPaxHandler}
-                            changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
-                            editNameHandler={this.props.editPaxNameHandler}
-                            addBagHandler={this.props.addBagHandler}
-                            removeBagHandler={this.props.removeBagHandler}
-                            addMealHandler={this.props.addMealHandler}
-                            selectInsuranceHandler={this.props.selectInsuranceHandler}
-                            changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
-                            changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
-                            selectSeatHandler={this.props.selectSeatHandler}
-                            passengers={this.props.passengers}
-                            currency={this.props.currency}
-                            insurances={this.props.insuranceAir}
-                            carrierList={this.props.carrierList}
-                            bagsAir={this.props.bagsAir}
-                            purchasedBags={this.props.purchasedBags}
-                            mealOptions={this.props.mealOptions}
-                            boughtMeals={this.props.boughtMeals}
-                            segments={this.props.segments}
-                            hasFlexibleTicket={this.props.hasFlexibleTicket}
-                            flexibleTicket={this.props.flexibleTicket}
-                            hasBlueRibbon={this.props.hasBlueRibbon}
-                            blueRibbonPrices={this.props.blueRibbonPrices}/>
+                            <MasterPassengerList
+                                product={this.props.product}
+                                addPaxHandler={this.props.addPaxHandler}
+                                removePaxHandler={this.props.removePaxHandler}
+                                editPaxHandler={this.props.editPaxHandler}
+                                changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
+                                editNameHandler={this.props.editPaxNameHandler}
+                                addBagHandler={this.props.addBagHandler}
+                                removeBagHandler={this.props.removeBagHandler}
+                                addMealHandler={this.props.addMealHandler}
+                                selectInsuranceHandler={this.props.selectInsuranceHandler}
+                                changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
+                                changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
+                                selectSeatHandler={this.props.selectSeatHandler}
+                                passengers={this.props.passengers}
+                                currency={this.props.currency}
+                                insurances={this.props.insuranceAir}
+                                carrierList={this.props.carrierList}
+                                bagsAir={this.props.bagsAir}
+                                purchasedBags={this.props.purchasedBags}
+                                mealOptions={this.props.mealOptions}
+                                boughtMeals={this.props.boughtMeals}
+                                segments={this.props.segments}
+                                hasFlexibleTicket={this.props.hasFlexibleTicket}
+                                flexibleTicket={this.props.flexibleTicket}
+                                hasBlueRibbon={this.props.hasBlueRibbon}
+                                blueRibbonPrices={this.props.blueRibbonPrices}
+                                countryList={this.props.asyncData.countries}/>
 
 
+                        </div>
+
+                        <div className='col-md-3'>
+                            <MasterSideBar currency={this.props.currency}
+                                           bagAllowance={this.props.bagsAir}
+                                           passengers={this.props.passengers}
+                                           purchasedBags={this.props.purchasedBags}
+                                           boughtInsurances={this.props.boughtInsurances}
+                                           insuranceOptions={this.props.insuranceOptions}
+                                           mealOptions={this.props.mealOptions}
+                                           boughtMeals={this.props.boughtMeals}
+                                           pricing={this.props.pricing}
+                                           hasFlexibleTicket={this.props.hasFlexibleTicket}
+                                           flexibleTicket={this.props.flexibleTicket}
+                                           hasBlueRibbon={this.props.hasBlueRibbon}
+                                           blueRibbonPrices={this.props.blueRibbonPrices}
+                            />
+                        </div>
                     </div>
 
-                    <div className='col-md-3'>
-                        <MasterSideBar currency={this.props.currency}
-                                       bagAllowance={this.props.bagsAir}
-                                       passengers={this.props.passengers}
-                                       purchasedBags={this.props.purchasedBags}
-                                       boughtInsurances={this.props.boughtInsurances}
-                                       insuranceOptions={this.props.insuranceOptions}
-                                       mealOptions={this.props.mealOptions}
-                                       boughtMeals={this.props.boughtMeals}
-                                       pricing={this.props.pricing}
-                                       hasFlexibleTicket={this.props.hasFlexibleTicket}
-                                       flexibleTicket={this.props.flexibleTicket}
-                                       hasBlueRibbon={this.props.hasBlueRibbon}
-                                       blueRibbonPrices={this.props.blueRibbonPrices}/>
-                    </div>
-                </div>
-
-                { this.props.product === 'ship' &&
+                    {this.props.product === 'ship' &&
                     <div className='row'>
                         <div className='col-md-8'>
                             <CabinSelection
@@ -111,30 +119,28 @@ class MasterApp extends Component {
                             />
                         </div>
                     </div>
-                }
+                    }
 
 
-                <div className='row'>
-                    <div className='col-md-8'>
-                        <MasterContact contact={this.props.contact}
-                                    editContactHandler={this.props.editContactHandler}/>
+                    <div className='row'>
+                        <div className='col-md-8'>
+                            <MasterContact contact={this.props.contact}
+                                           editContactHandler={this.props.editContactHandler}/>
+                        </div>
                     </div>
-                </div>
 
 
-
-
-                <div className='row'>
-                    <div className='col-md-8'>
-                        <MasterPayment paymentMethods={this.props.paymentMethods}/>
+                    <div className='row'>
+                        <div className='col-md-8'>
+                            <MasterPayment paymentMethods={this.props.paymentMethods}/>
+                        </div>
                     </div>
-                </div>
-                
 
 
                 </div>
 
-        );
+            );
+        }
     }
 }
 
@@ -167,7 +173,8 @@ function mapStateToProps(state) {
         hasBlueRibbon: state.hasBlueRibbonReducer,
         blueRibbonPrices: state.getBlueRibbonReducer,
         cabins:state.cabinsReducer,
-        cabinSelection:state.cabinSelectionReducer
+        cabinSelection:state.cabinSelectionReducer,
+        asyncData:state.countryListReducer,
     }
 }
 
@@ -187,7 +194,9 @@ function matchDispatchToProps(dispatch) {
         changeFlexibleTicketHandler:changeFlexibleTicketAction,
         changeBlueRibbonHandler:changeBlueRibbonAction,
         selectCabinHandler:selectCabinAction,
-        selectSeatHandler:selectAirSeatAction
+        selectSeatHandler:selectAirSeatAction,
+        asyncActions:asyncActions,
+
     }, dispatch);
 }
 

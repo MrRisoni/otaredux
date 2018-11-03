@@ -24,9 +24,16 @@ class MasterPassport extends Component {
 
 
     render() {
+        var listDiv = [];
+        this.props.countryList.forEach( (val, idx) => {
+
+            listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
+
+        });
+
+
         return (
             <div className="passportDiv">
-
 
                 <br/>
                 <div className="row">
@@ -34,7 +41,7 @@ class MasterPassport extends Component {
                         <label htmlFor="birthday">Nationality</label>
                         <select className="form-control">
                             <option key="" value="">Nationality</option>
-                            {this.props.countriesList}
+                            {listDiv}
                         </select>
                     </div>
 
@@ -42,7 +49,7 @@ class MasterPassport extends Component {
                         <label htmlFor="birthday">Issuing Country</label>
                         <select className="form-control">
                             <option key="" value="">Issue Country</option>
-                            {this.props.countriesList}
+                            {listDiv}
                         </select>
                     </div>
                 </div>
