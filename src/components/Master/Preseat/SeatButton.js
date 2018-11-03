@@ -31,7 +31,12 @@ class SeatButton extends Component {
 
     componentWillMount()
     {
-        let classAvailability = (this.props.isAvailable) ? "seatAvailable" : "seatTaken";
+       // seatMap={this.props.seatMap}
+        const seatLetter = this.props.seatID.substring(1);
+        console.log(seatLetter);
+        console.log(this.props.seatMap[3]);
+        console.log('----------');
+        let classAvailability =    (this.props.seatMap.indexOf(seatLetter) >-1) ? "seatAvailable" : "seatTaken";
         classAvailability += "  seatButton col-md-1";
         this.setState({seatClassName:classAvailability});
     }

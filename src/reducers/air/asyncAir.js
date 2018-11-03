@@ -8,7 +8,16 @@ const asyncData = {
     seatMap:[]
 };
 
+const fetchedSeatMap = false;
 
+export function seatMapOKReducer(state= fetchedSeatMap, action) {
+    switch (action.type) {
+        case FETCH_SEATMAP_FINISHED:
+            return true;
+        default:
+            return state;
+    }
+}
 
 export function countryListReducer(state= asyncData, action) {
 

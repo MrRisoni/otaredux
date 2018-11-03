@@ -9,6 +9,11 @@ https://morning-dusk-36932.herokuapp.com/air
 https://morning-dusk-36932.herokuapp.com/ship
 
 -----------------
+a mini api for the app
+
+https://github.com/MrRisoni/otareduxapi
+
+-----------------
 
 See https://github.com/MrRisoni/otaspa for an abandoned MobX version
 

@@ -4,7 +4,6 @@ Passenger Validator
 TESTS Enzyme !!!
 
 
-DatePicker with prices
 Hotels
 
 
@@ -15,14 +14,7 @@ currency change
 
 
 
-change meals bag prices according to class
-
-CHANGE_PASSENGER_AIR_CABIN Reducer
-
 max number of bags
-Redux async actions
-
-Heroku push
 
 
 languages ???

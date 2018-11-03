@@ -21,6 +21,8 @@ class Preseat extends Component {
     render() {
 
         let ColHeaders = [];
+        console.log('free seats');
+        console.log(this.props.seatMap);
 
         const alphabet = ['A', 'B', 'C'];
 
@@ -40,6 +42,7 @@ class Preseat extends Component {
                         {/*  // how many columns in the aircraft fuselage */}
                         <div className="row">
                             <SeatColumn key={colRowsContainers}
+                                        seatMap={this.props.seatMap}
                                         selectSeatHandler={this.props.selectSeatHandler}
                                         colNo={sc}
                                         colLetter={alphabet[sc]}/>

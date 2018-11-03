@@ -25,6 +25,7 @@ import {selectCabinAction} from '../../actions/master/actionsShip';
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
 import CabinSelection from '../Ship/CabinSelection';
+import {seatMapOKReducer} from "../../reducers/air/asyncAir";
 
 
 
@@ -87,7 +88,8 @@ class MasterApp extends Component {
                                 hasBlueRibbon={this.props.hasBlueRibbon}
                                 blueRibbonPrices={this.props.blueRibbonPrices}
                                 countryList={this.props.asyncData.countries}
-                                seatMap={this.props.asyncData.seatMap}/>
+                                seatMap={this.props.asyncData.seatMap}
+                                fetchedSeatMap={this.props.fetchedSeatMap}/>
 
 
                         </div>
@@ -177,6 +179,7 @@ function mapStateToProps(state) {
         cabins:state.cabinsReducer,
         cabinSelection:state.cabinSelectionReducer,
         asyncData:state.countryListReducer,
+        fetchedSeatMap:state.seatMapOKReducer
     }
 }
 

@@ -92,7 +92,7 @@ const MasterPassengerList = (props) => {
         }
 
 
-        {(props.product === 'air' && props.seatMap !== undefined) &&
+        {(props.product === 'air' && props.fetchedSeatMap === true) &&
              <Preseat passengers={props.passengers}
                       seatMap={props.seatMap}
                       selectSeatHandler={props.selectSeatHandler}

@@ -12,7 +12,7 @@ import DefaultLayout from './DefaultLayout';
 
 import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/currencies';
 
-import {countryListReducer} from './reducers/air/asyncAir';
+import {countryListReducer,seatMapOKReducer} from './reducers/air/asyncAir';
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {getLegsReducer,airTripReducer,uniqueCarriersReducer} from './reducers/air/itineraryAir';
 import {paymentMethodsReducer} from './reducers/air/masterAir';
@@ -60,6 +60,7 @@ let store = createStore(combineReducers({
         cabinsReducer,
         cabinSelectionReducer,
         countryListReducer,
+        seatMapOKReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
