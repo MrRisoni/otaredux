@@ -13,33 +13,29 @@ class SeatButton extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick()
-    {
+    handleClick() {
 
         console.log('echo state ' + this.state.isAvailable);
-        //if (this.state.isAvailable ===true) {
-            // clear other classes for that leg...
-            this.setState({seatClassName: 'seatChosen seatButton col-md-1'});
-            //console.log('selecting seat ' + this.props.seatID );
-            const regexMatch = this.props.seatID.match(/[a-zA-Z]+|[0-9]+(?:\.[0-9]+|)/g);
 
-            var letter = regexMatch[0].substr(1);
-            var number =regexMatch[1];
-            console.log(letter + number);
+        const regexMatch = this.props.seatID.match(/[a-zA-Z]+|[0-9]+(?:\.[0-9]+|)/g);
 
-            const paxObj =this.props.passengers[this.props.preseatSelectedPax]
+        var letter = regexMatch[0].substr(1);
+        var number = regexMatch[1];
+        console.log(letter + number);
 
-            const old_letter = paxObj.seat.letter;
-            const old_number = paxObj.seat.number;
+        const paxObj = this.props.passengers[this.props.preseatSelectedPax]
 
-            this.props.selectSeatHandler({paxId:this.props.preseatSelectedPax ,
-                letter:letter,
-                number:number,
-                oldLetter:old_letter,
-                oldNumber:old_number});
+        const old_letter = paxObj.seat.letter;
+        const old_number = paxObj.seat.number;
 
+        this.props.selectSeatHandler({
+            paxId: this.props.preseatSelectedPax,
+            letter: letter,
+            number: number,
+            oldLetter: old_letter,
+            oldNumber: old_number
+        });
 
-     //   }
 
     }
 

@@ -166,7 +166,7 @@ const MasterSideBar = (props) => {
 
     if (preSeated === true) {
         otherUpsalesDiv.push(
-            <SideBarUpsale title="Preaseting"
+            <SideBarUpsale title="Preaseating"
                            price={5}
                 currency={props.currency}
             />
