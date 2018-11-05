@@ -21,6 +21,7 @@ class SeatRow extends Component {
 
             SeatDiv.push(<SeatButton key={key}
                                      seatMap={this.props.seatMap}
+                                     preseatSelectedPax={this.props.preseatSelectedPax}
                                      selectSeatHandler={this.props.selectSeatHandler}
                                      rowID={this.props.rowID}
                                      seatID={seatID}/>)

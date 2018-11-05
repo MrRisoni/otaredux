@@ -175,10 +175,11 @@ export function passengersMasterReducer(state = passengers, action) {
             //return update(state, {$set: newPaxes});
             return newPaxes;
         case   SELECT_AIR_SEAT:
+
             return state.map( (pax, index) => {
                 if (index == action.payload.paxId) {
                     let newPax = pax;
-                    newPax.seat = {letter:action.payload.letter,number:12};
+                    newPax.seat = {letter:action.payload.letter,number:action.payload.number};
                     return {
                         ...pax,
                         ...newPax

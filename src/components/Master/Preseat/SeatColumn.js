@@ -20,6 +20,7 @@ class SeatColumn extends Component {
             RowDiv.push(<SeatRow key={key}
                                  colNo={this.props.colNo}
                                  seatMap={this.props.seatMap}
+                                 preseatSelectedPax={this.props.preseatSelectedPax}
                                  selectSeatHandler={this.props.selectSeatHandler}
                                  colLetter={this.props.colLetter}
                                  rowID={r}/>)

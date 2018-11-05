@@ -26,7 +26,7 @@ export function selectAirSeatAction(data) {
             type: SELECT_AIR_SEAT, payload : {
                 paxId : data.paxId,
                 letter: data.letter,
-                number: data.letter
+                number: data.number
             }
         });
 

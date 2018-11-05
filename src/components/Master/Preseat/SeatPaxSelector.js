@@ -21,10 +21,12 @@ class SeatPaxSelector extends Component {
 
     render() {
         console.log('this.props.preseatSelectedPax ' + this.props.preseatSelectedPax);
+        let text = 'Choose for ';
         if(this.props.pax.active && this.props.pax.type !== 'INF') {
             let alertClass = "alert  alert-warning seatPaxSelector ";
             if (this.props.pax.id === this.props.preseatSelectedPax) {
                 alertClass = "alert  alert-dark seatPaxSelector ";
+                text = '';
             }
             return (
 
@@ -32,7 +34,7 @@ class SeatPaxSelector extends Component {
 
                     <div className="col-md-10">
                         <div className={alertClass} role="alert" onClick={this.handlePreSeatSelect}>
-                            Choose for Passenger# {this.props.pax.humanId}
+                            {text} Passenger# {this.props.pax.humanId}
                             {this.props.pax.surname} {this.props.pax.name}
                         </div>
                     </div>
