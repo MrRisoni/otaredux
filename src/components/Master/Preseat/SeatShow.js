@@ -4,12 +4,30 @@ class SeatShow extends Component {
 
     render() {
         return (
-            <div className="card bg-info seatShow">
-                <div className="card-header"><b>Your seats!</b></div>
+            <div className="card bg-info preSeatPaxSelector seatShow">
+                <div className="card-header"><b >Your seats!</b></div>
                 <div className="card-body text-white">
+
                     {this.props.passengers.map( (pax,idx) => {
                         if(pax.active) {
-                            return (<div>{pax.surname} {pax.name} {pax.seat.letter}{pax.seat.number}</div>)
+                            return (
+
+                                <div className="row">
+
+                                    <div className="col-md-10">
+                                        <div className="alert alert-warning seatPaxSelector" role="alert">
+                                            Choose for Passenger# {pax.humanId}
+                                            {pax.surname} {pax.name}
+                                        </div>
+                                    </div>
+
+                                    <div className="col-md-2">
+                                        <div className="alert alert-primary" role="alert">
+                                            {pax.seat.letter}{pax.seat.number}
+                                        </div>
+                                    </div>
+
+                                </div>)
                         }
                     })}
                 </div>

@@ -6,7 +6,8 @@ class SeatButton extends Component {
     {
         super(props);
         this.state = {
-            seatClassName: ""
+            seatClassName: "",
+            isAvailable:false
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -15,30 +16,30 @@ class SeatButton extends Component {
     handleClick()
     {
 
-        if (this.props.isAvailable) {
+        console.log('echo state ' + this.state.isAvailable);
+        if (this.state.isAvailable ===true) {
             // clear other classes for that leg...
             this.setState({seatClassName: 'seatChosen seatButton col-md-1'});
 
             this.props.selectSeatHandler({paxId:0 ,letter:this.props.seatID,number:0})
 
-            /*this.props.otastore.selectSeat({
-                seat: this.props.seatID,
-                paxId: 0
-            });*/
+
         }
 
     }
 
-    componentWillMount()
+    componentDidMount()
     {
        // seatMap={this.props.seatMap}
         const seatLetter = this.props.seatID.substring(1);
         console.log(seatLetter);
         console.log(this.props.seatMap[3]);
         console.log('----------');
-        let classAvailability =    (this.props.seatMap.indexOf(seatLetter) >-1) ? "seatAvailable" : "seatTaken";
+        let avail = (this.props.seatMap.indexOf(seatLetter) <0);
+
+        let classAvailability =    (avail ===true) ? "seatAvailable" : "seatTaken";
         classAvailability += "  seatButton col-md-1";
-        this.setState({seatClassName:classAvailability});
+        this.setState({seatClassName:classAvailability,isAvailable:avail});
     }
 
     render() {
