@@ -34,9 +34,14 @@ export function asyncSeatMapFetchAction() {
 
         axios.get("https://still-brook-75758.herokuapp.com/api/seatmap")
             .then(resp => {
+                let seatData = [];
+                resp.data.free.forEach( (seat) => {
+                    seatData.push({code:seat, free:true});
+                });
+                console.log(seatData);
                 dispatch({
                     type: FETCH_SEATMAP_FINISHED,
-                    payload: resp.data.free
+                    payload: seatData
 
                 });
             }).catch(err => {
