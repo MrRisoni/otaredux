@@ -1,10 +1,7 @@
 import update from 'immutability-helper';
 
-import {
-    ADD_PASSENGER_MASTER, FIRST_LOAD_MASTER,
-    CHANGE_PASSENGER_MASTER,
-    REMOVE_PASSENGER_MASTER, PASSENGER_ARRAY_CHANGED, CHANGE_PASSENGER_AIR_CABIN
-} from '../../actions/master/actionsMaster';
+import * as MasterCons from '../../actions/master/allConstants';
+
 
 import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
 
@@ -100,7 +97,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
 
     switch (action.type)
     {
-        case FIRST_LOAD_MASTER:
+        case MasterCons.FIRST_LOAD_MASTER:
             console.log('first load bus');
             console.log(action.payload);
 
@@ -109,9 +106,8 @@ export function pricingMasterReducer(state = totalPrice, action) {
             });
 
             return total;
-        case PASSENGER_ARRAY_CHANGED:
+        case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
-            console.log('UPSALES_CHANGED');
 
             console.log(action.payload);
             // active passengers
@@ -171,14 +167,14 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
 {
     switch (action.type)
     {
-        case FIRST_LOAD_MASTER:
+        case MasterCons.FIRST_LOAD_MASTER:
             return state;
-        case ADD_PASSENGER_MASTER:
+        case MasterCons.ADD_PASSENGER_MASTER:
 
             let ADTs = paxTypes[0];
             ADTs.count++;
             return update(state, {0: {$set: ADTs}});
-        case REMOVE_PASSENGER_MASTER:
+        case MasterCons.REMOVE_PASSENGER_MASTER:
 
             let typeId = 0;
             switch (action.payload.type) {
@@ -211,7 +207,7 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
 
             });
 
-        case CHANGE_PASSENGER_AIR_CABIN:
+        case MasterCons.CHANGE_PASSENGER_AIR_CABIN:
 
             let newClass = action.payload.newClass;
             let oldClass = action.payload.oldClass;
@@ -272,7 +268,7 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
             });
 
 
-        case CHANGE_PASSENGER_MASTER:
+        case MasterCons.CHANGE_PASSENGER_MASTER:
 
             console.log('Reducer CHANGE_PASSENGER_MASTER');
           //  console.log(action.payload);

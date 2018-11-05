@@ -1,11 +1,14 @@
-import {
-    ADD_PASSENGER_MASTER, REMOVE_PASSENGER_MASTER, CHANGE_PASSENGER_MASTER,
-    EDIT_CONTACT_PASSENGER_MASTER,
-    EDITED_NAME_PASSENGER_MASTER, EDIT_NAME_PASSENGER_MASTER,
-    PASSENGER_ARRAY_CHANGED, CHANGE_PASSENGER_AIR_CABIN
-} from '../../actions/master/actionsMaster';
+
+
+import * as MasterCons from '../../actions/master/allConstants';
+
 
 import {SELECT_AIR_SEAT}  from '../../actions/master/actionsAir';
+
+
+
+const preseatSelectedPaxId =0;
+
 
 const passengers = [
     {
@@ -30,6 +33,8 @@ const passengers = [
 ];
 
 
+
+
 const contactData = { surname : 'FOO',
                     name:'BAR',
                     changed:false,
@@ -43,13 +48,17 @@ const contactData = { surname : 'FOO',
                     postcode:''};
 
 
+export function fetchPreseatSelectedPaxReducer(state =preseatSelectedPaxId, action){
+
+}
+
+
 export function contactMasterReducer(state = contactData, action) {
     let firstActivePax =   { surname : 'KTO', name:''};
 
    switch (action.type) {
-        case EDITED_NAME_PASSENGER_MASTER:
-        case PASSENGER_ARRAY_CHANGED:
-            console.log(EDITED_NAME_PASSENGER_MASTER);
+        case MasterCons.EDITED_NAME_PASSENGER_MASTER:
+        case MasterCons.PASSENGER_ARRAY_CHANGED:
             console.log(action.payload.passengers);
             if (!contactData.changed) {
                 firstActivePax = getFirstActivePax(action.payload.passengers);
@@ -61,7 +70,7 @@ export function contactMasterReducer(state = contactData, action) {
             else {
                 return state;
             }
-       case EDIT_CONTACT_PASSENGER_MASTER:
+       case MasterCons.EDIT_CONTACT_PASSENGER_MASTER:
        // { key action.payload.key}
             return Object.assign({}, state, {
                 surname: action.payload.surname,
@@ -100,7 +109,7 @@ export function passengersMasterReducer(state = passengers, action) {
     console.log('passengers MasterApp reducer');
     console.log(action.type);
     switch (action.type) {
-        case ADD_PASSENGER_MASTER:
+        case MasterCons.ADD_PASSENGER_MASTER:
             let maxHumanId =0;
             state.forEach( pax => {
                if (pax.active && maxHumanId < pax.humanId) {
@@ -132,7 +141,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     }
                 }
             ];
-        case REMOVE_PASSENGER_MASTER:
+        case MasterCons.REMOVE_PASSENGER_MASTER:
             console.log('remove pax');
             console.log(action.payload);
 
@@ -171,7 +180,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     return pax;
                 }
             });
-        case CHANGE_PASSENGER_MASTER:
+        case MasterCons.CHANGE_PASSENGER_MASTER:
             console.log(action.payload);
             return state.map( (pax, index) => {
                if (index == action.payload.passengerId) {
@@ -186,7 +195,7 @@ export function passengersMasterReducer(state = passengers, action) {
                    return pax;
                }
             });
-        case CHANGE_PASSENGER_AIR_CABIN:
+        case MasterCons.CHANGE_PASSENGER_AIR_CABIN:
             console.log(action.payload);
             return state.map( (pax, index) => {
                 if (index == action.payload.passengerId) {
@@ -201,7 +210,7 @@ export function passengersMasterReducer(state = passengers, action) {
                     return pax;
                 }
             });
-        case  EDIT_NAME_PASSENGER_MASTER:
+        case  MasterCons.EDIT_NAME_PASSENGER_MASTER:
             console.log(action.payload);
             return state.map( (pax, index) => {
                 if (index == action.payload.passengerId) {

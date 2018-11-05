@@ -9,7 +9,7 @@ class SeatShow extends Component {
                 <div className="card-body text-white">
 
                     {this.props.passengers.map( (pax,idx) => {
-                        if(pax.active) {
+                        if(pax.active && pax.type !== 'INF') {
                             return (
 
                                 <div className="row">
@@ -22,9 +22,18 @@ class SeatShow extends Component {
                                     </div>
 
                                     <div className="col-md-2">
+                                        {(pax.seat.number === 0) &&
+                                            <div className="alert alert-danger" role="alert">
+                                                Nothing selected
+                                            </div>
+                                        }
+
+                                        {(pax.seat.number !== 0) &&
                                         <div className="alert alert-primary" role="alert">
                                             {pax.seat.letter}{pax.seat.number}
                                         </div>
+                                        }
+
                                     </div>
 
                                 </div>)

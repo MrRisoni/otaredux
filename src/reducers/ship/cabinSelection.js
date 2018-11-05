@@ -1,4 +1,5 @@
-import {ADD_PASSENGER_MASTER} from '../../actions/master/actionsMaster';
+import * as MasterCons from '../../actions/master/allConstants';
+
 
 const selection = [
     {
@@ -11,7 +12,7 @@ const selection = [
 export function cabinSelectionReducer(state = selection, action) {
 
     switch (action.type) {
-        case ADD_PASSENGER_MASTER:
+        case MasterCons.ADD_PASSENGER_MASTER:
             console.log('cabinSelectionReducer');
             console.log(state);
             return [

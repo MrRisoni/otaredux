@@ -1,22 +1,12 @@
-import {UPSALES_CHANGED} from "./actionsAir";
 import {upsalesDispatcher} from './dispatcher';
 
-export const ADD_PASSENGER_MASTER = 'ADD_PASSENGER_MASTER';
-export const FIRST_LOAD_MASTER = 'FIRST_LOAD_MASTER';
-export const PASSENGER_ADDED_MASTER = 'PASSENGER_ADDED_MASTER';
-export const REMOVE_PASSENGER_MASTER = 'REMOVE_PASSENGER_MASTER';
-export const PASSENGER_REMOVED_MASTER = 'PASSENGER_REMOVED_MASTER';
-export const CHANGE_PASSENGER_MASTER = 'CHANGE_PASSENGER_MASTER';
-export const EDIT_NAME_PASSENGER_MASTER = 'EDIT_NAME_PASSENGER_MASTER';
-export const EDITED_NAME_PASSENGER_MASTER = 'EDITED_NAME_PASSENGER_MASTER';
-export const EDIT_CONTACT_PASSENGER_MASTER = 'EDIT_CONTACT_PASSENGER_MASTER';
-export const PASSENGER_ARRAY_CHANGED = 'PASSENGER_ARRAY_CHANGED';
-export const CHANGE_PASSENGER_AIR_CABIN = 'CHANGE_PASSENGER_AIR_CABIN';
+import * as MasterCons from './allConstants';
+
 
 
 
 export function editMasterContactAction(contactData) {
-    return { type: EDIT_CONTACT_PASSENGER_MASTER, payload : {
+    return { type: MasterCons.EDIT_CONTACT_PASSENGER_MASTER, payload : {
             surname: contactData.surname,
             name:  contactData.name,
             gender: contactData.gender,
@@ -36,7 +26,7 @@ export function editMasterPassengerNameAction(paxId, surname, name,gender) {
     return (dispatch, getState) => {
 
         dispatch({
-            type: EDIT_NAME_PASSENGER_MASTER,
+            type: MasterCons.EDIT_NAME_PASSENGER_MASTER,
             payload: {
                 passengerId: paxId,
                 surname: surname,
@@ -47,7 +37,7 @@ export function editMasterPassengerNameAction(paxId, surname, name,gender) {
 
 
         dispatch({
-            type: EDITED_NAME_PASSENGER_MASTER,
+            type: MasterCons.EDITED_NAME_PASSENGER_MASTER,
             payload: {
                 passengerId: paxId,
                 surname: surname,
@@ -65,7 +55,7 @@ export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxag
     return (dispatch, getState) => {
 
         dispatch({
-            type: CHANGE_PASSENGER_AIR_CABIN,
+            type: MasterCons.CHANGE_PASSENGER_AIR_CABIN,
             payload: {
                 paxAge: paxage,
                 passengerId: paxId,
@@ -74,7 +64,7 @@ export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxag
             }
         });
 
-        dispatch(upsalesDispatcher(getState,PASSENGER_ARRAY_CHANGED));
+        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
     }
 }
 
@@ -83,7 +73,7 @@ export function changeMasterPassengerAction(paxId,newCode,oldCode,cls) {
     return (dispatch, getState) => {
 
         dispatch({
-            type: CHANGE_PASSENGER_MASTER,
+            type: MasterCons.CHANGE_PASSENGER_MASTER,
             payload: {
                 passengerId: paxId,
                 newType: newCode,
@@ -92,7 +82,7 @@ export function changeMasterPassengerAction(paxId,newCode,oldCode,cls) {
             }
         });
 
-        dispatch(upsalesDispatcher(getState,PASSENGER_ARRAY_CHANGED));
+        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
     }
 }
 
@@ -100,14 +90,14 @@ export function removeMasterPassengerAction(paxId,paxType) {
     return (dispatch, getState) => {
 
         dispatch({
-            type: REMOVE_PASSENGER_MASTER,
+            type: MasterCons.REMOVE_PASSENGER_MASTER,
             payload: {
                 passengerId: paxId,
                 type: paxType
             }
         });
 
-        dispatch(upsalesDispatcher(getState,PASSENGER_ARRAY_CHANGED));
+        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
     }
 }
 
@@ -117,10 +107,10 @@ export function addMasterPassengerAction() {
     return (dispatch, getState) => {
 
         dispatch({
-            type: ADD_PASSENGER_MASTER
+            type: MasterCons.ADD_PASSENGER_MASTER
         });
 
-        dispatch(upsalesDispatcher(getState,PASSENGER_ARRAY_CHANGED));
+        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
     }
 }
 
@@ -130,7 +120,7 @@ export function firstLoadMasterAction() {
     return (dispatch, getState) => {
 
         dispatch({
-            type: FIRST_LOAD_MASTER,
+            type: MasterCons.FIRST_LOAD_MASTER,
             payload: {
                 paxTypes: getState().pricingMasterAnalysisReducer,
                 currency: getState().currentCurrencyReducer
