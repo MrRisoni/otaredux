@@ -13,6 +13,7 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
 
     } from '../../actions/master/actionsMaster';
 
+import {changePreSeatSelectPassengerAction} from '../../actions/master/preseatActions';
 import { asyncActions,asyncSeatMapFetchAction} from '../../actions/master/asyncActions';
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
@@ -26,6 +27,7 @@ import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
 import CabinSelection from '../Ship/CabinSelection';
 import {seatMapOKReducer} from "../../reducers/air/asyncAir";
+import {fetchPreseatSelectedPaxReducer} from "../../reducers/master/passengersMaster";
 
 
 
@@ -74,6 +76,7 @@ class MasterApp extends Component {
                                 changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
                                 changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
                                 selectSeatHandler={this.props.selectSeatHandler}
+                                changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
                                 passengers={this.props.passengers}
                                 currency={this.props.currency}
                                 insurances={this.props.insuranceAir}
@@ -89,7 +92,8 @@ class MasterApp extends Component {
                                 blueRibbonPrices={this.props.blueRibbonPrices}
                                 countryList={this.props.asyncData.countries}
                                 seatMap={this.props.asyncData.seatMap}
-                                fetchedSeatMap={this.props.fetchedSeatMap}/>
+                                fetchedSeatMap={this.props.fetchedSeatMap}
+                                preseatSelectedPax={this.props.preseatSelectedPax}/>
 
 
                         </div>
@@ -179,7 +183,8 @@ function mapStateToProps(state) {
         cabins:state.cabinsReducer,
         cabinSelection:state.cabinSelectionReducer,
         asyncData:state.countryListReducer,
-        fetchedSeatMap:state.seatMapOKReducer
+        fetchedSeatMap:state.seatMapOKReducer,
+        preseatSelectedPax: state.fetchPreseatSelectedPaxReducer
     }
 }
 
@@ -201,8 +206,8 @@ function matchDispatchToProps(dispatch) {
         selectCabinHandler:selectCabinAction,
         selectSeatHandler:selectAirSeatAction,
         asyncActions:asyncActions,
-        asyncSeatMapFetchAction:asyncSeatMapFetchAction
-
+        asyncSeatMapFetchAction:asyncSeatMapFetchAction,
+        changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction
     }, dispatch);
 }
 

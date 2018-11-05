@@ -61,7 +61,10 @@ class Preseat extends Component {
                         <div className="card-header  bg-info">Select your Seat</div>
                         <div className="card-body">
 
-                            <SeatShow passengers={this.props.passengers}/>
+                            <SeatShow passengers={this.props.passengers}
+                                      changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
+                                      preseatSelectedPax={this.props.preseatSelectedPax}
+                            />
 
                             <div className="row">
                                 {ColHeaders}

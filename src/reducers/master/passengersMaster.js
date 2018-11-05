@@ -4,6 +4,7 @@ import * as MasterCons from '../../actions/master/allConstants';
 
 
 import {SELECT_AIR_SEAT}  from '../../actions/master/actionsAir';
+import {CHANGE_PRESEAT_SELECT_PAX} from "../../actions/master/preseatActions";
 
 
 
@@ -49,7 +50,14 @@ const contactData = { surname : 'FOO',
 
 
 export function fetchPreseatSelectedPaxReducer(state =preseatSelectedPaxId, action){
-
+    switch (action.type) {
+        case CHANGE_PRESEAT_SELECT_PAX:
+            console.log('state befoar');
+            console.log(state);
+            return action.payload.paxId;
+        default:
+            return state;
+    }
 }
 
 

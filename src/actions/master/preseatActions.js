@@ -9,7 +9,7 @@ export function changePreSeatSelectPassengerAction(paxId) {
         dispatch({
             type: CHANGE_PRESEAT_SELECT_PAX,
             payload: {
-                paxAge: paxId
+                paxId: paxId
             }
         });
     }

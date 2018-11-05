@@ -94,6 +94,8 @@ const MasterPassengerList = (props) => {
 
         {(props.product === 'air' && props.fetchedSeatMap === true) &&
              <Preseat passengers={props.passengers}
+                      changePreSeatSelectPassengerHandler={props.changePreSeatSelectPassengerHandler}
+                      preseatSelectedPax={props.preseatSelectedPax}
                       seatMap={props.seatMap}
                       selectSeatHandler={props.selectSeatHandler}
              />

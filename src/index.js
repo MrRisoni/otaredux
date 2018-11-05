@@ -16,7 +16,7 @@ import {countryListReducer,seatMapOKReducer} from './reducers/air/asyncAir';
 import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {getLegsReducer,airTripReducer,uniqueCarriersReducer} from './reducers/air/itineraryAir';
 import {paymentMethodsReducer} from './reducers/air/masterAir';
-import {contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
+import {contactMasterReducer, passengersMasterReducer,fetchPreseatSelectedPaxReducer} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
 import {getBagsReducer,purchasedBagsReducer} from './reducers/air/bagsAir';
 import {airInsuranceReducer,purchasedInsuranceReducer} from './reducers/air/insuranceAir';
@@ -61,6 +61,7 @@ let store = createStore(combineReducers({
         cabinSelectionReducer,
         countryListReducer,
         seatMapOKReducer,
+        fetchPreseatSelectedPaxReducer,
         routing: routerReducer
     }),
     applyMiddleware(thunk),
