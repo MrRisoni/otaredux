@@ -26,9 +26,12 @@ export function selectAirSeatAction(data) {
             type: SELECT_AIR_SEAT, payload : {
                 paxId : data.paxId,
                 letter: data.letter,
-                number: data.number
+                number: data.number,
+                oldLetter: data.oldLetter,
+                oldNumber: data.oldNumber,
             }
         });
+
 
         // after bag is bought , dispatch the updated passenger array
         dispatch(upsalesDispatcher(getState,UPSALES_CHANGED));

@@ -50,7 +50,6 @@ class MasterApp extends Component {
     render() {
         const routeTripData = (this.props.product == 'air')  ? this.props.tripData : this.props.shipTripData;
         console.log('master app render ');
-        console.log(this.props.asyncData);
 
         if (this.props.asyncData !== undefined) {
             return (

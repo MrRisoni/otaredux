@@ -40,6 +40,7 @@ class Preseat extends Component {
                         {/*  // how many columns in the aircraft fuselage */}
                         <div className="row">
                             <SeatColumn key={colRowsContainers}
+                                        passengers={this.props.passengers}
                                         seatMap={this.props.seatMap}
                                         preseatSelectedPax={this.props.preseatSelectedPax}
                                         selectSeatHandler={this.props.selectSeatHandler}
