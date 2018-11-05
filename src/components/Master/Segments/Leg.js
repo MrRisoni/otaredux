@@ -13,8 +13,8 @@ const Leg = function (props) {
 
 
     let segmentsDiv =[];
-    props.data.segments.forEach( (sg) => {
-       segmentsDiv.push(<Segment data={sg}/>);
+    props.data.segments.forEach( (sg,idx) => {
+       segmentsDiv.push(<Segment key={idx} data={sg}/>);
     });
 
     return (

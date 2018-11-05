@@ -38,7 +38,6 @@ export function asyncSeatMapFetchAction() {
                 resp.data.free.forEach( (seat) => {
                     seatData.push({code:seat, free:true});
                 });
-                console.log(seatData);
                 dispatch({
                     type: FETCH_SEATMAP_FINISHED,
                     payload: seatData

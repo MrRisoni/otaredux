@@ -153,27 +153,35 @@ export function passengersMasterReducer(state = passengers, action) {
             console.log('remove pax');
             console.log(action.payload);
 
-            const newPaxes = [...state];
+            let totalRemainActivePaxes = state.filter(px => px.active === true).length;
+            console.log('totalRemainActivePaxes ' + totalRemainActivePaxes);
+            totalRemainActivePaxes--;
+            if (totalRemainActivePaxes >0) {
 
-            const paxIdRemoval = action.payload.passengerId;
+                const newPaxes = [...state];
 
-            // reorder human ids
-            let newHumanId =1;
+                const paxIdRemoval = action.payload.passengerId;
 
-            newPaxes.forEach( pax => {
-                if (pax.id == paxIdRemoval) {
-                    pax.active = false;
-                }
+                 // reorder human ids
+                let newHumanId =1;
 
-                if (pax.active) {
-                    pax.humanId = newHumanId;
-                    newHumanId++;
-                }
-            });
-            console.log(newPaxes);
+                newPaxes.forEach( pax => {
+                    if (pax.id == paxIdRemoval) {
+                        pax.active = false;
+                    }
 
-            //return update(state, {$set: newPaxes});
-            return newPaxes;
+                    if (pax.active) {
+                        pax.humanId = newHumanId;
+                        newHumanId++;
+                    }
+                });
+                console.log(newPaxes);
+                return newPaxes;
+            }
+            else {
+                return state;
+            }
+
         case   SELECT_AIR_SEAT:
 
             return state.map( (pax, index) => {

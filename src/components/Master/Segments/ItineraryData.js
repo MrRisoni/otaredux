@@ -3,10 +3,10 @@ import Leg from './Leg';
 
 const ItineraryData = function (props) {
 
-    let legsDiv = [ <Leg data={props.tripData[0]}/>];
+    let legsDiv = [ <Leg key="dep" data={props.tripData[0]}/>];
 
     if (props.tripData.length>1) {
-        legsDiv.push(<Leg data={props.tripData[1]}/>)
+        legsDiv.push(<Leg key="ret" data={props.tripData[1]}/>)
     }
 
 

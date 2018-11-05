@@ -185,27 +185,43 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                     typeId = 2;
                     break;
             }
-
-            return state.map( (item, index) => {
-
-                if (index !== typeId) {
-                    // This isn't the item we care about - keep it as-is
-                    return item;
+            var countPerPaxType = { ADT:0,CNN:0,INF:0};
+            var totals =0;
+            state.forEach( (item, index) => {
+                const loopItemType = item.type;
+                if (item.count>0) {
+                    totals++;
+                    countPerPaxType[loopItemType]++;
                 }
-                else {
-                    var oldItem = item;
-                    oldItem.count--;
-                    if (oldItem.count <0) {
-                        oldItem.count =0;
+            });
+            totals--;
+            if (totals>0) {
+
+                console.log('REMOVE_PASSENGER_MASTER');
+                console.log(countPerPaxType);
+
+                return state.map((item, index) => {
+
+                    if (index !== typeId) {
+                        // This isn't the item we care about - keep it as-is
+                        return item;
+                    }
+                    else {
+                        var oldItem = item;
+                        oldItem.count--;
+                        if (oldItem.count < 0) {
+                            oldItem.count = 0;
+                        }
+
+                        return {
+                            ...item,
+                            ...oldItem
+                        };
                     }
 
-                    return {
-                        ...item,
-                        ...oldItem
-                    };
-                }
-
-            });
+                });
+            }
+            return state;
 
         case MasterCons.CHANGE_PASSENGER_AIR_CABIN:
 

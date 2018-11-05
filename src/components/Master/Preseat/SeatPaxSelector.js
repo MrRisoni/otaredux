@@ -19,6 +19,14 @@ class SeatPaxSelector extends Component {
     }
 
 
+    componentDidCatch(error, info) {
+        // You can also log the error to an error reporting service
+        console.log(error);
+        console.log(info);
+
+    }
+
+
     render() {
         console.log('this.props.preseatSelectedPax ' + this.props.preseatSelectedPax);
         let text = 'Choose for ';

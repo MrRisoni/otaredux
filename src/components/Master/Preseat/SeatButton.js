@@ -50,8 +50,6 @@ class SeatButton extends Component {
 
     render() {
 
-        console.log('Mounting.$$$$..');
-
         const seatLetter = this.props.seatID.substring(1);
         let avail = false;
         let chosen = false;
