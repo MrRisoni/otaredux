@@ -67,7 +67,7 @@ const MasterSideBar = (props) => {
 
                 props.insuranceOptions.forEach(insOption => {
 
-                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
+                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id >0)) {
                         insuranceCount++;
 
                         const  insuranceDescr = (<div>  {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}</div>)

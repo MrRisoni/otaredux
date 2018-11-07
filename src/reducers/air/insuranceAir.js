@@ -36,10 +36,37 @@ export function purchasedInsuranceReducer(state = boughtInsurances, action) {
     switch (action.type) {
         case PURCHASE_INSURANCE_AIR:
 
-            return [
-                ...state,
-                action.payload
-            ];
+            var foundPax = false;
+
+            state.forEach( (obj) => {
+                if (obj.paxId === obj.paxId) {
+                    foundPax = true;
+                }
+            });
+            if (foundPax === false) {
+                return [
+                    ...state,
+                    action.payload
+                ];
+            }
+            else {
+                state.map( (obj) => {
+                    if (obj.paxId === obj.paxId) {
+                        let newItem = obj;
+                        newItem.insuranceId = action.payload.insuranceId;
+
+                        return {
+                            ...obj,
+                            ...newItem
+                        };
+                    }
+                    else {
+                        return obj;
+                    }
+                });
+
+
+            }
         default:
             return state
     }
