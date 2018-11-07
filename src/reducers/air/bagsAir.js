@@ -48,8 +48,24 @@ export function purchasedBagsReducer(state= boughtPaxBags, action) {
                 ];
         case REMOVE_BAG_AIR:
 
+            let bagFound = false;
+            let index = -1;
 
-            return state.filter(bag => bag.bagId !== action.payload.bagId);
+            state.forEach( (bag,idx) => {
+
+                if (bagFound === false ) {
+                    if (bag.paxId == action.payload.paxId) {
+                        if (bag.bagId === action.payload.bagId) {
+                            if (bag.legId === action.payload.legId) {
+                                bagFound = true; // just remove one occurence
+                                index = idx;
+                            }
+                        }
+                    }
+                }
+            });
+
+            return state.filter( (bag,idx) => idx !== index);
 
         default:
             return state;
