@@ -7,11 +7,13 @@ import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from "./MasterPassport";
-import Insurance from './InsuranceAir/Insurance';
-import BagComponent from './BagsAir/BagComponent';
-import MealsComponent from './MealsAir/MealsComponent';
-import MilesCards from './MilesAir/MilesCards';
+import Insurance from './Insurance/Insurance';
+import BagComponent from './Bags/BagComponent';
+import MealsComponent from './Meals/MealsComponent';
+import MilesCards from './Miles/MilesCards';
 import {CHANGE_PASSENGER_AIR_CABIN} from "../../../actions/master/actionsMaster";
+import CabinTrip from "./Cabin/CabinTrip";
+import MasterPassengerList from "./MasterPassengerList";
 
 
 class MasterPassenger extends Component {
@@ -164,29 +166,9 @@ class MasterPassenger extends Component {
                                         <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
                                         <option key="CNN" value="CNN">Child</option>
                                         <option key="INF" value="INF">Infant</option>
-                                        {this.props.product === 'ship' &&
-                                             <option key="STD" value="STD">Student</option>
-                                        }
                                     </select>
                                 </div>
 
-
-                                <div className="col-sm-3">
-                                    <select className="form-control" onChange={this.handleCabinClassChange}>
-                                        <option key="Y" value="Y" selected={'Y' == this.props.passenger.cabinClass}>Economy</option>
-
-                                        {this.props.passenger.type !== 'INF' &&
-                                            <option key="W" value="W">Premium Economy</option>
-                                        }
-                                        {this.props.passenger.type !== 'INF' &&
-                                            <option key="C" value="C">Business</option>
-                                        }
-                                        {this.props.passenger.type !== 'INF' &&
-                                            <option key="F" value="F">First Class</option>
-                                        }
-
-                                    </select>
-                                </div>
 
                                 <div className="col-sm-2 offset-sm-1">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
@@ -258,16 +240,17 @@ class MasterPassenger extends Component {
 
 
 
-                            {this.props.product === 'air' &&
                                 <MasterPassport countryList={this.props.countryList}
                                 />
-                            }
+
+
+                            <CabinTrip tripData={this.props.tripData }/>
+
 
                             {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN' && this.props.product === 'air') &&
                                 <MilesCards  carrierList={this.props.carrierList}/>
                             }
 
-                            {this.props.product === 'air' &&
 
                                 <div>
                                     <br/>
@@ -305,7 +288,7 @@ class MasterPassenger extends Component {
 
 
                                 </div>
-                            }
+
                         </div>
 
 

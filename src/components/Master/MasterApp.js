@@ -47,7 +47,6 @@ class MasterApp extends Component {
     }
 
     render() {
-        const routeTripData = (this.props.product == 'air')  ? this.props.tripData : this.props.shipTripData;
         console.log('master app render ');
 
         if (this.props.asyncData !== undefined) {
@@ -58,9 +57,10 @@ class MasterApp extends Component {
                         <div className='col-md-8'>
 
                             <ItineraryData product={this.props.product}
-                                           tripData={routeTripData}/>
+                                           tripData={this.props.tripData }/>
 
                             <MasterPassengerList
+                                tripData={this.props.tripData }
                                 product={this.props.product}
                                 addPaxHandler={this.props.addPaxHandler}
                                 removePaxHandler={this.props.removePaxHandler}
