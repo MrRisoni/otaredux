@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import './SeatRow.css';
 
 import SeatButton from './SeatButton';
 

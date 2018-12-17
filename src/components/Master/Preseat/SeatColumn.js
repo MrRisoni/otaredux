@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import SeatRow from './SeatRow';
-import Preseat from "./Preseat";
 
 class SeatColumn extends Component {
     constructor(props)

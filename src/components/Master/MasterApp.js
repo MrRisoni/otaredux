@@ -114,7 +114,7 @@ class MasterApp extends Component {
                         </div>
                     </div>
 
-                 
+
                     <div className='row'>
                         <div className='col-md-8'>
                             <MasterContact contact={this.props.contact}

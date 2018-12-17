@@ -7,44 +7,41 @@ var Translate = require('react-redux-i18n').Translate;
 const MasterSideBar = (props) => {
 
     let paxPrices = [];
-    let activePaxCount =0;
+    let activePaxCount = 0;
 
-    props.pricing.analysis.forEach( paxType => {
-		    if (paxType.count >0) {
-		    	paxPrices.push(<div key={paxType} className="row">
-                    	<div className="col-sm-12">
-                    		{paxType.type} x {paxType.count}  {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
-                    	</div>
-		    		</div>)
-		    }
+    props.pricing.analysis.forEach(paxType => {
+        if (paxType.count > 0) {
+            paxPrices.push(<section><div key={paxType} className="row">
+                <div className="col-sm-12">
+                    {paxType.type} x {paxType.count} {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
+                </div>
+            </div></section>)
+        }
     });
-
-
 
 
     let bagPrices = [];
     let insurancePrices = [];
     let mealsPrices = [];
 
-    let totalBagCount =0;
-    let insuranceCount =0;
+    let totalBagCount = 0;
+    let insuranceCount = 0;
     let mealsCount = 0;
-    let otherUpsalesCount =0;
+    let otherUpsalesCount = 0;
 
     let preSeated = false;
 
-    props.passengers.forEach( pax => {
+    props.passengers.forEach(pax => {
         if (pax.active) {
 
-            if (pax.seat.letter !== '')
-            {
+            if (pax.seat.letter !== '') {
                 preSeated = true;
             }
 
             activePaxCount++;
-            props.bagAllowance.forEach( bag => {
+            props.bagAllowance.forEach(bag => {
                 let bagCountId = 0;
-                props.purchasedBags.forEach( boughtBag => {
+                props.purchasedBags.forEach(boughtBag => {
                     if (bag.id === boughtBag.bagId) {
                         if (boughtBag.paxId === pax.id) {
                             bagCountId++;
@@ -53,29 +50,29 @@ const MasterSideBar = (props) => {
                 });
                 if (bagCountId > 0) {
                     totalBagCount++;
-                    const  bagDescr = (<div>{bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}</div>)
+                    const bagDescr = (
+                        <div>{bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}</div>)
 
-                    bagPrices.push( <SideBarPersonUpsale
-                                        pax={pax}
-                                        description={bagDescr} />)
+                    bagPrices.push(<SideBarPersonUpsale
+                        pax={pax}
+                        description={bagDescr}/>)
                 }
             });
 
 
-
-
-            props.boughtInsurances.forEach( boughtIns => {
+            props.boughtInsurances.forEach(boughtIns => {
 
                 props.insuranceOptions.forEach(insOption => {
 
-                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id >0)) {
+                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id > 0)) {
                         insuranceCount++;
 
-                        const  insuranceDescr = (<div>  {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}</div>)
+                        const insuranceDescr = (
+                            <div>  {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}</div>)
 
-                        insurancePrices.push( <SideBarPersonUpsale
+                        insurancePrices.push(<SideBarPersonUpsale
                             pax={pax}
-                            description={insuranceDescr} />);
+                            description={insuranceDescr}/>);
 
                     }
                 });
@@ -117,7 +114,6 @@ const MasterSideBar = (props) => {
     }
 
 
-
     let insuranceDiv = (<div></div>);
 
     if (insuranceCount > 0) {
@@ -130,23 +126,21 @@ const MasterSideBar = (props) => {
     }
 
 
-
     let mealsDiv = (<div></div>);
 
 
     if (mealsCount > 0) {
-        mealsDiv = ( <SideBarUpsale title="Meals"
-                                    price={mealsPrices}
-                                    currency={props.currency}
+        mealsDiv = (<SideBarUpsale title="Meals"
+                                   price={mealsPrices}
+                                   currency={props.currency}
         />);
     }
-
 
 
     let otherUpsalesDiv = [];
 
     if (props.hasFlexibleTicket.state === true) {
-        const flexiblePrice = (activePaxCount* props.flexibleTicket.pricePerPax).toFixed(2);
+        const flexiblePrice = (activePaxCount * props.flexibleTicket.pricePerPax).toFixed(2);
 
         otherUpsalesDiv.push(<SideBarUpsale title="Flexible Ticket"
                                             price={flexiblePrice}
@@ -155,64 +149,66 @@ const MasterSideBar = (props) => {
     }
 
     if (props.hasBlueRibbon.state === true) {
-        const brbPrice = (activePaxCount* props.blueRibbonPrices.pricePerPax).toFixed(2);
+        const brbPrice = (activePaxCount * props.blueRibbonPrices.pricePerPax).toFixed(2);
 
         otherUpsalesDiv.push(
             <SideBarUpsale title="Blue Ribbon"
                            price={brbPrice}
                            currency={props.currency}
-                            />
-            );
+            />
+        );
     }
 
     if (preSeated === true) {
         otherUpsalesDiv.push(
             <SideBarUpsale title="Preaseating"
                            price={5}
-                currency={props.currency}
+                           currency={props.currency}
             />
         );
     }
 
     return (
-        <div className="pricebox">
+        <aside>
+            <div className="pricebox">
 
-            <div className="card bg-info">
-                <div className="card-header">
-                    <b>Price Analysis </b>
-                </div>
-                <div className="card-body text-white">
+                <div className="card bg-info">
+                    <div className="card-header">
+                        <b>Price Analysis </b>
+                    </div>
+                    <div className="card-body text-white">
 
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h4>Ticket Price</h4>
-                            <hr/>
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <h4>Ticket Price</h4>
+                                <hr/>
+                            </div>
+                        </div>
+
+                        {paxPrices}
+                        {bagsDiv}
+                        {insuranceDiv}
+                        {mealsDiv}
+                        {otherUpsalesDiv}
+
+
+                    </div>
+
+
+                    <div className="card-footer">
+                        <div className="row">
+                            <div className="col-md-12">
+
+                                <h4><Translate value="application.title"/>
+                                    : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
+
+                            </div>
                         </div>
                     </div>
 
-					{paxPrices}
-                    {bagsDiv}
-                    {insuranceDiv}
-                    {mealsDiv}
-                    {otherUpsalesDiv}
-
-
                 </div>
-
-
-                <div className="card-footer">
-                    <div className="row">
-                        <div className="col-md-12">
-
-                            <h4>         <Translate value="application.title"/>
-                                : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </aside>
 
     );
 };

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import SeatColumn from './SeatColumn';
 
-import FontAwesome from 'react-fontawesome';
 import SeatShow from './SeatShow';
 
 

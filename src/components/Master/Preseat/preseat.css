@@ -1,0 +1,26 @@
+.seatButton {
+    padding: 4px;
+    font-size: 12px;
+    margin: 5px;
+    height: 32px;
+    width: 35px;
+}
+
+.seatNotAllowed {
+    background-color: red;
+    color: white;
+    pointer-events: none;
+}
+
+.seatChosen {
+    background-color: yellow;
+    color: black;
+    pointer-events: none;
+}
+
+.seatNotAvailable {
+    background-color: #efefef;
+    color: white;
+    pointer-events: none;
+
+}
