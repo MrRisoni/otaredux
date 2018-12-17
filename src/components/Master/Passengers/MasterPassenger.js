@@ -244,10 +244,10 @@ class MasterPassenger extends Component {
                                 />
 
 
-                            <CabinTrip tripData={this.props.tripData }/>
+                            <CabinTrip tripData={this.props.tripData} pax={this.props.passenger}/>
 
 
-                            {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN' && this.props.product === 'air') &&
+                            {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
                                 <MilesCards  carrierList={this.props.carrierList}/>
                             }
 

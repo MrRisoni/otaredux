@@ -22,6 +22,8 @@ const passengers = [
         surname:'',
         gender:'',
         dob:'',
+        seatList:[{seg:0,seatNo:''},{seg:1,seatNo:''},{seg:2,seatNo:''}],
+        cabinList:[{seg:0,cabin:'Y'},{seg:1,cabin:'Y'},{seg:2,cabin:'Y'}],
         milesCard: { company:'',cardNo: ''},
         seat: {letter:'',number:0},
         passport: {
@@ -139,6 +141,8 @@ export function passengersMasterReducer(state = passengers, action) {
                     surname:'',
                     gender:'',
                     dob:'',
+                    seatList:[{seg:0,seatNo:''},{seg:1,seatNo:''},{seg:2,seatNo:''}],
+                    cabinList:[{seg:0,cabin:'Y'},{seg:1,cabin:'Y'},{seg:2,cabin:'Y'}],
                     seat: {letter:'',number:0},
                     milesCard: { company:'',cardNo: ''},
                     passport: {
