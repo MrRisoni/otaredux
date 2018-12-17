@@ -25,7 +25,6 @@ import {selectCabinAction} from '../../actions/master/actionsShip';
 
 import MasterContact from './Passengers/MasterContact';
 import MasterPayment from './Payment/MasterPayment';
-import CabinSelection from '../Ship/CabinSelection';
 import {seatMapOKReducer} from "../../reducers/air/asyncAir";
 import {fetchPreseatSelectedPaxReducer} from "../../reducers/master/passengersMaster";
 
@@ -115,20 +114,7 @@ class MasterApp extends Component {
                         </div>
                     </div>
 
-                    {this.props.product === 'ship' &&
-                    <div className='row'>
-                        <div className='col-md-8'>
-                            <CabinSelection
-                                selectCabinHandler={this.props.selectCabinHandler}
-                                tripData={routeTripData}
-                                passengers={this.props.passengers}
-                                cabins={this.props.cabins}
-                            />
-                        </div>
-                    </div>
-                    }
-
-
+                 
                     <div className='row'>
                         <div className='col-md-8'>
                             <MasterContact contact={this.props.contact}

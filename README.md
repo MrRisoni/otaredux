@@ -6,6 +6,8 @@ Front-End Stack : React, Redux
  
 https://morning-dusk-36932.herokuapp.com/air
 
+ This type of flight of course, does not exist in real life
+
 
 -----------------
 a mini api for the app
@@ -19,4 +21,4 @@ See https://github.com/MrRisoni/otaspa for an abandoned MobX version
 See https://github.com/MrRisoni/vuespa for an abandoned Vue.js version
 
 
-See https://github.com/MrRisoni/anglota for Angular Version
+See https://github.com/MrRisoni/anglota for an abandoned Angular Version

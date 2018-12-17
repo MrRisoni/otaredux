@@ -2,6 +2,7 @@ import React from 'react';
 import SideBarUpsale from './SideBarUpsale';
 import SideBarPersonUpsale from './SideBarPersonUpsale';
 
+var Translate = require('react-redux-i18n').Translate;
 
 const MasterSideBar = (props) => {
 
@@ -203,7 +204,8 @@ const MasterSideBar = (props) => {
                     <div className="row">
                         <div className="col-md-12">
 
-                            <h4> Total Price : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
+                            <h4>         <Translate value="application.title"/>
+                                : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
 
                         </div>
                     </div>

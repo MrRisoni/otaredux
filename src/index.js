@@ -5,6 +5,8 @@ import registerServiceWorker from './registerServiceWorker';
 import thunk from 'redux-thunk';
 import {BrowserRouter, Route} from 'react-router-dom'
 import {syncHistoryWithStore, routerReducer} from 'react-router-redux'
+import { loadTranslations, setLocale, syncTranslationWithStore, i18nReducer } from 'react-redux-i18n';
+
 import {combineReducers} from 'redux'
 import {Provider} from 'react-redux';
 
@@ -13,7 +15,6 @@ import DefaultLayout from './DefaultLayout';
 import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/currencies';
 
 import {countryListReducer,seatMapOKReducer} from './reducers/air/asyncAir';
-import {itineraryBusReducer} from './reducers/bus/itineraryBus';
 import {getLegsReducer,airTripReducer,uniqueCarriersReducer} from './reducers/air/itineraryAir';
 import {paymentMethodsReducer} from './reducers/air/masterAir';
 import {contactMasterReducer, passengersMasterReducer,fetchPreseatSelectedPaxReducer} from './reducers/master/passengersMaster';
@@ -25,12 +26,43 @@ import {hasFlexibleTicketReducer,flexibleTicketReducer} from './reducers/air/fle
 import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibbon';
 
 
-import {getShipLegsReducer,shipTripReducer} from './reducers/ship/itineraryShip';
-import {cabinsReducer} from './reducers/ship/cabins';
-import {cabinSelectionReducer} from './reducers/ship/cabinSelection';
-
 import './index.css';
 import MasterApp from './components/Master/MasterApp';
+
+
+const translationsObject = {
+        en: {
+                application: {
+                        title: 'Awesome app with i18n!',
+                        hello: 'Hello, %{name}!'
+                },
+                date: {
+                        long: 'MMMM Do, YYYY'
+                },
+                export: 'Export %{count} items',
+                export_0: 'Nothing to export',
+                export_1: 'Export %{count} item',
+                two_lines: 'Line 1<br />Line 2',
+                literal_two_lines: 'Line 1\
+Line 2'
+        },
+        nl: {
+                application: {
+                        title: 'Toffe app met i18n!',
+                        hello: 'Hallo, %{name}!'
+                },
+                date: {
+                        long: 'D MMMM YYYY'
+                },
+                export: 'Exporteer %{count} dingen',
+                export_0: 'Niks te exporteren',
+                export_1: 'Exporteer %{count} ding',
+                two_lines: 'Regel 1<br />Regel 2',
+                literal_two_lines: 'Regel 1\
+Regel 2'
+        }
+};
+
 
 
 
@@ -55,27 +87,25 @@ let store = createStore(combineReducers({
         flexibleTicketReducer,
         hasBlueRibbonReducer,
         getBlueRibbonReducer,
-        getShipLegsReducer,
-        shipTripReducer,
-        cabinsReducer,
-        cabinSelectionReducer,
         countryListReducer,
         seatMapOKReducer,
         fetchPreseatSelectedPaxReducer,
-        routing: routerReducer
+        routing: routerReducer,
+        i18n: i18nReducer
     }),
     applyMiddleware(thunk),
 );
 
-
+syncTranslationWithStore(store)
+store.dispatch(loadTranslations(translationsObject));
+store.dispatch(setLocale('nl'));
 
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <DefaultLayout exact path="/air" component={()=><MasterApp product="air"/>}/>
-                <DefaultLayout exact path="/ship" component={()=><MasterApp product="ship"/>}/>
+                <DefaultLayout exact path="/" component={()=><MasterApp product="air"/>}/>
             </div>
         </BrowserRouter>
     </Provider>,
