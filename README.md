@@ -8,12 +8,7 @@ https://morning-dusk-36932.herokuapp.com/air
 
  This type of flight of course, does not exist in real life
 
-
------------------
-a mini api for the app
-
-https://github.com/MrRisoni/otareduxapi
-
+Hit a brick wall with complexity and Redux :(
 -----------------
 
 See https://github.com/MrRisoni/otaspa for an abandoned MobX version
