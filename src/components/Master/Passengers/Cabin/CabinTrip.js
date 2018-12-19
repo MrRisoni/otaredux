@@ -1,9 +1,14 @@
 import React from 'react';
+import CabinSegment from "./CabinSegment";
 var Translate = require('react-redux-i18n').Translate;
 
 
 const CabinTrip = (props) => {
     console.log(props);
+
+    const departTrip = props.segments.filter(sg => sg.leg ==0);
+    const returnTrip = props.segments.filter(sg => sg.leg ==1);
+
     return (
         <section>
 
@@ -31,6 +36,26 @@ const CabinTrip = (props) => {
 
                 </div>
             </div>
+
+
+            <div className="alert alert-info" role="alert">
+
+                <div className="row">
+                    Departure
+                </div>
+            </div>
+
+            <CabinSegment segs={departTrip} pax={props.pax}/>
+
+
+
+            <div className="alert alert-info" role="alert">
+
+                <div className="row">
+                    Return
+                </div>
+            </div>
+
 
 
         </section>

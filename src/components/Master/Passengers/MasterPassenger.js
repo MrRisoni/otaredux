@@ -243,8 +243,9 @@ class MasterPassenger extends Component {
                                 <MasterPassport countryList={this.props.countryList}
                                 />
 
+                           }
 
-                            <CabinTrip tripData={this.props.tripData} pax={this.props.passenger}/>
+                            <CabinTrip tripData={this.props.tripData}  segments={props.segments} pax={this.props.passenger}/>
 
 
                             {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
