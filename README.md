@@ -6,7 +6,7 @@ Front-End Stack : React, Redux
  
 https://morning-dusk-36932.herokuapp.com/air
 
-
+Hit a brick wall with Redux and app complexity :(
 -----------------
 a mini api for the app
 
