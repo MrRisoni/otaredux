@@ -10,6 +10,20 @@ import {CHANGE_PRESEAT_SELECT_PAX} from "../../actions/master/preseatActions";
 
 const preseatSelectedPaxId =0;
 
+const cabinPaxSelection = [
+    {
+        paxId:0,
+        cabinList:[{segId:0,cabin:'Y'},{segId:1,cabin:'Y'},{segId:2,cabin:'Y'}],
+    }
+]
+
+const seatSelection = [
+    {
+        paxId:0,
+        seatList:[{segId:0,seatNo:''},{segId:1,seatNo:''},{segId:2,seatNo:''}],
+    }
+]
+
 
 const passengers = [
     {
@@ -22,10 +36,7 @@ const passengers = [
         surname:'',
         gender:'',
         dob:'',
-        seatList:[{seg:0,seatNo:''},{seg:1,seatNo:''},{seg:2,seatNo:''}],
-        cabinList:[{seg:0,cabin:'Y'},{seg:1,cabin:'Y'},{seg:2,cabin:'Y'}],
         milesCard: { company:'',cardNo: ''},
-        seat: {letter:'',number:0},
         passport: {
             issueCountry:'',
             nationality:'',
@@ -50,6 +61,11 @@ const contactData = { surname : 'FOO',
                     address:'',
                     postcode:''};
 
+
+
+export function fetchCabinPaxPerSegment( state = cabinPaxSelection, action) {
+        return state;
+}
 
 export function fetchPreseatSelectedPaxReducer(state =preseatSelectedPaxId, action){
     switch (action.type) {
@@ -141,9 +157,6 @@ export function passengersMasterReducer(state = passengers, action) {
                     surname:'',
                     gender:'',
                     dob:'',
-                    seatList:[{seg:0,seatNo:''},{seg:1,seatNo:''},{seg:2,seatNo:''}],
-                    cabinList:[{seg:0,cabin:'Y'},{seg:1,cabin:'Y'},{seg:2,cabin:'Y'}],
-                    seat: {letter:'',number:0},
                     milesCard: { company:'',cardNo: ''},
                     passport: {
                         issueCountry:'',

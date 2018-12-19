@@ -4,11 +4,10 @@ Largely inspired from kiwi.com as well as other sites
 
 Front-End Stack : React, Redux  
  
-https://morning-dusk-36932.herokuapp.com/air
+https://morning-dusk-36932.herokuapp.com
 
  This type of flight of course, does not exist in real life
 
-Hit a brick wall with complexity and Redux :(
 -----------------
 
 See https://github.com/MrRisoni/otaspa for an abandoned MobX version

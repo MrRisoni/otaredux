@@ -89,7 +89,7 @@ const MasterPassengerList = (props) => {
                          blueRibbonPrices={props.blueRibbonPrices}/>
         }
 
-
+        {/*
         {(props.product === 'air' && props.fetchedSeatMap === true) &&
              <Preseat passengers={props.passengers}
                       changePreSeatSelectPassengerHandler={props.changePreSeatSelectPassengerHandler}
@@ -98,6 +98,8 @@ const MasterPassengerList = (props) => {
                       selectSeatHandler={props.selectSeatHandler}
              />
         }
+
+            */}
 
     </div>);
 

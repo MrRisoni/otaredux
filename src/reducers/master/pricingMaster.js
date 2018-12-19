@@ -8,88 +8,29 @@ import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
 
 const totalPrice = 5;
 
-const paxTypes = [
-    {
-        type:'ADT',
-        cabinClass:'Y',
-        ticketPriceEuro: 145,
-        fareEuro:0,
-        taxEuro:0,
-        count:1
-    },
-    {
-        type:'ADT',
-        cabinClass:'W',
-        ticketPriceEuro: 180,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'ADT',
-        cabinClass:'C',
-        ticketPriceEuro: 200,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'ADT',
-        cabinClass:'F',
-        ticketPriceEuro: 250,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'CNN',
-        cabinClass:'Y',
-        ticketPriceEuro: 10,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'CNN',
-        cabinClass:'W',
-        ticketPriceEuro: 40,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'CNN',
-        cabinClass:'C',
-        ticketPriceEuro: 50,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'CNN',
-        cabinClass:'F',
-        ticketPriceEuro: 55,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'INF',
-        cabinClass:'Y',
-        ticketPriceEuro: 5,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-    {
-        type:'STD',
-        ticketPriceEuro: 5,
-        fareEuro:0,
-        taxEuro:0,
-        count:0
-    },
-];
 
+const segmentPrices = [
+    {
+        segId: 0, legId: 0, prices: [
+            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 16},
+        ]
+    },
+    {
+        segId: 1, legId: 0, prices: [
+            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 26},
+        ]
+    },
+    {
+        segId: 2, legId: 1, prices: [
+            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 16},
+        ]
+    }
+]
+
+
+export function getSegmentCabinPricing(state = segmentPrices) {
+    return state;
+}
 export function pricingMasterReducer(state = totalPrice, action) {
     console.log('**pricingReducer**');
     console.log('received action' + action.type);
@@ -98,11 +39,27 @@ export function pricingMasterReducer(state = totalPrice, action) {
     switch (action.type)
     {
         case MasterCons.FIRST_LOAD_MASTER:
-            console.log('first load bus');
-            console.log(action.payload);
 
-            action.payload.paxTypes.forEach( px => {
-                total += px.count * px.ticketPriceEuro;
+            action.payload.passengers.forEach(pax => {
+                if (pax.active) {
+                     const cabins = action.payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
+                     console.log('filter cabin list');
+                     console.log(cabins);
+                     cabins.forEach( cb => {
+                            action.payload.segmentCabinPricing.forEach( segs => {
+                                 if (segs.segId == cb.segId) {
+                                     console.log('segment check ' + segs);
+                                     console.log(segs);
+                                    console.log('weird filter');
+                                     console.log('cb.cabin ' + cb.cabin);
+                                     console.log('pax.age' + pax.type);
+
+                                     console.log(segs.prices.filter(pr => (pr.cabins.indexOf(cb.cabin) > -1 ) &&  (pr.ages.indexOf(pax.type) > -1)));
+                                     total += segs.prices.filter(pr => (pr.cabins.indexOf(cb.cabin) > -1 ) &&  (pr.ages.indexOf(pax.type) > -1))[0].priceEuro;
+                            }
+                            })
+                     })
+                }
             });
 
             return total;

@@ -34,9 +34,9 @@ const MasterSideBar = (props) => {
     props.passengers.forEach(pax => {
         if (pax.active) {
 
-            if (pax.seat.letter !== '') {
-                preSeated = true;
-            }
+            //if (pax.seat.letter !== '') {
+            //    preSeated = true;
+           // }
 
             activePaxCount++;
             props.bagAllowance.forEach(bag => {

@@ -1,6 +1,8 @@
 import {upsalesDispatcher} from './dispatcher';
 
 import * as MasterCons from './allConstants';
+import {fetchCabinPaxPerSegment} from "../../reducers/master/passengersMaster";
+import {getSegmentCabinPricing} from "../../reducers/master/pricingMaster";
 
 
 
@@ -122,7 +124,9 @@ export function firstLoadMasterAction() {
         dispatch({
             type: MasterCons.FIRST_LOAD_MASTER,
             payload: {
-                paxTypes: getState().pricingMasterAnalysisReducer,
+                passengers: getState().passengersMasterReducer,
+                cabinSelection: getState().fetchCabinPaxPerSegment,
+                segmentCabinPricing :getState().getSegmentCabinPricing,
                 currency: getState().currentCurrencyReducer
             }
         });

@@ -82,7 +82,7 @@ const trip = [
         },
         segments: [
             {
-                segId: 1,
+                segId: 0,
                 from: {
                     iata: 'RHO',
                     city: 'Rhodes',
@@ -110,7 +110,7 @@ const trip = [
                 durationTime: {hours: 0, mins: 0}
             },
             {
-                segId: 2,
+                segId: 1,
                 from: {
                     iata: 'ATH',
                     city: 'Athens',
@@ -172,7 +172,7 @@ const trip = [
         },
         segments: [
             {
-                segId: 1,
+                segId: 2,
                 from: {
                     iata: 'LHR',
                     city: 'London',
