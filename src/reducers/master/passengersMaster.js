@@ -62,9 +62,25 @@ const contactData = { surname : 'FOO',
                     postcode:''};
 
 
+export function fetchCabinPaxPerSegment(state = cabinPaxSelection, action) {
 
-export function fetchCabinPaxPerSegment( state = cabinPaxSelection, action) {
-        return state;
+    switch (action.type) {
+        case MasterCons.ADD_PASSENGER_MASTER:
+
+            const nextPaxId = cabinPaxSelection.length;
+            console.log('fetchCabinPaxPerSegment');
+
+            return [
+                ...state,
+
+                {
+                    paxId: nextPaxId,
+                    cabinList: [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}],
+                }
+            ]
+        default:
+            return state;
+    }
 }
 
 export function fetchPreseatSelectedPaxReducer(state =preseatSelectedPaxId, action){

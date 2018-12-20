@@ -1,3 +1,6 @@
 {
- "SelectCabinPerSegment" :"Выберите домик на сегмент"
+  "SelectCabinPerSegment": "Выберите домик на сегмент",
+  "application": {
+    "title": "Итоговая цена"
+  }
 }

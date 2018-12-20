@@ -204,6 +204,25 @@ const MasterSideBar = (props) => {
 
                             </div>
                         </div>
+
+
+                        <div className="row">
+                            <div className="col-12">
+
+                                <div className="form-group">
+                                    <label htmlFor="exampleFormControlSelect2">Example multiple select</label>
+                                    <select multiple className="form-control" id="exampleFormControlSelect2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

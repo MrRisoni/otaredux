@@ -78,7 +78,7 @@ const locales = {
 
 syncTranslationWithStore(store)
 store.dispatch(loadTranslations(locales));
-store.dispatch(setLocale('ru'));
+store.dispatch(setLocale('en'));
 
 
 ReactDOM.render(

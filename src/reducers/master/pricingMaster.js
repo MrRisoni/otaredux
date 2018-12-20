@@ -39,6 +39,8 @@ export function pricingMasterReducer(state = totalPrice, action) {
     switch (action.type)
     {
         case MasterCons.FIRST_LOAD_MASTER:
+        case MasterCons.PASSENGER_ARRAY_CHANGED:
+        case UPSALES_CHANGED:
 
             action.payload.passengers.forEach(pax => {
                 if (pax.active) {
@@ -63,7 +65,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
             });
 
             return total;
-        case MasterCons.PASSENGER_ARRAY_CHANGED:
+        /*case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
 
             console.log(action.payload);
@@ -108,20 +110,19 @@ export function pricingMasterReducer(state = totalPrice, action) {
                 total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
             }
 
-            console.log(action.payload);
-            action.payload.pricesPerPax.forEach( px => {
-                total += px.ticketPriceEuro * px.count;
-            });
-            return total;
 
+            return total;
+*/
         default:
             return state;
     }
 
 }
 
-export function pricingMasterAnalysisReducer(state = paxTypes, action )
+export function pricingMasterAnalysisReducer(state = [], action )
 {
+    return [];
+    /*
     switch (action.type)
     {
         case MasterCons.FIRST_LOAD_MASTER:
@@ -209,7 +210,7 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
                     // This isn't the item we care about - keep it as-is//
                    /* console.log('Retaining ');
                     console.log(newClass + ' ' + oldClass + ' ' + ageGroup);
-                    console.log(item);*/
+                    console.log(item);
                     return item;
                 }
 
@@ -307,5 +308,5 @@ export function pricingMasterAnalysisReducer(state = paxTypes, action )
 
         default:
             return state;
-    }
+    }*/
 }
