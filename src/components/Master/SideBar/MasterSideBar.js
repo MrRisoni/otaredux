@@ -168,6 +168,10 @@ const MasterSideBar = (props) => {
         );
     }
 
+    const ruStyle =  {
+        backgroundImage: 'url(http://localhost:3000/langs/ru.png)',
+    };
+
     return (
         <aside>
             <div className="pricebox">
@@ -210,10 +214,9 @@ const MasterSideBar = (props) => {
                             <div className="col-12">
 
                                 <div className="form-group">
-                                    <label htmlFor="exampleFormControlSelect2">Example multiple select</label>
-                                    <select multiple className="form-control" id="exampleFormControlSelect2">
+                                    <select className="form-control" id="exampleFormControlSelect2">
                                         <option>1</option>
-                                        <option>2</option>
+                                        <option style={ruStyle}>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
