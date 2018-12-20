@@ -9,7 +9,8 @@ import ItineraryData from './Segments/ItineraryData';
 
 
 import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
-    changeMasterPassengerAction,removeMasterPassengerAction,changeAirCabinClassPassengerAction
+    changeMasterPassengerAction,removeMasterPassengerAction,changeAirCabinClassPassengerAction,
+    changeLanguageAction
 
     } from '../../actions/master/actionsMaster';
 
@@ -24,9 +25,9 @@ import {addAirBagAction,removeAirBagAction,
 import {selectCabinAction} from '../../actions/master/actionsShip';
 
 import MasterContact from './Passengers/MasterContact';
-import MasterPayment from './Payment/MasterPayment';
 import {seatMapOKReducer} from "../../reducers/air/asyncAir";
 import {fetchPreseatSelectedPaxReducer} from "../../reducers/master/passengersMaster";
+import CreditCard from "./Payment/CreditCard";
 
 
 
@@ -98,6 +99,7 @@ class MasterApp extends Component {
 
                         <div className='col-md-3'>
                             <MasterSideBar currency={this.props.currency}
+                                           changeLanguageHandler={this.props.changeLanguageHandler}
                                            bagAllowance={this.props.bagsAir}
                                            passengers={this.props.passengers}
                                            purchasedBags={this.props.purchasedBags}
@@ -125,7 +127,7 @@ class MasterApp extends Component {
 
                     <div className='row'>
                         <div className='col-md-8'>
-                            <MasterPayment paymentMethods={this.props.paymentMethods}/>
+                            <CreditCard/>
                         </div>
                     </div>
 
@@ -160,7 +162,6 @@ function mapStateToProps(state) {
         tripData:state.airTripReducer,
         shipSegments:state.getShipLegsReducer,
         shipTripData:state.shipTripReducer,
-        paymentMethods:state.paymentMethodsReducer,
         hasFlexibleTicket:state.hasFlexibleTicketReducer,
         flexibleTicket:state.flexibleTicketReducer,
         hasBlueRibbon: state.hasBlueRibbonReducer,
@@ -192,7 +193,8 @@ function matchDispatchToProps(dispatch) {
         selectSeatHandler:selectAirSeatAction,
         asyncActions:asyncActions,
         asyncSeatMapFetchAction:asyncSeatMapFetchAction,
-        changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction
+        changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction,
+        changeLanguageHandler:changeLanguageAction
     }, dispatch);
 }
 

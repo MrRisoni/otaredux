@@ -18,7 +18,7 @@ const Leg = function (props) {
     });
 
     return (
-        <div className="Leg">
+        <div className="Leg legsCollapse show">
             <div className="card  bg-light mb-3 border-primary mb-3">
 
                 <div className="card-header">

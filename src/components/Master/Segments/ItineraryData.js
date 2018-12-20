@@ -22,7 +22,7 @@ const ItineraryData = function (props) {
                     <div className="col-md-2 offset-md-7">
                         <button className="btn btn-sm btn-dark btn-block btnToggle"
                                 data-toggle="collapse"
-                                data-target={`.segmentsListCollapse`} aria-expanded="false"
+                                data-target={`.legsCollapse`} aria-expanded="false"
                                 aria-controls="collapseExample">
                             Toggle
                         </button>

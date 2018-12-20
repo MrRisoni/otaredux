@@ -148,7 +148,7 @@ class MasterPassenger extends Component {
     render() {
         return (
             <div className="row passengerCompo show passengerListCollapse">
-                <div className="col-sm-12">
+                <div className="col-12">
 
 
                     <div className="card bg-light">
@@ -156,11 +156,11 @@ class MasterPassenger extends Component {
 
                             <div className="row">
 
-                                <div className="col-sm-2">
+                                <div className="col-2">
                                     Passenger # {this.props.passenger.humanId}
                                 </div>
 
-                                <div className="col-sm-4">
+                                <div className="col-4">
                                     <select className="form-control" onChange={this.handleAgeGroupChange}>
                                         <option key="" value="">Select Type</option>
                                         <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
@@ -170,8 +170,8 @@ class MasterPassenger extends Component {
                                 </div>
 
 
-                                <div className="col-sm-2 offset-sm-1">
-                                    <button className="btn btn-sm btn-dark btn-block btnToggle"
+                                <div className="col-2 offset-1">
+                                    <button className="btn btn btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target={`#passengerCollapse${this.props.passenger.id}`} aria-expanded="false"
                                             aria-controls="collapseExample">
@@ -188,7 +188,7 @@ class MasterPassenger extends Component {
                             <div className="row">
 
 
-                                <div className="col-sm-3">
+                                <div className="col-3">
                                     <select className="form-control" onChange={this.handleGenderChange}>
                                         <option key="" value="">Select Gender</option>
                                         <option key="M" value="M">Male</option>
@@ -196,14 +196,7 @@ class MasterPassenger extends Component {
                                     </select>
                                 </div>
 
-                                <div className="col-sm-6">
-                                    <DatePicker className="form-control"
-                                                dateFormat="d MMM YYYY"
-                                                minDate={this.state.minBirthDate}
-                                                selected={this.state.birthDate}
-                                                onChange={this.changeBirthDate}
-                                    />
-                                </div>
+
 
 
                             </div>
@@ -213,7 +206,7 @@ class MasterPassenger extends Component {
 
                                 <br/>
 
-                                <div className="col-sm-6">
+                                <div className="col-6">
                                     <input type="text" placeholder="Surname"
                                            id={`#paxSurname${this.props.passenger.id}`}
                                            value={this.state.surname}
@@ -225,7 +218,7 @@ class MasterPassenger extends Component {
                                 </div>
 
 
-                                <div className="col-sm-5">
+                                <div className="col-5">
                                     <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
                                            value={this.state.name}
                                            onChange={this.editName} className="form-control"/>
@@ -235,6 +228,19 @@ class MasterPassenger extends Component {
 
                                 </div>
 
+
+                            </div>
+
+
+                            <div className={"row"}>
+                                <div className="col-6">
+                                    <DatePicker className="form-control"
+                                                dateFormat="d MMM YYYY"
+                                                minDate={this.state.minBirthDate}
+                                                selected={this.state.birthDate}
+                                                onChange={this.changeBirthDate}
+                                    />
+                                </div>
 
                             </div>
 
@@ -295,8 +301,8 @@ class MasterPassenger extends Component {
 
                         <div className="card-footer">
                             <div className="row">
-                                <div className="col-md-4 offset-md-4">
-                                    <button className="btn btn-primary btn-sm btn-danger" onClick={this.removeMe}>
+                                <div className="col-4 offset-4">
+                                    <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
                                         Remove this Passenger
                                     </button>
                                 </div>

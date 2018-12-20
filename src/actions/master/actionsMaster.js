@@ -1,9 +1,9 @@
 import {upsalesDispatcher} from './dispatcher';
+import {setLocale} from "react-redux-i18n";
+
 
 import * as MasterCons from './allConstants';
-import {fetchCabinPaxPerSegment} from "../../reducers/master/passengersMaster";
-import {getSegmentCabinPricing} from "../../reducers/master/pricingMaster";
-import {setLocale} from "react-redux-i18n";
+
 
 
 
@@ -102,7 +102,6 @@ export function removeMasterPassengerAction(paxId,paxType) {
 
         dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
 
-        dispatch(setLocale('ru'));
 
     }
 }
@@ -153,3 +152,11 @@ export function changeCurrencyAction(newCode) {
     }
 }
 
+
+export function changeLanguageAction() {
+    return (dispatch, getState) => {
+
+        dispatch(setLocale('ru'));
+    }
+
+}

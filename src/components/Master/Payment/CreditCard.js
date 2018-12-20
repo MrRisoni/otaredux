@@ -4,7 +4,7 @@ const CreditCard = function (props) {
     return (
 
 
-        <div className="card">
+        <div className="card paymentDetails">
 
             <div className="card-header bg-light">
 
