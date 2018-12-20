@@ -173,14 +173,31 @@ const MasterSideBar = (props) => {
     };
 
     return (
-        <aside>
-            <div className="pricebox">
+
+            <div className="pricebox sticky-top">
 
                 <div className="card bg-info">
                     <div className="card-header">
-                        <b>Price Analysis </b>
+                        <div className="row">
+
+                            <div className="col-8">
+                                <h6>Price Analysis</h6>
+                            </div>
+
+
+                            <div className="col-3 offset-col-4">
+                                <button className="btn btn-primary btn-sm" data-toggle="collapse"
+                                        href="#priceBoxCollapse"
+                                        role="button" aria-expanded="false" aria-controls="priceBoxCollapse">
+                                    Expand
+                                </button>
+                            </div>
+
+
+                        </div>
                     </div>
-                    <div className="card-body text-white">
+
+                    <div className="card-body text-white" id="priceBoxCollapse">
 
                         <div className="row">
                             <div className="col-sm-12">
@@ -230,7 +247,7 @@ const MasterSideBar = (props) => {
 
                 </div>
             </div>
-        </aside>
+
 
     );
 };

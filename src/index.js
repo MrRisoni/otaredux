@@ -26,6 +26,7 @@ import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibb
 
 
 import './index.css';
+
 import MasterApp from './components/Master/MasterApp';
 
 import Russia from './locales/ru.json';

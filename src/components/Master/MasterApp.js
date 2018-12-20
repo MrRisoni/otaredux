@@ -55,7 +55,7 @@ class MasterApp extends Component {
                 <div className='busApp'>
                     <div className='row'>
 
-                        <div className='col-md-8'>
+                        <div className='col-sm-8'>
 
                             <ItineraryData product={this.props.product}
                                            tripData={this.props.tripData }/>
@@ -97,7 +97,7 @@ class MasterApp extends Component {
 
                         </div>
 
-                        <div className='col-md-3'>
+                        <div className='col-sm-4'>
                             <MasterSideBar currency={this.props.currency}
                                            changeLanguageHandler={this.props.changeLanguageHandler}
                                            bagAllowance={this.props.bagsAir}
@@ -118,7 +118,7 @@ class MasterApp extends Component {
 
 
                     <div className='row'>
-                        <div className='col-md-8'>
+                        <div className='col-8'>
                             <MasterContact contact={this.props.contact}
                                            editContactHandler={this.props.editContactHandler}/>
                         </div>
@@ -126,7 +126,7 @@ class MasterApp extends Component {
 
 
                     <div className='row'>
-                        <div className='col-md-8'>
+                        <div className='col-8'>
                             <CreditCard/>
                         </div>
                     </div>
