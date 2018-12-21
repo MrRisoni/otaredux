@@ -42,8 +42,10 @@ export function pricingMasterReducer(state = totalPrice, action) {
         case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
 
+            let activePaxes =0;
             action.payload.passengers.forEach(pax => {
                 if (pax.active) {
+                    activePaxes++;
                      const cabins = action.payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
                      console.log('filter cabin list');
                      console.log(cabins);
@@ -63,6 +65,16 @@ export function pricingMasterReducer(state = totalPrice, action) {
                      })
                 }
             });
+
+
+            if (action.payload.hasFlexibleTicket.state === true) {
+                total +=  (activePaxes * action.payload.flexibleTicket.pricePerPax);
+            }
+
+            if (action.payload.hasBlueRibbon.state === true) {
+                total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
+            }
+
 
             return total;
         /*case MasterCons.PASSENGER_ARRAY_CHANGED:
@@ -102,13 +114,6 @@ export function pricingMasterReducer(state = totalPrice, action) {
                 }
             });
 
-            if (action.payload.hasFlexibleTicket.state === true) {
-                total +=  (activePaxes * action.payload.flexibleTicket.pricePerPax);
-            }
-
-            if (action.payload.hasBlueRibbon.state === true) {
-                total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
-            }
 
 
             return total;

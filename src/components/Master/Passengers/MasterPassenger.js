@@ -251,10 +251,9 @@ class MasterPassenger extends Component {
 
                            }
 
-                            {/* <CabinTrip tripData={this.props.tripData}  segments={props.segments} pax={this.props.passenger}/>
-*/}
+                            <CabinTrip tripData={this.props.tripData}  segments={this.props.segments} pax={this.props.passenger}/>
 
-                            {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+                            {(this.state.ageGroup !== 'INF') &&
                                 <MilesCards  carrierList={this.props.carrierList}/>
                             }
 
@@ -268,7 +267,7 @@ class MasterPassenger extends Component {
                                         insurances={this.props.insurances}
                                         selectInsuranceHandler={this.props.selectInsuranceHandler}/>
 
-                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+                                    {(this.state.ageGroup !== 'INF') &&
 
 
                                         <BagComponent paxId={this.props.passenger.id}
@@ -281,7 +280,7 @@ class MasterPassenger extends Component {
                                                   removeBagHandler={this.props.removeBagHandler}/>
                                     }
 
-                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+                                    {(this.state.ageGroup !== 'INF') &&
 
                                         <MealsComponent paxId={this.props.passenger.id}
                                                     currency={this.props.currency}

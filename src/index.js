@@ -30,6 +30,7 @@ import './index.css';
 import MasterApp from './components/Master/MasterApp';
 
 import Russia from './locales/ru.json';
+import Germany from './locales/de.json';
 
 console.log(Russia);
 
@@ -72,10 +73,11 @@ const locales = {
     en: {
         "SelectCabinPerSegment": "Select Cabin Per Segment"
     },
-    ru: Russia
-}
+    ru: Russia,
+    de:Germany
+};
 
-syncTranslationWithStore(store)
+syncTranslationWithStore(store);
 store.dispatch(loadTranslations(locales));
 store.dispatch(setLocale('en'));
 

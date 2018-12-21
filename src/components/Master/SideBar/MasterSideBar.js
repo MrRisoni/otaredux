@@ -233,15 +233,18 @@ const MasterSideBar = (props) => {
                                 <div className="form-group">
                                     <select className="form-control" id="exampleFormControlSelect2" onChange={props.changeLanguageHandler}>
                                         <option>1</option>
-                                        <option style={ruStyle}>2</option>
+                                        <option data-thumbnail="http://localhost:3000/langs/ru.png">2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
                                     </select>
                                 </div>
-
                             </div>
                         </div>
+
+
+
+
 
                     </div>
 

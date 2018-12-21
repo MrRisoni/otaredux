@@ -7,18 +7,19 @@ const MealsComponent = function (props) {
 
         <div>
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-12">
                     <div className="alert alert-success" role="alert">
 
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-6">
                                 Are you hungry ?
                             </div>
-                            <div className="col-md-2">
+                            <div className="col-2">
+                                <i className="fas fa-concierge-bell"/>
                                 <i className="fas fa-utensils"/>
                             </div>
 
-                            <div className="col-md-2">
+                            <div className="col-2">
                                 <button className="btn btn-sm btn-dark btn-block btnToggle"
                                         data-toggle="collapse"
                                         data-target={`#mealsCollapse${props.paxId}`}
@@ -36,7 +37,7 @@ const MealsComponent = function (props) {
             <div className="collapse" id={`mealsCollapse${props.paxId}`}>
 
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-12">
                         <MealLeg key={0} leg={0}
                                  mealOptions={props.mealOptions}
                                  boughtMeals={props.boughtMeals}
@@ -49,7 +50,7 @@ const MealsComponent = function (props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-12">
                         <MealLeg key={1} leg={1}
                                  mealOptions={props.mealOptions}
                                  boughtMeals={props.boughtMeals}

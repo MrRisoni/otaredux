@@ -22,11 +22,8 @@ import {addAirBagAction,removeAirBagAction,
     changeFlexibleTicketAction,changeBlueRibbonAction,
     selectAirSeatAction} from '../../actions/master/actionsAir';
 
-import {selectCabinAction} from '../../actions/master/actionsShip';
 
 import MasterContact from './Passengers/MasterContact';
-import {seatMapOKReducer} from "../../reducers/air/asyncAir";
-import {fetchPreseatSelectedPaxReducer} from "../../reducers/master/passengersMaster";
 import CreditCard from "./Payment/CreditCard";
 
 
@@ -160,8 +157,6 @@ function mapStateToProps(state) {
         boughtMeals: state.purchasedMealsReducer,
         segments:state.getLegsReducer,
         tripData:state.airTripReducer,
-        shipSegments:state.getShipLegsReducer,
-        shipTripData:state.shipTripReducer,
         hasFlexibleTicket:state.hasFlexibleTicketReducer,
         flexibleTicket:state.flexibleTicketReducer,
         hasBlueRibbon: state.hasBlueRibbonReducer,
@@ -189,7 +184,6 @@ function matchDispatchToProps(dispatch) {
         addMealHandler:addMealAction,
         changeFlexibleTicketHandler:changeFlexibleTicketAction,
         changeBlueRibbonHandler:changeBlueRibbonAction,
-        selectCabinHandler:selectCabinAction,
         selectSeatHandler:selectAirSeatAction,
         asyncActions:asyncActions,
         asyncSeatMapFetchAction:asyncSeatMapFetchAction,

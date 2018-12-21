@@ -123,16 +123,8 @@ export function addMasterPassengerAction() {
 
 export function firstLoadMasterAction() {
     return (dispatch, getState) => {
+        dispatch(upsalesDispatcher(getState,MasterCons.FIRST_LOAD_MASTER));
 
-        dispatch({
-            type: MasterCons.FIRST_LOAD_MASTER,
-            payload: {
-                passengers: getState().passengersMasterReducer,
-                cabinSelection: getState().fetchCabinPaxPerSegment,
-                segmentCabinPricing :getState().getSegmentCabinPricing,
-                currency: getState().currentCurrencyReducer
-            }
-        });
     }
 }
 
@@ -153,7 +145,7 @@ export function changeCurrencyAction(newCode) {
 }
 
 
-export function changeLanguageAction() {
+export function changeLanguageAction(lang) {
     return (dispatch, getState) => {
 
         dispatch(setLocale('ru'));
