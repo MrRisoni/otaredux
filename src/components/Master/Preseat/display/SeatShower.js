@@ -1,8 +1,22 @@
 import React from 'react';
+import SegmentPaxSeat from './SegmentPaxSeat';
+
 
 const SeatShower = (props) => {
+
+    let segPaxSeats = [];
+    props.passengers.forEach(px => {
+        if ((px.active == true) && (px.type != 'INF')) {
+            segPaxSeats.push(<SegmentPaxSeat paxData={px}
+                                             segments={props.segments}></SegmentPaxSeat>)
+        }
+    });
+
+
     return (
-        <div> Stateless Component {props.name} </div>
+        <div className="seatShower">
+            {segPaxSeats}
+        </div>
     )
 };
 

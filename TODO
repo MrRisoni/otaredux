@@ -1,5 +1,3 @@
-Preseat CSS Redesign a la vue.js
-
 PreSeat per cabin class/segment
 
 Language Change
@@ -9,7 +7,6 @@ cabin class per segment
 Bags per segment/cabin class
 Meals per segment/cabin class
 
-Responsive
 HTMl5 markups
 ESlint fix
 ES6
@@ -18,5 +15,5 @@ Nicer CSS
 
 Currency Change
 
-delete vueheroku
-delete angolata herkou
+delete otareduxheroku
+delete apiheroku

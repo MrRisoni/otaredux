@@ -176,7 +176,7 @@ const MasterSideBar = (props) => {
 
     return (
 
-        <div className="pricebox sticky-top">
+        <div className="pricebox position-fixed ">
 
             <div className="card bg-info">
                 <div className="card-header">

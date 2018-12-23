@@ -2,61 +2,28 @@ import React from 'react';
 import SeatColumn from './SeatColumn';
 
 const SeatRow = (props) => {
+
+    const letters = ['A','B','C','D','E','F'];
+    let colsArray = [];
+    letters.forEach(( letr,indx) => {
+        let className="col-xs-1 ";
+        if ((indx ==0) || (indx ==letters.length /2)) {
+            className += "offset-2 ";
+        }
+        colsArray.push(
+            (<div className={className}>
+                <SeatColumn key={letr}
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName={letr}></SeatColumn>
+            </div>)
+        )
+    });
+
     return (
 
         <div className="row">
-            <div className="col-xs-1 offset-2">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="A"></SeatColumn>
-            </div>
-
-
-            <div className="col-xs-1">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="B"></SeatColumn>
-            </div>
-
-
-
-            <div className="col-xs-1">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="C"></SeatColumn>
-            </div>
-
-
-
-
-            <div className="col-xs-1 offset-1">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="C"></SeatColumn>
-            </div>
-
-
-            <div className="col-xs-1">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="E"></SeatColumn>
-            </div>
-
-
-
-            <div className="col-xs-1">
-                <SeatColumn
-                    rowId={props.rowId}
-                    passengers={props.passengers}
-                    colName="F"></SeatColumn>
-            </div>
-
-
+            {colsArray}
         </div>
 
     )

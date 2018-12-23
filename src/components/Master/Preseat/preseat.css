@@ -28,3 +28,19 @@
     pointer-events: none;
 
 }
+
+
+.segmentSeat {
+    margin-top: 1%;
+}
+
+
+.selectedTrigger {
+    background-color: #4844ff;
+
+}
+
+
+#seatRowsElement {
+    margin-top: 1%;
+}

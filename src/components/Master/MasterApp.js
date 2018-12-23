@@ -112,6 +112,7 @@ class MasterApp extends Component {
 
                 <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
                           passengers={this.props.passengers}
+                          segments={this.props.segments}
                           seatMapInfo={this.props.seatMapInfo}/>
 
                 <MasterContact contact={this.props.contact}
