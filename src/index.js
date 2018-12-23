@@ -23,6 +23,7 @@ import {airInsuranceReducer,purchasedInsuranceReducer} from './reducers/air/insu
 import {getMealsReducer,purchasedMealsReducer} from './reducers/air/mealsAir';
 import {hasFlexibleTicketReducer,flexibleTicketReducer} from './reducers/air/flexibleTicket';
 import {hasBlueRibbonReducer,getBlueRibbonReducer} from './reducers/air/blueRibbon';
+import {preSeatSelectedItemsReducer,seatMapInfoReducer} from './reducers/air/preseat';
 
 
 import './index.css';
@@ -58,6 +59,8 @@ let store = createStore(combineReducers({
         getBlueRibbonReducer,
         countryListReducer,
         fetchPreseatSelectedPaxReducer,
+        preSeatSelectedItemsReducer,
+        seatMapInfoReducer,
         routing: routerReducer,
         i18n: i18nReducer
     }),

@@ -28,6 +28,7 @@ import MasterContact from './Passengers/MasterContact';
 import CreditCard from "./Payment/CreditCard";
 import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
 import Preseat from "./Preseat/Preseat";
+import {preSeatSelectedItems, seatMapInfo} from "../../reducers/air/preseat";
 
 
 class MasterApp extends Component {
@@ -109,7 +110,8 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
-                <Preseat/>
+                <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
+                            seatMapInfo={this.props.seatMapInfo}/>
 
                 <MasterContact contact={this.props.contact}
                                countryList={this.props.asyncData.countries}
@@ -156,7 +158,9 @@ function mapStateToProps(state) {
         cabins: state.cabinsReducer,
         cabinSelection: state.cabinSelectionReducer,
         asyncData: state.countryListReducer,
-        preseatSelectedPax: state.fetchPreseatSelectedPaxReducer
+        preseatSelectedPax: state.fetchPreseatSelectedPaxReducer,
+        preSeatSelectedItems:state.preSeatSelectedItemsReducer,
+        seatMapInfo:state.seatMapInfoReducer,
     }
 }
 
