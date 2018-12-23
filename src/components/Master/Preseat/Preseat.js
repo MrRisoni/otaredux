@@ -82,13 +82,14 @@ class Preseat extends Component {
 
         let seatRowDiv = [];
         for (let i = 0; i < maxRows; i++) {
-            seatRowDiv.push(<SeatRow key={i} rowId={i}></SeatRow>)
+            seatRowDiv.push(<SeatRow key={i}
+                                     passengers={this.props.passengers}
+                                     rowId={i}></SeatRow>)
         }
 
 
         return (<section id="preSeat">
-            <div className='row'>
-                <div className='col-8'>
+
                     <div className="alert alert-primary" role="alert">
                         <div className="row">
                             <div className="col-5">
@@ -110,8 +111,6 @@ class Preseat extends Component {
                         </div>
                     </div>
 
-                </div>
-            </div>
 
 
             <div id="preseatComponents">

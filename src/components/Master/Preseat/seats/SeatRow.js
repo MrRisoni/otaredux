@@ -5,25 +5,58 @@ const SeatRow = (props) => {
     return (
 
         <div className="row">
-            <div className="col-1 offset-2">
-                <SeatColumn rowId={props.rowId} colName="'A'"></SeatColumn>
-            </div>
-            <div className="col-1">
-                <SeatColumn rowId={props.rowId} colName="'B'"></SeatColumn>
-            </div>
-            <div className="col-1">
-                <SeatColumn rowId={props.rowId} colName="'C'"></SeatColumn>
+            <div className="col-1 offset-1">
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="A"></SeatColumn>
             </div>
 
-            <div className="col-1 offset-2">
-                <SeatColumn rowId={props.rowId} colName="'E'"></SeatColumn>
-            </div>
+
             <div className="col-1">
-                <SeatColumn rowId={props.rowId} colName="'F'"></SeatColumn>
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="B"></SeatColumn>
             </div>
+
+
+
             <div className="col-1">
-                <SeatColumn rowId={props.rowId} colName="'G'"></SeatColumn>
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="C"></SeatColumn>
             </div>
+
+
+
+
+            <div className="col-1">
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="C"></SeatColumn>
+            </div>
+
+
+            <div className="col-1">
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="E"></SeatColumn>
+            </div>
+
+
+
+            <div className="col-1">
+                <SeatColumn
+                    rowId={props.rowId}
+                    passengers={props.passengers}
+                    colName="F"></SeatColumn>
+            </div>
+
+
         </div>
 
     )

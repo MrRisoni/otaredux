@@ -6,7 +6,9 @@ const SeatColumn = (props) => {
         <div className="row">
 
             <div className="col-2">
-                <Seat colName="colName" rowId="rowId"></Seat>
+                <Seat rowId={props.rowId}
+                      passengers={props.passengers}
+                      colName={props.colName}></Seat>
         </div>
 
 

@@ -13,46 +13,48 @@ class Seat extends Component {
 
     decideSeatClass()
     {
-        const seatName = this.colName + this.rowId;
+        const seatName = this.props.colName + this.props.rowId;
 
         let seatNotAllowed = false;
         let seatChosen = false;
         let seatNotAvailable = false;
 
-        const selectedSeg = this.$store.state.preseat.selectedSegment - 1;
-        const firstClassUpToRow = this.$store.state.trip.dep[selectedSeg].firstClassLimit;
+        const selectedSeg = 1;//this.$store.state.preseat.selectedSegment - 1;
+        const firstClassUpToRow =22;// this.$store.state.trip.dep[selectedSeg].firstClassLimit;
 
-        const cabinsOfSelectedPax = this.$store.state.passengerList.filter(px => px.id == this.$store.state.preseat.selectedPaxId)[0].cabinList;
-        const cabinForSelectedPaxSegment = cabinsOfSelectedPax.filter(cb => cb.seg == this.$store.state.preseat.selectedSegment)[0].cabin;
+        const cabinsOfSelectedPax =[]; //this.props.passengers.filter(px => px.id == this.$store.state.preseat.selectedPaxId)[0].cabinList;
+        const cabinForSelectedPaxSegment = 'Y'; // cabinsOfSelectedPax.filter(cb => cb.seg == this.$store.state.preseat.selectedSegment)[0].cabin;
 
         // check if seat has been reserved by another PNR
-        const reservedSeats = this.$store.state.trip.dep[selectedSeg].taken;
+        const reservedSeats = []; //this.$store.state.trip.dep[selectedSeg].taken;
         if (reservedSeats.indexOf(seatName) > -1) {
             seatNotAvailable = true;
         }
 
-        this.$store.state.passengerList.forEach( (px) => {
+       /* this.props.passengers.forEach( (px) => {
             if (px.active === true) {
                 px.seatList.forEach( (ssl) => {
-                    if (ssl.seg == this.$store.state.preseat.selectedSegment) {
-                        if (ssl.seatNo == seatName) {
+                  //  if (ssl.seg == this.$store.state.preseat.selectedSegment) {
+                        if (ssl.seg == 1) {
+
+                            if (ssl.seatNo == seatName) {
                             seatChosen = true;
                         }
                     }
                 })
             }
-        });
+        });*/
 
         if ((seatNotAvailable == false) && (seatChosen == false)) {
 
             if ((cabinForSelectedPaxSegment == 'W') || (cabinForSelectedPaxSegment == 'Y')) {
-                if (this.rowId < firstClassUpToRow) {
+                if (this.props.rowId < firstClassUpToRow) {
                     seatNotAllowed = true;
                 }
             }
 
             if ((cabinForSelectedPaxSegment != 'W') && (cabinForSelectedPaxSegment != 'Y')) {
-                if (this.rowId > firstClassUpToRow) {
+                if (this.props.rowId > firstClassUpToRow) {
                     seatNotAllowed = true; // pax is business class , he cannot pick economy
                 }
             }
@@ -79,7 +81,7 @@ class Seat extends Component {
             <div className="row">
                 <div className="col-1">
                     <button type="button" className={"btn seatButton btn-sm btn-primary" + this.decideSeatClass()}>
-                          {{colName}}  {{rowId}}
+                          {this.props.colName}  {this.props.rowId}
                     </button>
                 </div>
             </div>

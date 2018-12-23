@@ -111,7 +111,8 @@ class MasterApp extends Component {
                 </div>
 
                 <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
-                            seatMapInfo={this.props.seatMapInfo}/>
+                          passengers={this.props.passengers}
+                          seatMapInfo={this.props.seatMapInfo}/>
 
                 <MasterContact contact={this.props.contact}
                                countryList={this.props.asyncData.countries}
