@@ -249,9 +249,11 @@ class MasterPassenger extends Component {
                                 <MasterPassport countryList={this.props.countryList}
                                 />
 
-                           }
 
-                            <CabinTrip tripData={this.props.tripData}  segments={this.props.segments} pax={this.props.passenger}/>
+
+                            <CabinTrip tripData={this.props.tripData}
+                                       currency={this.props.currency}
+                                       segments={this.props.segments} pax={this.props.passenger}/>
 
                             {(this.state.ageGroup !== 'INF') &&
                                 <MilesCards  carrierList={this.props.carrierList}/>

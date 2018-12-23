@@ -1,6 +1,9 @@
 {
   "SelectCabinPerSegment": "Выберите домик на сегмент",
+  "Departure" : "Вылет из",
+  "Return" : "вернуть",
   "application": {
     "title": "Итоговая цена"
+
   }
 }

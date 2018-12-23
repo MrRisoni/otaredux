@@ -15,7 +15,6 @@ import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAc
     } from '../../actions/master/actionsMaster';
 
 import {changePreSeatSelectPassengerAction} from '../../actions/master/preseatActions';
-import { asyncActions,asyncSeatMapFetchAction} from '../../actions/master/asyncActions';
 import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
@@ -36,9 +35,8 @@ class MasterApp extends Component {
     }
 
 
-    componentWillMount() {
-        this.props.asyncActions();
-        this.props.asyncSeatMapFetchAction();
+    componentDidMount() {
+        this.props.fetchCountriesAction();
 
         this.props.firstLoad();
 
@@ -87,7 +85,6 @@ class MasterApp extends Component {
                                 hasBlueRibbon={this.props.hasBlueRibbon}
                                 blueRibbonPrices={this.props.blueRibbonPrices}
                                 countryList={this.props.asyncData.countries}
-                                seatMap={this.props.asyncData.seatMap}
                                 fetchedSeatMap={this.props.fetchedSeatMap}
                                 preseatSelectedPax={this.props.preseatSelectedPax}/>
 
@@ -164,7 +161,6 @@ function mapStateToProps(state) {
         cabins:state.cabinsReducer,
         cabinSelection:state.cabinSelectionReducer,
         asyncData:state.countryListReducer,
-        fetchedSeatMap:state.seatMapOKReducer,
         preseatSelectedPax: state.fetchPreseatSelectedPaxReducer
     }
 }
@@ -185,8 +181,6 @@ function matchDispatchToProps(dispatch) {
         changeFlexibleTicketHandler:changeFlexibleTicketAction,
         changeBlueRibbonHandler:changeBlueRibbonAction,
         selectSeatHandler:selectAirSeatAction,
-        asyncActions:asyncActions,
-        asyncSeatMapFetchAction:asyncSeatMapFetchAction,
         changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction,
         changeLanguageHandler:changeLanguageAction
     }, dispatch);

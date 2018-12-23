@@ -14,7 +14,7 @@ import DefaultLayout from './DefaultLayout';
 
 import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/currencies';
 
-import {countryListReducer,seatMapOKReducer} from './reducers/air/asyncAir';
+import {countryListReducer} from './reducers/air/asyncAir';
 import {getLegsReducer,airTripReducer,uniqueCarriersReducer} from './reducers/air/itineraryAir';
 import {contactMasterReducer, passengersMasterReducer,fetchPreseatSelectedPaxReducer,fetchCabinPaxPerSegment} from './reducers/master/passengersMaster';
 import {pricingMasterReducer, pricingMasterAnalysisReducer,getSegmentCabinPricing} from './reducers/master/pricingMaster';
@@ -31,9 +31,6 @@ import MasterApp from './components/Master/MasterApp';
 
 import Russia from './locales/ru.json';
 import Germany from './locales/de.json';
-
-console.log(Russia);
-
 
 
 
@@ -60,7 +57,6 @@ let store = createStore(combineReducers({
         hasBlueRibbonReducer,
         getBlueRibbonReducer,
         countryListReducer,
-        seatMapOKReducer,
         fetchPreseatSelectedPaxReducer,
         routing: routerReducer,
         i18n: i18nReducer

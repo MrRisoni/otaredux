@@ -1,4 +1,4 @@
-Gargantuan Online Travel Agency Booking App (still a work in progress...)
+Gargantuan Online Travel Agency Booking App 
 
 Largely inspired from kiwi.com as well as other sites
 

@@ -1,0 +1,76 @@
+
+.seatShow {
+    margin-bottom: 3%;
+}
+
+
+.preSeatPaxSelector {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+
+.seatButton {
+    padding: 4px;
+    font-size: 12px;
+    margin: 5px;
+    height: 32px;
+    width: 35px;
+}
+
+.seatNotAllowed {
+    background-color: red;
+    color: white;
+    pointer-events: none;
+}
+
+.seatChosen {
+    background-color: yellow;
+    color: black;
+    pointer-events: none;
+}
+
+.seatNotAvailable {
+    background-color: #efefef;
+    color: white;
+    pointer-events: none;
+
+}
+
+.seatAvailable {
+    background-color : #292aff;
+}
+
+.seatChosen {
+    background-color : #00ff03;
+}
+
+.seatTaken {
+    background-color: #ece7ff;
+}
+
+.seatRowHeader {
+    text-align: center;
+    height: 45px;
+    background-color: #feffd7;
+
+}
+
+.seatLetterGroup {
+    margin-right:8%;
+}
+
+
+.seatPaxSelector {
+    cursor:pointer;
+}
+
+
+#seatsCollapse {
+    margin-top: 3%;
+}
+
+
+.segsPaxSeats {
+    margin-top: 3%;
+}

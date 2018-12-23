@@ -1,4 +1,4 @@
-import {FETCH_COUNTRIES_FINISHED, FETCH_SEATMAP_FINISHED} from '../../actions/master/asyncActions';
+import {FETCH_COUNTRIES_FINISHED} from '../../actions/master/actionsAir';
 import {SELECT_AIR_SEAT} from "../../actions/master/actionsAir";
 
 
@@ -6,19 +6,9 @@ import {SELECT_AIR_SEAT} from "../../actions/master/actionsAir";
 
 const asyncData = {
     countries: [],
-    seatMap:[]
 };
 
-const fetchedSeatMap = false;
 
-export function seatMapOKReducer(state= fetchedSeatMap, action) {
-    switch (action.type) {
-        case FETCH_SEATMAP_FINISHED:
-            return true;
-        default:
-            return state;
-    }
-}
 
 export function countryListReducer(state= asyncData, action) {
 
@@ -27,8 +17,7 @@ export function countryListReducer(state= asyncData, action) {
     switch (action.type) {
         case FETCH_COUNTRIES_FINISHED:
             return { ...state, countries: action.payload };
-        case FETCH_SEATMAP_FINISHED:
-            return { ...state, seatMap: action.payload };
+
         case SELECT_AIR_SEAT:
             //changes free to true
             console.log('SELECT_AIR_SEAT');

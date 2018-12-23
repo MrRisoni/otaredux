@@ -1,7 +1,7 @@
 import React from 'react';
-import HOCStation from './HOCStation';
 import Airport from './Airport'
 import Segment from './Segment'
+var Translate = require('react-redux-i18n').Translate;
 
 
 const Leg = function (props) {
@@ -17,15 +17,20 @@ const Leg = function (props) {
        segmentsDiv.push(<Segment key={idx} data={sg}/>);
     });
 
-    return (
+
+    const legTitle = (props.legId ==0) ? <p><Translate value="Departure"/></p> : <p><Translate value="Return"/></p>;
+
+        return (
         <div className="Leg legsCollapse show">
             <div className="card  bg-light mb-3 border-primary mb-3">
 
                 <div className="card-header">
                     <div className="row">
 
+                        <div className="col-4">{legTitle}</div>
 
-                        <div className="col-md-2 offset-md-8">
+
+                        <div className="col-2 offset-8">
                             <button className="btn btn-sm btn-dark btn-block btnToggle"
                                     data-toggle="collapse"
                                     data-target={`#legCollapse${props.data.legId}`} aria-expanded="false"
@@ -64,7 +69,7 @@ const Leg = function (props) {
                             day={props.data.to.day}
                             date={props.data.to.date}/>
 
-                        <div className="col-md-2">
+                        <div className="col-2">
                             <button className="btn btn-sm btn-primary"
                                     data-toggle="collapse" data-target={`#segmentsCollapse${props.data.legId}`} aria-expanded="false" aria-controls="collapseExample">
                                 Expand
@@ -79,11 +84,11 @@ const Leg = function (props) {
 
                     <div className="row">
 
-                        <div className="col-md-4">
+                        <div className="col-4">
                             Stops: {props.data.stops}
                         </div>
 
-                        <div className="col-md-4">
+                        <div className="col-4">
                             Duration: {props.data.duration.h}h {props.data.duration.m}m
                         </div>
 

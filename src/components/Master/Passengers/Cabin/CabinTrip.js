@@ -16,7 +16,7 @@ const CabinTrip = (props) => {
     return (
         <section>
 
-            <div className="alert alert-info" role="alert">
+            <div className="alert alert-info cabinTrip" role="alert">
 
                 <div className="row">
 
@@ -46,7 +46,8 @@ const CabinTrip = (props) => {
 
 
 
-                <CabinLeg segs={departTrip} leg={0} pax={props.pax}/>
+                <CabinLeg  currency={props.currency}
+                           segs={departTrip} leg={0} pax={props.pax}/>
 
 
 

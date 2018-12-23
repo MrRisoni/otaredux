@@ -6,8 +6,15 @@ const DefaultLayout = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} render={matchProps => (
             <div className="DefaultLayout">
-                <div className="Header"><Header/></div>
-                <Component {...matchProps} />
+                <header>
+                    <div className="Header"><Header/></div>
+                </header>
+                <main>
+                    <Component {...matchProps} />
+                </main>
+                <footer>
+                    <div className="Header"><Header/></div>
+                </footer>
             </div>
         )} />
     )

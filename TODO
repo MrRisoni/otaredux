@@ -3,7 +3,7 @@ Language Change
 Nicer CSS
 Preseat CSS Redesign
 try for responsive
-Complete
+
 cabin class per segment
 Bags per segment/cabin class
 PreSeat per cabin class/segment
@@ -14,3 +14,5 @@ Meals per segment/cabin class
 Responsive
 HTMl5 markups
 ESlint fix
+No axios
+ES6

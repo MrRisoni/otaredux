@@ -3,6 +3,7 @@ import React from 'react';
 const CabinSegment = (props) => {
     console.log('CabinSegemtns');
     console.log(props);
+    const cabinListForSegment = props.seg.cabinList.filter(cb => cb.age == props.pax.type);
     return (
 
 
@@ -18,17 +19,22 @@ const CabinSegment = (props) => {
                     </div>
 
 
-                    <div className="col-4">
-                            <select className="form-control" id="exampleFormControlSelect2"
-                                    onChange={props.changeLanguageHandler}>
-                                <option>1</option>
-                                <option data-thumbnail="http://localhost:3000/langs/ru.png">2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                    <div className="col-3">
+                            <select className="form-control" id="exampleFormControlSelect2">
+
+                                {cabinListForSegment.map(cb => {
+                                   return  (<option>{cb.class} {cb.price} {props.currency.code}</option>)
+                                })}
+
                             </select>
 
                     </div>
+
+                    {cabinListForSegment.length == 1 &&
+                        <div className="col-4">
+                            Only one cabin available for this segment
+                        </div>
+                    }
 
                 </div>
             </div>

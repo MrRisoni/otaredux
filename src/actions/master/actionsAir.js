@@ -18,6 +18,25 @@ export const ADD_BLUE_RIBBON = 'ADD_BLUE_RIBBON';
 
 export const SELECT_AIR_SEAT = 'SELECT_AIR_SEAT';
 
+const countries = require('../../resources/countries');
+
+export const FETCH_COUNTRIES_FINISHED = 'FETCH_COUNTRIES_FINISHED';
+
+export function fetchCountriesAction() {
+
+    return (dispatch, getState) => {
+
+        dispatch({
+            type: FETCH_COUNTRIES_FINISHED,
+            payload: countries
+
+        });
+
+
+    }
+}
+
+
 
 export function selectAirSeatAction(data) {
     return (dispatch, getState) => {
