@@ -33,15 +33,15 @@ class Insurance extends Component {
                     <div className="row">
 
 
-                        <div className="col-md-6">
+                        <div className="col-6">
                             Select an Insurance
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-2">
                             <i className="fas fa-ambulance"/>
                         </div>
 
 
-                        <div className="col-md-2">
+                        <div className="col-2">
                             <button className="btn btn-sm btn-dark btn-block btnToggle"
                                     data-toggle="collapse"
                                     data-target={`#insuranceCollapse${this.props.paxId}`}

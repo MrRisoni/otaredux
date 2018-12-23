@@ -13,7 +13,7 @@ const MasterSideBar = (props) => {
         if (paxType.count > 0) {
             paxPrices.push(<section>
                 <div key={paxType} className="row">
-                    <div className="col-sm-12">
+                    <div className="col-12">
                         {paxType.type} x {paxType.count} {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
                     </div>
                 </div>
@@ -88,12 +88,12 @@ const MasterSideBar = (props) => {
                         mealsPrices.push(
                             <div key={pax.id}>
                                 <div className="row">
-                                    <div className="col-sm-12">
+                                    <div className="col-12">
                                         {pax.surname} {pax.name}
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-sm-12">
+                                    <div className="col-12">
                                         {availbMeal.title} {availbMeal.price.toFixed(2)} {props.currency.code}
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@ const MasterSideBar = (props) => {
                 <div className="card-body text-white" id="priceBoxCollapse">
 
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-12">
                             <h4>Ticket Price</h4>
                             <hr/>
                         </div>

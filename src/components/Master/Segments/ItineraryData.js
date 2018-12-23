@@ -15,11 +15,11 @@ const ItineraryData = function (props) {
 
             <div className="alert alert-primary" role="alert">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-3">
                         Your trip!
                     </div>
 
-                    <div className="col-md-2 offset-md-7">
+                    <div className="col-2 offset-7">
                         <button className="btn btn-sm btn-dark btn-block btnToggle"
                                 data-toggle="collapse"
                                 data-target={`.legsCollapse`} aria-expanded="false"

@@ -30,7 +30,7 @@ class Preseat extends Component {
 
             let colRowsContainers = 'keyRowsCon' + alphabet[sc];
 
-            ColHeaders.push(<div className="col-md-3 seatLetterGroup" key={colHeaderKey}>
+            ColHeaders.push(<div className="col-3 seatLetterGroup" key={colHeaderKey}>
                 <div className="card">
                     <div className="card-header seatRowHeader">
                         <p><b>{alphabet[sc]}</b></p>
@@ -55,7 +55,7 @@ class Preseat extends Component {
 
 
             <div className="row contactDetails">
-                <div className="col-md-12">
+                <div className="col-12">
                     <div className="card">
                         <div className="card-header  bg-info">Select your Seat</div>
                         <div className="card-body">

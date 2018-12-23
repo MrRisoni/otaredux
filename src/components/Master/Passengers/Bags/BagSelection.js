@@ -40,7 +40,7 @@ class BagSelection extends Component {
 
         return (
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-6">
 
                     <button onClick={this.handleClick}
                             className="btn-primary btn btnPlusMinusBags">+
@@ -52,7 +52,7 @@ class BagSelection extends Component {
                     {this.props.bagData.weight} {this.props.bagData.price.toFixed(2)} {this.props.currency.code}
 
                 </div>
-                <div className="col-md-2">
+                <div className="col-2">
                      x {bagCount}
                 </div>
             </div>);

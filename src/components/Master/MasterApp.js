@@ -19,7 +19,7 @@ import {addAirBagAction,removeAirBagAction,
     changeAirInsuranceAction,
     addMealAction,
     changeFlexibleTicketAction,changeBlueRibbonAction,
-    selectAirSeatAction} from '../../actions/master/actionsAir';
+    selectAirSeatAction,fetchCountriesAction} from '../../actions/master/actionsAir';
 
 
 import MasterContact from './Passengers/MasterContact';
@@ -50,7 +50,7 @@ class MasterApp extends Component {
                 <div className='busApp'>
                     <div className='row'>
 
-                        <div className='col-sm-8'>
+                        <div className='col-8'>
 
                             <ItineraryData product={this.props.product}
                                            tripData={this.props.tripData }/>
@@ -85,13 +85,12 @@ class MasterApp extends Component {
                                 hasBlueRibbon={this.props.hasBlueRibbon}
                                 blueRibbonPrices={this.props.blueRibbonPrices}
                                 countryList={this.props.asyncData.countries}
-                                fetchedSeatMap={this.props.fetchedSeatMap}
                                 preseatSelectedPax={this.props.preseatSelectedPax}/>
 
 
                         </div>
 
-                        <div className='col-sm-4'>
+                        <div className='col-4'>
                             <MasterSideBar currency={this.props.currency}
                                            changeLanguageHandler={this.props.changeLanguageHandler}
                                            bagAllowance={this.props.bagsAir}
@@ -182,7 +181,8 @@ function matchDispatchToProps(dispatch) {
         changeBlueRibbonHandler:changeBlueRibbonAction,
         selectSeatHandler:selectAirSeatAction,
         changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction,
-        changeLanguageHandler:changeLanguageAction
+        changeLanguageHandler:changeLanguageAction,
+        fetchCountriesAction:fetchCountriesAction
     }, dispatch);
 }
 

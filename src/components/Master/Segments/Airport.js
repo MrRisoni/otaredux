@@ -4,14 +4,14 @@ const Airport = function (props) {
     // for air itinerary
 
     return (
-        <div className="col-md-5">
+        <div className="col-5">
             <div className="row">
-                <div className="col-md-4">{props.iata}<br/>
+                <div className="col-4">{props.iata}<br/>
                     {props.name}
                     <br/>
                     {props.city}
                 </div>
-                <div className="col-md-8"><b
+                <div className="col-8"><b
                     className="flightTime">{props.flyTime}</b> <br/>
                     {props.day} <br/>
                     {props.date} <br/>

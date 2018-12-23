@@ -4,12 +4,12 @@ class SingleMilesCard extends Component {
     render() {
         return (
             <div className="row singleMilesCard">
-                <div className="col-md-1"></div>
+                <div className="col-1"></div>
 
-                <div className="col-md-2">
+                <div className="col-2">
                     {this.props.data.name}
                 </div>
-                <div className="col-md-7">
+                <div className="col-7">
                     <input type="text" placeholder="Miles card"
                            className="form-control"/>
                 </div>

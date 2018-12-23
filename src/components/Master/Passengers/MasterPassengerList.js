@@ -42,11 +42,11 @@ const MasterPassengerList = (props) => {
 
         <div className="alert alert-primary" role="alert">
             <div className="row">
-                <div className="col-md-3">
+                <div className="col-3">
                     Fill in the passenger data
                 </div>
 
-                <div className="col-md-2 offset-md-7">
+                <div className="col-2 offset-7">
                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                             data-toggle="collapse"
                             data-target={`.passengerListCollapse`} aria-expanded="false"
@@ -63,7 +63,7 @@ const MasterPassengerList = (props) => {
 
 
         <div className="row addOnePassenger show passengerListCollapse">
-            <div className="col-sm-4 offset-md-4">
+            <div className="col-4 offset-4">
                 <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>Add
                     Passenger
                 </button>

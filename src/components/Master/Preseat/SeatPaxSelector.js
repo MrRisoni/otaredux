@@ -40,14 +40,14 @@ class SeatPaxSelector extends Component {
 
                 <div className="row">
 
-                    <div className="col-md-10">
+                    <div className="col-10">
                         <div className={alertClass} role="alert" onClick={this.handlePreSeatSelect}>
                             {text} Passenger# {this.props.pax.humanId}
                             {this.props.pax.surname} {this.props.pax.name}
                         </div>
                     </div>
 
-                    <div className="col-md-2">
+                    <div className="col-2">
                         {(this.props.pax.seat.number === 0) &&
                         <div className="alert alert-danger" role="alert">
                             Nothing selected

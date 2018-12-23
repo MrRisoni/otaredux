@@ -6,7 +6,7 @@ const MealType = function (props) {
 
     return (
         <div className="row">
-            <div className="col-md-7 offset-md-2">
+            <div className="col-7 offset-2">
                 <div className="card text-white bg-info mb-3">
                     <div className="card-header">{props.type}</div>
                     <div className="card-body">

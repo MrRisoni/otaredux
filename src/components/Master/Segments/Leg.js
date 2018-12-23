@@ -6,7 +6,7 @@ var Translate = require('react-redux-i18n').Translate;
 
 const Leg = function (props) {
 
-    const waitDiv = props.data.waiting.total >0 ? (  <div className="col-md-4">
+    const waitDiv = props.data.waiting.total >0 ? (  <div className="col-4">
         Wait time: {props.data.waiting.h}h {props.data.waiting.m}m
     </div>) : (<div></div>);
 
@@ -30,7 +30,7 @@ const Leg = function (props) {
                         <div className="col-4">{legTitle}</div>
 
 
-                        <div className="col-2 offset-8">
+                        <div className="col-2 offset-5">
                             <button className="btn btn-sm btn-dark btn-block btnToggle"
                                     data-toggle="collapse"
                                     data-target={`#legCollapse${props.data.legId}`} aria-expanded="false"

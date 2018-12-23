@@ -51,7 +51,7 @@ const MealLeg = function (props) {
 
     return (
         <div className="row">
-            <div className="col-md-12">
+            <div className="col-12">
                 {mealSegments}
             </div>
         </div>

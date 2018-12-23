@@ -5,10 +5,10 @@ const SideBarUpsale = function (props) {
         <div>
             <hr/>
             <div className="row">
-                <div className="col-sm-5">
+                <div className="col-5">
                     <h3>{props.title} </h3>
                 </div>
-                <div className="col-sm-5">
+                <div className="col-5">
                     <h6>{props.price} {props.currency.code}</h6>
                 </div>
             </div>

@@ -10,11 +10,11 @@ const CreditCard = function (props) {
 
                 <div className="row">
 
-                    <div className="col-sm-3">
+                    <div className="col-3">
                         <b>Credit Card</b>
                     </div>
 
-                    <div className="col-sm-2 offset-sm-7">
+                    <div className="col-2 offset-6">
                         <button className="btn btn-sm btn-dark btn-block btnToggle"
                                 data-toggle="collapse"
                                 data-target="#creditCardCollapse" aria-expanded="false"
@@ -30,7 +30,7 @@ const CreditCard = function (props) {
 
                 <div className="row">
 
-                    <div className="col-md-4">
+                    <div className="col-4">
                         <select className="form-control">
                             <option></option>
                             <option value="">Visa Debit</option>
@@ -41,7 +41,7 @@ const CreditCard = function (props) {
                     </div>
 
 
-                    <div className="col-md-5">
+                    <div className="col-5">
                         <input type="text" placeholder="Card Number"
                                className="form-control"/>
                     </div>
@@ -50,18 +50,18 @@ const CreditCard = function (props) {
                 <br/>
 
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-4">
                         <input type="text" placeholder="Bank Name"
                                className="form-control"/>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-6">
                         <input type="text" placeholder="Card Holder"
                                className="form-control"/>
                     </div>
 
 
-                    <div className="col-md-2">
+                    <div className="col-2">
                         <input type="text" placeholder="CVV2"
                                className="form-control"/>
                     </div>
@@ -70,8 +70,8 @@ const CreditCard = function (props) {
                 <br/>
 
                 <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
+                    <div className="col-4"></div>
+                    <div className="col-4">
                         <button className="btn btn-success">Complete Payment!</button>
                     </div>
                 </div>

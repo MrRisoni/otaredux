@@ -77,7 +77,7 @@ class SeatButton extends Component {
             classAvailability =  "seatChosen";
         }
 
-        classAvailability += "  seatButton col-md-1";
+        classAvailability += "  seatButton col-1";
 
 
         return (

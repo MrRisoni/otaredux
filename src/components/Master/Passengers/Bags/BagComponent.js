@@ -11,18 +11,18 @@ const BagComponent = function (props) {
         <div>
 
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-12">
                     <div className="alert alert-success" role="alert">
 
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-6">
                                 Purchase Bags!
                             </div>
-                            <div className="col-md-2">
+                            <div className="col-2">
                                 <i className="fas fa-suitcase"/>
                             </div>
 
-                            <div className="col-md-2">
+                            <div className="col-2">
                                 <button className="btn btn-sm btn-dark btn-block btnToggle"
                                         data-toggle="collapse"
                                         data-target={`#bagCollapse${props.paxId}`}
@@ -40,7 +40,7 @@ const BagComponent = function (props) {
 
                 <div className="row">
 
-                    <div className="col-md-6">
+                    <div className="col-6">
                         <BagLeg key={0} leg={0}
                                 legTitle="Departure"
                                 bagsAir={props.bagsAir}
@@ -52,7 +52,7 @@ const BagComponent = function (props) {
                                 removeBagHandler={props.removeBagHandler}/>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-6">
                         <BagLeg key={1} leg={1}
                                 legTitle="Return"
                                 bagsAir={props.bagsAir}

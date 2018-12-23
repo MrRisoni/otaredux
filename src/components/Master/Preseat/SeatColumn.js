@@ -27,7 +27,7 @@ class SeatColumn extends Component {
         }
 
         return (
-            <div className="col-md-12 offset-md-2">{RowDiv}</div>
+            <div className="col-12 offset-2">{RowDiv}</div>
         );
     }
 }

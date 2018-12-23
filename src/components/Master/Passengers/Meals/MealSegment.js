@@ -30,7 +30,7 @@ const MealSegment = function (props) {
     return (
         <div>
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-12">
                     <div className="alert alert-primary" role="alert">
                         {props.segData}
                     </div>

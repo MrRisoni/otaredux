@@ -18,18 +18,18 @@ class BlueRibbon extends Component {
 
         return (
             <div className="row contactDetails">
-                <div className="col-md-12">
+                <div className="col-12">
 
                     <div className="card">
                         <div className="card-header bg-light">
 
                             <div className="row">
 
-                                <div className="col-sm-3">
+                                <div className="col-3">
                                     Buy Blue Ribbon Bag Insurance!
                                 </div>
 
-                                <div className="col-sm-2 offset-sm-6">
+                                <div className="col-2 offset-6">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target="#blueRibbonCollapse" aria-expanded="false"
@@ -45,12 +45,12 @@ class BlueRibbon extends Component {
                         <div className="card-body collapse show" id="blueRibbonCollapse">
 
                             <div className="row">
-                                <div className="col-md-8">
+                                <div className="col-8">
                                     Pay {price} {this.props.currency.code} and you
                                     will receive {this.props.currency.code} reimbursement for each lost baggage
                                 </div>
 
-                                <div className="col-md-3">
+                                <div className="col-3">
 
                                     <select className="form-control" onChange={this.handleSelection}>
                                         <option key="no" value="0">No thanks</option>

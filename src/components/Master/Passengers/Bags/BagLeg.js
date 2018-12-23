@@ -24,7 +24,7 @@ const BagLeg = function (props) {
 
     return (
         <div className="row">
-            <div className="col-md-12">
+            <div className="col-12">
 
                 <div className="card">
                     <div className="card-header">
