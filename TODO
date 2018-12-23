@@ -1,20 +1,19 @@
-Currency Change
+Preseat CSS Redesign a la vue.js
+
+PreSeat per cabin class/segment
+
 Language Change
-Nicer CSS
-Preseat CSS Redesign
-try for responsive
+
 
 cabin class per segment
 Bags per segment/cabin class
-PreSeat per cabin class/segment
-Blue Ribbon per booking
-Flex Ticket per booking
 Meals per segment/cabin class
 
 Responsive
 HTMl5 markups
 ESlint fix
-No axios
 ES6
 
-Receipt Or Invoice
+Nicer CSS
+
+Currency Change

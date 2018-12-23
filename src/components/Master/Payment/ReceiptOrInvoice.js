@@ -1,7 +1,48 @@
 import React, {Component} from 'react';
+import Invoice from "./Invoice";
+import Receipt from "./Receipt";
 
 class ReceiptOrInvoice extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            receipt:true,
+            invoice:false
+        };
+
+
+        this.handlePickReceipt = this.handlePickReceipt.bind(this);
+        this.handlePickInvoice= this.handlePickInvoice.bind(this);
+
+    }
+
+    handlePickReceipt()
+    {
+        console.log('receipt');
+
+        this.setState({receipt:true,invoice:false})
+    }
+
+
+
+    handlePickInvoice()
+    {
+        console.log('invoice');
+        this.setState({receipt:false,invoice:true})
+    }
+
     render() {
+
+
+
+        var listDiv = [];
+        this.props.countryList.forEach((val, idx) => {
+
+            listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
+
+        });
+
         return (
             <section>
 
@@ -14,10 +55,35 @@ class ReceiptOrInvoice extends Component {
                                 Payment Details
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title">Special title treatment</h5>
-                                <p className="card-text">With supporting text below as a natural lead-in to
-                                    additional content.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+
+                                <div className="form-check">
+                                    <input className="form-check-input" type="radio" name="payReceipt"
+                                           id="payReceipt" value="payReceipt" checked={this.state.receipt}
+                                           onChange={this.handlePickReceipt} />
+
+                                        <label className="form-check-label" htmlFor="payReceipt"/>
+                                            Pay with receipt
+
+                                </div>
+
+                                <div className="form-check">
+                                    <input className="form-check-input" type="radio" name="payInvoice"
+                                           id="payInvoice"  value="payInvoice" checked={this.state.invoice}
+                                           onChange={this.handlePickInvoice}/>
+                                        <label className="form-check-label" htmlFor="payInvoice"/>
+                                                Pay with invoice
+                                </div>
+
+
+                                {this.state.receipt &&
+                                    <Receipt countryList={listDiv}/>
+                                }
+
+
+                                {this.state.invoice &&
+                                    <Invoice countryList={listDiv}/>
+                                }
+
                             </div>
 
 

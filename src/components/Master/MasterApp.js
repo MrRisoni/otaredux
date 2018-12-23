@@ -114,7 +114,8 @@ class MasterApp extends Component {
                                editContactHandler={this.props.editContactHandler}/>
 
 
-                <ReceiptOrInvoice countryList={this.props.asyncData.countries}/>
+                <ReceiptOrInvoice  countryList={this.props.asyncData.countries}
+                />
                 <CreditCard/>
 
 
