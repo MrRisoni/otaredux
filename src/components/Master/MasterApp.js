@@ -27,6 +27,7 @@ import {
 import MasterContact from './Passengers/MasterContact';
 import CreditCard from "./Payment/CreditCard";
 import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
+import Preseat from "./Preseat/Preseat";
 
 
 class MasterApp extends Component {
@@ -108,6 +109,7 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
+                <Preseat/>
 
                 <MasterContact contact={this.props.contact}
                                countryList={this.props.asyncData.countries}
