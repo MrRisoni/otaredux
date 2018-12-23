@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBarUpsale = function (props) {
+const SideBarUpsale = (props) => {
     return (
         <div>
             <hr/>

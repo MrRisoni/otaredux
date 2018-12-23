@@ -25,11 +25,11 @@ class BlueRibbon extends Component {
 
                             <div className="row">
 
-                                <div className="col-3">
+                                <div className="col-6">
                                     Buy Blue Ribbon Bag Insurance!
                                 </div>
 
-                                <div className="col-2 offset-6">
+                                <div className="col-2 offset-3">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target="#blueRibbonCollapse" aria-expanded="false"
@@ -47,7 +47,7 @@ class BlueRibbon extends Component {
                             <div className="row">
                                 <div className="col-8">
                                     Pay {price} {this.props.currency.code} and you
-                                    will receive {this.props.currency.code} reimbursement for each lost baggage
+                                    will receive 1000 EUR reimbursement for each lost baggage
                                 </div>
 
                                 <div className="col-3">

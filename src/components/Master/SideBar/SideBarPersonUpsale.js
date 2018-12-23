@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBarPersonUpsale = function (props) {
+const SideBarPersonUpsale = (props) => {
     return (
         <div key={props.pax.id}>
             <div className="row">

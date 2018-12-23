@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Airport = function (props) {
+const Airport = (props) => {
     // for air itinerary
 
     return (

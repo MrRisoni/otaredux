@@ -1,7 +1,7 @@
 import React from 'react';
 import Leg from './Leg';
 
-const ItineraryData = function (props) {
+const ItineraryData = (props) => {
 
     let legsDiv = [ <Leg key="dep" legId={0} data={props.tripData[0]}/>];
 

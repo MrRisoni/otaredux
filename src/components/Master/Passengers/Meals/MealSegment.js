@@ -1,7 +1,7 @@
 import React from 'react';
 import MealType from "./MealType";
 
-const MealSegment = function (props) {
+const MealSegment = (props) => {
 
 
     let dessertsDiv = (<div></div>);

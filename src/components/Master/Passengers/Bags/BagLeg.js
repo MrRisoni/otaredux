@@ -1,7 +1,7 @@
 import React from 'react';
 import BagSelection from './BagSelection';
 
-const BagLeg = function (props) {
+const BagLeg = (props) => {
 
     let bagArray = [];
 

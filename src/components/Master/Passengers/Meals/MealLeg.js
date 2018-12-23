@@ -1,7 +1,7 @@
 import React from 'react';
 import MealSegment from "./MealSegment";
 
-const MealLeg = function (props) {
+const MealLeg = (props) => {
 
     let mealSegments = [];
 

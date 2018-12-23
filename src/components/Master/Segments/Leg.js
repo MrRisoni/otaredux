@@ -4,7 +4,7 @@ import Segment from './Segment'
 var Translate = require('react-redux-i18n').Translate;
 
 
-const Leg = function (props) {
+const Leg = (props) => {
 
     const waitDiv = props.data.waiting.total >0 ? (  <div className="col-4">
         Wait time: {props.data.waiting.h}h {props.data.waiting.m}m

@@ -1,7 +1,7 @@
 import React from 'react';
 import MealSelection from "./MealSelection";
 
-const MealType = function (props) {
+const MealType = (props) => {
 
 
     return (

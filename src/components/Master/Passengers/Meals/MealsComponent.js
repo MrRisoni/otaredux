@@ -1,7 +1,7 @@
 import React from 'react';
 import MealLeg from './MealLeg';
 
-const MealsComponent = function (props) {
+const MealsComponent = (props) => {
 
     return (
 

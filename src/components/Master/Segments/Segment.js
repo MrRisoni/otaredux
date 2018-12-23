@@ -1,7 +1,7 @@
 import React from 'react';
 import Airport from './Airport'
 
-const Segment = function (props) {
+const Segment = (props) => {
     return (
         <div className="segments">
 

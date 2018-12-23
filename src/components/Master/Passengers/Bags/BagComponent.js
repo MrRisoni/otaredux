@@ -2,7 +2,7 @@ import React from 'react';
 import BagLeg from './BagLeg';
 
 
-const BagComponent = function (props) {
+const BagComponent = (props) => {
 
 
 
