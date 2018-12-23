@@ -145,10 +145,13 @@ export function changeCurrencyAction(newCode) {
 }
 
 
-export function changeLanguageAction(lang) {
+export function changeLanguageAction(ev) {
+    console.log('changeLanguageAction');
+    console.log(ev.target.value);
+
     return (dispatch, getState) => {
 
-        dispatch(setLocale('ru'));
+        dispatch(setLocale(ev.target.value));
     }
 
 }

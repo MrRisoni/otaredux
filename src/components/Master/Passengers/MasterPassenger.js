@@ -84,7 +84,6 @@ class MasterPassenger extends Component {
         let minDate = '';
         switch (ev.target.value) {
             case 'ADT':
-            case 'STD':
                 minDate = this.state.minAdultBirthDate;
                 break;
             case 'CNN':
@@ -154,7 +153,7 @@ class MasterPassenger extends Component {
                                         Passenger # {this.props.passenger.humanId}
                                     </div>
 
-                                    <div className="col-4">
+                                    <div className="col-7">
                                         <select className="form-control" onChange={this.handleAgeGroupChange}>
                                             <option key="" value="">Select Type</option>
                                             <option key="ADT" value="ADT"

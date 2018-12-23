@@ -170,9 +170,13 @@ const MasterSideBar = (props) => {
         );
     }
 
-    const ruStyle = {
-        backgroundImage: 'url(http://localhost:3000/langs/ru.png)',
-    };
+
+    var langsDiv = [];
+    props.langs.forEach( (val, idx) => {
+
+        langsDiv.push(<option key={val.code} value={val.code}>{val.title}</option>);
+
+    });
 
     return (
 
@@ -199,7 +203,7 @@ const MasterSideBar = (props) => {
                     </div>
                 </div>
 
-                <div className="card-body text-white" id="priceBoxCollapse">
+                <div className="card-body show text-white" id="priceBoxCollapse">
 
                     <div className="row">
                         <div className="col-12">
@@ -229,19 +233,14 @@ const MasterSideBar = (props) => {
                     </div>
 
 
-                    <div className="row">
-                        <div className="col-12">
-
-                            <div className="form-group">
-                                <select className="form-control" id="exampleFormControlSelect2"
-                                        onChange={props.changeLanguageHandler}>
-                                    <option>1</option>
-                                    <option data-thumbnail="http://localhost:3000/langs/ru.png">2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
+                    <div className="row langSelector">
+                        <div className="col-8 offset-2">
+                            <select className="form-control" id="exampleFormControlSelect2"
+                                    onChange={props.changeLanguageHandler}>
+                                <option value="en"> Change language
+                                </option>
+                                {langsDiv}
+                            </select>
                         </div>
                     </div>
 
@@ -252,7 +251,7 @@ const MasterSideBar = (props) => {
                             <div className="row selectLang">
                                 <div className="col-8 offset-2"><select
                                     className="form-control">
-                                    <option value=""> Select currency
+                                    <option value=""> Change currency
                                     </option>
                                     <option value="EUR">EURO</option>
                                     <option value="CHF">CHF</option>

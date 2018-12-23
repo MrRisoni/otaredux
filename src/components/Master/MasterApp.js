@@ -29,6 +29,7 @@ import CreditCard from "./Payment/CreditCard";
 import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
 import Preseat from "./Preseat/Preseat";
 import {preSeatSelectedItems, seatMapInfo} from "../../reducers/air/preseat";
+import {getLanguagesReducer} from "../../reducers/common/languages";
 
 
 class MasterApp extends Component {
@@ -97,6 +98,7 @@ class MasterApp extends Component {
                                        bagAllowance={this.props.bagsAir}
                                        passengers={this.props.passengers}
                                        purchasedBags={this.props.purchasedBags}
+                                       langs={this.props.langs}
                                        boughtInsurances={this.props.boughtInsurances}
                                        insuranceOptions={this.props.insuranceOptions}
                                        mealOptions={this.props.mealOptions}
@@ -163,6 +165,7 @@ function mapStateToProps(state) {
         preseatSelectedPax: state.fetchPreseatSelectedPaxReducer,
         preSeatSelectedItems:state.preSeatSelectedItemsReducer,
         seatMapInfo:state.seatMapInfoReducer,
+        langs:state.getLanguagesReducer
     }
 }
 

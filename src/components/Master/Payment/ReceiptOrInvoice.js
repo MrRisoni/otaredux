@@ -52,9 +52,25 @@ class ReceiptOrInvoice extends Component {
                         <div className="card paymentDetails">
 
                             <div className="card-header">
-                                Payment Details
+                                <div className="row">
+
+                                    <div className="col-3">
+                                        Payment Details
+                                    </div>
+
+                                    <div className="col-2 offset-6">
+                                        <button className="btn btn-sm btn-dark btn-block btnToggle"
+                                                data-toggle="collapse"
+                                                data-target="#paymentDetailsCollapse" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                            Toggle
+                                        </button>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div className="card-body">
+
+                            <div className="card-body collapse show" id="paymentDetailsCollapse">
 
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="payReceipt"

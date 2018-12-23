@@ -15,7 +15,7 @@ const CreditCard = (props) => {
                             <div className="row">
 
                                 <div className="col-3">
-                                    <b>Credit Card</b>
+                                    Credit Card
                                 </div>
 
                                 <div className="col-2 offset-6">
