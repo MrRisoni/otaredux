@@ -5,7 +5,7 @@ const SeatRow = (props) => {
     return (
 
         <div className="row">
-            <div className="col-1 offset-1">
+            <div className="col-xs-1 offset-2">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
@@ -13,7 +13,7 @@ const SeatRow = (props) => {
             </div>
 
 
-            <div className="col-1">
+            <div className="col-xs-1">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
@@ -22,7 +22,7 @@ const SeatRow = (props) => {
 
 
 
-            <div className="col-1">
+            <div className="col-xs-1">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
@@ -32,7 +32,7 @@ const SeatRow = (props) => {
 
 
 
-            <div className="col-1">
+            <div className="col-xs-1 offset-1">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
@@ -40,7 +40,7 @@ const SeatRow = (props) => {
             </div>
 
 
-            <div className="col-1">
+            <div className="col-xs-1">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
@@ -49,7 +49,7 @@ const SeatRow = (props) => {
 
 
 
-            <div className="col-1">
+            <div className="col-xs-1">
                 <SeatColumn
                     rowId={props.rowId}
                     passengers={props.passengers}
