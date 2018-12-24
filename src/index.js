@@ -17,7 +17,7 @@ import {currentCurrencyReducer, getCurrenciesReducer} from './reducers/common/cu
 import {countryListReducer} from './reducers/air/asyncAir';
 import {getLegsReducer,airTripReducer,uniqueCarriersReducer} from './reducers/air/itineraryAir';
 import {contactMasterReducer, passengersMasterReducer,fetchPreseatSelectedPaxReducer,fetchCabinPaxPerSegmentReducer} from './reducers/master/passengersMaster';
-import {pricingMasterReducer, pricingMasterAnalysisReducer} from './reducers/master/pricingMaster';
+import {pricingMasterReducer, pricingMasterAnalysisReducer,ticketPricesReducer} from './reducers/master/pricingMaster';
 import {getBagsReducer,purchasedBagsReducer} from './reducers/air/bagsAir';
 import {airInsuranceReducer,purchasedInsuranceReducer} from './reducers/air/insuranceAir';
 import {getMealsReducer,purchasedMealsReducer} from './reducers/air/mealsAir';
@@ -36,6 +36,7 @@ import Germany from './locales/de.json';
 
 
 let store = createStore(combineReducers({
+        ticketPricesReducer,
         fetchCabinPaxPerSegmentReducer,
         currentCurrencyReducer,
         getCurrenciesReducer,

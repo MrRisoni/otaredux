@@ -1,0 +1,46 @@
+
+export function calcTotalPrice(payload) {
+    let total = 0;
+    let ticketPrices =0;
+    let activePaxes =0;
+    let priceAnalysis = [];
+
+    payload.passengers.forEach(pax => {
+        if (pax.active) {
+            activePaxes++;
+            const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
+            console.log('filter cabin list');
+            console.log(cabins);
+
+            cabins.forEach( cb => {
+                payload.segmentCabinPricing.forEach( segs => {
+                    if (segs.id == cb.segId) {
+                        console.log('segment check ' + segs);
+                        console.log(segs);
+                        console.log('weird filter');
+                        console.log('cb.cabin ' + cb.cabin);
+                        console.log('pax.age' + pax.type);
+                        const priceForThis = segs.cabinList.filter(pr => (pr.class === cb.cabin)  &&  (pr.age === pax.type) )[0].price;
+                        total += priceForThis;
+                        ticketPrices += priceForThis;
+                    }
+                })
+            })
+        }
+    });
+
+
+    if (payload.hasFlexibleTicket.state === true) {
+        total +=  (activePaxes * payload.flexibleTicket.pricePerPax);
+    }
+
+    if (payload.hasBlueRibbon.state === true) {
+        total +=  (activePaxes * payload.blueRibbonPrices.pricePerPax);
+    }
+
+    return {
+        total: total,
+        tickets:ticketPrices,
+        analysis: priceAnalysis
+    }
+}

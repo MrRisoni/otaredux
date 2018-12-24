@@ -30,6 +30,7 @@ import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
 // import Preseat from "./Preseat/Preseat";
 import {preSeatSelectedItems, seatMapInfo} from "../../reducers/air/preseat";
 import {getLanguagesReducer} from "../../reducers/common/languages";
+import {ticketPricesReducer} from "../../reducers/master/pricingMaster";
 
 
 class MasterApp extends Component {
@@ -94,6 +95,7 @@ class MasterApp extends Component {
 
                     <div className='col-4'>
                         <MasterSideBar currency={this.props.currency}
+                                       ticketPrices={this.props.ticketPrices}
                                        changeLanguageHandler={this.props.changeLanguageHandler}
                                        bagAllowance={this.props.bagsAir}
                                        passengers={this.props.passengers}
@@ -162,6 +164,7 @@ function mapStateToProps(state) {
         hasBlueRibbon: state.hasBlueRibbonReducer,
         blueRibbonPrices: state.getBlueRibbonReducer,
         cabins: state.cabinsReducer,
+        ticketPrices:state.ticketPricesReducer,
         cabinSelection: state.cabinSelectionReducer,
         asyncData: state.countryListReducer,
         preseatSelectedPax: state.fetchPreseatSelectedPaxReducer,

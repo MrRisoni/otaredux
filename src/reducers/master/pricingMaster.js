@@ -1,13 +1,23 @@
-import update from 'immutability-helper';
-
 import * as MasterCons from '../../actions/master/allConstants';
-
+import {calcTotalPrice} from '../../helpers'
 
 import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
 
 
 const totalPrice = 5;
 
+const ticketsPrice = 1;
+
+export function ticketPricesReducer(state = ticketsPrice, action) {
+    switch (action.type) {
+        case MasterCons.FIRST_LOAD_MASTER:
+        case MasterCons.PASSENGER_ARRAY_CHANGED:
+            const calcTotalRsp = calcTotalPrice(action.payload);
+            return calcTotalRsp.tickets;
+        default:
+            return state;
+    }
+}
 
 export function pricingMasterReducer(state = totalPrice, action) {
     console.log('**pricingReducer**');
@@ -20,40 +30,9 @@ export function pricingMasterReducer(state = totalPrice, action) {
         case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
 
-            let activePaxes =0;
-            action.payload.passengers.forEach(pax => {
-                if (pax.active) {
-                    activePaxes++;
-                     const cabins = action.payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
-                     console.log('filter cabin list');
-                     console.log(cabins);
+            const calcTotalRsp = calcTotalPrice(action.payload);
 
-                     cabins.forEach( cb => {
-                            action.payload.segmentCabinPricing.forEach( segs => {
-                                 if (segs.id == cb.segId) {
-                                     console.log('segment check ' + segs);
-                                     console.log(segs);
-                                    console.log('weird filter');
-                                     console.log('cb.cabin ' + cb.cabin);
-                                     console.log('pax.age' + pax.type);
-                                     total += segs.cabinList.filter(pr => (pr.class === cb.cabin)  &&  (pr.age === pax.type) )[0].price;
-                            }
-                            })
-                     })
-                }
-            });
-
-
-            if (action.payload.hasFlexibleTicket.state === true) {
-                total +=  (activePaxes * action.payload.flexibleTicket.pricePerPax);
-            }
-
-            if (action.payload.hasBlueRibbon.state === true) {
-                total +=  (activePaxes * action.payload.blueRibbonPrices.pricePerPax);
-            }
-
-
-            return total;
+            return calcTotalRsp.total;
         /*case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
 

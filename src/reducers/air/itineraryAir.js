@@ -30,7 +30,7 @@ const legs = [
             {class: 'W', price: 155, age: 'ADT'},
             {class: 'W', price: 135, age: 'CNN'},
             {class: 'C', price: 170, age: 'ADT'},
-            {class: 'C', price: 155, age: 'CNN'},
+            {class: 'C', price: 3155, age: 'CNN'},
             {class: 'F', price: 180, age: 'ADT'},
             {class: 'F', price: 160, age: 'CNN'},
         ]

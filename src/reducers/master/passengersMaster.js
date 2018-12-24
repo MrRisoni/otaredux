@@ -31,12 +31,10 @@ const passengers = [
         humanId:1,
         active:true,
         type: 'ADT',
-        cabinClass: 'Y',
         name: '',
         surname:'',
         gender:'',
         dob:'',
-        milesCard: { company:'',cardNo: ''},
         passport: {
             issueCountry:'',
             nationality:'',
@@ -62,6 +60,28 @@ const contactData = { surname : 'FOO',
                     postcode:''};
 
 
+export function fetchSeatSelectionReducer(state = seatSelection, action) {
+    switch (action.type) {
+        case MasterCons.ADD_PASSENGER_MASTER:
+
+            const nextPaxId = cabinPaxSelection.length;
+            console.log('fetchCabinPaxPerSegment');
+
+            return [
+                ...state,
+
+                {
+                    paxId: nextPaxId,
+                    seatList:[{segId:0,seatNo:''},{segId:1,seatNo:''},{segId:2,seatNo:''}],
+                }
+            ]
+        case MasterCons.CHANGE_PASSENGER_MASTER:
+        // reset seats
+        default:
+            return state;
+    }
+}
+
 export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
 
     switch (action.type) {
@@ -77,7 +97,23 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
                     paxId: nextPaxId,
                     cabinList: [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}],
                 }
-            ]
+            ];
+        case MasterCons.CHANGE_PASSENGER_MASTER:
+            // reset seats
+            return state.map( (px,idx) => {
+                if (px.paxId !==  action.payload.passengerId) {
+                    return px;
+                }
+                else {
+                    let newPax = px;
+                    newPax.cabinList = [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}];
+
+                    return {
+                        ...px,
+                        ...newPax
+                    }
+                }
+            })
         default:
             return state;
     }
@@ -168,12 +204,10 @@ export function passengersMasterReducer(state = passengers, action) {
                     humanId:maxHumanId,
                     active:true,
                     type: 'ADT',
-                    cabinClass: 'Y',
                     name: '',
                     surname:'',
                     gender:'',
                     dob:'',
-                    milesCard: { company:'',cardNo: ''},
                     passport: {
                         issueCountry:'',
                         nationality:'',

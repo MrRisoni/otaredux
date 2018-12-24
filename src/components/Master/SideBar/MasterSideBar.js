@@ -2,25 +2,14 @@ import React from 'react';
 import SideBarUpsale from './SideBarUpsale';
 import SideBarPersonUpsale from './SideBarPersonUpsale';
 
+
+
 var Translate = require('react-redux-i18n').Translate;
 
 const MasterSideBar = (props) => {
 
     let paxPrices = [];
     let activePaxCount = 0;
-
-    props.pricing.analysis.forEach(paxType => {
-        if (paxType.count > 0) {
-            paxPrices.push(<section>
-                <div key={paxType} className="row">
-                    <div className="col-12">
-                        {paxType.type} x {paxType.count} {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
-                    </div>
-                </div>
-            </section>)
-        }
-    });
-
 
     let bagPrices = [];
     let insurancePrices = [];
@@ -207,12 +196,10 @@ const MasterSideBar = (props) => {
 
                     <div className="row">
                         <div className="col-12">
-                            <h4>Ticket Price</h4>
-                            <hr/>
+                            <h4>Ticket Price {props.ticketPrices} {props.currency.code} </h4>
                         </div>
                     </div>
 
-                    {paxPrices}
                     {bagsDiv}
                     {insuranceDiv}
                     {mealsDiv}
