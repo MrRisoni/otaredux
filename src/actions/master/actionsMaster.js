@@ -63,9 +63,13 @@ export function changeAirCabinClassPassengerAction(paxId,newClass,segmentId) {
         dispatch({
             type: 'CHANGE_AIR_CABIN',
             payload: {
-
+                paxId:paxId,
+                newClass:newClass,
+                segId:segmentId
             }
         });
+
+
     }
 }
 

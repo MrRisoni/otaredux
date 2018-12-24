@@ -10,19 +10,7 @@ import {CHANGE_PRESEAT_SELECT_PAX} from "../../actions/master/preseatActions";
 
 const preseatSelectedPaxId =0;
 
-const cabinPaxSelection = [
-    {
-        paxId:0,
-        cabinList:[{segId:0,cabin:'Y'},{segId:1,cabin:'Y'},{segId:2,cabin:'Y'}],
-    }
-]
 
-const seatSelection = [
-    {
-        paxId:0,
-        seatList:[{segId:0,seatNo:''},{segId:1,seatNo:''},{segId:2,seatNo:''}],
-    }
-]
 
 
 const passengers = [
@@ -60,74 +48,6 @@ const contactData = { surname : 'FOO',
                     postcode:''};
 
 
-export function fetchSeatSelectionReducer(state = seatSelection, action) {
-    switch (action.type) {
-        case MasterCons.ADD_PASSENGER_MASTER:
-
-            const nextPaxId = cabinPaxSelection.length;
-            console.log('fetchCabinPaxPerSegment');
-
-            return [
-                ...state,
-
-                {
-                    paxId: nextPaxId,
-                    seatList:[{segId:0,seatNo:''},{segId:1,seatNo:''},{segId:2,seatNo:''}],
-                }
-            ]
-        case MasterCons.CHANGE_PASSENGER_MASTER:
-        // reset seats
-        default:
-            return state;
-    }
-}
-
-export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
-
-    switch (action.type) {
-        case MasterCons.ADD_PASSENGER_MASTER:
-
-            const nextPaxId = cabinPaxSelection.length;
-            console.log('fetchCabinPaxPerSegment');
-
-            return [
-                ...state,
-
-                {
-                    paxId: nextPaxId,
-                    cabinList: [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}],
-                }
-            ];
-        case MasterCons.CHANGE_PASSENGER_MASTER:
-            // reset seats
-            return state.map( (px,idx) => {
-                if (px.paxId !==  action.payload.passengerId) {
-                    return px;
-                }
-                else {
-                    return {
-                        ...px,
-                        cabinList: [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}]
-                    }
-
-
-                }
-            })
-        default:
-            return state;
-    }
-}
-
-export function fetchPreseatSelectedPaxReducer(state =preseatSelectedPaxId, action){
-    switch (action.type) {
-        case CHANGE_PRESEAT_SELECT_PAX:
-            console.log('state befoar');
-            console.log(state);
-            return action.payload.paxId;
-        default:
-            return state;
-    }
-}
 
 
 export function contactMasterReducer(state = contactData, action) {

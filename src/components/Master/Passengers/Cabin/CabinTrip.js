@@ -25,7 +25,7 @@ const CabinTrip = (props) => {
                         <Translate value="SelectCabinPerSegment"/>
                     </div>
                     <div className="col-2">
-                        <i className="fas fa-couch"/>
+                        <i className="fas fa-chair"/>
                     </div>
 
 
