@@ -9,28 +9,6 @@ import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
 const totalPrice = 5;
 
 
-const segmentPrices = [
-    {
-        segId: 0, legId: 0, prices: [
-            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 16},
-        ]
-    },
-    {
-        segId: 1, legId: 0, prices: [
-            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 26},
-        ]
-    },
-    {
-        segId: 2, legId: 1, prices: [
-            {cabins: ['Y', 'W', 'C', 'F'], ages: ['ADT', 'CNN', 'INF'], priceEuro: 16},
-        ]
-    }
-]
-
-
-export function getSegmentCabinPricing(state = segmentPrices) {
-    return state;
-}
 export function pricingMasterReducer(state = totalPrice, action) {
     console.log('**pricingReducer**');
     console.log('received action' + action.type);
@@ -49,17 +27,16 @@ export function pricingMasterReducer(state = totalPrice, action) {
                      const cabins = action.payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
                      console.log('filter cabin list');
                      console.log(cabins);
+
                      cabins.forEach( cb => {
                             action.payload.segmentCabinPricing.forEach( segs => {
-                                 if (segs.segId == cb.segId) {
+                                 if (segs.id == cb.segId) {
                                      console.log('segment check ' + segs);
                                      console.log(segs);
                                     console.log('weird filter');
                                      console.log('cb.cabin ' + cb.cabin);
                                      console.log('pax.age' + pax.type);
-
-                                     console.log(segs.prices.filter(pr => (pr.cabins.indexOf(cb.cabin) > -1 ) &&  (pr.ages.indexOf(pax.type) > -1)));
-                                     total += segs.prices.filter(pr => (pr.cabins.indexOf(cb.cabin) > -1 ) &&  (pr.ages.indexOf(pax.type) > -1))[0].priceEuro;
+                                     total += segs.cabinList.filter(pr => (pr.class === cb.cabin)  &&  (pr.age === pax.type) )[0].price;
                             }
                             })
                      })

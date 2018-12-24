@@ -8,6 +8,8 @@ const SeatShower = (props) => {
     props.passengers.forEach(px => {
         if ((px.active == true) && (px.type != 'INF')) {
             segPaxSeats.push(<SegmentPaxSeat paxData={px}
+                                             cabinSelection={props.cabinSelection}
+                                             currency={props.currency}
                                              segments={props.segments}></SegmentPaxSeat>)
         }
     });

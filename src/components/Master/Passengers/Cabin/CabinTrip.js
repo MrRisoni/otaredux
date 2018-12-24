@@ -51,13 +51,9 @@ const CabinTrip = (props) => {
 
 
 
+                <CabinLeg  currency={props.currency}
+                           segs={returnTrip} leg={1} pax={props.pax}/>
 
-                <div className="alert alert-info cabinLegSelect" role="alert">
-
-                    <div className="row">
-                        Return
-                    </div>
-                </div>
             </div>
 
 

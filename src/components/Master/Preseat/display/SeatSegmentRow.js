@@ -1,14 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class SeatSegmentRow extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            seatClassObject: ""
+            seatClassObject: ''
         };
 
     }
+
+    getSeatCost()
+    {
+       /* const paxId = this.props.paxData.id;
+
+        const cabin = this.props.cabinSelection.cabinList.filter(cb => (cb.segId == this.segment.id && cb.paxId == paxId)[0].cabin;
+        const preseatPrices = this.$store.state.trip.dep.filter(sg => sg.id == this.segment.id)[0].preseatPrices;
+        const price = preseatPrices.filter(ppr => ppr.cabin == cabin)[0].price;
+        let priceSeat = price * this.$store.state.rate;
+        return priceSeat.toFixed(2);
+        */
+
+
+    }
+
     render() {
         return (
             <div className="card segmentSeat">
@@ -27,7 +42,7 @@ class SeatSegmentRow extends Component {
 
                         <div className="col-2">
 
-                            Cost seatCost currency
+                            Cost seatCost {this.props.currency.code}
                         </div>
 
 
@@ -64,20 +79,7 @@ export default {
   name: 'SeatSegmentRow',
   props: ['paxData', 'segment'],
   computed: {
-    seatCost() {
-      const pax = this.$store.state.passengerList.filter(px => px.id == this.paxData.id)[0];
-      const cabin = pax.cabinList.filter(cb => cb.seg == this.segment.id)[0].cabin;
-      const preseatPrices = this.$store.state.trip.dep.filter(sg => sg.id == this.segment.id)[0].preseatPrices;
-      const price = preseatPrices.filter(ppr => ppr.cabin == cabin)[0].price;
-      let priceSeat = price * this.$store.state.rate;
-      return priceSeat.toFixed(2);
-    },
-    rate(){
-      return this.$store.state.rate;
-    },
-    currency() {
-      return this.$store.state.currency;
-    },
+
     selectedSeatNo(){
         const pax = this.$store.state.passengerList.filter(px => px.id == this.paxData.id)[0];
         return pax.seatList.filter(ssl => ssl.seg == this.segment.id)[0].seatNo;

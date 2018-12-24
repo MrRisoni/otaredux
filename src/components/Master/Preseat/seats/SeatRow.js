@@ -1,5 +1,6 @@
 import React from 'react';
 import SeatColumn from './SeatColumn';
+import Preseat from "../Preseat";
 
 const SeatRow = (props) => {
 
@@ -14,6 +15,7 @@ const SeatRow = (props) => {
             (<div className={className}>
                 <SeatColumn key={letr}
                     rowId={props.rowId}
+                    cabinSelection={props.cabinSelection}
                     passengers={props.passengers}
                     colName={letr}></SeatColumn>
             </div>)

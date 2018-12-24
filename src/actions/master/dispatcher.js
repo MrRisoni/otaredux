@@ -16,8 +16,8 @@ export function upsalesDispatcher (status, actionType) {
             flexibleTicket:status().flexibleTicketReducer,
             hasBlueRibbon: status().hasBlueRibbonReducer,
             blueRibbonPrices: status().getBlueRibbonReducer,
-            cabinSelection: status().fetchCabinPaxPerSegment,
-            segmentCabinPricing :status().getSegmentCabinPricing,
+            cabinSelection: status().fetchCabinPaxPerSegmentReducer,
+            segmentCabinPricing :status().getLegsReducer,
         }
     }
 };

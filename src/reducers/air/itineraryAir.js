@@ -7,6 +7,7 @@ const uniqueCarriers = [
 const legs = [
     {
         id: 0,
+        segKey : '5EcNePgOZ1Fn',
         from: 'Rhodes',
         to: 'Athens',
         legId: 0,
@@ -18,6 +19,7 @@ const legs = [
     },
     {
         id: 1,
+        segKey : 'qKubKKs4NzXQ',
         from: 'Athens',
         to: 'Dublin',
         legId: 0,
@@ -35,6 +37,7 @@ const legs = [
     },
     {
         id: 2,
+        segKey: 'fOnJlSTWRZDy',
         from: 'Dublin',
         to: 'Rhodes',
         legId: 1,

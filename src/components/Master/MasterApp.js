@@ -27,7 +27,7 @@ import {
 import MasterContact from './Passengers/MasterContact';
 import CreditCard from "./Payment/CreditCard";
 import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
-import Preseat from "./Preseat/Preseat";
+// import Preseat from "./Preseat/Preseat";
 import {preSeatSelectedItems, seatMapInfo} from "../../reducers/air/preseat";
 import {getLanguagesReducer} from "../../reducers/common/languages";
 
@@ -112,10 +112,12 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
-                <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
+                {/* <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
                           passengers={this.props.passengers}
                           segments={this.props.segments}
-                          seatMapInfo={this.props.seatMapInfo}/>
+                          currency={this.props.currency}
+                          cabinSelection={this.props.cabinSelection}
+                          seatMapInfo={this.props.seatMapInfo}/> */}
 
                 <MasterContact contact={this.props.contact}
                                countryList={this.props.asyncData.countries}

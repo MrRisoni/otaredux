@@ -62,7 +62,7 @@ const contactData = { surname : 'FOO',
                     postcode:''};
 
 
-export function fetchCabinPaxPerSegment(state = cabinPaxSelection, action) {
+export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
 
     switch (action.type) {
         case MasterCons.ADD_PASSENGER_MASTER:

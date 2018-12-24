@@ -5,7 +5,11 @@ import SeatSegmentRow from './SeatSegmentRow';
 const SegmentPaxSeat = (props) => {
     let seatSegsRows = [];
     props.segments.forEach(sg => {
+        console.log('SegmentPaxSeat');
+        console.log(sg);
         seatSegsRows.push(<SeatSegmentRow
+            currency={props.currency}
+            cabinSelection={props.cabinSelection}
             paxData={props.paxData} segment={sg}></SeatSegmentRow>)
     })
 
