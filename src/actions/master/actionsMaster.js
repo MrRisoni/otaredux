@@ -54,20 +54,18 @@ export function editMasterPassengerNameAction(paxId, surname, name,gender) {
 }
 
 
-export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxage ='ADT') {
+export function changeAirCabinClassPassengerAction(paxId,newClass,segmentId) {
+    console.log('changeAirCabinClassPassengerAction');
+    console.log( paxId + ' ' + newClass + ' ' + segmentId);
+
     return (dispatch, getState) => {
 
         dispatch({
-            type: MasterCons.CHANGE_PASSENGER_AIR_CABIN,
+            type: 'CHANGE_AIR_CABIN',
             payload: {
-                paxAge: paxage,
-                passengerId: paxId,
-                newClass: newClass,
-                oldClass: oldClass
+
             }
         });
-
-        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
     }
 }
 

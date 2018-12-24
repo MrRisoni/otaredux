@@ -20,7 +20,9 @@ const CabinLeg = (props) => {
             <div className="card-body">
                 {props.segs.map( (sg) => {
                     return (
-                        <CabinSegment currency={props.currency} seg={sg} leg={0} pax={props.pax}/>
+                        <CabinSegment currency={props.currency}
+                                      changePaxCabinClassHandler={props.changePaxCabinClassHandler}
+                                      seg={sg} leg={0} pax={props.pax}/>
                     )
                 })}
 

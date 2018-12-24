@@ -1,15 +1,18 @@
 cabin class per segment
-
-PreSeat per cabin class/segment
 Bags per segment/cabin class
 Meals per segment/cabin class
-
 Currency Change
 
 
+
+PreSeat per cabin class/segment
+
+merge
+
+Immutable ... fix
+
 HTMl5 markups
 ESlint fix
-ES6
 
 Nicer CSS
 Language constants

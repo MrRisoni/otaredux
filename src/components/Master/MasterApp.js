@@ -192,7 +192,7 @@ function matchDispatchToProps(dispatch) {
         selectSeatHandler: selectAirSeatAction,
         changePreSeatSelectPassengerHandler: changePreSeatSelectPassengerAction,
         changeLanguageHandler: changeLanguageAction,
-        fetchCountriesAction: fetchCountriesAction
+        fetchCountriesAction: fetchCountriesAction,
     }, dispatch);
 }
 

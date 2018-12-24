@@ -47,11 +47,13 @@ const CabinTrip = (props) => {
 
 
                 <CabinLeg  currency={props.currency}
+                           changePaxCabinClassHandler={props.changePaxCabinClassHandler}
                            segs={departTrip} leg={0} pax={props.pax}/>
 
 
 
                 <CabinLeg  currency={props.currency}
+                           changePaxCabinClassHandler={props.changePaxCabinClassHandler}
                            segs={returnTrip} leg={1} pax={props.pax}/>
 
             </div>

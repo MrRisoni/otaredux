@@ -1,47 +1,64 @@
-import React from 'react';
-
-const CabinSegment = (props) => {
-    console.log('CabinSegemtns');
-    console.log(props);
-    const cabinListForSegment = props.seg.cabinList.filter(cb => cb.age == props.pax.type);
-    return (
+import React, {Component} from 'react';
 
 
-        <div className="card cabinSegment">
-            <div className="card-body">
-                <div className="row">
-                    <div className="col-2">
-                        {props.seg.from}
-                    </div>
+class CabinSegment  extends  Component {
+    constructor(props) {
+        super(props);
 
-                    <div className="col-2">
-                        {props.seg.to}
-                    </div>
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(ev)
+    {
+        console.log(ev.target.value);
+        this.props.changePaxCabinClassHandler(this.props.pax.id, ev.target.value, this.props.seg.id);
+
+    }
+
+    render() {
+        console.log('CabinSegemtns');
+        console.log(this.props);
+        const cabinListForSegment = this.props.seg.cabinList.filter(cb => cb.age == this.props.pax.type);
+        return (
 
 
-                    <div className="col-3">
-                            <select className="form-control" id="exampleFormControlSelect2">
+            <div className="card cabinSegment">
+                <div className="card-body">
+                    <div className="row">
+                        <div className="col-2">
+                            {this.props.seg.from}
+                        </div>
+
+                        <div className="col-2">
+                            {this.props.seg.to}
+                        </div>
+
+
+                        <div className="col-3">
+                            <select className="form-control" id="exampleFormControlSelect2"
+                                    onChange={this.handleClick}>
 
                                 {cabinListForSegment.map(cb => {
-                                   return  (<option>{cb.class} {cb.price} {props.currency.code}</option>)
+                                    return (<option value={cb.class}>{cb.class} {cb.price} {this.props.currency.code}</option>)
                                 })}
 
                             </select>
 
-                    </div>
+                        </div>
 
-                    {cabinListForSegment.length == 1 &&
+                        {cabinListForSegment.length == 1 &&
                         <div className="col-4">
                             Only one cabin available for this segment
                         </div>
-                    }
+                        }
 
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-    )
+        )
+    }
 };
 
 export default CabinSegment;

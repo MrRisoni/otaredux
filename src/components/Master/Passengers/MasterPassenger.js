@@ -41,7 +41,6 @@ class MasterPassenger extends Component {
         this.removeMe = this.removeMe.bind(this);
         this.handleGenderChange = this.handleGenderChange.bind(this);
         this.changeBirthDate = this.changeBirthDate.bind(this);
-        this.handleCabinClassChange = this.handleCabinClassChange.bind(this);
     }
 
 
@@ -64,19 +63,6 @@ class MasterPassenger extends Component {
 
     }
 
-
-    handleCabinClassChange(ev) {
-
-
-        this.props.changePaxCabinClassHandler(this.props.passenger.id, ev.target.value, this.props.passenger.cabinClass, this.props.passenger.type);
-
-
-        this.setState({
-            cabinClass: ev.target.value
-        });
-
-
-    }
 
     handleAgeGroupChange(ev) {
         this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type, this.props.passenger.cabinClass);
@@ -245,6 +231,7 @@ class MasterPassenger extends Component {
 
                                 <CabinTrip tripData={this.props.tripData}
                                            currency={this.props.currency}
+                                           changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
                                            segments={this.props.segments} pax={this.props.passenger}/>
 
                                 {(this.state.ageGroup !== 'INF') &&

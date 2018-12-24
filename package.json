@@ -4,9 +4,7 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "immutability-helper": "^2.6.4",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-datepicker": "^1.0.4",

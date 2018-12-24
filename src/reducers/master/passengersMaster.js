@@ -105,13 +105,12 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
                     return px;
                 }
                 else {
-                    let newPax = px;
-                    newPax.cabinList = [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}];
-
                     return {
                         ...px,
-                        ...newPax
+                        cabinList: [{segId: 0, cabin: 'Y'}, {segId: 1, cabin: 'Y'}, {segId: 2, cabin: 'Y'}]
                     }
+
+
                 }
             })
         default:
@@ -268,11 +267,10 @@ export function passengersMasterReducer(state = passengers, action) {
             console.log(action.payload);
             return state.map( (pax, index) => {
                if (index == action.payload.passengerId) {
-                   let newPax = pax;
-                   newPax.type = action.payload.newType;
+
                    return {
                        ...pax,
-                       ...newPax
+                       type : action.payload.newType
                    }
                }
                else {
@@ -298,13 +296,12 @@ export function passengersMasterReducer(state = passengers, action) {
             console.log(action.payload);
             return state.map( (pax, index) => {
                 if (index == action.payload.passengerId) {
-                    let newPax = pax;
-                    newPax.surname = action.payload.surname;
-                    newPax.name = action.payload.name;
-                    newPax.gender = action.payload.gender;
+
                     return {
                         ...pax,
-                        ...newPax
+                        surname : action.payload.surname,
+                        name : action.payload.name,
+                        gender : action.payload.gender,
                     }
                 }
                 else {
