@@ -22,20 +22,22 @@ const cabinPaxSelection = [
 export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
   switch (action.type) {
     case MasterCons.CHANGE_CABIN:
-      state.map((cbpx) => {
-        if (cbpx !== action.payload.paxId) {
+      return state.map(cbpx => {
+        const diffPax = (cbpx.paxId !== action.payload.paxId);
+        const samePaxDiffSeg = (cbpx.paxId === action.payload.paxId) && (cbpx.segId !== action.payload.segmentId);
+        const returnSame = (diffPax === true) || (samePaxDiffSeg === true);
+
+        console.log('returnsame ' + returnSame);
+        if (returnSame) {
           return cbpx;
         }
-        cbpx.cabinList.map((cab) => {
-          if (cab.segId != action.payload.segId) {
-            return cab;
-          }
-          return {
-            ...cab,
-            cabin: action.payload.newClass,
-          };
-        });
+        return {
+          ...cbpx,
+          cabin: action.payload.newClass,
+        };
       });
+      console.log('new state');
+      console.log(state);
       break;
     case MasterCons.ADD_PASSENGER_MASTER:
 

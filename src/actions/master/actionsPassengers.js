@@ -56,13 +56,15 @@ export function changeAirCabinClassPassengerAction(paxId, newClass, segmentId) {
 
   return (dispatch, getState) => {
     dispatch({
-      type: 'CHANGE_CABIN',
+      type: MasterCons.CHANGE_CABIN,
       payload: {
-        paxId,
-        newClass,
-        segId: segmentId,
+        paxId: paxId,
+        newClass: newClass,
+        segmentId: segmentId,
       },
     });
+
+    dispatch(upsalesDispatcher(getState, MasterCons.PASSENGER_ARRAY_CHANGED));
   };
 }
 

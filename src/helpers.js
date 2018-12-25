@@ -5,10 +5,13 @@ export function calcTotalPrice(payload) {
   let activePaxes = 0;
   const priceAnalysis = [];
 
+  console.log('helpers calcTotalPrice');
+  console.log(payload);
+
   payload.passengers.forEach((pax) => {
     if (pax.active) {
       activePaxes++;
-      const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id)[0].cabinList;
+      const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id);
       console.log('filter cabin list');
       console.log(cabins);
 
