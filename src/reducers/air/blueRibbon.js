@@ -1,4 +1,4 @@
-import { ADD_BLUE_RIBBON } from '../../actions/master/actionsAir';
+import * as MasterCons from '../../actions/master/allConstants';
 
 
 const blueRibbonPrices = {
@@ -12,7 +12,7 @@ const chosenBlueRibbon = false;
 
 export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
   switch (action.type) {
-    case ADD_BLUE_RIBBON:
+    case MasterCons.ADD_BLUE_RIBBON:
       return Object.assign({}, state, {
         state: action.payload,
       });

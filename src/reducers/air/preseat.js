@@ -1,5 +1,5 @@
 import * as MasterCons from '../../actions/master/allConstants';
-import { CHANGE_PRESEAT_SELECT_PAX } from '../../actions/master/preseatActions';
+
 
 const preSeatSelectedItems = {
   selectedSegment: 1,
@@ -72,7 +72,7 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
 
 export function fetchPreseatSelectedPaxReducer(state = preSeatSelectedItems, action) {
   switch (action.type) {
-    case CHANGE_PRESEAT_SELECT_PAX:
+    case MasterCons.CHANGE_PRESEAT_SELECT_PAX:
       console.log('state befoar');
       console.log(state);
       return action.payload.paxId;

@@ -1,4 +1,4 @@
-import { ADD_MEAL_AIR } from '../../actions/master/actionsAir';
+import * as MasterCons from '../../actions/master/allConstants';
 
 const meals = [
   {
@@ -107,7 +107,7 @@ const boughtPaxMeals = [];
 
 export function purchasedMealsReducer(state = boughtPaxMeals, action) {
   switch (action.type) {
-    case ADD_MEAL_AIR:
+    case MasterCons.ADD_MEAL:
       return [
         ...state,
         action.payload,

@@ -1,7 +1,6 @@
 import * as MasterCons from '../../actions/master/allConstants';
 import { calcTotalPrice } from '../../helpers';
 
-import { UPSALES_CHANGED } from '../../actions/master/actionsAir';
 
 
 const totalPrice = 5;
@@ -27,7 +26,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
   switch (action.type) {
     case MasterCons.FIRST_LOAD_MASTER:
     case MasterCons.PASSENGER_ARRAY_CHANGED:
-    case UPSALES_CHANGED:
+    case MasterCons.UPSALES_CHANGED:
 
       const calcTotalRsp = calcTotalPrice(action.payload);
 

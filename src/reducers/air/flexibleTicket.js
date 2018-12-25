@@ -1,4 +1,4 @@
-import { ADD_FLEXIBLE_TICKET } from '../../actions/master/actionsAir';
+import * as MasterCons from '../../actions/master/allConstants';
 
 const flexibleTicketPrice = {
   pricePerPax: 5.00,
@@ -10,7 +10,7 @@ const chosenFlexibleTicket = false;
 
 export function hasFlexibleTicketReducer(state = chosenFlexibleTicket, action) {
   switch (action.type) {
-    case ADD_FLEXIBLE_TICKET:
+    case MasterCons.ADD_FLEXIBLE_TICKET:
 
       return Object.assign({}, state, {
         state: action.payload,

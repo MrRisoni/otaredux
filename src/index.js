@@ -18,9 +18,10 @@ import { currentCurrencyReducer, getCurrenciesReducer } from './reducers/common/
 
 import { countryListReducer } from './reducers/air/asyncAir';
 import { getLegsReducer, airTripReducer, uniqueCarriersReducer } from './reducers/air/itineraryAir';
+import {fetchCabinPaxPerSegmentReducer} from './reducers/air/cabins';
+import {fetchPreseatSelectedPaxReducer} from './reducers/air/preseat';
 import {
-  contactMasterReducer, passengersMasterReducer, fetchPreseatSelectedPaxReducer, fetchCabinPaxPerSegmentReducer,
-} from './reducers/master/passengersMaster';
+  contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import { pricingMasterReducer, pricingMasterAnalysisReducer, ticketPricesReducer } from './reducers/master/pricingMaster';
 import { getBagsReducer, purchasedBagsReducer } from './reducers/air/bagsAir';
 import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAir';

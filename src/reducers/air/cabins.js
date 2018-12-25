@@ -21,7 +21,7 @@ const cabinPaxSelection = [
 
 export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
   switch (action.type) {
-    case 'CHANGE_AIR_CABIN':
+    case MasterCons.CHANGE_CABIN:
       state.map((cbpx) => {
         if (cbpx !== action.payload.paxId) {
           return cbpx;

@@ -1,4 +1,4 @@
-import { ADD_BAG_AIR, PURCHASE_INSURANCE_AIR } from '../../actions/master/actionsAir';
+import * as MasterCons from '../../actions/master/allConstants';
 
 
 const insurancesAir = [
@@ -34,7 +34,7 @@ const boughtInsurances = [];
 
 export function purchasedInsuranceReducer(state = boughtInsurances, action) {
   switch (action.type) {
-    case PURCHASE_INSURANCE_AIR:
+    case MasterCons.PURCHASE_INSURANCE:
 
       var foundPax = false;
 
@@ -63,7 +63,7 @@ export function purchasedInsuranceReducer(state = boughtInsurances, action) {
         return obj;
       });
 
-
+      break;
     default:
       return state;
   }

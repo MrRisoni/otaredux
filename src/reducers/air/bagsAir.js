@@ -1,4 +1,4 @@
-import { ADD_BAG_AIR, REMOVE_BAG_AIR } from '../../actions/master/actionsAir';
+import * as MasterCons from '../../actions/master/allConstants';
 
 const bagAllowance = [
   {
@@ -38,12 +38,12 @@ const boughtPaxBags = [];
 
 export function purchasedBagsReducer(state = boughtPaxBags, action) {
   switch (action.type) {
-    case ADD_BAG_AIR:
+    case MasterCons.ADD_BAG:
       return [
         ...state,
         action.payload,
       ];
-    case REMOVE_BAG_AIR:
+    case MasterCons.REMOVE_BAG:
 
       let bagFound = false;
       let index = -1;
