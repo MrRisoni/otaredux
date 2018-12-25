@@ -31,46 +31,7 @@ export function pricingMasterReducer(state = totalPrice, action) {
       const calcTotalRsp = calcTotalPrice(action.payload);
 
       return calcTotalRsp.total;
-      /* case MasterCons.PASSENGER_ARRAY_CHANGED:
-        case UPSALES_CHANGED:
 
-            console.log(action.payload);
-            // active passengers
-            let activePaxes =0;
-            action.payload.passengers.forEach( pax => {
-                if (pax.active) {
-                    activePaxes++;
-                    action.payload.boughtBags.forEach( boughtBag => {
-                        if (boughtBag.paxId === pax.id) {
-                            action.payload.bagAllowance.forEach( bag => {
-                                if (bag.id === boughtBag.bagId) {
-                                    total += bag.price;
-                                }
-                            });
-                        }
-                    });
-
-                    action.payload.boughtInsurances.forEach(boughtIns => {
-                        action.payload.insuranceOptions.forEach(insOption => {
-                            if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId)) {
-                                total += insOption.price;
-                            }
-                        });
-                    });
-
-                    action.payload.boughtMeals.forEach(boughtMl => {
-                        action.payload.mealOptions.forEach(availbMeal => {
-                            if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
-                                total += availbMeal.price;
-                            }
-                        });
-                    });
-                }
-            });
-
-
-            return total;
-*/
     default:
       return state;
   }

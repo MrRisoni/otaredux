@@ -41,7 +41,7 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
       break;
     case MasterCons.ADD_PASSENGER_MASTER:
 
-      const nextPaxId = cabinPaxSelection.length;
+      const nextPaxId = state.length;
       console.log('fetchCabinPaxPerSegment');
 
       return [
