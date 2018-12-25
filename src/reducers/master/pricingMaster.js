@@ -1,7 +1,7 @@
 import * as MasterCons from '../../actions/master/allConstants';
-import {calcTotalPrice} from '../../helpers'
+import { calcTotalPrice } from '../../helpers';
 
-import {UPSALES_CHANGED} from '../../actions/master/actionsAir';
+import { UPSALES_CHANGED } from '../../actions/master/actionsAir';
 
 
 const totalPrice = 5;
@@ -9,31 +9,30 @@ const totalPrice = 5;
 const ticketsPrice = 1;
 
 export function ticketPricesReducer(state = ticketsPrice, action) {
-    switch (action.type) {
-        case MasterCons.FIRST_LOAD_MASTER:
-        case MasterCons.PASSENGER_ARRAY_CHANGED:
-            const calcTotalRsp = calcTotalPrice(action.payload);
-            return calcTotalRsp.tickets;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case MasterCons.FIRST_LOAD_MASTER:
+    case MasterCons.PASSENGER_ARRAY_CHANGED:
+      const calcTotalRsp = calcTotalPrice(action.payload);
+      return calcTotalRsp.tickets;
+    default:
+      return state;
+  }
 }
 
 export function pricingMasterReducer(state = totalPrice, action) {
-    console.log('**pricingReducer**');
-    console.log('received action' + action.type);
-    let total = 0;
+  console.log('**pricingReducer**');
+  console.log(`received action${action.type}`);
+  const total = 0;
 
-    switch (action.type)
-    {
-        case MasterCons.FIRST_LOAD_MASTER:
-        case MasterCons.PASSENGER_ARRAY_CHANGED:
-        case UPSALES_CHANGED:
+  switch (action.type) {
+    case MasterCons.FIRST_LOAD_MASTER:
+    case MasterCons.PASSENGER_ARRAY_CHANGED:
+    case UPSALES_CHANGED:
 
-            const calcTotalRsp = calcTotalPrice(action.payload);
+      const calcTotalRsp = calcTotalPrice(action.payload);
 
-            return calcTotalRsp.total;
-        /*case MasterCons.PASSENGER_ARRAY_CHANGED:
+      return calcTotalRsp.total;
+      /* case MasterCons.PASSENGER_ARRAY_CHANGED:
         case UPSALES_CHANGED:
 
             console.log(action.payload);
@@ -71,19 +70,16 @@ export function pricingMasterReducer(state = totalPrice, action) {
             });
 
 
-
             return total;
 */
-        default:
-            return state;
-    }
-
+    default:
+      return state;
+  }
 }
 
-export function pricingMasterAnalysisReducer(state = [], action )
-{
-    return [];
-    /*
+export function pricingMasterAnalysisReducer(state = [], action) {
+  return [];
+  /*
     switch (action.type)
     {
         case MasterCons.FIRST_LOAD_MASTER:
@@ -152,7 +148,6 @@ export function pricingMasterAnalysisReducer(state = [], action )
             console.log(newClass + ' ' + oldClass + ' ' + ageGroup);
 
             return state.map( (item, index) => {
-
 
 
                 var returnSame = true;
@@ -269,5 +264,5 @@ export function pricingMasterAnalysisReducer(state = [], action )
 
         default:
             return state;
-    }*/
+    } */
 }

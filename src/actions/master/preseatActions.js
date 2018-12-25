@@ -1,16 +1,13 @@
-import {upsalesDispatcher} from './dispatcher';
-
-export const CHANGE_PRESEAT_SELECT_PAX = 'CHANGE_PRESEAT_SELECT_PAX';
+import { upsalesDispatcher } from './dispatcher';
 
 
 export function changePreSeatSelectPassengerAction(paxId) {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: CHANGE_PRESEAT_SELECT_PAX,
-            payload: {
-                paxId: paxId
-            }
-        });
-    }
+  return (dispatch, getState) => {
+    dispatch({
+      type: CHANGE_PRESEAT_SELECT_PAX,
+      payload: {
+        paxId,
+      },
+    });
+  };
 }
