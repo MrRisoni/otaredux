@@ -3,11 +3,6 @@
 import * as MasterCons from '../../actions/master/allConstants';
 
 
-import { SELECT_AIR_SEAT } from '../../actions/master/actionsAir';
-import { CHANGE_PRESEAT_SELECT_PAX } from '../../actions/master/preseatActions';
-
-
-const preseatSelectedPaxId = 0;
 
 
 const passengers = [
@@ -161,19 +156,7 @@ export function passengersMasterReducer(state = passengers, action) {
       return state;
 
 
-    case SELECT_AIR_SEAT:
 
-      return state.map((pax, index) => {
-        if (index == action.payload.paxId) {
-          const newPax = pax;
-          newPax.seat = { letter: action.payload.letter, number: action.payload.number };
-          return {
-            ...pax,
-            ...newPax,
-          };
-        }
-        return pax;
-      });
     case MasterCons.CHANGE_PASSENGER_MASTER:
       console.log(action.payload);
       return state.map((pax, index) => {
@@ -185,19 +168,7 @@ export function passengersMasterReducer(state = passengers, action) {
         }
         return pax;
       });
-    case MasterCons.CHANGE_PASSENGER_AIR_CABIN:
-      console.log(action.payload);
-      return state.map((pax, index) => {
-        if (index == action.payload.passengerId) {
-          const newPax = pax;
-          newPax.cabinClass = action.payload.newClass;
-          return {
-            ...pax,
-            ...newPax,
-          };
-        }
-        return pax;
-      });
+
     case MasterCons.EDIT_NAME_PASSENGER_MASTER:
       console.log(action.payload);
       return state.map((pax, index) => {

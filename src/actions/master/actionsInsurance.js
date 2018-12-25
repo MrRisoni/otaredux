@@ -1,10 +1,11 @@
 import { upsalesDispatcher } from './dispatcher';
+import * as MasterCons from './allConstants';
 
 
 export function changeAirInsuranceAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: PURCHASE_INSURANCE_AIR,
+      type: MasterCons.PURCHASE_INSURANCE,
       payload: {
         paxId: data.paxId,
         insuranceId: data.insuranceId,
@@ -12,6 +13,6 @@ export function changeAirInsuranceAction(data) {
     });
 
     // after bag is bought , dispatch the updated passenger array
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

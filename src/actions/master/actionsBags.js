@@ -1,9 +1,11 @@
 import { upsalesDispatcher } from './dispatcher';
+import * as MasterCons from './allConstants';
+
 
 export function addAirBagAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: ADD_BAG_AIR,
+      type: MasterCons.ADD_BAG,
       payload: {
         paxId: data.paxId,
         bagId: data.bagId,
@@ -12,7 +14,7 @@ export function addAirBagAction(data) {
     });
 
     // after bag is bought , dispatch the updated passenger array
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }
 
@@ -20,7 +22,7 @@ export function addAirBagAction(data) {
 export function removeAirBagAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: REMOVE_BAG_AIR,
+      type: MasterCons.REMOVE_BAG,
       payload: {
         paxId: data.paxId,
         bagId: data.bagId,
@@ -29,6 +31,6 @@ export function removeAirBagAction(data) {
     });
 
     // after bag is bought , dispatch the updated passenger array
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

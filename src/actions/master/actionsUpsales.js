@@ -1,14 +1,15 @@
 import { upsalesDispatcher } from './dispatcher';
+import * as MasterCons from './allConstants';
 
 
 export function changeFlexibleTicketAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: ADD_FLEXIBLE_TICKET,
+      type: MasterCons.ADD_FLEXIBLE_TICKET,
       payload: data,
     });
 
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }
 
@@ -16,10 +17,10 @@ export function changeFlexibleTicketAction(data) {
 export function changeBlueRibbonAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: ADD_BLUE_RIBBON,
+      type: MasterCons.ADD_BLUE_RIBBON,
       payload: data,
     });
 
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

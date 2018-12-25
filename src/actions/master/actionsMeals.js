@@ -1,10 +1,11 @@
 import { upsalesDispatcher } from './dispatcher';
+import * as MasterCons from './allConstants';
 
 
 export function addMealAction(data) {
   return (dispatch, getState) => {
     dispatch({
-      type: ADD_MEAL_AIR,
+      type: MasterCons.ADD_MEAL,
       payload: {
         paxId: data.paxId,
         mealId: data.mealId,
@@ -13,6 +14,6 @@ export function addMealAction(data) {
     });
 
     // after bag is bought , dispatch the updated passenger array
-    dispatch(upsalesDispatcher(getState, UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }
