@@ -1,4 +1,3 @@
-cabin class per segment
 Bags per segment/cabin class
 Meals per segment/cabin class
 Currency Change
@@ -9,7 +8,7 @@ PreSeat per cabin class/segment
 
 merge deploy
 
-
+remove console.log
 Immutable ... fix
 
 HTMl5 markups
