@@ -140,6 +140,7 @@ function mapStateToProps(state) {
     currency: state.currentCurrencyReducer,
     pricing: {
       total: state.pricingMasterReducer,
+      upsales: state.pricingUpsalesMasterReducer,
     },
     contact: state.contactMasterReducer,
     insuranceAir: state.airInsuranceReducer,

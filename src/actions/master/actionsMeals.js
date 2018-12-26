@@ -7,9 +7,9 @@ export function addMealAction(data) {
     dispatch({
       type: MasterCons.ADD_MEAL,
       payload: {
-        paxId: data.paxId,
-        mealId: data.mealId,
-        segId: data.segId,
+        paxId: parseInt(data.paxId),
+        mealId: parseInt(data.mealId),
+        segId: parseInt(data.segId),
         type: data.type,
       },
     });
@@ -25,7 +25,6 @@ export function removeMealAction(data) {
       type: MasterCons.REMOVE_MEAL,
       payload: {
         paxId: data.paxId,
-        mealId: data.mealId,
         segId: data.segId,
         type: data.type,
 

@@ -93,22 +93,49 @@ const boughtPaxMeals = [];
 
 export function purchasedMealsReducer(state = boughtPaxMeals, action) {
   switch (action.type) {
+    case MasterCons.CHANGE_CABIN:
+      return state.filter(ml => ml.paxId !== action.payload.paxId);
     case MasterCons.REMOVE_MEAL:
-          console.log('remove new bag fired');
-          console.log(action.payload);
 
-          return state.filter(bag => bag.bagId !== action.payload.bagId);
+      return state.filter((ml) => {
+        const samePax = ml.paxId === action.payload.paxId;
+        const sameSeg = ml.segId === action.payload.segId;
+        const sameType = ml.type === action.payload.type;
+        const returnSame = samePax && sameSeg && sameType;
+
+        if (returnSame === false) {
+          return ml;
+        }
+      });
+
+
     case MasterCons.ADD_MEAL:
-        console.log('add meal');
-        console.log(action.payload)
-        // check if there a meal of that type for this pax
-      return [
-        ...state,
-        action.payload,
-      ];
+      console.log('add meal');
+      console.log(action.payload);
+      // check if there a meal of that type for this pax
+      const filters = state.filter(ml => ((ml.paxId === action.payload.paxId) && (ml.segId === action.payload.segId) && (ml.type === action.payload.type)));
 
+      if (filters.length === 0) {
+        return [
+          ...state,
+          action.payload,
+        ];
+      }
 
+      return state.map((ml) => {
+        const samePax = ml.paxId === action.payload.paxId;
+        const sameSeg = ml.segId === action.payload.segId;
+        const sameType = ml.type === action.payload.type;
+        const returnSame = samePax && sameSeg && sameType;
 
+        if (returnSame === false) {
+          return ml;
+        }
+        return {
+          ...ml,
+          mealId: action.payload.mealId,
+        };
+      });
     default:
       return state;
   }

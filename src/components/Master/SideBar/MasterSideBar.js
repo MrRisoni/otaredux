@@ -206,6 +206,13 @@ const MasterSideBar = (props) => {
                     {otherUpsalesDiv}
 
 
+                    <div className="row">
+                        <div className="col-12">
+                            <h4>Upsales Price {props.pricing.upsales} {props.currency.code} </h4>
+                        </div>
+                    </div>
+
+
                 </div>
 
 
