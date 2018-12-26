@@ -7,14 +7,10 @@ const BagLeg = (props) => {
     let bagArray = [];
     const legTitle = (props.leg ==0) ? "Departure" : "Return";
 
-    console.log('bagleg');
-    console.log(props);
-
-
 
     props.bagsAir.forEach( bag => {
 
-        if (bag.classes.indexOf(props.paxData.cabinClass) > -1) {
+        if (props.allowedBags.indexOf(bag.key) > -1) {
 
             bagArray.push(<BagSelection bagData={bag}
                                         key={bag.key}
@@ -22,6 +18,7 @@ const BagLeg = (props) => {
                                         currency={props.currency}
                                         purchasedBags={props.purchasedBags}
                                         paxId={props.paxId}
+                                        limitBags={props.limitBags}
                                         addBagHandler={props.addBagHandler}
                                         removeBagHandler={props.removeBagHandler}/>);
         }

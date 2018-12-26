@@ -29,7 +29,19 @@ export function calcTotalPrice(payload) {
           }
         });
       });
-    }
+
+      const boughtBagIs = payload.boughtBags.filter(bbg => bbg.paxId == pax.id).map(bbg =>  bbg.bagId);
+
+
+        boughtBagIs.forEach(bbg => {
+            payload.bagAllowance.forEach(bal => {
+                if (bal.id == bbg) {
+                    total += bal.priceEuro;
+                }
+            })
+        })
+
+    } // end if pax active
   });
 
 

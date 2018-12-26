@@ -13,13 +13,18 @@ const BagComponent = props => {
     const thisPaxCabins = props.cabinSelection.filter(cb => cb.paxId == props.paxData.id);
     console.log('thisPaxCabins');
     console.log(thisPaxCabins);
+    let bestCabin  = '';
     thisPaxCabins.forEach(sg => {
         const thisClassLimit = props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
         if (thisClassLimit > limitBags) {
             limitBags = thisClassLimit;
+            bestCabin = sg.cabin;
         }
-    })
+    });
 
+    let  allowedBags = props.bagsAir.filter(bg => bg.classes.indexOf(bestCabin) > -1).map(itm => itm.key);
+    console.log('filter bags');
+    console.log(allowedBags);
 
     return (
         <div>
@@ -65,12 +70,12 @@ const BagComponent = props => {
                                     leg={kk}
                                     limitBags={limitBags}
                                     bagsAir={props.bagsAir}
+                                    allowedBags={allowedBags}
                                     purchasedBags={props.purchasedBags}
                                     cabinSelection={props.cabinSelection}
                                     currency={props.currency}
                                     paxData={props.paxData}
                                     paxId={props.paxId}
-                                    getBagsLimit={props.getBagsLimit}
                                     addBagHandler={props.addBagHandler}
                                     removeBagHandler={props.removeBagHandler}
                                 />

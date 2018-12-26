@@ -54,18 +54,16 @@ const limitPerClass = [
 ];
 
 const boughtPaxBags = [];
+
+
 export function getLimitBagReducer(state = limitPerClass, action) {
   return state;
 }
 
 export function purchasedBagsReducer(state = boughtPaxBags, action) {
   switch (action.type) {
-    case MasterCons.CHANGE_PASSENGER_MASTER:
-      // clear all bags for all segments
-      return state;
     case MasterCons.CHANGE_CABIN:
-      // clear bags for this segment
-      return state;
+        return state.filter((bag, idx) => bag.paxId !== action.payload.paxId);
     case MasterCons.ADD_BAG:
       return [
         ...state,
