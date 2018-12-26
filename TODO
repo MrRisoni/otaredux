@@ -1,7 +1,6 @@
 Meals per segment/cabin class
 PreSeat per cabin class/segment
 
-
 Currency Change
 
 
@@ -10,7 +9,6 @@ segments
 final testings and debugging
 merge deploy
 
-remove console.log
 Immutable ... fix
 ES6 wherever !!!
 

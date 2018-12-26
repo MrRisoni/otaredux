@@ -12,17 +12,12 @@ export function calcTotalPrice(payload) {
     if (pax.active) {
       activePaxes++;
       const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id);
-      console.log('filter cabin list');
-      console.log(cabins);
+
 
       cabins.forEach((cb) => {
         payload.segmentCabinPricing.forEach((segs) => {
           if (segs.id == cb.segId) {
-            console.log(`segment check ${segs}`);
-            console.log(segs);
-            console.log('weird filter');
-            console.log(`cb.cabin ${cb.cabin}`);
-            console.log(`pax.age${pax.type}`);
+
             const priceForThis = segs.cabinList.filter(pr => (pr.class === cb.cabin) && (pr.age === pax.type))[0].price;
             total += priceForThis;
             ticketPrices += priceForThis;

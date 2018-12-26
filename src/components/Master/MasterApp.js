@@ -58,6 +58,7 @@ class MasterApp extends Component {
               addBagHandler={this.props.addBagHandler}
               removeBagHandler={this.props.removeBagHandler}
               addMealHandler={this.props.addMealHandler}
+              removeMealHandler={this.props.removeMealHandler}
               selectInsuranceHandler={this.props.selectInsuranceHandler}
               changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
               changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
@@ -178,6 +179,7 @@ function matchDispatchToProps(dispatch) {
     removeBagHandler: actsBags.removeAirBagAction,
     selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
     addMealHandler: actsMeals.addMealAction,
+    removeMealHandler: actsMeals.removeMealAction,
     changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
     changeBlueRibbonHandler: actsUpsales.changeBlueRibbonAction,
     selectSeatHandler: null,

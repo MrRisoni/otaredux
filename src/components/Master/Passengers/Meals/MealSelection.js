@@ -1,44 +1,40 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class MealSelection extends Component {
-    constructor(props)
-    {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.handleClick = this.handleClick.bind(this);
-    }
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    handleClick(ev)
-    {
+  handleClick(ev) {
+    this.props.addMealHandler(
+      {
+        paxId: this.props.paxId,
+        mealId: ev.target.value,
+        segId: this.props.segId,
+        type: this.props.type,
+      },
+    );
 
-
-        this.props.addMealHandler(
-            {
-                paxId: this.props.paxId,
-                mealId: ev.target.value,
-                legId: this.props.legId
-            }
-        )
-    }
-
-
-    render() {
+    // removeMealHandler7
+  }
 
 
-        return (
-            <select className="form-control" onChange={this.handleClick}>
-                <option key="" value=""></option>
-                {this.props.mealData.map(ml => {
-                    if (ml.classes.indexOf(this.props.paxData.cabinClass) > -1) {
-                        return (<option key={ml.key}
-                                        value={ml.id}>{ml.title} {ml.price.toFixed(2)} {this.props.currency.code}</option>)
-                    }
-                })}
-            </select>
-        );
-    }
+  render() {
+    return (
+      <select className="form-control" onChange={this.handleClick}>
+        <option key="" value="" />
+        {this.props.mealData.map(ml => {
+            return (
+              <option  key={ml.key}  value={ml.id} > {ml.title} {' '}{ml.price.toFixed(2)} {' '}{this.props.currency.code}
+              </option>
+            );
+
+        })}
+      </select>
+    );
+  }
 }
 
 export default MealSelection;
-
-

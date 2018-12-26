@@ -3,6 +3,9 @@ import MealLeg from './MealLeg';
 
 const MealsComponent = (props) => {
 
+    const keys = [0,1];
+    console.log('meals component');
+    console.log(props);
     return (
 
         <div>
@@ -36,31 +39,24 @@ const MealsComponent = (props) => {
 
             <div className="collapse" id={`mealsCollapse${props.paxId}`}>
 
-                <div className="row">
-                    <div className="col-12">
-                        <MealLeg key={0} leg={0}
-                                 mealOptions={props.mealOptions}
-                                 boughtMeals={props.boughtMeals}
-                                 paxData={props.paxData}
-                                 currency={props.currency}
-                                 paxId={props.paxId}
-                                 addMealHandler={props.addMealHandler}
-                                 segments={props.segments}/>
-                    </div>
-                </div>
+                {keys.map(kk => {
+                    return  (<div className="row">
+                        <div className="col-12">
+                            <MealLeg key={kk} leg={kk}
+                                     mealOptions={props.mealOptions}
+                                     boughtMeals={props.boughtMeals}
+                                     paxData={props.paxData}
+                                     currency={props.currency}
+                                     cabinSelection={props.cabinSelection}
+                                     paxId={props.paxId}
+                                     addMealHandler={props.addMealHandler}
+                                     removeMealHandler={props.removeMealHandler}
+                                     segments={props.segments}/>
+                        </div>
+                    </div>);
+                })}
 
-                <div className="row">
-                    <div className="col-12">
-                        <MealLeg key={1} leg={1}
-                                 mealOptions={props.mealOptions}
-                                 boughtMeals={props.boughtMeals}
-                                 currency={props.currency}
-                                 paxData={props.paxData}
-                                 paxId={props.paxId}
-                                 addMealHandler={props.addMealHandler}
-                                 segments={props.segments}/>
-                    </div>
-                </div>
+
             </div>
 
         </div>

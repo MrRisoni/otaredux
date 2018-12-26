@@ -9,11 +9,29 @@ export function addMealAction(data) {
       payload: {
         paxId: data.paxId,
         mealId: data.mealId,
-        legId: data.legId,
+        segId: data.segId,
+        type: data.type,
       },
     });
 
-    // after bag is bought , dispatch the updated passenger array
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+  };
+}
+
+
+export function removeMealAction(data) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: MasterCons.REMOVE_MEAL,
+      payload: {
+        paxId: data.paxId,
+        mealId: data.mealId,
+        segId: data.segId,
+        type: data.type,
+
+      },
+    });
+
     dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

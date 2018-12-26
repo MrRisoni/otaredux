@@ -3,10 +3,9 @@ import * as MasterCons from '../../actions/master/allConstants';
 const meals = [
   {
     id: 1,
-    carrier: 'BA',
     key: 'ge534dhfg73567777==',
     price: 15.00,
-    legId: 0,
+    segId: 1,
     route: 'Athens-Dublin',
     type: 'Main',
     classes: ['C', 'F'],
@@ -14,10 +13,9 @@ const meals = [
   },
   {
     id: 2,
-    carrier: 'BA',
     key: 'e5636352ff66==',
     price: 12.00,
-    legId: 0,
+    segId: 1,
     route: 'Athens-Dublin',
     type: 'Main',
     classes: ['C', 'F'],
@@ -25,10 +23,9 @@ const meals = [
   },
   {
     id: 3,
-    carrier: 'BA',
     key: 'hdg733747353==',
     price: 20.00,
-    legId: 0,
+    segId: 1,
     route: 'Athens-Dublin',
     type: 'Main',
     classes: ['C', 'F'],
@@ -36,43 +33,36 @@ const meals = [
   },
   {
     id: 4,
-    carrier: 'BA',
     key: '62gwreyu4467==',
     price: 20.00,
-    legId: 0,
-    route: 'Athens-Dublin',
+    segId: 1,
     type: 'Main',
     classes: ['C', 'F'],
     title: 'Beef Stroganov',
   },
   {
     id: 5,
-    carrier: 'BA',
     key: '35567==3434341d',
     price: 8.00,
-    legId: 0,
-    route: 'Athens-Dublin',
+    segId: 1,
     type: 'Dessert',
     classes: ['C', 'F'],
     title: 'Schwarzwälder Kirschtorte',
   },
   {
     id: 6,
-    carrier: 'BA',
     key: '85hrt35565htrtrg',
     price: 7.00,
-    legId: 0,
-    route: 'Athens-Dublin',
+    segId: 1,
     type: 'Dessert',
     classes: ['C', 'F'],
     title: 'Chocolate ice-cream',
   },
   {
     id: 7,
-    carrier: 'BA',
     key: 'ge534dhfg7356ewewwewe7777==',
     price: 5.00,
-    legId: 0,
+    segId: 1,
     route: 'Athens-Dublin',
     type: 'Main',
     classes: ['W', 'Y'],
@@ -80,22 +70,18 @@ const meals = [
   },
   {
     id: 8,
-    carrier: 'BA',
     key: 'ge534dhfg7356ewsdsdsdswewe7777==',
     price: 5.00,
-    legId: 0,
-    route: 'Athens-Dublin',
+    segId: 1,
     type: 'Main',
     classes: ['W', 'Y'],
     title: 'Vegan',
   },
   {
     id: 9,
-    carrier: 'BA',
     key: 'ge534dhfg7356ffdfddfdewsdsdsdswewe7777==',
     price: 5.00,
-    legId: 0,
-    route: 'Athens-Dublin',
+    segId: 1,
     type: 'Main',
     classes: ['W', 'Y'],
     title: 'Muslim',
@@ -107,17 +93,22 @@ const boughtPaxMeals = [];
 
 export function purchasedMealsReducer(state = boughtPaxMeals, action) {
   switch (action.type) {
+    case MasterCons.REMOVE_MEAL:
+          console.log('remove new bag fired');
+          console.log(action.payload);
+
+          return state.filter(bag => bag.bagId !== action.payload.bagId);
     case MasterCons.ADD_MEAL:
+        console.log('add meal');
+        console.log(action.payload)
+        // check if there a meal of that type for this pax
       return [
         ...state,
         action.payload,
       ];
-      /* case REMOVE_BAG_AIR:
-            console.log('remove new bag fired');
-            console.log(action.payload);
 
-            return state.filter(bag => bag.bagId !== action.payload.bagId);
-*/
+
+
     default:
       return state;
   }

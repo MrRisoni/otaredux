@@ -3,6 +3,8 @@ import MealType from "./MealType";
 
 const MealSegment = (props) => {
 
+    console.log('MealSegment ');
+    console.log(props);
 
     let dessertsDiv = (<div></div>);
     if (props.desserts.length >0) {
@@ -11,19 +13,23 @@ const MealSegment = (props) => {
                                 paxId={props.paxId}
                                 paxData={props.paxData}
                                 currency={props.currency}
+                                segId={props.segId}
                                 data={props.desserts}
+                                removeMealHandler={props.removeMealHandler}
                                 addMealHandler={props.addMealHandler}/>
     }
 
 
     let mainCourses = (<div></div>);
     if (props.mainCourses.length >0) {
-        mainCourses = <MealType type="Main Course"
+        mainCourses = <MealType type="Main"
                                 legId={props.legId}
                                 paxId={props.paxId}
                                 paxData={props.paxData}
                                 currency={props.currency}
+                                segId={props.segId}
                                 data={props.mainCourses}
+                                removeMealHandler={props.removeMealHandler}
                                 addMealHandler={props.addMealHandler}/>
     }
 

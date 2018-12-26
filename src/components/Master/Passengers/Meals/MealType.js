@@ -3,6 +3,8 @@ import MealSelection from "./MealSelection";
 
 const MealType = (props) => {
 
+    console.log('Meal Type ');
+    console.log(props);
 
     return (
         <div className="row">
@@ -10,16 +12,19 @@ const MealType = (props) => {
                 <div className="card text-white bg-info mb-3">
                     <div className="card-header">{props.type}</div>
                     <div className="card-body">
-                        <p className="card-text">
+
 
                            <MealSelection mealData={props.data}
+                                          type={props.type}
                                           legId={props.legId}
                                           paxData={props.paxData}
                                           paxId={props.paxId}
+                                          segId={props.segId}
                                           currency={props.currency}
+                                          removeMealHandler={props.removeMealHandler}
                                           addMealHandler={props.addMealHandler}/>
 
-                        </p>
+
                     </div>
                 </div>
             </div>
