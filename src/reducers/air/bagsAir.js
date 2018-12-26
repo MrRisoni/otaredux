@@ -24,20 +24,48 @@ const bagAllowance = [
   {
     id: 3,
     key: 'xfsfgrdtrtWCFXFS',
-    weight: '30kg',
+    weight: '40kg',
     dimensions: '',
     type: ['ADT'],
     classes: ['C', 'F'],
-    price: 35.00,
-    priceEuro: 35.00,
+    price: 55.00,
+    priceEuro: 55.00,
+  },
+];
+
+// per leg
+const limitPerClass = [
+  {
+    cabin: 'Y',
+    limit: 1,
+  },
+  {
+    cabin: 'W',
+    limit: 2,
+  },
+  {
+    cabin: 'C',
+    limit: 4,
+  },
+  {
+    cabin: 'F',
+    limit: 6,
   },
 ];
 
 const boughtPaxBags = [];
-
+export function getLimitBagReducer(state = limitPerClass, action) {
+  return state;
+}
 
 export function purchasedBagsReducer(state = boughtPaxBags, action) {
   switch (action.type) {
+    case MasterCons.CHANGE_PASSENGER_MASTER:
+      // clear all bags for all segments
+      return state;
+    case MasterCons.CHANGE_CABIN:
+      // clear bags for this segment
+      return state;
     case MasterCons.ADD_BAG:
       return [
         ...state,

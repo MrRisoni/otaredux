@@ -69,15 +69,14 @@ export function changeAirCabinClassPassengerAction(paxId, newClass, segmentId) {
 }
 
 
-export function changeMasterPassengerAction(paxId, newCode, oldCode, cls) {
+export function changeMasterPassengerAction(paxId, newCode, oldCode) {
   return (dispatch, getState) => {
     dispatch({
       type: MasterCons.CHANGE_PASSENGER_MASTER,
       payload: {
         passengerId: paxId,
         newType: newCode,
-        oldType: oldCode,
-        cabin: cls,
+        oldType: oldCode
       },
     });
 

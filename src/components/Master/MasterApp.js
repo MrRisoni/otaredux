@@ -20,6 +20,8 @@ import * as actsPreseat from '../../actions/master/actionsPreseat';
 import MasterContact from './Passengers/MasterContact';
 import CreditCard from './Payment/CreditCard';
 import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
+import {getLimitBagReducer} from "../../reducers/air/bagsAir";
+import {fetchCabinPaxPerSegmentReducer} from "../../reducers/air/cabins";
 // import Preseat from "./Preseat/Preseat";
 
 
@@ -69,6 +71,8 @@ class MasterApp extends Component {
               insurances={this.props.insuranceAir}
               carrierList={this.props.carrierList}
               bagsAir={this.props.bagsAir}
+              cabinSelection={this.props.cabinSelection}
+              getBagsLimit={this.props.getBagsLimit}
               purchasedBags={this.props.purchasedBags}
               mealOptions={this.props.mealOptions}
               boughtMeals={this.props.boughtMeals}
@@ -155,14 +159,14 @@ function mapStateToProps(state) {
     flexibleTicket: state.flexibleTicketReducer,
     hasBlueRibbon: state.hasBlueRibbonReducer,
     blueRibbonPrices: state.getBlueRibbonReducer,
-    cabins: state.cabinsReducer,
     ticketPrices: state.ticketPricesReducer,
-    cabinSelection: state.cabinSelectionReducer,
+    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
     asyncData: state.countryListReducer,
     preseatSelectedPax: state.fetchPreseatSelectedPaxReducer,
     preSeatSelectedItems: state.preSeatSelectedItemsReducer,
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
+    getBagsLimit: state.getLimitBagReducer,
   };
 }
 

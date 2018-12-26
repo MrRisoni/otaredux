@@ -23,7 +23,7 @@ import {fetchPreseatSelectedPaxReducer} from './reducers/air/preseat';
 import {
   contactMasterReducer, passengersMasterReducer} from './reducers/master/passengersMaster';
 import { pricingMasterReducer, pricingMasterAnalysisReducer, ticketPricesReducer } from './reducers/master/pricingMaster';
-import { getBagsReducer, purchasedBagsReducer } from './reducers/air/bagsAir';
+import { getBagsReducer, purchasedBagsReducer ,getLimitBagReducer} from './reducers/air/bagsAir';
 import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAir';
 import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir';
 import { hasFlexibleTicketReducer, flexibleTicketReducer } from './reducers/air/flexibleTicket';
@@ -53,6 +53,7 @@ const store = createStore(combineReducers({
   purchasedBagsReducer,
   purchasedInsuranceReducer,
   getMealsReducer,
+  getLimitBagReducer,
   purchasedMealsReducer,
   getLegsReducer,
   airTripReducer,

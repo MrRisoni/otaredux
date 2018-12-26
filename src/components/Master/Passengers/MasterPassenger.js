@@ -65,7 +65,7 @@ class MasterPassenger extends Component {
 
 
     handleAgeGroupChange(ev) {
-        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type, this.props.passenger.cabinClass);
+        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
 
         let minDate = '';
         switch (ev.target.value) {
@@ -256,12 +256,14 @@ class MasterPassenger extends Component {
                                                   paxData={this.props.passenger}
                                                   purchasedBags={this.props.purchasedBags}
                                                   bagsAir={this.props.bagsAir}
+                                                  cabinSelection={this.props.cabinSelection}
+                                                  getBagsLimit={this.props.getBagsLimit}
                                                   blueRibbon={this.props.blueRibbon}
                                                   addBagHandler={this.props.addBagHandler}
                                                   removeBagHandler={this.props.removeBagHandler}/>
                                     }
 
-                                    {(this.state.ageGroup !== 'INF') &&
+                                    {/*  {(this.state.ageGroup !== 'INF') &&
 
                                     <MealsComponent paxId={this.props.passenger.id}
                                                     currency={this.props.currency}
@@ -271,7 +273,7 @@ class MasterPassenger extends Component {
                                                     addMealHandler={this.props.addMealHandler}
                                                     segments={this.props.segments}/>
 
-                                    }
+                                    } */}
 
 
                                 </div>

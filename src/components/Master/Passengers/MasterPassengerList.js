@@ -18,10 +18,11 @@ const MasterPassengerList = (props) => {
                                        product={props.product}
                                        insurances={props.insurances}
                                        bagsAir={props.bagsAir}
+                                       getBagsLimit={props.getBagsLimit}
                                        carrierList={props.carrierList}
                                        purchasedBags={props.purchasedBags}
                                        blueRibbon={props.blueRibbon}
-                                       mealOptions={props.mealOptions}
+                                       cabinSelection={props.cabinSelection}
                                        boughtMeals={props.boughtMeals}
                                        segments={props.segments}
                                        currency={props.currency}

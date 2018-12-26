@@ -1,9 +1,16 @@
 import React from 'react';
 import BagSelection from './BagSelection';
+import MasterPassenger from "../MasterPassenger";
 
 const BagLeg = (props) => {
 
     let bagArray = [];
+    const legTitle = (props.leg ==0) ? "Departure" : "Return";
+
+    console.log('bagleg');
+    console.log(props);
+
+
 
     props.bagsAir.forEach( bag => {
 
@@ -28,7 +35,7 @@ const BagLeg = (props) => {
 
                 <div className="card">
                     <div className="card-header">
-                        {props.legTitle} (Max 2)
+                        {legTitle} (Max {props.limitBags})
                     </div>
                     <div className="card-body">
                         {bagArray}
