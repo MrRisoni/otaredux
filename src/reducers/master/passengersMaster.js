@@ -46,7 +46,6 @@ export function contactMasterReducer(state = contactData, action) {
   switch (action.type) {
     case MasterCons.EDITED_NAME_PASSENGER_MASTER:
     case MasterCons.PASSENGER_ARRAY_CHANGED:
-      console.log(action.payload.passengers);
       if (!contactData.changed) {
         firstActivePax = getFirstActivePax(action.payload.passengers);
         return Object.assign({}, state, {
@@ -92,8 +91,6 @@ function getFirstActivePax(passengers) {
 }
 
 export function passengersMasterReducer(state = passengers, action) {
-  console.log('passengers MasterApp reducer');
-  console.log(action.type);
   switch (action.type) {
     case MasterCons.ADD_PASSENGER_MASTER:
       let maxHumanId = 0;
@@ -125,11 +122,8 @@ export function passengersMasterReducer(state = passengers, action) {
         },
       ];
     case MasterCons.REMOVE_PASSENGER_MASTER:
-      console.log('remove pax');
-      console.log(action.payload);
 
       let totalRemainActivePaxes = state.filter(px => px.active === true).length;
-      console.log(`totalRemainActivePaxes ${totalRemainActivePaxes}`);
       totalRemainActivePaxes--;
       if (totalRemainActivePaxes > 0) {
         const newPaxes = [...state];
@@ -149,7 +143,6 @@ export function passengersMasterReducer(state = passengers, action) {
             newHumanId++;
           }
         });
-        console.log(newPaxes);
         return newPaxes;
       }
 
@@ -158,7 +151,6 @@ export function passengersMasterReducer(state = passengers, action) {
 
 
     case MasterCons.CHANGE_PASSENGER_MASTER:
-      console.log(action.payload);
       return state.map((pax, index) => {
         if (index == action.payload.passengerId) {
           return {
@@ -170,7 +162,6 @@ export function passengersMasterReducer(state = passengers, action) {
       });
 
     case MasterCons.EDIT_NAME_PASSENGER_MASTER:
-      console.log(action.payload);
       return state.map((pax, index) => {
         if (index == action.payload.passengerId) {
           return {

@@ -40,8 +40,6 @@ export function changeCurrencyAction(newCode) {
 
 
 export function changeLanguageAction(ev) {
-  console.log('changeLanguageAction');
-  console.log(ev.target.value);
 
   return (dispatch, getState) => {
     dispatch(setLocale(ev.target.value));

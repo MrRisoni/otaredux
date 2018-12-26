@@ -6,9 +6,7 @@ var Translate = require('react-redux-i18n').Translate;
 
 
 const CabinTrip = (props) => {
-    console.log('CabinTrip');
 
-    console.log(props);
 
     const departTrip = props.segments.filter(sg => sg.legId == 0);
     const returnTrip = props.segments.filter(sg => sg.legId == 1);

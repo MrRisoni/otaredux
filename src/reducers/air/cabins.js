@@ -27,7 +27,6 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
         const samePaxDiffSeg = (cbpx.paxId === action.payload.paxId) && (cbpx.segId !== action.payload.segmentId);
         const returnSame = (diffPax === true) || (samePaxDiffSeg === true);
 
-        console.log(`returnsame ${returnSame}`);
         if (returnSame) {
           return cbpx;
         }
@@ -36,8 +35,6 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
           cabin: action.payload.newClass,
         };
       });
-      console.log('new state');
-      console.log(state);
       break;
     case MasterCons.ADD_PASSENGER_MASTER:
 
@@ -49,7 +46,6 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
       });
       nextPaxId++;
 
-      console.log('fetchCabinPaxPerSegment');
 
       return [
         ...state,

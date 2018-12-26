@@ -12,7 +12,6 @@ import * as actsInsurance from '../../actions/master/actionsInsurance';
 import * as actsMaster from '../../actions/master/actionsMaster';
 import * as actsMeals from '../../actions/master/actionsMeals';
 import * as actsPaxes from '../../actions/master/actionsPassengers';
-import * as actsSeat from '../../actions/master/actionsSeat';
 import * as actsUpsales from '../../actions/master/actionsUpsales';
 import * as actsPreseat from '../../actions/master/actionsPreseat';
 
@@ -20,8 +19,6 @@ import * as actsPreseat from '../../actions/master/actionsPreseat';
 import MasterContact from './Passengers/MasterContact';
 import CreditCard from './Payment/CreditCard';
 import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
-import {getLimitBagReducer} from "../../reducers/air/bagsAir";
-import {fetchCabinPaxPerSegmentReducer} from "../../reducers/air/cabins";
 // import Preseat from "./Preseat/Preseat";
 
 
@@ -135,7 +132,6 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
 
   return {
     passengers: state.passengersMasterReducer,
@@ -143,7 +139,6 @@ function mapStateToProps(state) {
     currency: state.currentCurrencyReducer,
     pricing: {
       total: state.pricingMasterReducer,
-      analysis: state.pricingMasterAnalysisReducer,
     },
     contact: state.contactMasterReducer,
     insuranceAir: state.airInsuranceReducer,

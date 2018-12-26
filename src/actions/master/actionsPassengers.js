@@ -51,8 +51,7 @@ export function editMasterPassengerNameAction(paxId, surname, name, gender) {
 
 
 export function changeAirCabinClassPassengerAction(paxId, newClass, segmentId) {
-  console.log('changeAirCabinClassPassengerAction');
-  console.log(`${paxId} ${newClass} ${segmentId}`);
+
 
   return (dispatch, getState) => {
     dispatch({

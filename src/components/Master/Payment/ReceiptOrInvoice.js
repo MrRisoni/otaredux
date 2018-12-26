@@ -19,7 +19,6 @@ class ReceiptOrInvoice extends Component {
 
     handlePickReceipt()
     {
-        console.log('receipt');
 
         this.setState({receipt:true,invoice:false})
     }
@@ -28,7 +27,6 @@ class ReceiptOrInvoice extends Component {
 
     handlePickInvoice()
     {
-        console.log('invoice');
         this.setState({receipt:false,invoice:true})
     }
 

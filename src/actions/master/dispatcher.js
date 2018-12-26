@@ -5,7 +5,6 @@ export function upsalesDispatcher(status, actionType) {
     payload: {
       passengers: status().passengersMasterReducer,
       bagAllowance: status().getBagsReducer,
-      pricesPerPax: status().pricingMasterAnalysisReducer,
       boughtBags: status().purchasedBagsReducer,
       boughtInsurances: status().purchasedInsuranceReducer,
       insuranceOptions: status().airInsuranceReducer,

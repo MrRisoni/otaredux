@@ -10,14 +10,11 @@ class CabinSegment  extends  Component {
 
     handleClick(ev)
     {
-        console.log(ev.target.value);
         this.props.changePaxCabinClassHandler(this.props.pax.id, ev.target.value, this.props.seg.id);
 
     }
 
     render() {
-        console.log('CabinSegemtns');
-        console.log(this.props);
         const cabinListForSegment = this.props.seg.cabinList.filter(cb => cb.age == this.props.pax.type);
         return (
 

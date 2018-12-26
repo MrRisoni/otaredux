@@ -4,15 +4,11 @@ import BagLeg from './BagLeg';
 
 const BagComponent = props => {
     const keys = [0, 1];
-    console.log('BagComponent');
-    console.log(props);
     // cabinSelection={props.cabinSelection} paxId
     // paxData.paxId
     // getBagsLimit
     let limitBags = 0;
     const thisPaxCabins = props.cabinSelection.filter(cb => cb.paxId == props.paxData.id);
-    console.log('thisPaxCabins');
-    console.log(thisPaxCabins);
     let bestCabin  = '';
     thisPaxCabins.forEach(sg => {
         const thisClassLimit = props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
@@ -23,8 +19,6 @@ const BagComponent = props => {
     });
 
     let  allowedBags = props.bagsAir.filter(bg => bg.classes.indexOf(bestCabin) > -1).map(itm => itm.key);
-    console.log('filter bags');
-    console.log(allowedBags);
 
     return (
         <div>
