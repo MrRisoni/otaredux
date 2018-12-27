@@ -12,12 +12,6 @@ const Leg = (props) => {
 
 
 
-    let segmentsDiv =[];
-    props.data.segments.forEach( (sg,idx) => {
-       segmentsDiv.push(<Segment key={idx} data={sg}/>);
-    });
-
-
     const legTitle = (props.legId ==0) ? <p><Translate value="Departure"/></p> : <p><Translate value="Return"/></p>;
 
         return (
@@ -98,7 +92,9 @@ const Leg = (props) => {
 
 
                     <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
-                        {segmentsDiv}
+                        {props.data.segments.map( (sg,idx) => {
+                            return (<Segment key={idx} data={sg}/>)
+                        })}
                     </div>
 
                 </div>
@@ -106,7 +102,7 @@ const Leg = (props) => {
             </div>
         </div>
 
-                )
+    )
 };
 
 export default Leg;
