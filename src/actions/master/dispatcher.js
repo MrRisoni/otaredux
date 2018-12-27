@@ -18,6 +18,7 @@ export function upsalesDispatcher(status, actionType) {
       cabinSelection: status().fetchCabinPaxPerSegmentReducer,
       segmentCabinPricing: status().getLegsReducer,
       selectedSeats: status().fetchSeatSelectionReducer,
+      seatPrices: status().seatMapInfoReducer,
     },
   };
 }

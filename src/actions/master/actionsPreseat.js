@@ -15,7 +15,6 @@ export function changePreSeatSelectPassengerAction(paxId) {
 
 
 export function pickSeatAction(seatNo, segId, paxId) {
-    console.log('pickSeatAction')
   return (dispatch, getState) => {
     dispatch({
       type: MasterCons.PICK_SEAT_NO,
@@ -26,6 +25,19 @@ export function pickSeatAction(seatNo, segId, paxId) {
       },
     });
 
-  //  dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+  };
+}
+
+
+export function resetSeatsAction() {
+  return (dispatch, getState) => {
+    dispatch({
+      type: MasterCons.RESET_SEATS,
+      payload: {
+      },
+    });
+
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

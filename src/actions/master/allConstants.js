@@ -22,3 +22,4 @@ export const CHANGE_CURRENCY = 'CHANGE_CURRENCY';
 export const CHANGE_CABIN = 'CHANGE_CABIN';
 export const REMOVE_MEAL = 'REMOVE_MEAL';
 export const PICK_SEAT_NO = 'PICK_SEAT_NO';
+export const RESET_SEATS  = 'RESET_SEATS';

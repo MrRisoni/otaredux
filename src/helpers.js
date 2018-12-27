@@ -10,70 +10,6 @@ export function seatCost(args) {
 
 }
 
-export function decideSeatClass()
-{
-    const seatName = this.props.colName + this.props.rowId;
-
-    let seatNotAllowed = false;
-    let seatChosen = false;
-    let seatNotAvailable = false;
-
-    const selectedSeg = 1;
-    const firstClassUpToRow =22;
-
-    const cabinsOfSelectedPax =[]; //this.props.passengers.filter(px => px.id == this.$store.state.preseat.selectedPaxId)[0].cabinList;
-    const cabinForSelectedPaxSegment = 'Y'; // cabinsOfSelectedPax.filter(cb => cb.seg == this.$store.state.preseat.selectedSegment)[0].cabin;
-
-    // check if seat has been reserved by another PNR
-    const reservedSeats = []; //this.$store.state.trip.dep[selectedSeg].taken;
-    if (reservedSeats.indexOf(seatName) > -1) {
-        seatNotAvailable = true;
-    }
-
-    /* this.props.passengers.forEach( (px) => {
-         if (px.active === true) {
-             px.seatList.forEach( (ssl) => {
-               //  if (ssl.seg == this.$store.state.preseat.selectedSegment) {
-                     if (ssl.seg == 1) {
-
-                         if (ssl.seatNo == seatName) {
-                         seatChosen = true;
-                     }
-                 }
-             })
-         }
-     });*/
-
-    if ((seatNotAvailable == false) && (seatChosen == false)) {
-
-        if ((cabinForSelectedPaxSegment == 'W') || (cabinForSelectedPaxSegment == 'Y')) {
-            if (this.props.rowId < firstClassUpToRow) {
-                seatNotAllowed = true;
-            }
-        }
-
-        if ((cabinForSelectedPaxSegment != 'W') && (cabinForSelectedPaxSegment != 'Y')) {
-            if (this.props.rowId > firstClassUpToRow) {
-                seatNotAllowed = true; // pax is business class , he cannot pick economy
-            }
-        }
-    }
-
-    let seatClassName = "";
-    if (seatNotAllowed) {
-        seatClassName += " seatNotAllowed ";
-    }
-
-    if (seatChosen) {
-        seatClassName += " seatChosen ";
-    }
-
-    if (seatNotAvailable) {
-        seatClassName += " seatNotAvailable ";
-    }
-
-    return seatClassName;
-}
 
 
 export function preseatAllowed(args) {
@@ -130,15 +66,26 @@ export function calcTotalPrice(payload) {
 
 
       const boughtMealsIds = payload.boughtMeals.filter(ml => ml.paxId == pax.id).map(ml => ml.mealId);
-      console.log('boughtMealsIds');
-      console.log(boughtMealsIds);
-
       payload.mealOptions.forEach((ml) => {
         if (boughtMealsIds.indexOf(ml.id) > -1) {
           total += ml.price;
           upsales += ml.price;
         }
       });
+
+      // preseat begin
+        const seletedSeatsInTheseSegs = payload.selectedSeats.filter(ssl => ((ssl.paxId==pax.id) && (ssl.seatNo !=='')))
+            .map(slItem => slItem.segId);
+
+        for (const seatSegmntId of seletedSeatsInTheseSegs) {
+            const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
+            console.log('calc price for ' + classCabin + ' for seg ' + seatSegmntId);
+            const seatPrice = payload.seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
+            total += seatPrice;
+            upsales += seatPrice;
+        }
+
+        // preseat end
     } // end if pax active
   });
 

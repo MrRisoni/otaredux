@@ -1,23 +1,23 @@
 
-clear all seats clear prices
-seatclass csss
-limit rows
+seats test
 
+------------------
 sidebar to normal component
 Currency Change
-
-Language constants
-
-
+-------------
 segments
 final testings and debugging
+-----------------
 
 
+Language constants
+-----------
 merge deploy
 
 Immutable ... fix
 
 HTMl5 markups
+-----------
 fix console warning
 CSS split in files
 

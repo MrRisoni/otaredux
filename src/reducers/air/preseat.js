@@ -11,18 +11,18 @@ const seatSelection = [
   {
     paxId: 0,
     segId: 0,
-    seatNo: ''
+    seatNo: '',
   },
-    {
-        paxId: 0,
-        segId: 1,
-        seatNo: ''
-    },
-    {
-        paxId: 0,
-        segId: 2,
-        seatNo: ''
-},
+  {
+    paxId: 0,
+    segId: 1,
+    seatNo: '',
+  },
+  {
+    paxId: 0,
+    segId: 2,
+    seatNo: '',
+  },
 
 ];
 
@@ -30,9 +30,10 @@ const seatSelection = [
 const seatMapInfo = [
   {
     segId: 1,
-    taken: ['A1', 'B1', 'E2', 'E16'],
+    colLetters: ['A', 'B', 'C', 'D', 'E', 'F'],
+    taken: ['A1', 'B1', 'E2', 'E16', 'D15'],
     allowedCabins: ['Y', 'W', 'C', 'F'],
-    firstClassLimit: 11,
+    firstClassLimit: 13,
     airplaneRows: 55,
     prices: [{
       class: 'Y',
@@ -54,9 +55,10 @@ const seatMapInfo = [
   },
   {
     segId: 2,
+    colLetters: ['A', 'B', 'C', 'D'],
     taken: ['A1', 'B1', 'E2', 'E16'],
     allowedCabins: ['W'],
-    firstClassLimit: 11,
+    firstClassLimit: 8,
     airplaneRows: 22,
     prices: [
       {
@@ -75,20 +77,23 @@ export function seatMapInfoReducer(state = seatMapInfo) {
 
 export function fetchSeatSelectionReducer(state = seatSelection, action) {
   switch (action.type) {
-      case MasterCons.PICK_SEAT_NO:
-          console.log('MasterCons.PICK_SEAT_NO:');
-          console.log(action.payload);
-          return state.map(itm => {
-              if ((itm.paxId == action.payload.paxId) && (itm.segId == action.payload.segId)) {
-                  return {
-                      ...itm,
-                      seatNo: action.payload.seatNo
-                  }
-              }
-              else {
-                  return itm;
-              }
-          })
+    case MasterCons.RESET_SEATS:
+      return state.map(itm => ({
+        ...itm,
+        seatNo: '',
+      }));
+    case MasterCons.PICK_SEAT_NO:
+      console.log('MasterCons.PICK_SEAT_NO:');
+      console.log(action.payload);
+      return state.map((itm) => {
+        if ((itm.paxId == action.payload.paxId) && (itm.segId == action.payload.segId)) {
+          return {
+            ...itm,
+            seatNo: action.payload.seatNo,
+          };
+        }
+        return itm;
+      });
     case MasterCons.ADD_PASSENGER_MASTER:
 
       const nextPaxId = state.length;

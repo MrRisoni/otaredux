@@ -119,6 +119,7 @@ class MasterApp extends Component {
           cabinSelection={this.props.cabinSelection}
           seatMapInfo={this.props.seatMapInfo}
           pickSeatHandler={this.props.pickSeatHandler}
+          resetSeatsHandler={this.props.resetSeatsHandler}
           selectedSeats={this.props.selectedSeats}
         />
 
@@ -215,6 +216,7 @@ function matchDispatchToProps(dispatch) {
     changeLanguageHandler: actsMaster.changeLanguageAction,
     fetchCountriesAction: actsMaster.fetchCountriesAction,
     pickSeatHandler: actsPreseat.pickSeatAction,
+    resetSeatsHandler: actsPreseat.resetSeatsAction,
   }, dispatch);
 }
 

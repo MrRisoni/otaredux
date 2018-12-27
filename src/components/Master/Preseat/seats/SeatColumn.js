@@ -9,6 +9,10 @@ const SeatColumn = props => (
         rowId={props.rowId}
         passengers={props.passengers}
         colName={props.colName}
+        seatMapInfo={props.seatMapInfo}
+        firstClassLim={props.firstClassLim}
+        cabinSelection={props.cabinSelection}
+        selectedSeats={props.selectedSeats}
         preSeatSelectedItems={props.preSeatSelectedItems}
         pickSeatHandler={props.pickSeatHandler}
       />

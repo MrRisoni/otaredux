@@ -2,7 +2,8 @@ import React from 'react';
 import SeatColumn from './SeatColumn';
 
 const SeatRow = (props) => {
-  const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const letters = props.seatMapInfo.filter(smp => smp.segId == props.preSeatSelectedItems.selectedSegment)[0].colLetters;
+
   const colsArray = [];
   letters.forEach((letr, indx) => {
     let className = 'col-xs-1 ';
@@ -17,6 +18,9 @@ const SeatRow = (props) => {
           cabinSelection={props.cabinSelection}
           preSeatSelectedItems={props.preSeatSelectedItems}
           passengers={props.passengers}
+          seatMapInfo={props.seatMapInfo}
+          firstClassLim={props.firstClassLim}
+          selectedSeats={props.selectedSeats}
           pickSeatHandler={props.pickSeatHandler}
           colName={letr}
         />
