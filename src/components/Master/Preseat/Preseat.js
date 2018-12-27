@@ -20,16 +20,25 @@ class Preseat extends Component {
   render() {
     const maxRows = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].airplaneRows;
     const rowArray = fillRange(1, maxRows);
-    const firstClassLim  = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].firstClassLimit;
+    const firstClassLim = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].firstClassLimit;
 
 
-      return (
+    // calculate chosen seats
+
+    // check if seat has been selected by this booking
+    const activePaxIds = this.props.passengers.filter(px => ((px.active == true) && (px.type !== 'INF'))).map(pixie => pixie.id);
+    const pickedSeats = this.props.selectedSeats.filter(sst => ((sst.seatNo !== '') && (activePaxIds.indexOf(sst.paxId) > -1))).map(filtSt => filtSt.seatNo);
+
+    return (
+
+
       <section id="preSeat">
         <div className="row">
           <div className="col-8">
             <div className="alert alert-primary" role="alert">
               <div className="row">
                 <div className="col-5">
+
 
                                 Select your seats
                 </div>
@@ -45,8 +54,9 @@ class Preseat extends Component {
                     data-target="#preseatComponents"
                   >
 
+
                                     Toggle
-</button>
+                  </button>
                 </div>
 
               </div>
@@ -73,6 +83,7 @@ class Preseat extends Component {
                 seatMapInfo={this.props.seatMapInfo}
                 cabinSelection={this.props.cabinSelection}
                 firstClassLim={firstClassLim}
+                pickedSeats={pickedSeats}
                 selectedSeats={this.props.selectedSeats}
                 preSeatSelectedItems={this.props.preSeatSelectedItems}
                 passengers={this.props.passengers}

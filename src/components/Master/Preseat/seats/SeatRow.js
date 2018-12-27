@@ -20,6 +20,7 @@ const SeatRow = (props) => {
           passengers={props.passengers}
           seatMapInfo={props.seatMapInfo}
           firstClassLim={props.firstClassLim}
+          pickedSeats={props.pickedSeats}
           selectedSeats={props.selectedSeats}
           pickSeatHandler={props.pickSeatHandler}
           colName={letr}

@@ -22,7 +22,6 @@ class Seat extends Component {
     const seatName = this.props.colName + this.props.rowId;
 
     let seatNotAllowed = false;
-    let seatChosen = false;
     let seatNotAvailable = false;
 
     const selectedSeg = this.props.preSeatSelectedItems.selectedSegment;
@@ -38,18 +37,7 @@ class Seat extends Component {
       seatNotAvailable = true;
     }
 
-    // check if seat has been selected by this booking
-    this.props.selectedSeats.forEach((ssl) => {
-      if ((ssl.segId == selectedSeg) && (ssl.seatNo !== '')) {
-        this.props.passengers.forEach((px) => {
-          if ((px.active === true) && (px.id == ssl.paxId)) {
-            if (ssl.seatNo === seatName) {
-              seatChosen = true;
-            }
-          }
-        });
-      }
-    });
+    const seatChosen = (this.props.pickedSeats.indexOf(seatName) > -1);
 
 
     if ((seatNotAvailable == false) && (seatChosen == false)) {

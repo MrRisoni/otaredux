@@ -12,6 +12,7 @@ const SeatColumn = props => (
         seatMapInfo={props.seatMapInfo}
         firstClassLim={props.firstClassLim}
         cabinSelection={props.cabinSelection}
+        pickedSeats={props.pickedSeats}
         selectedSeats={props.selectedSeats}
         preSeatSelectedItems={props.preSeatSelectedItems}
         pickSeatHandler={props.pickSeatHandler}
