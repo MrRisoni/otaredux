@@ -49,6 +49,7 @@ class Preseat extends Component {
 
                 <SeatShower  passengers={this.props.passengers}
                              segments={this.props.segments}
+                             preSeatSelectedItems={this.props.preSeatSelectedItems}
                              seatMapInfo={this.props.seatMapInfo}
                              cabinSelection={this.props.cabinSelection}
                              currency={this.props.currency}

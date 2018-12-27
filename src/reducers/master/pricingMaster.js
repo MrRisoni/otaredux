@@ -2,7 +2,7 @@ import * as MasterCons from '../../actions/master/allConstants';
 import { calcTotalPrice } from '../../helpers';
 
 
-const upsalePrices =0;
+const upsalePrices = 0;
 
 const totalPrice = 5;
 
@@ -21,19 +21,18 @@ export function ticketPricesReducer(state = ticketsPrice, action) {
 
 
 export function pricingUpsalesMasterReducer(state = totalPrice, action) {
-    const total = 0;
+  const total = 0;
 
-    switch (action.type) {
-        case MasterCons.FIRST_LOAD_MASTER:
-        case MasterCons.PASSENGER_ARRAY_CHANGED:
-        case MasterCons.UPSALES_CHANGED:
-            const calcTotalRsp = calcTotalPrice(action.payload);
-            return calcTotalRsp.upsales;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case MasterCons.FIRST_LOAD_MASTER:
+    case MasterCons.PASSENGER_ARRAY_CHANGED:
+    case MasterCons.UPSALES_CHANGED:
+      const calcTotalRsp = calcTotalPrice(action.payload);
+      return calcTotalRsp.upsales;
+    default:
+      return state;
+  }
 }
-
 
 
 export function pricingMasterReducer(state = totalPrice, action) {
@@ -52,4 +51,3 @@ export function pricingMasterReducer(state = totalPrice, action) {
       return state;
   }
 }
-

@@ -8,6 +8,7 @@ const SeatShower = props => (
       <SegmentPaxSeat
         paxData={px}
         seatMapInfo={props.seatMapInfo}
+        preSeatSelectedItems={props.preSeatSelectedItems}
         cabinSelection={props.cabinSelection}
         currency={props.currency}
         segments={props.segments}

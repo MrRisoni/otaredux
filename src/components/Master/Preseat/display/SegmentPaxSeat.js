@@ -34,6 +34,7 @@ const SegmentPaxSeat = props => (
             .map(filtsg => (
               <SeatSegmentRow
                 currency={props.currency}
+                preSeatSelectedItems={props.preSeatSelectedItems}
                 cabinSelection={props.cabinSelection}
                 paxData={props.paxData}
                 segment={filtsg}

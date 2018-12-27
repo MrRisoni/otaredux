@@ -82,7 +82,6 @@ class MasterApp extends Component {
               hasBlueRibbon={this.props.hasBlueRibbon}
               blueRibbonPrices={this.props.blueRibbonPrices}
               countryList={this.props.asyncData.countries}
-              preseatSelectedPax={this.props.preseatSelectedPax}
             />
 
 
@@ -185,8 +184,7 @@ function mapStateToProps(state) {
     ticketPrices: state.ticketPricesReducer,
     cabinSelection: state.fetchCabinPaxPerSegmentReducer,
     asyncData: state.countryListReducer,
-    preseatSelectedPax: state.fetchPreseatSelectedPaxReducer,
-    preSeatSelectedItems: state.preSeatSelectedItemsReducer,
+    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
     getBagsLimit: state.getLimitBagReducer,

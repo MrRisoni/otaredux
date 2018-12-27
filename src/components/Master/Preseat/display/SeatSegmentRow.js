@@ -5,7 +5,7 @@ class SeatSegmentRow extends Component {
         super(props);
 
         this.state = {
-            seatClassObject: ''
+            cssClass: ''
         };
 
     }
@@ -26,7 +26,7 @@ class SeatSegmentRow extends Component {
 
     render() {
         return (
-            <div className="card segmentSeat">
+            <div className="card text-white bg-primary segmentSeat">
                 <div className="card-body"> {/* v-bind:class="selectedTrigger" */}
 
                     <div className="row">

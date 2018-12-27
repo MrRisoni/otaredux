@@ -17,7 +17,7 @@ import { currentCurrencyReducer, getCurrenciesReducer } from './reducers/common/
 import { countryListReducer } from './reducers/air/asyncAir';
 import { getLegsReducer, airTripReducer, uniqueCarriersReducer } from './reducers/air/itineraryAir';
 import { fetchCabinPaxPerSegmentReducer } from './reducers/air/cabins';
-import { fetchPreseatSelectedPaxReducer, seatMapInfoReducer,preSeatSelectedItemsReducer} from './reducers/air/preseat';
+import { fetchPreseatSelectedPaxReducer, seatMapInfoReducer} from './reducers/air/preseat';
 import { contactMasterReducer, passengersMasterReducer } from './reducers/master/passengersMaster';
 import { pricingMasterReducer, pricingUpsalesMasterReducer, ticketPricesReducer } from './reducers/master/pricingMaster';
 import { getBagsReducer, purchasedBagsReducer, getLimitBagReducer } from './reducers/air/bagsAir';
@@ -60,7 +60,6 @@ const store = createStore(combineReducers({
   getBlueRibbonReducer,
   countryListReducer,
   fetchPreseatSelectedPaxReducer,
-  preSeatSelectedItemsReducer,
   seatMapInfoReducer,
   getLanguagesReducer,
   routing: routerReducer,

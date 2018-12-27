@@ -6,6 +6,8 @@ const preSeatSelectedItems = {
   selectedPaxId: 0,
 };
 
+
+
 const seatSelection = [
   {
     paxId: 0,
@@ -21,6 +23,10 @@ const seatMapInfo = [
     allowedCabins: ['Y', 'W', 'C', 'F'],
     firstClassLimit: 11,
     airplaneRows: 55,
+      prices:[{
+        class:'Y',
+          price:8
+      }]
 
   },
   {
@@ -34,9 +40,6 @@ const seatMapInfo = [
 ];
 
 
-export function preSeatSelectedItemsReducer(state = preSeatSelectedItems) {
-  return state;
-}
 
 export function seatMapInfoReducer(state = seatMapInfo) {
   return state;
