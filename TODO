@@ -1,4 +1,8 @@
-PreSeat per cabin class/segment
+
+clear all seats clear prices
+seatclass csss
+limit rows
+
 sidebar to normal component
 Currency Change
 
@@ -14,10 +18,8 @@ merge deploy
 Immutable ... fix
 
 HTMl5 markups
-ESlint fix
 fix console warning
 CSS split in files
-responsive???
 
 Nicer CSS
 

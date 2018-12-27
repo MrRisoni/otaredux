@@ -7,12 +7,23 @@ const preSeatSelectedItems = {
 };
 
 
-
 const seatSelection = [
   {
     paxId: 0,
-    seatList: [{ segId: 0, seatNo: '' }, { segId: 1, seatNo: '' }, { segId: 2, seatNo: '' }],
+    segId: 0,
+    seatNo: ''
   },
+    {
+        paxId: 0,
+        segId: 1,
+        seatNo: ''
+    },
+    {
+        paxId: 0,
+        segId: 2,
+        seatNo: ''
+},
+
 ];
 
 
@@ -23,10 +34,22 @@ const seatMapInfo = [
     allowedCabins: ['Y', 'W', 'C', 'F'],
     firstClassLimit: 11,
     airplaneRows: 55,
-      prices:[{
-        class:'Y',
-          price:8
-      }]
+    prices: [{
+      class: 'Y',
+      price: 8,
+    },
+    {
+      class: 'W',
+      price: 10,
+    },
+    {
+      class: 'F',
+      price: 16,
+    },
+    {
+      class: 'C',
+      price: 18,
+    }],
 
   },
   {
@@ -35,10 +58,14 @@ const seatMapInfo = [
     allowedCabins: ['W'],
     firstClassLimit: 11,
     airplaneRows: 22,
+    prices: [
+      {
+        class: 'W',
+        price: 10,
+      }],
 
   },
 ];
-
 
 
 export function seatMapInfoReducer(state = seatMapInfo) {
@@ -48,6 +75,20 @@ export function seatMapInfoReducer(state = seatMapInfo) {
 
 export function fetchSeatSelectionReducer(state = seatSelection, action) {
   switch (action.type) {
+      case MasterCons.PICK_SEAT_NO:
+          console.log('MasterCons.PICK_SEAT_NO:');
+          console.log(action.payload);
+          return state.map(itm => {
+              if ((itm.paxId == action.payload.paxId) && (itm.segId == action.payload.segId)) {
+                  return {
+                      ...itm,
+                      seatNo: action.payload.seatNo
+                  }
+              }
+              else {
+                  return itm;
+              }
+          })
     case MasterCons.ADD_PASSENGER_MASTER:
 
       const nextPaxId = state.length;

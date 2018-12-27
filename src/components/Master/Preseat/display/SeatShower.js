@@ -10,6 +10,7 @@ const SeatShower = props => (
         seatMapInfo={props.seatMapInfo}
         preSeatSelectedItems={props.preSeatSelectedItems}
         cabinSelection={props.cabinSelection}
+        selectedSeats={props.selectedSeats}
         currency={props.currency}
         segments={props.segments}
       />

@@ -52,6 +52,7 @@ class Preseat extends Component {
                              preSeatSelectedItems={this.props.preSeatSelectedItems}
                              seatMapInfo={this.props.seatMapInfo}
                              cabinSelection={this.props.cabinSelection}
+                             selectedSeats={this.props.selectedSeats}
                              currency={this.props.currency}
                 ></SeatShower>
 
@@ -59,7 +60,9 @@ class Preseat extends Component {
                     {rowArray.map(ri => {
                         return (<SeatRow key={ri}
                                          cabinSelection={this.props.cabinSelection}
+                                         preSeatSelectedItems={this.props.preSeatSelectedItems}
                                          passengers={this.props.passengers}
+                                         pickSeatHandler={this.props.pickSeatHandler}
                                          rowId={ri}></SeatRow>)
                     })}
 

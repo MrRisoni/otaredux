@@ -118,6 +118,8 @@ class MasterApp extends Component {
           currency={this.props.currency}
           cabinSelection={this.props.cabinSelection}
           seatMapInfo={this.props.seatMapInfo}
+          pickSeatHandler={this.props.pickSeatHandler}
+          selectedSeats={this.props.selectedSeats}
         />
 
 
@@ -188,6 +190,7 @@ function mapStateToProps(state) {
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
     getBagsLimit: state.getLimitBagReducer,
+    selectedSeats: state.fetchSeatSelectionReducer,
   };
 }
 
@@ -211,6 +214,7 @@ function matchDispatchToProps(dispatch) {
     changePreSeatSelectPassengerHandler: actsPreseat.changePreSeatSelectPassengerAction,
     changeLanguageHandler: actsMaster.changeLanguageAction,
     fetchCountriesAction: actsMaster.fetchCountriesAction,
+    pickSeatHandler: actsPreseat.pickSeatAction,
   }, dispatch);
 }
 

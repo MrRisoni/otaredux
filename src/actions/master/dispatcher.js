@@ -17,6 +17,7 @@ export function upsalesDispatcher(status, actionType) {
       blueRibbonPrices: status().getBlueRibbonReducer,
       cabinSelection: status().fetchCabinPaxPerSegmentReducer,
       segmentCabinPricing: status().getLegsReducer,
+      selectedSeats: status().fetchSeatSelectionReducer,
     },
   };
 }

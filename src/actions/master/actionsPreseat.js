@@ -12,3 +12,20 @@ export function changePreSeatSelectPassengerAction(paxId) {
     });
   };
 }
+
+
+export function pickSeatAction(seatNo, segId, paxId) {
+    console.log('pickSeatAction')
+  return (dispatch, getState) => {
+    dispatch({
+      type: MasterCons.PICK_SEAT_NO,
+      payload: {
+        seatNo,
+        segId,
+        paxId,
+      },
+    });
+
+  //  dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+  };
+}
