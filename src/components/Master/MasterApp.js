@@ -20,6 +20,8 @@ import MasterContact from './Passengers/MasterContact';
 import CreditCard from './Payment/CreditCard';
 import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
 import Preseat from './Preseat/Preseat';
+import FlexibleTicket from './Passengers/FlexibleTicket';
+import BlueRibbon from './Passengers/BlueRibbon';
 
 
 class MasterApp extends Component {
@@ -109,12 +111,35 @@ class MasterApp extends Component {
           </div>
         </div>
 
-         <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
-                          passengers={this.props.passengers}
-                          segments={this.props.segments}
-                          currency={this.props.currency}
-                          cabinSelection={this.props.cabinSelection}
-                          seatMapInfo={this.props.seatMapInfo}/>
+
+        <Preseat
+          preSeatSelectedItems={this.props.preSeatSelectedItems}
+          passengers={this.props.passengers}
+          segments={this.props.segments}
+          currency={this.props.currency}
+          cabinSelection={this.props.cabinSelection}
+          seatMapInfo={this.props.seatMapInfo}
+        />
+
+
+        <FlexibleTicket
+          passengers={this.props.passengers}
+          changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
+          currency={this.props.currency}
+          hasFlexibleTicket={this.props.hasFlexibleTicket}
+          flexibleTicket={this.props.flexibleTicket}
+        />
+
+
+        <BlueRibbon
+          passengers={this.props.passengers}
+          changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
+          currency={this.props.currency}
+          hasBlueRibbon={this.props.hasBlueRibbon}
+          blueRibbonPrices={this.props.blueRibbonPrices}
+        />
+
+
 
         <MasterContact
           contact={this.props.contact}
@@ -134,7 +159,6 @@ class MasterApp extends Component {
 }
 
 function mapStateToProps(state) {
-
   return {
     passengers: state.passengersMasterReducer,
     carrierList: state.uniqueCarriersReducer,

@@ -1,18 +1,14 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
-import Preseat from '../Preseat/Preseat';
-import FlexibleTicket from './FlexibleTicket';
-import BlueRibbon from './BlueRibbon';
+
 
 const MasterPassengerList = (props) => {
 
     let paxList = [];
-    let activePaxes =0;
 
 
     props.passengers.forEach(pax => {
         if (pax.active) {
-            activePaxes++;
             paxList.push(<MasterPassenger key={pax.id}
                                        passenger={pax}
                                        product={props.product}
@@ -74,35 +70,7 @@ const MasterPassengerList = (props) => {
         </div>
 
 
-        {props.product === 'air' &&
-            <FlexibleTicket paxes={activePaxes}
-                            changeFlexibleTicketHandler={props.changeFlexibleTicketHandler}
-                            currency={props.currency}
-                            hasFlexibleTicket={props.hasFlexibleTicket}
-                            flexibleTicket={props.flexibleTicket}/>
 
-        }
-
-
-        {props.product === 'air' &&
-            <BlueRibbon paxes={activePaxes}
-                         changeBlueRibbonHandler={props.changeBlueRibbonHandler}
-                         currency={props.currency}
-                         hasBlueRibbon={props.hasBlueRibbon}
-                         blueRibbonPrices={props.blueRibbonPrices}/>
-        }
-
-        {/*
-        {(props.product === 'air' && props.fetchedSeatMap === true) &&
-             <Preseat passengers={props.passengers}
-                      changePreSeatSelectPassengerHandler={props.changePreSeatSelectPassengerHandler}
-                      preseatSelectedPax={props.preseatSelectedPax}
-                      seatMap={props.seatMap}
-                      selectSeatHandler={props.selectSeatHandler}
-             />
-        }
-
-            */}
 
     </div>);
 
