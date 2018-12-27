@@ -11,8 +11,16 @@ const currencies = [
     rate: 1.00,
   },
   {
-    code: 'DKK',
-    rate: 7.44,
+    code: 'USD',
+    rate: 1.14,
+  },
+  {
+    code: 'CHF',
+    rate: 1.13,
+  },
+  {
+    code: 'RUB',
+    rate: 78.09,
   },
 ];
 

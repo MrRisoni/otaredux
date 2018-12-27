@@ -1,37 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SeatShower from './display/SeatShower';
 import SeatRow from './seats/SeatRow';
+import {fillRange} from '../../../helpers';
 
 import './preseat.css';
-import SeatColumn from "./seats/SeatColumn";
 
 class Preseat extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            currentPaxID: 0
-        };
-
     }
 
     render() {
 
         const maxRows = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].airplaneRows;
-
-        let seatRowDiv = [];
-        for (let i = 1; i < maxRows; i++) {
-            seatRowDiv.push(<SeatRow key={i}
-                                     cabinSelection={this.props.cabinSelection}
-                                     passengers={this.props.passengers}
-                                     rowId={i}></SeatRow>)
-        }
+        let rowArray =  fillRange(1, maxRows);
 
 
         return (<section id="preSeat">
-            <div className='row'>
-                <div className='col-8'>
+            <div className="row">
+                <div className="col-8">
                     <div className="alert alert-primary" role="alert">
                         <div className="row">
                             <div className="col-5">
@@ -61,12 +49,20 @@ class Preseat extends Component {
 
                 <SeatShower  passengers={this.props.passengers}
                              segments={this.props.segments}
+                             seatMapInfo={this.props.seatMapInfo}
                              cabinSelection={this.props.cabinSelection}
                              currency={this.props.currency}
                 ></SeatShower>
 
                 <section id="seatRowsElement">
-                    {seatRowDiv}
+                    {rowArray.map(ri => {
+                        return (<SeatRow key={ri}
+                                         cabinSelection={this.props.cabinSelection}
+                                         passengers={this.props.passengers}
+                                         rowId={ri}></SeatRow>)
+                    })}
+
+
                 </section>
             </div>
 

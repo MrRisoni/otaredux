@@ -19,7 +19,7 @@ import * as actsPreseat from '../../actions/master/actionsPreseat';
 import MasterContact from './Passengers/MasterContact';
 import CreditCard from './Payment/CreditCard';
 import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
-// import Preseat from "./Preseat/Preseat";
+import Preseat from './Preseat/Preseat';
 
 
 class MasterApp extends Component {
@@ -89,6 +89,7 @@ class MasterApp extends Component {
           <div className="col-4">
             <MasterSideBar
               currency={this.props.currency}
+              currencyList={this.props.currencyList}
               ticketPrices={this.props.ticketPrices}
               changeLanguageHandler={this.props.changeLanguageHandler}
               bagAllowance={this.props.bagsAir}
@@ -108,12 +109,12 @@ class MasterApp extends Component {
           </div>
         </div>
 
-        {/* <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
+         <Preseat  preSeatSelectedItems={this.props.preSeatSelectedItems}
                           passengers={this.props.passengers}
                           segments={this.props.segments}
                           currency={this.props.currency}
                           cabinSelection={this.props.cabinSelection}
-                          seatMapInfo={this.props.seatMapInfo}/> */}
+                          seatMapInfo={this.props.seatMapInfo}/>
 
         <MasterContact
           contact={this.props.contact}
@@ -138,6 +139,7 @@ function mapStateToProps(state) {
     passengers: state.passengersMasterReducer,
     carrierList: state.uniqueCarriersReducer,
     currency: state.currentCurrencyReducer,
+    currencyList: state.getCurrenciesReducer,
     pricing: {
       total: state.pricingMasterReducer,
       upsales: state.pricingUpsalesMasterReducer,

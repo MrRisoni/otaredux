@@ -1,3 +1,20 @@
+export function fillRange(start, end) {
+  return Array(end - start + 1).fill().map((item, index) => start + index);
+}
+
+export function preseatAllowed(args) {
+  const seg = args.seg;
+  const pax = args.pax;
+  const cabin = args.cabin;
+  const seatMap = args.seatMap;
+
+  console.log('preseat allowed');
+  console.log(args);
+
+  const cabinForThisSeg = cabin.filter(cb => ((cb.segId == seg.id) && (cb.paxId == pax.id)))[0].cabin;
+  const filterAllowSegs = seatMap.filter(sgm => ((sgm.segId == seg.id) && sgm.allowedCabins.indexOf(cabinForThisSeg) > -1));
+  return (filterAllowSegs.length > 0);
+}
 
 export function calcTotalPrice(payload) {
   let total = 0;

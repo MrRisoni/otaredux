@@ -186,6 +186,16 @@ class MasterPassenger extends Component {
 
                                     <br/>
 
+                                    <div className="col-5">
+                                        <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
+                                               value={this.state.name}
+                                               onChange={this.editName} className="form-control"/>
+                                        <Error show={this.state.showNameErr}
+                                               class={"textInputErr"}
+                                               msg="Only letters are allowed"/>
+
+                                    </div>
+
                                     <div className="col-6">
                                         <input type="text" placeholder="Surname"
                                                id={`#paxSurname${this.props.passenger.id}`}
@@ -198,15 +208,7 @@ class MasterPassenger extends Component {
                                     </div>
 
 
-                                    <div className="col-5">
-                                        <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
-                                               value={this.state.name}
-                                               onChange={this.editName} className="form-control"/>
-                                        <Error show={this.state.showNameErr}
-                                               class={"textInputErr"}
-                                               msg="Only letters are allowed"/>
 
-                                    </div>
 
 
                                 </div>

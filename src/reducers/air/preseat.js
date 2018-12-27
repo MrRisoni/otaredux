@@ -16,14 +16,9 @@ const seatSelection = [
 
 const seatMapInfo = [
   {
-    segId: 0,
-    taken: ['A1', 'B1', 'E2', 'E16'],
-    firstClassLimit: 11,
-    airplaneRows: 12,
-  },
-  {
     segId: 1,
     taken: ['A1', 'B1', 'E2', 'E16'],
+    allowedCabins: ['Y', 'W', 'C', 'F'],
     firstClassLimit: 11,
     airplaneRows: 55,
 
@@ -31,6 +26,7 @@ const seatMapInfo = [
   {
     segId: 2,
     taken: ['A1', 'B1', 'E2', 'E16'],
+    allowedCabins: ['W'],
     firstClassLimit: 11,
     airplaneRows: 22,
 

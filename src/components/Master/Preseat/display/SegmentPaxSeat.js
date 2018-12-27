@@ -1,46 +1,51 @@
 import React from 'react';
 import SeatSegmentRow from './SeatSegmentRow';
+import { preseatAllowed } from '../../../../helpers';
 
+const SegmentPaxSeat = props => (
+  <div className="row">
+    <div className="col-8">
+      <div className="card segsPaxSeats ">
 
-const SegmentPaxSeat = (props) => {
-    let seatSegsRows = [];
-    props.segments.forEach(sg => {
-        console.log('SegmentPaxSeat');
-        console.log(sg);
-        seatSegsRows.push(<SeatSegmentRow
-            currency={props.currency}
-            cabinSelection={props.cabinSelection}
-            paxData={props.paxData} segment={sg}></SeatSegmentRow>)
-    })
-
-
-    /*  allow preseat
-     const  paxClassForThisSeg = px.cabinList.filter(cb =>  cb.seg == seg.id)[0].cabin;
-      console.log('cabClassForThisSeg ' + paxClassForThisSeg);
-      return (seg.preseat.indexOf(paxClassForThisSeg) > -1);
-     */
-    return (
-        <div className="row">
-            <div className="col-8">
-                <div className="card segsPaxSeats ">
-
-                    <div className="card-header">
-                        $t('Passenger') # {props.paxData.humanId}
-                        {props.paxData.name} {props.paxData.surname}
-
-                    </div>
-
-                    {/* preseating only allowed in certain classNamees --> */}
-
-                    <div className="card-body">
-                        {seatSegsRows}
-                    </div>
-
-                </div>
+        <div className="card-header">
+          <div className="row">
+            <div className="col-4">
+                $t('Passenger') #
+              {props.paxData.humanId}
             </div>
+            <div className="col-4">
+              {' '}
+              {props.paxData.name}
+            </div>
+            <div className="col-4">
+              {' '}
+              {props.paxData.surname}
+            </div>
+
+
+          </div>
         </div>
 
-    )
-};
+
+        <div className="card-body">
+          {props.segments.filter(sg => preseatAllowed({
+            seg: sg, pax: props.paxData, cabin: props.cabinSelection, seatMap: props.seatMapInfo,
+          }))
+            .map(filtsg => (
+              <SeatSegmentRow
+                currency={props.currency}
+                cabinSelection={props.cabinSelection}
+                paxData={props.paxData}
+                segment={filtsg}
+              />
+            ))}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+);
 
 export default SegmentPaxSeat;

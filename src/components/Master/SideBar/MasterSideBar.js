@@ -160,13 +160,6 @@ const MasterSideBar = (props) => {
     }
 
 
-    var langsDiv = [];
-    props.langs.forEach( (val, idx) => {
-
-        langsDiv.push(<option key={val.code} value={val.code}>{val.title}</option>);
-
-    });
-
     return (
 
         <div className="pricebox position-fixed ">
@@ -233,7 +226,9 @@ const MasterSideBar = (props) => {
                                     onChange={props.changeLanguageHandler}>
                                 <option value="en"> Change language
                                 </option>
-                                {langsDiv}
+                                {props.langs.map(lang => {
+                                    return (<option key={lang.code} value={lang.code}>{lang.title}</option>)
+                                })}
                             </select>
                         </div>
                     </div>
@@ -247,8 +242,9 @@ const MasterSideBar = (props) => {
                                     className="form-control">
                                     <option value=""> Change currency
                                     </option>
-                                    <option value="EUR">EURO</option>
-                                    <option value="CHF">CHF</option>
+                                    {props.currencyList.map(cur => {
+                                        return (<option value={cur.code}>{cur.code}</option>)
+                                    })}
                                 </select></div>
                             </div>
 

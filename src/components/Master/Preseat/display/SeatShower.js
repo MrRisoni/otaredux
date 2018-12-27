@@ -2,24 +2,18 @@ import React from 'react';
 import SegmentPaxSeat from './SegmentPaxSeat';
 
 
-const SeatShower = (props) => {
-
-    let segPaxSeats = [];
-    props.passengers.forEach(px => {
-        if ((px.active == true) && (px.type != 'INF')) {
-            segPaxSeats.push(<SegmentPaxSeat paxData={px}
-                                             cabinSelection={props.cabinSelection}
-                                             currency={props.currency}
-                                             segments={props.segments}></SegmentPaxSeat>)
-        }
-    });
-
-
-    return (
-        <div className="seatShower">
-            {segPaxSeats}
-        </div>
-    )
-};
+const SeatShower = props => (
+  <div className="seatShower">
+    {props.passengers.filter(px => (px.active && px.type !== 'INF')).map(px => (
+      <SegmentPaxSeat
+        paxData={px}
+        seatMapInfo={props.seatMapInfo}
+        cabinSelection={props.cabinSelection}
+        currency={props.currency}
+        segments={props.segments}
+      />
+    ))}
+  </div>
+);
 
 export default SeatShower;
