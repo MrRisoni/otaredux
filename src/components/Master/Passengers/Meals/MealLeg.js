@@ -1,62 +1,76 @@
-import React from 'react';
-import MealSegment from "./MealSegment";
-
-const MealLeg = function (props) {
-
-    let mealSegments = [];
-
-    let isYankee =   (['W','Y'].indexOf(props.paxData.cabinClass) >-1);
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import MealSegment from './MealSegment';
 
 
-    props.segments.forEach( seg => {
-        // for each segment
-        let appetizers = [];
-        let mainCourses = [];
-        let desserts = [];
-        const segRoute = seg.from + '-' + seg.to;
+class MealLeg extends Component {
+  constructor(props) {
+    super(props);
+  }
 
 
-        props.mealOptions.forEach(meal => {
+  render() {
+    const mealSegments = [];
 
-           if (meal.route === segRoute) {
+    const cabinsForThisPax = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
 
-               if (meal.legId === props.leg) {
-                   if (meal.type === 'Main') {
-                       mainCourses.push(meal);
-                   }
-                   if (isYankee === false) {
-                       if (meal.type === 'Dessert') {
-                           desserts.push(meal);
-                       }
-                   }
-               }
-           }
+
+    this.props.segments.forEach((seg) => {
+      if (this.props.leg == seg.legId) {
+        const mainCourses = [];
+        const desserts = [];
+        const segRoute = `${seg.from}-${seg.to}`;
+
+
+        this.props.mealOptions.forEach((meal) => {
+          cabinsForThisPax.forEach((cb) => {
+            if ((seg.id == meal.segId) && (meal.segId == cb.segId) && (meal.classes.indexOf(cb.cabin) > -1)) {
+              if (meal.type == 'Main') {
+                mainCourses.push(meal);
+              }
+              if (meal.type == 'Dessert') {
+                desserts.push(meal);
+              }
+            }
+          });
         });
 
-        if ((appetizers.length + mainCourses.length + desserts.length) > 0) {
-            const key = 'mleg' + props.paxId + props.leg;
-            mealSegments.push(<MealSegment appetizers={appetizers}
-                                           mainCourses={mainCourses}
-                                           desserts={desserts}
-                                           segData={segRoute}
-                                           paxData={props.paxData}
-                                           key={key}
-                                           legId={props.leg}
-                                           currency={props.currency}
-                                           paxId={props.paxId}
-                                           addMealHandler={props.addMealHandler}/>);
+
+        if ((mainCourses.length + desserts.length) > 0) {
+          const key = `mleg${this.props.paxId}${this.props.leg}`;
+          mealSegments.push(<MealSegment
+            mainCourses={mainCourses}
+            desserts={desserts}
+            segData={segRoute}
+            paxData={this.props.paxData}
+            key={key}
+            segId={seg.id}
+            legId={this.props.leg}
+            paxId={this.props.paxId}
+          />);
         }
+      }
     });
 
 
     return (
-        <div className="row">
-            <div className="col-md-12">
-                {mealSegments}
-            </div>
+      <div className="row">
+        <div className="col-12">
+          {mealSegments}
         </div>
+      </div>
 
-    )
+    );
+  }
 }
 
-export default MealLeg;
+function mapStateToProps(state) {
+  return {
+    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
+    mealOptions: state.getMealsReducer,
+    segments: state.getLegsReducer,
+  };
+}
+
+
+export default connect(mapStateToProps)(MealLeg);

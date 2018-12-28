@@ -1,202 +1,129 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar';
 import ItineraryData from './Segments/ItineraryData';
 
 
+import * as actsInsurance from '../../actions/master/actionsInsurance';
+import * as actsMaster from '../../actions/master/actionsMaster';
+import * as actsPaxes from '../../actions/master/actionsPassengers';
 
-import {addMasterPassengerAction,firstLoadMasterAction,editMasterPassengerNameAction,editMasterContactAction,
-    changeMasterPassengerAction,removeMasterPassengerAction,changeAirCabinClassPassengerAction
-
-    } from '../../actions/master/actionsMaster';
-
-import {changePreSeatSelectPassengerAction} from '../../actions/master/preseatActions';
-import { asyncActions,asyncSeatMapFetchAction} from '../../actions/master/asyncActions';
-import {addAirBagAction,removeAirBagAction,
-    changeAirInsuranceAction,
-    addMealAction,
-    changeFlexibleTicketAction,changeBlueRibbonAction,
-    selectAirSeatAction} from '../../actions/master/actionsAir';
-
-import {selectCabinAction} from '../../actions/master/actionsShip';
 
 import MasterContact from './Passengers/MasterContact';
-import MasterPayment from './Payment/MasterPayment';
-import {seatMapOKReducer} from "../../reducers/air/asyncAir";
-import {fetchPreseatSelectedPaxReducer} from "../../reducers/master/passengersMaster";
-
-
+import CreditCard from './Payment/CreditCard';
+import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
+import Preseat from './Preseat/Preseat';
+import FlexibleTicket from './Passengers/FlexibleTicket';
+import BlueRibbon from './Passengers/BlueRibbon';
 
 
 class MasterApp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
 
-    componentWillMount() {
-        this.props.asyncActions();
-        this.props.asyncSeatMapFetchAction();
+  componentDidMount() {
+    this.props.fetchCountriesAction();
 
-        this.props.firstLoad();
+    this.props.firstLoad();
+  }
 
-    }
+  render() {
+    return (
+      <div className="busApp">
+        <div className="row">
 
-    render() {
-        console.log('master app render ');
+          <div className="col-8">
 
-        if (this.props.asyncData !== undefined) {
-            return (
-                <div className='busApp'>
-                    <div className='row'>
+            <ItineraryData
+              tripData={this.props.tripData}
+            />
 
-                        <div className='col-md-8'>
-
-                            <ItineraryData product={this.props.product}
-                                           tripData={this.props.tripData }/>
-
-                            <MasterPassengerList
-                                tripData={this.props.tripData }
-                                product={this.props.product}
-                                addPaxHandler={this.props.addPaxHandler}
-                                removePaxHandler={this.props.removePaxHandler}
-                                editPaxHandler={this.props.editPaxHandler}
-                                changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
-                                editNameHandler={this.props.editPaxNameHandler}
-                                addBagHandler={this.props.addBagHandler}
-                                removeBagHandler={this.props.removeBagHandler}
-                                addMealHandler={this.props.addMealHandler}
-                                selectInsuranceHandler={this.props.selectInsuranceHandler}
-                                changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
-                                changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
-                                selectSeatHandler={this.props.selectSeatHandler}
-                                changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
-                                passengers={this.props.passengers}
-                                currency={this.props.currency}
-                                insurances={this.props.insuranceAir}
-                                carrierList={this.props.carrierList}
-                                bagsAir={this.props.bagsAir}
-                                purchasedBags={this.props.purchasedBags}
-                                mealOptions={this.props.mealOptions}
-                                boughtMeals={this.props.boughtMeals}
-                                segments={this.props.segments}
-                                hasFlexibleTicket={this.props.hasFlexibleTicket}
-                                flexibleTicket={this.props.flexibleTicket}
-                                hasBlueRibbon={this.props.hasBlueRibbon}
-                                blueRibbonPrices={this.props.blueRibbonPrices}
-                                countryList={this.props.asyncData.countries}
-                                seatMap={this.props.asyncData.seatMap}
-                                fetchedSeatMap={this.props.fetchedSeatMap}
-                                preseatSelectedPax={this.props.preseatSelectedPax}/>
+            <MasterPassengerList
+              tripData={this.props.tripData}
+              addPaxHandler={this.props.addPaxHandler}
+              removePaxHandler={this.props.removePaxHandler}
+              editPaxHandler={this.props.editPaxHandler}
+              changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
+              editNameHandler={this.props.editPaxNameHandler}
+              selectInsuranceHandler={this.props.selectInsuranceHandler}
+              passengers={this.props.passengers}
+              currency={this.props.currency}
+              insurances={this.props.insuranceAir}
+              carrierList={this.props.carrierList}
+              countryList={this.props.asyncData.countries}
+            />
 
 
-                        </div>
+          </div>
 
-                        <div className='col-md-3'>
-                            <MasterSideBar currency={this.props.currency}
-                                           bagAllowance={this.props.bagsAir}
-                                           passengers={this.props.passengers}
-                                           purchasedBags={this.props.purchasedBags}
-                                           boughtInsurances={this.props.boughtInsurances}
-                                           insuranceOptions={this.props.insuranceOptions}
-                                           mealOptions={this.props.mealOptions}
-                                           boughtMeals={this.props.boughtMeals}
-                                           pricing={this.props.pricing}
-                                           hasFlexibleTicket={this.props.hasFlexibleTicket}
-                                           flexibleTicket={this.props.flexibleTicket}
-                                           hasBlueRibbon={this.props.hasBlueRibbon}
-                                           blueRibbonPrices={this.props.blueRibbonPrices}
-                            />
-                        </div>
-                    </div>
+          <div className="col-4">
+            <MasterSideBar/>
+          </div>
+        </div>
 
 
-                    <div className='row'>
-                        <div className='col-md-8'>
-                            <MasterContact contact={this.props.contact}
-                                           editContactHandler={this.props.editContactHandler}/>
-                        </div>
-                    </div>
+         <Preseat/>
 
 
-                    <div className='row'>
-                        <div className='col-md-8'>
-                            <MasterPayment paymentMethods={this.props.paymentMethods}/>
-                        </div>
-                    </div>
+        <FlexibleTicket/>
 
 
-                </div>
 
-            );
-        }
-    }
+        <BlueRibbon/>
+
+
+
+        <MasterContact
+          contact={this.props.contact}
+          countryList={this.props.asyncData.countries}
+          editContactHandler={this.props.editContactHandler}
+        />
+
+
+        <ReceiptOrInvoice countryList={this.props.asyncData.countries} />
+        <CreditCard />
+
+
+      </div>
+
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
-
-    return {
-        passengers: state.passengersMasterReducer,
-        carrierList: state.uniqueCarriersReducer,
-        currency: state.currentCurrencyReducer,
-        pricing:  {
-            total: state.pricingMasterReducer,
-            analysis: state.pricingMasterAnalysisReducer
-        },
-        contact: state.contactMasterReducer,
-        insuranceAir: state.airInsuranceReducer,
-        bagsAir : state.getBagsReducer,
-        purchasedBags: state.purchasedBagsReducer,
-        boughtInsurances: state.purchasedInsuranceReducer,
-        insuranceOptions: state.airInsuranceReducer,
-        mealOptions: state.getMealsReducer,
-        boughtMeals: state.purchasedMealsReducer,
-        segments:state.getLegsReducer,
-        tripData:state.airTripReducer,
-        shipSegments:state.getShipLegsReducer,
-        shipTripData:state.shipTripReducer,
-        paymentMethods:state.paymentMethodsReducer,
-        hasFlexibleTicket:state.hasFlexibleTicketReducer,
-        flexibleTicket:state.flexibleTicketReducer,
-        hasBlueRibbon: state.hasBlueRibbonReducer,
-        blueRibbonPrices: state.getBlueRibbonReducer,
-        cabins:state.cabinsReducer,
-        cabinSelection:state.cabinSelectionReducer,
-        asyncData:state.countryListReducer,
-        fetchedSeatMap:state.seatMapOKReducer,
-        preseatSelectedPax: state.fetchPreseatSelectedPaxReducer
-    }
+  return {
+    passengers: state.passengersMasterReducer,
+    carrierList: state.uniqueCarriersReducer,
+    currency: state.currentCurrencyReducer,
+    currencyList: state.getCurrenciesReducer,
+    contact: state.contactMasterReducer,
+    insuranceAir: state.airInsuranceReducer,
+    boughtInsurances: state.purchasedInsuranceReducer,
+    insuranceOptions: state.airInsuranceReducer,
+    tripData: state.airTripReducer,
+    asyncData: state.countryListReducer,
+  };
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addPaxHandler: addMasterPassengerAction,
-        removePaxHandler:removeMasterPassengerAction,
-        editPaxHandler:changeMasterPassengerAction,
-        changePaxCabinClassHandler:changeAirCabinClassPassengerAction,
-        firstLoad: firstLoadMasterAction,
-        editPaxNameHandler: editMasterPassengerNameAction,
-        editContactHandler: editMasterContactAction,
-        addBagHandler: addAirBagAction,
-        removeBagHandler:removeAirBagAction,
-        selectInsuranceHandler:changeAirInsuranceAction,
-        addMealHandler:addMealAction,
-        changeFlexibleTicketHandler:changeFlexibleTicketAction,
-        changeBlueRibbonHandler:changeBlueRibbonAction,
-        selectCabinHandler:selectCabinAction,
-        selectSeatHandler:selectAirSeatAction,
-        asyncActions:asyncActions,
-        asyncSeatMapFetchAction:asyncSeatMapFetchAction,
-        changePreSeatSelectPassengerHandler:changePreSeatSelectPassengerAction
-    }, dispatch);
+  return bindActionCreators({
+    addPaxHandler: actsPaxes.addMasterPassengerAction,
+    removePaxHandler: actsPaxes.removeMasterPassengerAction,
+    editPaxHandler: actsPaxes.changeMasterPassengerAction,
+    changePaxCabinClassHandler: actsPaxes.changeAirCabinClassPassengerAction,
+    firstLoad: actsMaster.firstLoadMasterAction,
+    editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
+    editContactHandler: actsPaxes.editMasterContactAction,
+    selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
+    fetchCountriesAction: actsMaster.fetchCountriesAction,
+  }, dispatch);
 }
 
 
-export default connect(mapStateToProps,matchDispatchToProps )(MasterApp);
-
-
+export default connect(mapStateToProps, matchDispatchToProps)(MasterApp);

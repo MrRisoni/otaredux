@@ -1,61 +1,83 @@
 import React from 'react';
-import Airport from './Airport'
-
-const Segment = function (props) {
-    return (
-        <div className="segments">
-
-            <div className="card">
-                <div className="card-header bg-info">Segment #{props.data.segId}</div>
-                <div className="card-body">
-
-                    <div className="row">
-                        <div className="col-md-2">
-                            <img width={props.data.img.width}
-                                 src={props.data.img.url}/>
-                        </div>
+import { Translate } from 'react-redux-i18n';
+import Airport from './Airport';
 
 
-                        <Airport product={props.product}
-                                 iata={props.data.from.iata}
-                                 city={props.data.from.city}
-                                 name={props.data.from.name}
-                                 flyTime={props.data.from.flyTime}
-                                 flyTimeGMT={props.data.from.flyTimeGMT}
-                                 day={props.data.from.day}
-                                 date={props.data.from.date}/>
+const Segment = props => (
+  <div className="segments">
 
-                        <Airport product={props.product}
-                                 iata={props.data.from.iata}
-                                 city={props.data.from.city}
-                                 name={props.data.from.name}
-                                 flyTime={props.data.from.flyTime}
-                                 flyTimeGMT={props.data.from.flyTimeGMT}
-                                 day={props.data.from.day}
-                                 date={props.data.from.date}/>
+    <div className="card">
+      <div className="card-header bg-info">
 
-                    </div>
-                </div>
+        <Translate value="flight.Segment" />
+        {' '}
+#
+        {props.data.segId}
+      </div>
+      <div className="card-body">
+
+        <div className="row">
+          <div className="col-2">
+            <img
+              width={props.data.img.width}
+              src={props.data.img.url}
+            />
+          </div>
 
 
-                <div className="card-footer">
-                    <div className="row">
+          <Airport
+            iata={props.data.from.iata}
+            city={props.data.from.city}
+            name={props.data.from.name}
+            flyTime={props.data.from.flyTime}
+            flyTimeGMT={props.data.from.flyTimeGMT}
+            day={props.data.from.day}
+            date={props.data.from.date}
+          />
 
-                        <div className="col-md-5">
-                            Duration {props.data.durationTime.hours}h {props.data.durationTime.minutes}m
-                        </div>
+          <Airport
+            iata={props.data.to.iata}
+            city={props.data.to.city}
+            name={props.data.to.name}
+            flyTime={props.data.to.flyTime}
+            flyTimeGMT={props.data.to.flyTimeGMT}
+            day={props.data.to.day}
+            date={props.data.to.date}
+          />
 
-                        {props.data.waitTime.total > 0 ? (
-                            <div className="col-md-5">
-                                Wait time {props.data.waitTime.hours}h {props.data.waitTime.minutes}m
-                            </div>
-                        ) : (<div className="col-md-5"></div>)}
-
-                    </div>
-                </div>
-            </div>
         </div>
-    )
-};
+      </div>
+
+
+      <div className="card-footer">
+        <div className="row">
+
+          <div className="col-5">
+            <Translate value="flight.Duration" />
+            {' '}
+            {props.data.durationTime.hours}
+h
+            {' '}
+            {props.data.durationTime.minutes}
+m
+          </div>
+
+          {props.data.waitTime.total > 0 ? (
+            <div className="col-5">
+              <Translate value="flight.WaitTime" />
+              {' '}
+              {props.data.waitTime.hours}
+h
+              {' '}
+              {props.data.waitTime.minutes}
+m
+            </div>
+          ) : (<div className="col-5" />)}
+
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export default Segment;

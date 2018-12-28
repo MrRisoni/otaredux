@@ -1,218 +1,370 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import SideBarUpsale from './SideBarUpsale';
 import SideBarPersonUpsale from './SideBarPersonUpsale';
+import * as actsMaster from '../../../actions/master/actionsMaster';
+import {Translate} from 'react-redux-i18n';
 
-var Translate = require('react-redux-i18n').Translate;
 
-const MasterSideBar = (props) => {
 
-    let paxPrices = [];
+class MasterSideBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const paxPrices = [];
     let activePaxCount = 0;
 
-    props.pricing.analysis.forEach(paxType => {
-        if (paxType.count > 0) {
-            paxPrices.push(<section><div key={paxType} className="row">
-                <div className="col-sm-12">
-                    {paxType.type} x {paxType.count} {paxType.ticketPriceEuro.toFixed(2)} {props.currency.code}
-                </div>
-            </div></section>)
-        }
-    });
-
-
-    let bagPrices = [];
-    let insurancePrices = [];
-    let mealsPrices = [];
+    const bagPrices = [];
+    const insurancePrices = [];
+    const mealsPrices = [];
 
     let totalBagCount = 0;
     let insuranceCount = 0;
     let mealsCount = 0;
-    let otherUpsalesCount = 0;
+    const otherUpsalesCount = 0;
 
-    let preSeated = false;
+    const preSeated = false;
 
-    props.passengers.forEach(pax => {
-        if (pax.active) {
+    this.props.passengers.forEach((pax) => {
+      if (pax.active) {
+        // if (pax.seat.letter !== '') {
+        //    preSeated = true;
+        // }
 
-            if (pax.seat.letter !== '') {
-                preSeated = true;
+        activePaxCount++;
+        this.props.bagAllowance.forEach((bag) => {
+          let bagCountId = 0;
+          this.props.purchasedBags.forEach((boughtBag) => {
+            if (bag.id === boughtBag.bagId) {
+              if (boughtBag.paxId === pax.id) {
+                bagCountId++;
+              }
             }
+          });
+          if (bagCountId > 0) {
+            totalBagCount++;
+            const bagDescr = (
+              <div>
+                {bagCountId}
+                {' '}
+x
+                {' '}
+                {bag.weight}
+                {' '}
+                {bag.price.toFixed(2)}
+                {' '}
+                {this.props.currency.code}
+              </div>);
 
-            activePaxCount++;
-            props.bagAllowance.forEach(bag => {
-                let bagCountId = 0;
-                props.purchasedBags.forEach(boughtBag => {
-                    if (bag.id === boughtBag.bagId) {
-                        if (boughtBag.paxId === pax.id) {
-                            bagCountId++;
-                        }
-                    }
-                });
-                if (bagCountId > 0) {
-                    totalBagCount++;
-                    const bagDescr = (
-                        <div>{bagCountId} x {bag.weight} {bag.price.toFixed(2)} {props.currency.code}</div>)
-
-                    bagPrices.push(<SideBarPersonUpsale
-                        pax={pax}
-                        description={bagDescr}/>)
-                }
-            });
+            bagPrices.push(<SideBarPersonUpsale
+              pax={pax}
+              description={bagDescr}
+            />);
+          }
+        });
 
 
-            props.boughtInsurances.forEach(boughtIns => {
+        this.props.boughtInsurances.forEach((boughtIns) => {
+          this.props.insuranceOptions.forEach((insOption) => {
+            if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id > 0)) {
+              insuranceCount++;
 
-                props.insuranceOptions.forEach(insOption => {
+              const insuranceDescr = (
+                <div>
+                  {' '}
+                  {insOption.title}
+                  {' '}
+                  {insOption.price.toFixed(2)}
+                  {' '}
+                  {this.props.currency.code}
+                </div>);
 
-                    if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id > 0)) {
-                        insuranceCount++;
+              insurancePrices.push(<SideBarPersonUpsale
+                pax={pax}
+                description={insuranceDescr}
+              />);
+            }
+          });
+        });
 
-                        const insuranceDescr = (
-                            <div>  {insOption.title} {insOption.price.toFixed(2)} {props.currency.code}</div>)
+        this.props.boughtMeals.forEach((boughtMl) => {
+          this.props.mealOptions.forEach((availbMeal) => {
+            if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
+              mealsCount++;
 
-                        insurancePrices.push(<SideBarPersonUpsale
-                            pax={pax}
-                            description={insuranceDescr}/>);
-
-                    }
-                });
-            });
-
-            props.boughtMeals.forEach(boughtMl => {
-                props.mealOptions.forEach(availbMeal => {
-                    if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
-                        mealsCount++;
-
-                        mealsPrices.push(
-                            <div key={pax.id}>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        {pax.surname} {pax.name}
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        {availbMeal.title} {availbMeal.price.toFixed(2)} {props.currency.code}
-                                    </div>
-                                </div>
-                            </div>)
-                    }
-                });
-            });
-
-        }
+              mealsPrices.push(
+                <div key={pax.id}>
+                  <div className="row">
+                    <div className="col-12">
+                      {pax.surname}
+                      {' '}
+                      {pax.name}
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12">
+                      {availbMeal.title}
+                      {' '}
+                      {availbMeal.price.toFixed(2)}
+                      {' '}
+                      {this.props.currency.code}
+                    </div>
+                  </div>
+                </div>,
+              );
+            }
+          });
+        });
+      }
     });
 
-    let bagsDiv = (<div></div>);
+    let bagsDiv = (<div />);
 
     if (totalBagCount > 0) {
-        bagsDiv =
-            (<SideBarUpsale title="Bags"
-                            price={bagPrices}
-                            currency={props.currency}
-            />);
+      bagsDiv = (
+        <SideBarUpsale
+          title="Bags"
+          price={bagPrices}
+          currency={this.props.currency}
+        />
+      );
     }
 
 
-    let insuranceDiv = (<div></div>);
+    let insuranceDiv = (<div />);
 
     if (insuranceCount > 0) {
-
-        insuranceDiv =
-            (<SideBarUpsale title="Insurance"
-                            price={insurancePrices}
-                            currency={props.currency}
-            />);
+      insuranceDiv = (
+        <SideBarUpsale
+          title="Insurance"
+          price={insurancePrices}
+          currency={this.props.currency}
+        />
+      );
     }
 
 
-    let mealsDiv = (<div></div>);
+    let mealsDiv = (<div />);
 
 
     if (mealsCount > 0) {
-        mealsDiv = (<SideBarUpsale title="Meals"
-                                   price={mealsPrices}
-                                   currency={props.currency}
-        />);
+      mealsDiv = (
+        <SideBarUpsale
+          title="Meals"
+          price={mealsPrices}
+          currency={this.props.currency}
+        />
+      );
     }
 
 
-    let otherUpsalesDiv = [];
+    const otherUpsalesDiv = [];
 
-    if (props.hasFlexibleTicket.state === true) {
-        const flexiblePrice = (activePaxCount * props.flexibleTicket.pricePerPax).toFixed(2);
+    if (this.props.hasFlexibleTicket.state === true) {
+      const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax).toFixed(2);
 
-        otherUpsalesDiv.push(<SideBarUpsale title="Flexible Ticket"
-                                            price={flexiblePrice}
-                                            currency={props.currency}
-        />);
+      otherUpsalesDiv.push(<SideBarUpsale
+        title="Flexible Ticket"
+        price={flexiblePrice}
+        currency={this.props.currency}
+      />);
     }
 
-    if (props.hasBlueRibbon.state === true) {
-        const brbPrice = (activePaxCount * props.blueRibbonPrices.pricePerPax).toFixed(2);
+    if (this.props.hasBlueRibbon.state === true) {
+      const brbPrice = (activePaxCount * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
 
-        otherUpsalesDiv.push(
-            <SideBarUpsale title="Blue Ribbon"
-                           price={brbPrice}
-                           currency={props.currency}
-            />
-        );
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Blue Ribbon"
+          price={brbPrice}
+          currency={this.props.currency}
+        />,
+      );
     }
 
     if (preSeated === true) {
-        otherUpsalesDiv.push(
-            <SideBarUpsale title="Preaseating"
-                           price={5}
-                           currency={props.currency}
-            />
-        );
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Preaseating"
+          price={5}
+          currency={this.props.currency}
+        />,
+      );
     }
 
+
     return (
-        <aside>
-            <div className="pricebox">
 
-                <div className="card bg-info">
-                    <div className="card-header">
-                        <b>Price Analysis </b>
-                    </div>
-                    <div className="card-body text-white">
+      <div className="pricebox position-fixed ">
 
-                        <div className="row">
-                            <div className="col-sm-12">
-                                <h4>Ticket Price</h4>
-                                <hr/>
-                            </div>
-                        </div>
+        <div className="card bg-info">
+          <div className="card-header">
+            <div className="row">
 
-                        {paxPrices}
-                        {bagsDiv}
-                        {insuranceDiv}
-                        {mealsDiv}
-                        {otherUpsalesDiv}
+              <div className="col-8">
+                <h6>Price Analysis</h6>
+              </div>
 
 
-                    </div>
+              <div className="col-3 offset-col-4">
+                <button
+                  className="btn btn-primary btn-sm"
+                  data-toggle="collapse"
+                  href="#priceBoxCollapse"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="priceBoxCollapse"
+                >
+
+                    <Translate value="general.Expand" />
+                </button>
+              </div>
 
 
-                    <div className="card-footer">
-                        <div className="row">
-                            <div className="col-md-12">
-
-                                <h4><Translate value="application.title"/>
-                                    : {props.pricing.total.toFixed(2)} {props.currency.code} </h4>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
-        </aside>
+          </div>
+
+          <div className="card-body show text-white" id="priceBoxCollapse">
+
+            <div className="row">
+              <div className="col-12">
+                <h4>
+                    <Translate value="pricebox.TicketPrice" />
+
+                  {this.props.ticketPrices}
+                  {' '}
+                  {this.props.currency.code}
+                  {' '}
+                </h4>
+              </div>
+            </div>
+
+            {bagsDiv}
+            {insuranceDiv}
+            {mealsDiv}
+            {otherUpsalesDiv}
+
+
+            <div className="row">
+              <div className="col-12">
+                <h4>
+                    <Translate value="pricebox.UpsalePrices" />
+                  {this.props.pricing.upsales}
+                  {' '}
+                  {this.props.currency.code}
+                  {' '}
+                </h4>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div className="card-footer">
+            <div className="row">
+              <div className="col-12">
+
+                <h4>
+                  <Translate value="pricebox.Total" /> :
+                  {' '}
+                  {this.props.pricing.total.toFixed(2)}
+                  {' '}
+                  {this.props.currency.code}
+                  {' '}
+
+                </h4>
+
+              </div>
+            </div>
+
+
+            <div className="row langSelector">
+              <div className="col-8 offset-2">
+                <select
+                  className="form-control"
+                  id="exampleFormControlSelect2"
+                  onChange={this.props.changeLanguageHandler}
+                >
+                  <option value="en">
+
+                   <Translate value="pricebox.ChangeLang" />
+                  </option>
+                  {this.props.langs.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                </select>
+              </div>
+            </div>
+
+
+            <div className="row">
+              <div className="col-12">
+
+                <div className="row selectLang">
+                  <div className="col-8 offset-2">
+                    <select
+                      className="form-control"
+                      onChange={this.props.changeCurrencyHandler}>
+                      <option value="">
+                          <Translate value="pricebox.ChangeCur" />
+
+                          </option>
+                      {this.props.currencyList.map(cur => (<option value={cur.code}>{cur.code}</option>))}
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
 
     );
-};
+  }
+}
 
-export default MasterSideBar;
+function mapStateToProps(state) {
+  return {
+    passengers: state.passengersMasterReducer,
+    currency: state.currentCurrencyReducer,
+    currencyList: state.getCurrenciesReducer,
+    pricing: {
+      total: state.pricingMasterReducer,
+      upsales: state.pricingUpsalesMasterReducer,
+    },
+    insuranceAir: state.airInsuranceReducer,
+    bagAllowance: state.getBagsReducer,
+    purchasedBags: state.purchasedBagsReducer,
+    boughtInsurances: state.purchasedInsuranceReducer,
+    insuranceOptions: state.airInsuranceReducer,
+    mealOptions: state.getMealsReducer,
+    boughtMeals: state.purchasedMealsReducer,
+    hasFlexibleTicket: state.hasFlexibleTicketReducer,
+    flexibleTicket: state.flexibleTicketReducer,
+    hasBlueRibbon: state.hasBlueRibbonReducer,
+    blueRibbonPrices: state.getBlueRibbonReducer,
+    ticketPrices: state.ticketPricesReducer,
+    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
+    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
+    seatMapInfo: state.seatMapInfoReducer,
+    langs: state.getLanguagesReducer,
+    selectedSeats: state.fetchSeatSelectionReducer,
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    changeLanguageHandler: actsMaster.changeLanguageAction,
+    changeCurrencyHandler: actsMaster.changeCurrencyAction,
+  }, dispatch);
+}
 
 
+export default connect(mapStateToProps, matchDispatchToProps)(MasterSideBar);

@@ -1,48 +1,51 @@
 
 
 const currentCurrency = {
-    code: 'EUR',
-    rate: 1.00
+  code: 'EUR',
+  rate: 1.00,
 };
 
 const currencies = [
-    {
-        code: 'EUR',
-        rate:1.00
-    },
-    {
-        code: 'DKK',
-        rate: 7.44
-    }
+  {
+    code: 'EUR',
+    rate: 1.00,
+  },
+  {
+    code: 'USD',
+    rate: 1.14,
+  },
+  {
+    code: 'CHF',
+    rate: 1.13,
+  },
+  {
+    code: 'RUB',
+    rate: 78.09,
+  },
 ];
 
 export function getCurrenciesReducer(state = currencies, action) {
-    return state
+  return state;
 }
-
 
 
 export function currentCurrencyReducer(state = currentCurrency, action) {
+  switch (action.type) {
+    case 'CHANGE_CURRENCY':
 
 
+      let newRate = 1.00;
+      action.payload.currencies.forEach((cur) => {
+        if (cur.code === action.payload.newCode) {
+          newRate = cur.rate;
+        }
+      });
 
-    switch (action.type) {
-        case 'CHANGE_CURRENCY':
-
-
-            let newRate = 1.00;
-            action.payload.currencies.forEach( cur => {
-                if (cur.code === action.payload.newCode) {
-                    newRate = cur.rate;
-                }
-            });
-
-            return Object.assign({}, state, {
-                code: action.payload.newCode,
-                rate: newRate
-            });
-        default:
-            return state
-    }
+      return Object.assign({}, state, {
+        code: action.payload.newCode,
+        rate: newRate,
+      });
+    default:
+      return state;
+  }
 }
-

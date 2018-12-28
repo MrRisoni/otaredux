@@ -1,147 +1,45 @@
-import {upsalesDispatcher} from './dispatcher';
+import { setLocale } from 'react-redux-i18n';
+import { upsalesDispatcher } from './dispatcher';
+
 
 import * as MasterCons from './allConstants';
 
+const countries = require('../../resources/countries');
 
+export function fetchCountriesAction() {
+  return (dispatch, getState) => {
+    dispatch({
+      type: MasterCons.FETCH_COUNTRIES_FINISHED,
+      payload: countries,
 
-
-export function editMasterContactAction(contactData) {
-    return { type: MasterCons.EDIT_CONTACT_PASSENGER_MASTER, payload : {
-            surname: contactData.surname,
-            name:  contactData.name,
-            gender: contactData.gender,
-            prefix: contactData.prefix,
-            mobile:contactData.mobile,
-            email: contactData.email,
-            country:contactData.country,
-            city: contactData.city,
-            address:contactData.address,
-            postcode:contactData.postcode
-        }
-    }
+    });
+  };
 }
-
-export function editMasterPassengerNameAction(paxId, surname, name,gender) {
-
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.EDIT_NAME_PASSENGER_MASTER,
-            payload: {
-                passengerId: paxId,
-                surname: surname,
-                name: name,
-                gender:gender
-            }
-        });
-
-
-        dispatch({
-            type: MasterCons.EDITED_NAME_PASSENGER_MASTER,
-            payload: {
-                passengerId: paxId,
-                surname: surname,
-                name: name,
-                gender:gender,
-                passengers: getState().passengersMasterReducer
-            }
-        });
-
-    }
-}
-
-
-export function changeAirCabinClassPassengerAction(paxId,newClass,oldClass,paxage ='ADT') {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.CHANGE_PASSENGER_AIR_CABIN,
-            payload: {
-                paxAge: paxage,
-                passengerId: paxId,
-                newClass: newClass,
-                oldClass: oldClass
-            }
-        });
-
-        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
-    }
-}
-
-
-export function changeMasterPassengerAction(paxId,newCode,oldCode,cls) {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.CHANGE_PASSENGER_MASTER,
-            payload: {
-                passengerId: paxId,
-                newType: newCode,
-                oldType: oldCode,
-                cabin:cls
-            }
-        });
-
-        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
-    }
-}
-
-export function removeMasterPassengerAction(paxId,paxType) {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.REMOVE_PASSENGER_MASTER,
-            payload: {
-                passengerId: paxId,
-                type: paxType
-            }
-        });
-
-        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
-    }
-}
-
-
-
-export function addMasterPassengerAction() {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.ADD_PASSENGER_MASTER
-        });
-
-        dispatch(upsalesDispatcher(getState,MasterCons.PASSENGER_ARRAY_CHANGED));
-    }
-}
-
 
 
 export function firstLoadMasterAction() {
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: MasterCons.FIRST_LOAD_MASTER,
-            payload: {
-                paxTypes: getState().pricingMasterAnalysisReducer,
-                currency: getState().currentCurrencyReducer
-            }
-        });
-    }
+  return (dispatch, getState) => {
+    dispatch(upsalesDispatcher(getState, MasterCons.FIRST_LOAD_MASTER));
+  };
 }
 
-export function changeCurrencyAction(newCode) {
-    return (dispatch, getState) => {
+export function changeCurrencyAction(ev) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: MasterCons.CHANGE_CURRENCY,
+      payload: {
+        newCode: ev.target.value,
+        currencies: getState().getCurrenciesReducer,
+      },
+    });
 
-        dispatch({
-            type: 'CHANGE_CURRENCY',
-            payload: {
-                passengers: getState().passengersReducer,
-                newCode: newCode,
-                currencies: getState().getCurrenciesReducer
-            }
-        });
-
-
-    }
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+  };
 }
 
+
+export function changeLanguageAction(ev) {
+  return (dispatch, getState) => {
+    dispatch(setLocale(ev.target.value));
+  };
+}

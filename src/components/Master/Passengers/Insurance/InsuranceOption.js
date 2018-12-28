@@ -12,7 +12,7 @@ class InsuranceOption extends Component {
     }
 
     render() {
-        return (<div  className="col-md-3">
+        return (<div  className="col-3">
 
             <div className="card text-center">
                 <div className="card-header bg-warning">{this.props.insData.title}</div>

@@ -1,48 +1,64 @@
-import React from 'react';
-import MealType from "./MealType";
-
-const MealSegment = function (props) {
+import React, { Component } from 'react';
+import MealType from './MealType';
 
 
-    let dessertsDiv = (<div></div>);
-    if (props.desserts.length >0) {
-        dessertsDiv = <MealType type="Dessert"
-                                legId={props.legId}
-                                paxId={props.paxId}
-                                paxData={props.paxData}
-                                currency={props.currency}
-                                data={props.desserts}
-                                addMealHandler={props.addMealHandler}/>
+class MealSegment extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    console.log('MealSegment ');
+    console.log(this.props);
+
+    let dessertsDiv = (<div />);
+    if (this.props.desserts.length > 0) {
+      dessertsDiv = (
+        <MealType
+          type="Dessert"
+          legId={this.props.legId}
+          paxId={this.props.paxId}
+          paxData={this.props.paxData}
+          segId={this.props.segId}
+          data={this.props.desserts}
+        />
+      );
     }
 
 
-    let mainCourses = (<div></div>);
-    if (props.mainCourses.length >0) {
-        mainCourses = <MealType type="Main Course"
-                                legId={props.legId}
-                                paxId={props.paxId}
-                                paxData={props.paxData}
-                                currency={props.currency}
-                                data={props.mainCourses}
-                                addMealHandler={props.addMealHandler}/>
+    let mainCourses = (<div />);
+    if (this.props.mainCourses.length > 0) {
+      mainCourses = (
+        <MealType
+          type="Main"
+          legId={this.props.legId}
+          paxId={this.props.paxId}
+          paxData={this.props.paxData}
+          segId={this.props.segId}
+          data={this.props.mainCourses}
+        />
+      );
     }
 
     return (
-        <div>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="alert alert-primary" role="alert">
-                        {props.segData}
-                    </div>
-                </div>
+      <section>
+        <div className="row">
+          <div className="col-12">
+            <div className="alert alert-primary" role="alert">
+              {this.props.segData}
             </div>
-
-
-            {mainCourses}
-            {dessertsDiv}
-
+          </div>
         </div>
-    )
-};
+
+
+        {mainCourses}
+        {dessertsDiv}
+
+      </section>
+    );
+  }
+}
+
 
 export default MealSegment;

@@ -1,3 +1,72 @@
 {
- "SelectCabinPerSegment" :"Выберите домик на сегмент"
+  "flight": {
+    "Departure": "Вылет из",
+    "Return": "Вернуть",
+    "YourTrip": "Твое путешествие",
+    "Stops": "Остановки",
+    "Duration": "продолжительность",
+    "WaitTime": "Время ожидания",
+    "Segment": "сегмент"
+  },
+  "pay" : {
+    "CreditCard" : "Кредитная карта",
+    "Details": "Детали платежа",
+    "Receipt" : "Чек",
+    "Invoice" : "Счет-фактура"
+  },
+  "general": {
+    "Toggle": "тумблер",
+    "Cost": "Стоимость",
+    "Expand": "расширять",
+    "Contact" : "Контактная информация"
+  },
+  "passengers": {
+    "AddPassenger": "Добавить пассажира",
+    "RemovePassenger": "Удалить пассажира",
+    "FillThePassengerData": "Заполните данные пассажира",
+    "Passenger": "пассажир",
+    "Adult": "для взрослых",
+    "Child": "ребенок",
+    "Infant": "младенец",
+    "SelectGender": "Выберите пол",
+    "Name": "название",
+    "Surname": "Фамилия"
+  },
+  "upsales": {
+    "PurchaseBags": "Купить сумки",
+    "upsales": "Подберите дополнительную скидку на поездку!",
+    "SelectInsurance": "Страхование Selecy",
+    "Hungry": "Вы голодны ?",
+    "Main": "Главный",
+    "Dessert": "Десерт"
+  },
+  "cabins": {
+    "SelectCabinPerSegment": "Выберите домик на сегмент",
+    "OneType": "Для этого сегмента доступна только одна кабина"
+  },
+  "miles": {
+    "HaveMilesCard": "У вас есть карта миль для вашей поездки?",
+    "MilesCard": "Мили карта"
+  },
+  "passport": {
+    "nationality": "Национальность",
+    "issue": "Страна выдачи",
+    "passportNo": "номер паспорта",
+    "expireDate": "Дата окончания срока",
+    "dob": "Дата рождения"
+  },
+  "preseat": {
+    "SelectYourSeats": "Выберите ваши места",
+    "Reset": "Сброс",
+    "Seat": "сиденье",
+    "PickSeat": "Выбрать место"
+  },
+  "pricebox": {
+    "PriceAnalysis": "",
+    "TicketPrice": "Стоимость билетов",
+    "UpsalePrices": "Оптовые цены",
+    "Total": "Итоговая цена",
+    "ChangeLang": "Изменить язык",
+    "ChangeCur": "Изменить валюту"
+  }
 }

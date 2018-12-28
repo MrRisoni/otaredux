@@ -1,82 +1,117 @@
-import React, {Component} from 'react';
-import SeatColumn from './SeatColumn';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Translate } from 'react-redux-i18n';
+import SeatShower from './display/SeatShower';
+import SeatRow from './seats/SeatRow';
+import { fillRange } from '../../../helpers';
 
-import SeatShow from './SeatShow';
+import * as actsPreseat from '../../../actions/master/actionsPreseat';
 
 
+import './preseat.css';
 
 class Preseat extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
+    this.resetClick = this.resetClick.bind(this);
+  }
 
-        this.state = {
-            currentPaxID:0
-        };
-
-    }
-
-
-    render() {
-
-        let ColHeaders = [];
-
-        const alphabet = ['A', 'B', 'C'];
+  resetClick() {
+    this.props.resetSeatsHandler();
+  }
 
 
-        for (let sc = 0; sc < 3; sc++) {
+  render() {
+    const maxRows = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].airplaneRows;
+    const rowArray = fillRange(1, maxRows);
+    const firstClassLim = this.props.seatMapInfo.filter(segInfo => segInfo.segId === this.props.preSeatSelectedItems.selectedSegment)[0].firstClassLimit;
 
-            let colHeaderKey = 'keyColH' + alphabet[sc];
 
-            let colRowsContainers = 'keyRowsCon' + alphabet[sc];
+    // calculate chosen seats
 
-            ColHeaders.push(<div className="col-md-3 seatLetterGroup" key={colHeaderKey}>
-                <div className="card">
-                    <div className="card-header seatRowHeader">
-                        <p><b>{alphabet[sc]}</b></p>
-                    </div>
-                    <div className="card-body">
-                        {/*  // how many columns in the aircraft fuselage */}
-                        <div className="row">
-                            <SeatColumn key={colRowsContainers}
-                                        passengers={this.props.passengers}
-                                        seatMap={this.props.seatMap}
-                                        preseatSelectedPax={this.props.preseatSelectedPax}
-                                        selectSeatHandler={this.props.selectSeatHandler}
-                                        colNo={sc}
-                                        colLetter={alphabet[sc]}/>
-                        </div>
-                    </div>
+    // check if seat has been selected by this booking for the selected segment
+    const activePaxIds = this.props.passengers.filter(px => ((px.active == true) && (px.type !== 'INF'))).map(pixie => pixie.id);
+    const pickedSeats = this.props.selectedSeats.filter(sst => ((sst.segId === this.props.preSeatSelectedItems.selectedSegment) && (sst.seatNo !== '') && (activePaxIds.indexOf(sst.paxId) > -1))).map(filtSt => filtSt.seatNo);
+
+    return (
+
+
+      <section id="preSeat">
+        <div className="row">
+          <div className="col-8">
+            <div className="alert alert-primary" role="alert">
+              <div className="row">
+                <div className="col-5">
+
+
+                  <Translate value="preseat.SelectYourSeats" />
                 </div>
-            </div>)
-        }
 
-        return (
-
-
-            <div className="row contactDetails">
-                <div className="col-md-12">
-                    <div className="card">
-                        <div className="card-header  bg-info">Select your Seat</div>
-                        <div className="card-body">
-
-                            <SeatShow passengers={this.props.passengers}
-                                      changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
-                                      preseatSelectedPax={this.props.preseatSelectedPax}
-                            />
-
-                            <div className="row">
-                                {ColHeaders}
-                            </div>
-
-
-                        </div>
-                    </div>
+                <div className="col-4">
+                  <button onClick={this.resetClick} className="btn btn-sm btn-warning">
+                    {' '}
+                    <Translate value="preseat.Reset" />
+                  </button>
                 </div>
-            </div>);
-    }
+
+                <div className="col-3">
+                  <button
+                    className="btn btn-sm btn-dark btnToggle"
+                    data-toggle="collapse"
+                    data-target="#preseatComponents"
+                  >
+
+
+                    <Translate value="general.Toggle" />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="preseatComponents" className="show">
+          <SeatShower />
+
+          <section id="seatRowsElement">
+            {rowArray.map(ri => (
+              <SeatRow
+                key={ri}
+                firstClassLim={firstClassLim}
+                pickedSeats={pickedSeats}
+                rowId={ri}
+              />
+            ))}
+
+
+          </section>
+        </div>
+
+
+      </section>
+    );
+  }
 }
 
-export default Preseat;
+function mapStateToProps(state) {
+  return {
+    passengers: state.passengersMasterReducer,
+    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
+    seatMapInfo: state.seatMapInfoReducer,
+    selectedSeats: state.fetchSeatSelectionReducer,
+
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    resetSeatsHandler: actsPreseat.resetSeatsAction,
+  }, dispatch);
+}
 
 
+export default connect(mapStateToProps, matchDispatchToProps)(Preseat);

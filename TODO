@@ -1,16 +1,24 @@
+
 Currency Change
-Language Change
+
+-------------
+segments
+final testings and debugging
+-----------
+
+more map state to props passenger insurance
+Immutable ... fix
+
+-----------
+
+Language constants
+
+
+-----------
+fix console warning
+CSS split in files
+
 Nicer CSS
-Preseat CSS Redesign
-try for responsive
-Complete
-cabin class per segment
-Bags per segment/cabin class
-PreSeat per cabin class/segment
-Blue Ribbon per booking
-Flex Ticket per booking
-Meals per segment/cabin class
 
+Deploy! and finish
 
-HTMl5 markups
-ESlint fix

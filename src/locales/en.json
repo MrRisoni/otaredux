@@ -1,0 +1,65 @@
+{
+  "flight": {
+    "Departure": "",
+    "Return": "",
+    "YourTrip": "",
+    "Stops": "",
+    "Duration": "",
+    "WaitTime": "",
+    "Segment": ""
+  },
+  "general": {
+    "Toggle": "",
+    "Cost": "",
+    "Expand": ""
+  },
+  "passengers": {
+    "AddPassenger": "",
+    "RemovePassenger": "",
+    "Fill in the passenger data": "",
+    "Passenger": "",
+    "Adult": "",
+    "Child": "",
+    "Infant": "",
+    "SelectGender": "",
+    "Name": "",
+    "Surname": ""
+  },
+  "upsales": {
+    "PurchaseBags": "",
+    "upsales": "Pick extra upsales your trip!",
+    "SelectInsurance": "",
+    "Hungry": "Are you hungry ?",
+    "Main": "",
+    "Dessert": ""
+  },
+  "cabins": {
+    "SelectCabinPerSegment": "Выберите домик на сегмент",
+    "OneType": "Only one cabin available for this segment"
+  },
+  "miles": {
+    "HaveMilesCard": "Have you got miles card for your trip?",
+    "MilesCard": ""
+  },
+  "passport": {
+    "nationality": "",
+    "issue": "",
+    "passportNo": "",
+    "expireDate": "",
+    "dob": ""
+  },
+  "preseat": {
+    "SelectYourSeats": "",
+    "Reset": "",
+    "Seat": "",
+    "PickSeat": ""
+  },
+  "pricebox": {
+    "PriceAnalysis": "",
+    "TicketPrice": "",
+    "UpsalePrices": "",
+    "Total": "",
+    "ChangeLang": "",
+    "ChangeCur": ""
+  }
+}

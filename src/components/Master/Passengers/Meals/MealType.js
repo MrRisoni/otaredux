@@ -1,30 +1,33 @@
 import React from 'react';
-import MealSelection from "./MealSelection";
+import MealSelection from './MealSelection';
 
-const MealType = function (props) {
+const MealType = (props) => {
+  console.log('Meal Type ');
+  console.log(props);
+
+  return (
+    <div className="row">
+      <div className="col-7 offset-2">
+        <div className="card text-white bg-info mb-3">
+          <div className="card-header">{props.type}</div>
+          <div className="card-body">
 
 
-    return (
-        <div className="row">
-            <div className="col-md-7 offset-md-2">
-                <div className="card text-white bg-info mb-3">
-                    <div className="card-header">{props.type}</div>
-                    <div className="card-body">
-                        <p className="card-text">
+            <MealSelection
+              mealData={props.data}
+              type={props.type}
+              legId={props.legId}
+              paxData={props.paxData}
+              paxId={props.paxId}
+              segId={props.segId}
+            />
 
-                           <MealSelection mealData={props.data}
-                                          legId={props.legId}
-                                          paxData={props.paxData}
-                                          paxId={props.paxId}
-                                          currency={props.currency}
-                                          addMealHandler={props.addMealHandler}/>
 
-                        </p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default MealType;

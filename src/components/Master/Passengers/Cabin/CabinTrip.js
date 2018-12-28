@@ -1,65 +1,71 @@
-import React from 'react';
-import CabinSegment from "./CabinSegment";
-var Translate = require('react-redux-i18n').Translate;
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import CabinLeg from './CabinLeg';
 
 
-const CabinTrip = (props) => {
-    console.log(props);
+import {Translate} from 'react-redux-i18n';
 
-    const departTrip = props.segments.filter(sg => sg.leg ==0);
-    const returnTrip = props.segments.filter(sg => sg.leg ==1);
+
+class CabinTrip extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const departTrip = this.props.segments.filter(sg => sg.legId == 0);
+    const returnTrip = this.props.segments.filter(sg => sg.legId == 1);
 
     return (
-        <section>
+      <section>
 
-            <div className="alert alert-info" role="alert">
+        <div className="alert alert-info cabinTrip" role="alert">
 
-                <div className="row">
-
-
-                    <div className="col-md-6">
-                        <Translate value="SelectCabinPerSegment"/>
-                    </div>
-                    <div className="col-md-2">
-                        <i className="fas fa-address-card"/>
-                    </div>
+          <div className="row">
 
 
-                    <div className="col-md-2">
-                        <button className="btn btn-sm btn-dark btn-block btnToggle"
-                                data-toggle="collapse"
-                                data-target={`#cabinSelectionDivCollapse${props.pax.id}`}
-                                aria-expanded="false" aria-controls="collapseExample">
-                            Toggle
-                        </button>
-                    </div>
-
-                </div>
+            <div className="col-6">
+              <Translate value="cabins.SelectCabinPerSegment" />
+            </div>
+            <div className="col-2">
+              <i className="fas fa-couch" />
             </div>
 
 
-            <div className="alert alert-info" role="alert">
+            <div className="col-2">
+              <button
+                className="btn btn-sm btn-dark btn-block btnToggle"
+                data-toggle="collapse"
+                data-target={`#cabinSelectionDivCollapse${this.props.pax.id}`}
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
 
-                <div className="row">
-                    Departure
-                </div>
+                               <Translate value="general.Toggle"/>
+              </button>
             </div>
 
-            <CabinSegment segs={departTrip} pax={props.pax}/>
+          </div>
+        </div>
+
+        <div className="collapse" id={`cabinSelectionDivCollapse${this.props.pax.id}`}>
 
 
-
-            <div className="alert alert-info" role="alert">
-
-                <div className="row">
-                    Return
-                </div>
-            </div>
+          <CabinLeg key={0} segs={departTrip} leg={0} pax={this.props.pax} />
 
 
+          <CabinLeg key={1} segs={returnTrip} leg={1} pax={this.props.pax} />
 
-        </section>
-    )
-};
+        </div>
 
-export default CabinTrip;
+
+      </section>
+    );
+  }
+}
+function mapStateToProps(state) {
+  return {
+    segments: state.getLegsReducer,
+
+  };
+}
+export default connect(mapStateToProps)(CabinTrip);

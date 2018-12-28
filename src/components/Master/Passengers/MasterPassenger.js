@@ -2,33 +2,31 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Translate } from 'react-redux-i18n';
 
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
-import MasterPassport from "./MasterPassport";
+import MasterPassport from './MasterPassport';
 import Insurance from './Insurance/Insurance';
 import BagComponent from './Bags/BagComponent';
 import MealsComponent from './Meals/MealsComponent';
 import MilesCards from './Miles/MilesCards';
-import {CHANGE_PASSENGER_AIR_CABIN} from "../../../actions/master/actionsMaster";
-import CabinTrip from "./Cabin/CabinTrip";
-import MasterPassengerList from "./MasterPassengerList";
+import CabinTrip from './Cabin/CabinTrip';
 
 
 class MasterPassenger extends Component {
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
 
         this.state = {
-            ageGroup:'ADT',
-            cabinClass:'Y',
+            ageGroup: 'ADT',
+            cabinClass: 'Y',
             surname: '',
             name: '',
             gender: '',
             birthDate: moment(),
-            minBirthDate:moment().subtract(150, 'years'),
+            minBirthDate: moment().subtract(150, 'years'),
             minInfantBirthDate: moment().subtract(2, 'years'),
             minChildBirthDate: moment().subtract(15, 'years'),
             minAdultBirthDate: moment().subtract(150, 'years'),
@@ -42,7 +40,6 @@ class MasterPassenger extends Component {
         this.removeMe = this.removeMe.bind(this);
         this.handleGenderChange = this.handleGenderChange.bind(this);
         this.changeBirthDate = this.changeBirthDate.bind(this);
-        this.handleCabinClassChange = this.handleCabinClassChange.bind(this);
     }
 
 
@@ -53,43 +50,25 @@ class MasterPassenger extends Component {
     }
 
 
-    handleGenderChange(ev)
-    {
+    handleGenderChange(ev) {
         const fieldInput = ev.target.value;
 
         this.setState({
             gender: fieldInput
         });
 
-        this.props.editNameHandler(this.props.passenger.id,this.state.surname,this.state.name,fieldInput);
+        this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
 
 
     }
 
 
-    handleCabinClassChange(ev)
-    {
-
-
-        this.props.changePaxCabinClassHandler(this.props.passenger.id, ev.target.value,this.props.passenger.cabinClass ,this.props.passenger.type);
-
-
-        this.setState({
-            cabinClass:ev.target.value
-        });
-
-
-    }
-
-    handleAgeGroupChange(ev)
-    {
-        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type,this.props.passenger.cabinClass);
+    handleAgeGroupChange(ev) {
+        this.props.editPaxHandler(this.props.passenger.id, ev.target.value, this.props.passenger.type);
 
         let minDate = '';
-        switch (ev.target.value)
-        {
+        switch (ev.target.value) {
             case 'ADT':
-            case 'STD':
                 minDate = this.state.minAdultBirthDate;
                 break;
             case 'CNN':
@@ -103,16 +82,14 @@ class MasterPassenger extends Component {
 
         this.setState({
             minBirthDate: minDate,
-            ageGroup:ev.target.value
+            ageGroup: ev.target.value
         });
 
     }
 
-    removeMe()
-    {
-        this.props.removePaxHandler(this.props.passenger.id,this.props.passenger.type);
+    removeMe() {
+        this.props.removePaxHandler(this.props.passenger.id, this.props.passenger.type);
     }
-
 
 
     editSurname(ev) {
@@ -126,7 +103,7 @@ class MasterPassenger extends Component {
         });
 
 
-        this.props.editNameHandler(this.props.passenger.id,fieldInput,this.state.name, this.state.gender);
+        this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
 
     }
 
@@ -141,116 +118,124 @@ class MasterPassenger extends Component {
             name: fieldInput
         });
 
-        this.props.editNameHandler(this.props.passenger.id,this.state.surname,fieldInput,this.state.gender);
+        this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
 
     }
 
     render() {
         return (
-            <div className="row passengerCompo show passengerListCollapse">
-                <div className="col-sm-12">
+            <section>
+                <div className="row passengerCompo show passengerListCollapse">
+                    <div className="col-12">
 
 
-                    <div className="card bg-light">
-                        <div className="card-header">
+                        <div className="card bg-light">
+                            <div className="card-header">
 
-                            <div className="row">
+                                <div className="row">
 
-                                <div className="col-sm-2">
-                                    Passenger # {this.props.passenger.humanId}
+                                    <div className="col-2">
+                                        <Translate value="passengers.Passenger"/>
+                                        # {this.props.passenger.humanId}
+                                    </div>
+
+                                    <div className="col-7">
+                                        <select defaultValue="ADT" className="form-control" onChange={this.handleAgeGroupChange}>
+                                            <option key="" value="">Select Type</option>
+                                            <option key="ADT" value="ADT"> Adult
+                                            </option>
+                                            <option key="CNN" value="CNN">Child</option>
+                                            <option key="INF" value="INF">Infant</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div className="col-2 offset-1">
+                                        <button className="btn btn btn-dark btn-block btnToggle"
+                                                data-toggle="collapse"
+                                                data-target={`#passengerCollapse${this.props.passenger.id}`}
+                                                aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                           <Translate value="general.Toggle"/>
+                                        </button>
+                                    </div>
                                 </div>
-
-                                <div className="col-sm-4">
-                                    <select className="form-control" onChange={this.handleAgeGroupChange}>
-                                        <option key="" value="">Select Type</option>
-                                        <option key="ADT" value="ADT" selected={'ADT' == this.props.passenger.type}>Adult</option>
-                                        <option key="CNN" value="CNN">Child</option>
-                                        <option key="INF" value="INF">Infant</option>
-                                    </select>
-                                </div>
-
-
-                                <div className="col-sm-2 offset-sm-1">
-                                    <button className="btn btn-sm btn-dark btn-block btnToggle"
-                                            data-toggle="collapse"
-                                            data-target={`#passengerCollapse${this.props.passenger.id}`} aria-expanded="false"
-                                            aria-controls="collapseExample">
-                                        Toggle
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
-
-
-                            <div className="row">
-
-
-                                <div className="col-sm-3">
-                                    <select className="form-control" onChange={this.handleGenderChange}>
-                                        <option key="" value="">Select Gender</option>
-                                        <option key="M" value="M">Male</option>
-                                        <option key="F" value="F">Female</option>
-                                    </select>
-                                </div>
-
-                                <div className="col-sm-6">
-                                    <DatePicker className="form-control"
-                                                dateFormat="d MMM YYYY"
-                                                minDate={this.state.minBirthDate}
-                                                selected={this.state.birthDate}
-                                                onChange={this.changeBirthDate}
-                                    />
-                                </div>
-
 
                             </div>
 
+                            <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
 
-                            <div className="row">
 
-                                <br/>
+                                <div className="row">
 
-                                <div className="col-sm-6">
-                                    <input type="text" placeholder="Surname"
-                                           id={`#paxSurname${this.props.passenger.id}`}
-                                           value={this.state.surname}
-                                           onChange={this.editSurname} className="form-control"/>
-                                    <Error show={this.state.showSurnameErr}
-                                           class={"textInputErr"}
-                                           msg="Only letters are allowed"/>
+
+                                    <div className="col-3">
+                                        <select className="form-control" onChange={this.handleGenderChange}>
+                                            <option key="" value="">Select Gender</option>
+                                            <option key="M" value="M">Male</option>
+                                            <option key="F" value="F">Female</option>
+                                        </select>
+                                    </div>
+
 
                                 </div>
 
 
-                                <div className="col-sm-5">
-                                    <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
-                                           value={this.state.name}
-                                           onChange={this.editName} className="form-control"/>
-                                    <Error show={this.state.showNameErr}
-                                           class={"textInputErr"}
-                                           msg="Only letters are allowed"/>
+                                <div className="row">
+
+                                    <br/>
+
+                                    <div className="col-5">
+                                        <input type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
+                                               value={this.state.name}
+                                               onChange={this.editName} className="form-control"/>
+                                        <Error show={this.state.showNameErr}
+                                               class={"textInputErr"}
+                                               msg="Only letters are allowed"/>
+
+                                    </div>
+
+                                    <div className="col-6">
+                                        <input type="text" placeholder="Surname"
+                                               id={`#paxSurname${this.props.passenger.id}`}
+                                               value={this.state.surname}
+                                               onChange={this.editSurname} className="form-control"/>
+                                        <Error show={this.state.showSurnameErr}
+                                               class={"textInputErr"}
+                                               msg="Only letters are allowed"/>
+
+                                    </div>
+
+
+
+
 
                                 </div>
 
 
-                            </div>
+                                <div className={"row"}>
+                                    <div className="col-6">
+                                        <DatePicker className="form-control"
+                                                    dateFormat="d MMM YYYY"
+                                                    minDate={this.state.minBirthDate}
+                                                    selected={this.state.birthDate}
+                                                    onChange={this.changeBirthDate}
+                                        />
+                                    </div>
 
+                                </div>
 
 
                                 <MasterPassport countryList={this.props.countryList}
                                 />
 
-                           }
 
-                            <CabinTrip tripData={this.props.tripData}  segments={props.segments} pax={this.props.passenger}/>
+                                <CabinTrip tripData={this.props.tripData}
+                                           pax={this.props.passenger}/>
 
-
-                            {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
-                                <MilesCards  carrierList={this.props.carrierList}/>
-                            }
+                                {(this.state.ageGroup !== 'INF') &&
+                                <MilesCards carrierList={this.props.carrierList}/>
+                                }
 
 
                                 <div>
@@ -262,51 +247,43 @@ class MasterPassenger extends Component {
                                         insurances={this.props.insurances}
                                         selectInsuranceHandler={this.props.selectInsuranceHandler}/>
 
-                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+                                    {(this.state.ageGroup !== 'INF') &&
 
 
-                                        <BagComponent paxId={this.props.passenger.id}
-                                                  currency={this.props.currency}
-                                                  paxData={this.props.passenger}
-                                                  purchasedBags={this.props.purchasedBags}
-                                                  bagsAir={this.props.bagsAir}
-                                                  blueRibbon={this.props.blueRibbon}
-                                                  addBagHandler={this.props.addBagHandler}
-                                                  removeBagHandler={this.props.removeBagHandler}/>
+                                    <BagComponent paxId={this.props.passenger.id}
+                                                  paxData={this.props.passenger}/>
                                     }
 
-                                    {(this.state.ageGroup === 'ADT' || this.state.ageGroup === 'CNN') &&
+                                   {(this.state.ageGroup !== 'INF') &&
 
-                                        <MealsComponent paxId={this.props.passenger.id}
-                                                    currency={this.props.currency}
-                                                    boughtMeals={this.props.boughtMeals}
+                                    <MealsComponent key={this.props.passenger.id}
                                                     paxData={this.props.passenger}
-                                                    mealOptions={this.props.mealOptions}
-                                                    addMealHandler={this.props.addMealHandler}
-                                                    segments={this.props.segments}/>
+                                                    paxId={this.props.passenger.id}/>
 
                                     }
 
 
                                 </div>
 
-                        </div>
+                            </div>
 
 
-                        <div className="card-footer">
-                            <div className="row">
-                                <div className="col-md-4 offset-md-4">
-                                    <button className="btn btn-primary btn-sm btn-danger" onClick={this.removeMe}>
-                                        Remove this Passenger
-                                    </button>
+                            <div className="card-footer">
+                                <div className="row">
+                                    <div className="col-4 offset-4">
+                                        <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
+                                            <Translate value="passengers.RemovePassenger"/>
+
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
-
                 </div>
-            </div>);
+            </section>);
     }
 }
 
