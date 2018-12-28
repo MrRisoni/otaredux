@@ -141,7 +141,7 @@ class MasterPassenger extends Component {
 
                                     <div className="col-7">
                                         <select className="form-control" onChange={this.handleAgeGroupChange}>
-                                            <option key="" value="">Select Type</option>
+                                            <option key="ADT" value="">Select Type</option>
                                             <option key="ADT" value="ADT"
                                                     selected={'ADT' == this.props.passenger.type}>Adult
                                             </option>
@@ -232,7 +232,6 @@ class MasterPassenger extends Component {
 
 
                                 <CabinTrip tripData={this.props.tripData}
-                                           currency={this.props.currency}
                                            pax={this.props.passenger}/>
 
                                 {(this.state.ageGroup !== 'INF') &&

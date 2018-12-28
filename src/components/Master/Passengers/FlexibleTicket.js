@@ -21,6 +21,7 @@ class FlexibleTicket extends Component {
     const price = (this.props.passengers.filter(px => px.active === true).length * this.props.flexibleTicket.pricePerPax).toFixed(2);
 
     return (
+        <section>
 
       <div className="row contactDetails">
         <div className="col-8">
@@ -83,7 +84,7 @@ and you may
         </div>
 
       </div>
-
+        </section>
     );
   }
 }

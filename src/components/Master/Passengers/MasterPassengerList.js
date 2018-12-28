@@ -3,7 +3,9 @@ import MasterPassenger from './MasterPassenger';
 
 
 const MasterPassengerList = props => (
-  <div className="busPassengerList">
+    <section>
+
+    <div className="busPassengerList">
 
     <div className="alert alert-primary" role="alert">
       <div className="row">
@@ -55,6 +57,7 @@ Add   Passenger
 
 
   </div>
+    </section>
 );
 
 export default MasterPassengerList;

@@ -33,6 +33,8 @@ class MasterPassport extends Component {
 
 
         return (
+            <section>
+
             <div className="passportDiv">
 
                 <br/>
@@ -79,6 +81,7 @@ class MasterPassport extends Component {
 
 
             </div>
+            </section>
 
         );
     }

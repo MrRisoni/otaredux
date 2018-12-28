@@ -25,7 +25,9 @@ class BlueRibbon extends Component {
 
 
     return (
-      <div className="row contactDetails">
+        <section>
+
+        <div className="row contactDetails">
         <div className="col-8">
 
           <div className="card">
@@ -89,6 +91,7 @@ and you
         </div>
 
       </div>
+        </section>
 
     );
   }

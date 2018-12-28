@@ -6,8 +6,9 @@ class MilesCards extends Component {
     render() {
 
         return (
-            <div>
-                <br/>
+            <section>
+
+            <br/>
                 <div className="alert alert-info" role="alert">
 
                     <div className="row">
@@ -44,7 +45,7 @@ class MilesCards extends Component {
                 </div>
 
 
-            </div>
+            </section>
 
         );
     }

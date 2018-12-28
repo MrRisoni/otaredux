@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CabinSegment from './CabinSegment';
 import CabinLeg from './CabinLeg';
 
 

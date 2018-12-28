@@ -42,7 +42,7 @@ class MealSegment extends Component {
     }
 
     return (
-      <div>
+      <section>
         <div className="row">
           <div className="col-12">
             <div className="alert alert-primary" role="alert">
@@ -55,7 +55,7 @@ class MealSegment extends Component {
         {mainCourses}
         {dessertsDiv}
 
-      </div>
+      </section>
     );
   }
 }

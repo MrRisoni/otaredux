@@ -28,7 +28,7 @@ class BagComponent extends Component {
         let allowedBags = this.props.bagsAir.filter(bg => bg.classes.indexOf(bestCabin) > -1).map(itm => itm.key);
 
         return (
-            <div>
+            <section>
 
                 <div className="row">
                     <div className="col-12">
@@ -81,7 +81,7 @@ class BagComponent extends Component {
 
                 </div>
 
-            </div>)
+            </section>)
     }
 }
 

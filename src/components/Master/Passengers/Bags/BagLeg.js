@@ -13,36 +13,40 @@ class BagLeg extends Component {
 
 
     return (
-      <div className="row">
-        <div className="col-12">
+      <section>
+        <div className="row">
+          <div className="col-12">
 
-          <div className="card">
-            <div className="card-header">
-              {legTitle}
-              {' '}
+            <div className="card">
+              <div className="card-header">
+                {legTitle}
+                {' '}
+
 
                             (Max
-              {this.props.limitBags}
+                {this.props.limitBags}
+
 
                             )
-            </div>
-            <div className="card-body">
-              {this.props.bagsAir.filter(bg => this.props.allowedBags.indexOf(bg.key) > -1).map(
-                bgItem => (
-                  <BagSelection
-                    bagData={bgItem}
-                    key={bgItem.key}
-                    limitBags={this.props.limitBags}
-                    legId={this.props.leg}
-                    paxId={this.props.paxId}
-                  />
-                ),
-              )}
+              </div>
+              <div className="card-body">
+                {this.props.bagsAir.filter(bg => this.props.allowedBags.indexOf(bg.key) > -1).map(
+                  bgItem => (
+                    <BagSelection
+                      bagData={bgItem}
+                      key={bgItem.key}
+                      limitBags={this.props.limitBags}
+                      legId={this.props.leg}
+                      paxId={this.props.paxId}
+                    />
+                  ),
+                )}
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
     );
   }

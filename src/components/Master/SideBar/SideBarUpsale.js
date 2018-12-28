@@ -2,7 +2,7 @@ import React from 'react';
 
 const SideBarUpsale = (props) => {
     return (
-        <div>
+        <section>
             <hr/>
             <div className="row">
                 <div className="col-5">
@@ -12,7 +12,7 @@ const SideBarUpsale = (props) => {
                     <h6>{props.price} {props.currency.code}</h6>
                 </div>
             </div>
-        </div>
+        </section>
     )
 };
 
