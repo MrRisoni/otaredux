@@ -10,7 +10,7 @@ import * as actsMaster from '../../../actions/master/actionsMaster';
 
 
 
-const Translate = require('react-redux-i18n').Translate;
+import {Translate} from 'react-redux-i18n';
 
 class MasterSideBar extends Component {
   constructor(props) {

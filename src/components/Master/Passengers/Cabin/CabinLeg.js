@@ -1,6 +1,5 @@
 import React from 'react';
 import CabinSegment from "./CabinSegment";
-//var Translate = require('react-redux-i18n').Translate;
 
 import {Translate} from 'react-redux-i18n';
 
@@ -20,9 +19,7 @@ const CabinLeg = (props) => {
             <div className="card-body">
                 {props.segs.map( (sg) => {
                     return (
-                        <CabinSegment currency={props.currency}
-                                      changePaxCabinClassHandler={props.changePaxCabinClassHandler}
-                                      seg={sg} leg={0} pax={props.pax}/>
+                        <CabinSegment seg={sg} leg={0} pax={props.pax}/>
                     )
                 })}
 

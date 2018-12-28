@@ -233,8 +233,7 @@ class MasterPassenger extends Component {
 
                                 <CabinTrip tripData={this.props.tripData}
                                            currency={this.props.currency}
-                                           changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
-                                           segments={this.props.segments} pax={this.props.passenger}/>
+                                           pax={this.props.passenger}/>
 
                                 {(this.state.ageGroup !== 'INF') &&
                                 <MilesCards carrierList={this.props.carrierList}/>

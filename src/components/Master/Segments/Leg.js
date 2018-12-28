@@ -1,7 +1,7 @@
 import React from 'react';
 import Airport from './Airport'
 import Segment from './Segment'
-var Translate = require('react-redux-i18n').Translate;
+import {Translate} from 'react-redux-i18n';
 
 
 const Leg = (props) => {

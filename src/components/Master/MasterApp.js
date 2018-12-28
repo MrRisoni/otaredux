@@ -55,20 +55,14 @@ class MasterApp extends Component {
               editPaxHandler={this.props.editPaxHandler}
               changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
               editNameHandler={this.props.editPaxNameHandler}
-              addMealHandler={this.props.addMealHandler}
-              removeMealHandler={this.props.removeMealHandler}
               selectInsuranceHandler={this.props.selectInsuranceHandler}
-              changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
               selectSeatHandler={this.props.selectSeatHandler}
               changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
               passengers={this.props.passengers}
               currency={this.props.currency}
               insurances={this.props.insuranceAir}
               carrierList={this.props.carrierList}
-              cabinSelection={this.props.cabinSelection}
               segments={this.props.segments}
-              hasBlueRibbon={this.props.hasBlueRibbon}
-              blueRibbonPrices={this.props.blueRibbonPrices}
               countryList={this.props.asyncData.countries}
             />
 

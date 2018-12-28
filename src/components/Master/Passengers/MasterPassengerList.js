@@ -35,12 +35,10 @@ const MasterPassengerList = props => (
         passenger={pax}
         insurances={props.insurances}
         carrierList={props.carrierList}
-        cabinSelection={props.cabinSelection}
         segments={props.segments}
         currency={props.currency}
         countryList={props.countryList}
         editPaxHandler={props.editPaxHandler}
-        changePaxCabinClassHandler={props.changePaxCabinClassHandler}
         editNameHandler={props.editNameHandler}
         removePaxHandler={props.removePaxHandler}
         selectInsuranceHandler={props.selectInsuranceHandler}
