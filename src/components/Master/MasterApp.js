@@ -85,25 +85,7 @@ class MasterApp extends Component {
           </div>
 
           <div className="col-4">
-            <MasterSideBar
-              currency={this.props.currency}
-              currencyList={this.props.currencyList}
-              ticketPrices={this.props.ticketPrices}
-              changeLanguageHandler={this.props.changeLanguageHandler}
-              bagAllowance={this.props.bagsAir}
-              passengers={this.props.passengers}
-              purchasedBags={this.props.purchasedBags}
-              langs={this.props.langs}
-              boughtInsurances={this.props.boughtInsurances}
-              insuranceOptions={this.props.insuranceOptions}
-              mealOptions={this.props.mealOptions}
-              boughtMeals={this.props.boughtMeals}
-              pricing={this.props.pricing}
-              hasFlexibleTicket={this.props.hasFlexibleTicket}
-              flexibleTicket={this.props.flexibleTicket}
-              hasBlueRibbon={this.props.hasBlueRibbon}
-              blueRibbonPrices={this.props.blueRibbonPrices}
-            />
+            <MasterSideBar/>
           </div>
         </div>
 
