@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actsUpsales from '../../../actions/master/actionsUpsales';
+import * as actsPaxes from '../../../actions/master/actionsPassengers';
+import * as actsMaster from '../../../actions/master/actionsMaster';
+import * as actsBags from '../../../actions/master/actionsBags';
+import * as actsInsurance from '../../../actions/master/actionsInsurance';
+import * as actsMeals from '../../../actions/master/actionsMeals';
+import * as actsPreseat from '../../../actions/master/actionsPreseat';
 
 class BlueRibbon extends Component {
   constructor(props) {
@@ -25,6 +35,7 @@ class BlueRibbon extends Component {
 
                 <div className="col-6">
 
+
                                     Buy Blue Ribbon Bag Insurance!
                 </div>
 
@@ -33,12 +44,13 @@ class BlueRibbon extends Component {
                     className="btn btn-sm btn-dark btn-block btnToggle"
                     data-toggle="collapse"
                     data-target="#blueRibbonCollapse"
-aria-expanded="false"
+                    aria-expanded="false"
                     aria-controls="collapseExample"
                   >
 
+
                                         Toggle
-</button>
+                  </button>
                 </div>
 
               </div>
@@ -50,11 +62,13 @@ aria-expanded="false"
               <div className="row">
                 <div className="col-8">
 
+
                   Pay
                   {price}
                   {' '}
                   {this.props.currency.code}
                   {' '}
+
 and you
                                     will receive 1000 EUR reimbursement for each lost baggage
                 </div>
@@ -80,4 +94,20 @@ and you
   }
 }
 
-export default BlueRibbon;
+
+function mapStateToProps(state) {
+  return {
+    passengers: state.passengersMasterReducer,
+    currency: state.currentCurrencyReducer,
+    blueRibbonPrices: state.getBlueRibbonReducer,
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    changeBlueRibbonHandler: actsUpsales.changeBlueRibbonAction,
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(BlueRibbon);

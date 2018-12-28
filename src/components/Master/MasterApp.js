@@ -125,13 +125,7 @@ class MasterApp extends Component {
 
 
 
-        <BlueRibbon
-          passengers={this.props.passengers}
-          changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
-          currency={this.props.currency}
-          hasBlueRibbon={this.props.hasBlueRibbon}
-          blueRibbonPrices={this.props.blueRibbonPrices}
-        />
+        <BlueRibbon/>
 
 
 
@@ -202,7 +196,6 @@ function matchDispatchToProps(dispatch) {
     addMealHandler: actsMeals.addMealAction,
     removeMealHandler: actsMeals.removeMealAction,
     changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
-    changeBlueRibbonHandler: actsUpsales.changeBlueRibbonAction,
     selectSeatHandler: null,
     changePreSeatSelectPassengerHandler: actsPreseat.changePreSeatSelectPassengerAction,
     changeLanguageHandler: actsMaster.changeLanguageAction,

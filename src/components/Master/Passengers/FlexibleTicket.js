@@ -88,47 +88,20 @@ and you may
   }
 }
 
+
 function mapStateToProps(state) {
-    return {
-        passengers: state.passengersMasterReducer,
-        carrierList: state.uniqueCarriersReducer,
-        currency: state.currentCurrencyReducer,
-        currencyList: state.getCurrenciesReducer,
-        pricing: {
-            total: state.pricingMasterReducer,
-            upsales: state.pricingUpsalesMasterReducer,
-        },
-        contact: state.contactMasterReducer,
-        insuranceAir: state.airInsuranceReducer,
-        bagsAir: state.getBagsReducer,
-        purchasedBags: state.purchasedBagsReducer,
-        boughtInsurances: state.purchasedInsuranceReducer,
-        insuranceOptions: state.airInsuranceReducer,
-        mealOptions: state.getMealsReducer,
-        boughtMeals: state.purchasedMealsReducer,
-        segments: state.getLegsReducer,
-        tripData: state.airTripReducer,
-        hasFlexibleTicket: state.hasFlexibleTicketReducer,
-        flexibleTicket: state.flexibleTicketReducer,
-        hasBlueRibbon: state.hasBlueRibbonReducer,
-        blueRibbonPrices: state.getBlueRibbonReducer,
-        ticketPrices: state.ticketPricesReducer,
-        cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-        asyncData: state.countryListReducer,
-        preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
-        seatMapInfo: state.seatMapInfoReducer,
-        langs: state.getLanguagesReducer,
-        getBagsLimit: state.getLimitBagReducer,
-        selectedSeats: state.fetchSeatSelectionReducer,
-    };
+  return {
+    passengers: state.passengersMasterReducer,
+    currency: state.currentCurrencyReducer,
+    flexibleTicket: state.flexibleTicketReducer,
+  };
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
+  return bindActionCreators({
+    changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
 
-        changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
-
-    }, dispatch);
+  }, dispatch);
 }
 
 
