@@ -39,7 +39,6 @@ const MasterPassengerList = props => (
         getBagsLimit={props.getBagsLimit}
         carrierList={props.carrierList}
         purchasedBags={props.purchasedBags}
-        blueRibbon={props.blueRibbon}
         cabinSelection={props.cabinSelection}
         boughtMeals={props.boughtMeals}
         segments={props.segments}

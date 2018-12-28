@@ -104,7 +104,18 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
 
         {
           paxId: nextPaxId,
-          seatList: [{ segId: 0, seatNo: '' }, { segId: 1, seatNo: '' }, { segId: 2, seatNo: '' }],
+          segId: 0,
+          seatNo: '',
+        },
+        {
+          paxId: nextPaxId,
+          segId: 1,
+          seatNo: '',
+        },
+        {
+          paxId: nextPaxId,
+          segId: 2,
+          seatNo: '',
         },
       ];
     case MasterCons.CHANGE_PASSENGER_MASTER:

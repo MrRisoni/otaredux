@@ -62,7 +62,6 @@ class MasterApp extends Component {
               addMealHandler={this.props.addMealHandler}
               removeMealHandler={this.props.removeMealHandler}
               selectInsuranceHandler={this.props.selectInsuranceHandler}
-              changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
               changeBlueRibbonHandler={this.props.changeBlueRibbonHandler}
               selectSeatHandler={this.props.selectSeatHandler}
               changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
@@ -77,8 +76,6 @@ class MasterApp extends Component {
               mealOptions={this.props.mealOptions}
               boughtMeals={this.props.boughtMeals}
               segments={this.props.segments}
-              hasFlexibleTicket={this.props.hasFlexibleTicket}
-              flexibleTicket={this.props.flexibleTicket}
               hasBlueRibbon={this.props.hasBlueRibbon}
               blueRibbonPrices={this.props.blueRibbonPrices}
               countryList={this.props.asyncData.countries}
@@ -111,7 +108,7 @@ class MasterApp extends Component {
         </div>
 
 
-        <Preseat
+          {/* <Preseat
           preSeatSelectedItems={this.props.preSeatSelectedItems}
           passengers={this.props.passengers}
           segments={this.props.segments}
@@ -121,16 +118,11 @@ class MasterApp extends Component {
           pickSeatHandler={this.props.pickSeatHandler}
           resetSeatsHandler={this.props.resetSeatsHandler}
           selectedSeats={this.props.selectedSeats}
-        />
+        /> */}
 
 
-        <FlexibleTicket
-          passengers={this.props.passengers}
-          changeFlexibleTicketHandler={this.props.changeFlexibleTicketHandler}
-          currency={this.props.currency}
-          hasFlexibleTicket={this.props.hasFlexibleTicket}
-          flexibleTicket={this.props.flexibleTicket}
-        />
+        <FlexibleTicket/>
+
 
 
         <BlueRibbon

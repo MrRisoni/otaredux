@@ -1,6 +1,7 @@
 
 seats test
 
+map state to props to other compos
 ------------------
 sidebar to normal component
 Currency Change
@@ -8,7 +9,7 @@ Currency Change
 segments
 final testings and debugging
 -----------------
-
+prop types
 
 Language constants
 -----------

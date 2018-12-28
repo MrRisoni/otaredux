@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actsUpsales from '../../../actions/master/actionsUpsales';
+
+
 
 class FlexibleTicket extends Component {
   constructor(props) {
@@ -82,4 +88,49 @@ and you may
   }
 }
 
-export default FlexibleTicket;
+function mapStateToProps(state) {
+    return {
+        passengers: state.passengersMasterReducer,
+        carrierList: state.uniqueCarriersReducer,
+        currency: state.currentCurrencyReducer,
+        currencyList: state.getCurrenciesReducer,
+        pricing: {
+            total: state.pricingMasterReducer,
+            upsales: state.pricingUpsalesMasterReducer,
+        },
+        contact: state.contactMasterReducer,
+        insuranceAir: state.airInsuranceReducer,
+        bagsAir: state.getBagsReducer,
+        purchasedBags: state.purchasedBagsReducer,
+        boughtInsurances: state.purchasedInsuranceReducer,
+        insuranceOptions: state.airInsuranceReducer,
+        mealOptions: state.getMealsReducer,
+        boughtMeals: state.purchasedMealsReducer,
+        segments: state.getLegsReducer,
+        tripData: state.airTripReducer,
+        hasFlexibleTicket: state.hasFlexibleTicketReducer,
+        flexibleTicket: state.flexibleTicketReducer,
+        hasBlueRibbon: state.hasBlueRibbonReducer,
+        blueRibbonPrices: state.getBlueRibbonReducer,
+        ticketPrices: state.ticketPricesReducer,
+        cabinSelection: state.fetchCabinPaxPerSegmentReducer,
+        asyncData: state.countryListReducer,
+        preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
+        seatMapInfo: state.seatMapInfoReducer,
+        langs: state.getLanguagesReducer,
+        getBagsLimit: state.getLimitBagReducer,
+        selectedSeats: state.fetchSeatSelectionReducer,
+    };
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+
+        changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
+
+    }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(FlexibleTicket);
+
