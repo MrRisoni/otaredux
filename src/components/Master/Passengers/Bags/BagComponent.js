@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BagLeg from './BagLeg';
 import { connect } from 'react-redux';
+import { Translate } from 'react-redux-i18n';
 
 
 class BagComponent extends Component {
@@ -51,7 +52,7 @@ class BagComponent extends Component {
                                         aria-controls="collapseExample"
                                     >
 
-                                        Toggle
+                                       <Translate value="general.Toggle"/>
                                     </button>
                                 </div>
 

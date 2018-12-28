@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Translate } from 'react-redux-i18n';
+
 
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
 
@@ -18,7 +20,9 @@ class FlexibleTicket extends Component {
   }
 
   render() {
-    const price = (this.props.passengers.filter(px => px.active === true).length * this.props.flexibleTicket.pricePerPax).toFixed(2);
+    let  price = (this.props.passengers.filter(px => px.active === true).length * this.props.flexibleTicket.pricePerPax).toFixed(2);
+      price *= this.props.currency.rate;
+      price = price.toFixed(2);
 
     return (
         <section>
@@ -45,7 +49,7 @@ aria-expanded="false"
                     aria-controls="collapseExample"
                   >
 
-                                        Toggle
+                                       <Translate value="general.Toggle"/>
 </button>
                 </div>
 

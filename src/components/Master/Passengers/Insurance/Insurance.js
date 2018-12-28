@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InsuranceOption from './InsuranceOption';
+import { Translate } from 'react-redux-i18n';
 
 
 class Insurance extends Component {
@@ -50,7 +51,7 @@ class Insurance extends Component {
                   aria-controls="collapseExample"
                 >
 
-                                Toggle
+                               <Translate value="general.Toggle"/>
                 </button>
               </div>
 

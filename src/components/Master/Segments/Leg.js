@@ -7,12 +7,12 @@ import {Translate} from 'react-redux-i18n';
 const Leg = (props) => {
 
     const waitDiv = props.data.waiting.total >0 ? (  <div className="col-4">
-        Wait time: {props.data.waiting.h}h {props.data.waiting.m}m
+        <Translate value="flight.WaitTime"/> : {props.data.waiting.h}h {props.data.waiting.m}m
     </div>) : (<div></div>);
 
 
 
-    const legTitle = (props.legId ==0) ? <p><Translate value="Departure"/></p> : <p><Translate value="Return"/></p>;
+    const legTitle = (props.legId ==0) ? <p><Translate value="flight.Departure"/></p> : <p><Translate value="flight.Return"/></p>;
 
         return (
         <div className="Leg legsCollapse show">
@@ -29,7 +29,7 @@ const Leg = (props) => {
                                     data-toggle="collapse"
                                     data-target={`#legCollapse${props.data.legId}`} aria-expanded="false"
                                     aria-controls="collapseExample">
-                                Toggle
+                               <Translate value="general.Toggle"/>
                             </button>
                         </div>
                     </div>
@@ -66,7 +66,8 @@ const Leg = (props) => {
                         <div className="col-2">
                             <button className="btn btn-sm btn-primary"
                                     data-toggle="collapse" data-target={`#segmentsCollapse${props.data.legId}`} aria-expanded="false" aria-controls="collapseExample">
-                                Expand
+                                <Translate value="general.Expand" />
+
                             </button>
                         </div>
 
@@ -79,11 +80,12 @@ const Leg = (props) => {
                     <div className="row">
 
                         <div className="col-4">
-                            Stops: {props.data.stops}
+                            <Translate value="flight.Stops" />
+                            : {props.data.stops}
                         </div>
 
                         <div className="col-4">
-                            Duration: {props.data.duration.h}h {props.data.duration.m}m
+                            <Translate value="flight.Duration" /> : {props.data.duration.h}h {props.data.duration.m}m
                         </div>
 
 

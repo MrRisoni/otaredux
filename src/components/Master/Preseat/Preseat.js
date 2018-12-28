@@ -60,7 +60,7 @@ class Preseat extends Component {
                   >
 
 
-                                    Toggle
+                                   <Translate value="general.Toggle"/>
                   </button>
                 </div>
 

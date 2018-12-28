@@ -3,14 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SideBarUpsale from './SideBarUpsale';
 import SideBarPersonUpsale from './SideBarPersonUpsale';
-
-
-
 import * as actsMaster from '../../../actions/master/actionsMaster';
-
-
-
 import {Translate} from 'react-redux-i18n';
+
+
 
 class MasterSideBar extends Component {
   constructor(props) {
@@ -223,7 +219,7 @@ x
                   aria-controls="priceBoxCollapse"
                 >
 
-                                    Expand
+                    <Translate value="general.Expand" />
                 </button>
               </div>
 
@@ -236,7 +232,8 @@ x
             <div className="row">
               <div className="col-12">
                 <h4>
-Ticket Price
+                    <Translate value="pricebox.TicketPrice" />
+
                   {this.props.ticketPrices}
                   {' '}
                   {this.props.currency.code}
@@ -254,7 +251,7 @@ Ticket Price
             <div className="row">
               <div className="col-12">
                 <h4>
-Upsales Price
+                    <Translate value="pricebox.UpsalePrices" />
                   {this.props.pricing.upsales}
                   {' '}
                   {this.props.currency.code}
@@ -272,9 +269,7 @@ Upsales Price
               <div className="col-12">
 
                 <h4>
-                  <Translate value="application.title" />
-
-                                    :
+                  <Translate value="pricebox.Total" /> :
                   {' '}
                   {this.props.pricing.total.toFixed(2)}
                   {' '}
@@ -295,8 +290,8 @@ Upsales Price
                   onChange={this.props.changeLanguageHandler}
                 >
                   <option value="en">
-                    {' '}
-Change language
+
+                   <Translate value="pricebox.ChangeLang" />
                   </option>
                   {this.props.langs.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
                 </select>
@@ -311,10 +306,10 @@ Change language
                   <div className="col-8 offset-2">
                     <select
                       className="form-control"
-                    >
+                      onChange={this.props.changeCurrencyHandler}>
                       <option value="">
-                            {' '}
-Change currency
+                          <Translate value="pricebox.ChangeCur" />
+
                           </option>
                       {this.props.currencyList.map(cur => (<option value={cur.code}>{cur.code}</option>))}
                     </select>
@@ -367,7 +362,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     changeLanguageHandler: actsMaster.changeLanguageAction,
-
+    changeCurrencyHandler: actsMaster.changeCurrencyAction,
   }, dispatch);
 }
 

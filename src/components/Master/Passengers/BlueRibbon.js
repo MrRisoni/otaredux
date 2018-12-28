@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Translate } from 'react-redux-i18n';
 
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
-import * as actsPaxes from '../../../actions/master/actionsPassengers';
-import * as actsMaster from '../../../actions/master/actionsMaster';
-import * as actsBags from '../../../actions/master/actionsBags';
-import * as actsInsurance from '../../../actions/master/actionsInsurance';
-import * as actsMeals from '../../../actions/master/actionsMeals';
-import * as actsPreseat from '../../../actions/master/actionsPreseat';
 
 class BlueRibbon extends Component {
   constructor(props) {
@@ -21,8 +16,9 @@ class BlueRibbon extends Component {
   }
 
   render() {
-    const price = (this.props.passengers.filter(px => px.active === true).length * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
-
+    let price = (this.props.passengers.filter(px => px.active === true).length * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
+    price *= this.props.currency.rate;
+      price = price.toFixed(2);
 
     return (
         <section>
@@ -51,7 +47,7 @@ class BlueRibbon extends Component {
                   >
 
 
-                                        Toggle
+                                       <Translate value="general.Toggle"/>
                   </button>
                 </div>
 

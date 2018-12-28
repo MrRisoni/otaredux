@@ -40,7 +40,7 @@ class CabinTrip extends Component {
                 aria-controls="collapseExample"
               >
 
-                                Toggle
+                               <Translate value="general.Toggle"/>
               </button>
             </div>
 

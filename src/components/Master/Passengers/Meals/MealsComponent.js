@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MealLeg from './MealLeg';
+import { Translate } from 'react-redux-i18n';
+
 
 class MealsComponent extends Component {
   constructor(props) {
@@ -36,7 +38,7 @@ class MealsComponent extends Component {
 aria-controls="collapseExample"
                   >
 
-                                        Toggle
+                                       <Translate value="general.Toggle"/>
 </button>
                 </div>
 

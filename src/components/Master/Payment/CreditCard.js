@@ -1,4 +1,5 @@
 import React from 'react';
+import { Translate } from 'react-redux-i18n';
 
 const CreditCard = (props) => {
     return (
@@ -23,7 +24,7 @@ const CreditCard = (props) => {
                                             data-toggle="collapse"
                                             data-target="#creditCardCollapse" aria-expanded="false"
                                             aria-controls="collapseExample">
-                                        Toggle
+                                       <Translate value="general.Toggle"/>
                                     </button>
                                 </div>
 

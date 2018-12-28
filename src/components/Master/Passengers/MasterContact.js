@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { Translate } from 'react-redux-i18n';
+
 
 class MasterContact extends Component {
     constructor(props) {
@@ -64,7 +66,7 @@ class MasterContact extends Component {
                                                     data-toggle="collapse"
                                                     data-target="#busContactCollapse" aria-expanded="false"
                                                     aria-controls="collapseExample">
-                                                Toggle
+                                               <Translate value="general.Toggle"/>
                                             </button>
                                         </div>
 

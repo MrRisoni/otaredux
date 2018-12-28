@@ -1,5 +1,6 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
+import { Translate } from 'react-redux-i18n';
 
 
 const MasterPassengerList = props => (
@@ -11,7 +12,7 @@ const MasterPassengerList = props => (
       <div className="row">
         <div className="col-3">
 
-                    Fill in the passenger data
+            <Translate value="passengers.FillThePassengerData"/>
         </div>
 
         <div className="col-2 offset-7">
@@ -23,7 +24,7 @@ const MasterPassengerList = props => (
             aria-controls="collapseExample"
           >
 
-                        Toggle
+                       <Translate value="general.Toggle"/>
           </button>
         </div>
 
@@ -50,7 +51,7 @@ const MasterPassengerList = props => (
     <div className="row addOnePassenger show passengerListCollapse">
       <div className="col-4 offset-4">
         <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>
-Add   Passenger
+            <Translate value="passengers.AddPassenger"/>
         </button>
       </div>
     </div>

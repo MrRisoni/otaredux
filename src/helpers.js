@@ -3,13 +3,11 @@ export function fillRange(start, end) {
 }
 
 export function seatCost(args) {
-    const cabinForThisSeg = args.cabins.filter(cb => ((cb.segId == args.segId) && (cb.paxId == args.paxId)))[0].cabin;
-    const seatPrice = args.seatInfo.filter(sif => sif.segId == args.segId)[0].prices.filter(pr => pr.class == cabinForThisSeg)[0].price;
+  const cabinForThisSeg = args.cabins.filter(cb => ((cb.segId == args.segId) && (cb.paxId == args.paxId)))[0].cabin;
+  const seatPrice = args.seatInfo.filter(sif => sif.segId == args.segId)[0].prices.filter(pr => pr.class == cabinForThisSeg)[0].price;
 
-    return seatPrice.toFixed(2);
-
+  return seatPrice.toFixed(2);
 }
-
 
 
 export function preseatAllowed(args) {
@@ -74,18 +72,18 @@ export function calcTotalPrice(payload) {
       });
 
       // preseat begin
-        const seletedSeatsInTheseSegs = payload.selectedSeats.filter(ssl => ((ssl.paxId==pax.id) && (ssl.seatNo !=='')))
-            .map(slItem => slItem.segId);
+      const seletedSeatsInTheseSegs = payload.selectedSeats.filter(ssl => ((ssl.paxId == pax.id) && (ssl.seatNo !== '')))
+        .map(slItem => slItem.segId);
 
-        for (const seatSegmntId of seletedSeatsInTheseSegs) {
-            const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
-            console.log('calc price for ' + classCabin + ' for seg ' + seatSegmntId);
-            const seatPrice = payload.seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
-            total += seatPrice;
-            upsales += seatPrice;
-        }
+      for (const seatSegmntId of seletedSeatsInTheseSegs) {
+        const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
+        console.log(`calc price for ${classCabin} for seg ${seatSegmntId}`);
+        const seatPrice = payload.seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
+        total += seatPrice;
+        upsales += seatPrice;
+      }
 
-        // preseat end
+      // preseat end
     } // end if pax active
   });
 
@@ -97,6 +95,10 @@ export function calcTotalPrice(payload) {
   if (payload.hasBlueRibbon.state === true) {
     total += (activePaxes * payload.blueRibbonPrices.pricePerPax);
   }
+
+   total *= payload.currency.rate;
+
+
 
   return {
     total,

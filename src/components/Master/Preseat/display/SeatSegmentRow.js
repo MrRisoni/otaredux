@@ -17,14 +17,18 @@ class SeatSegmentRow extends Component {
     const segmentId = this.props.segment.id;
     const paxId = this.props.paxData.id;
 
-    const seatPrice = seatCost({
+    let seatPrice = seatCost({
       segId: segmentId,
       paxId,
       seatInfo: this.props.seatMapInfo,
       cabins: this.props.cabinSelection,
     });
 
-    const selectedSeatNo = this.props.selectedSeats.filter(st => ((st.paxId == paxId) && (st.segId == segmentId)))[0].seatNo;
+      seatPrice *= this.props.currency.rate;
+      seatPrice = seatPrice.toFixed(2);
+
+
+      const selectedSeatNo = this.props.selectedSeats.filter(st => ((st.paxId == paxId) && (st.segId == segmentId)))[0].seatNo;
 
     return (
       <div className="card text-white bg-primary segmentSeat">

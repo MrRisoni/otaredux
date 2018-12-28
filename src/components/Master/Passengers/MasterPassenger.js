@@ -2,18 +2,17 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Translate } from 'react-redux-i18n';
 
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
-import MasterPassport from "./MasterPassport";
+import MasterPassport from './MasterPassport';
 import Insurance from './Insurance/Insurance';
 import BagComponent from './Bags/BagComponent';
 import MealsComponent from './Meals/MealsComponent';
 import MilesCards from './Miles/MilesCards';
-import {CHANGE_PASSENGER_AIR_CABIN} from "../../../actions/master/actionsMaster";
-import CabinTrip from "./Cabin/CabinTrip";
-import MasterPassengerList from "./MasterPassengerList";
+import CabinTrip from './Cabin/CabinTrip';
 
 
 class MasterPassenger extends Component {
@@ -136,7 +135,8 @@ class MasterPassenger extends Component {
                                 <div className="row">
 
                                     <div className="col-2">
-                                        Passenger # {this.props.passenger.humanId}
+                                        <Translate value="passengers.Passenger"/>
+                                        # {this.props.passenger.humanId}
                                     </div>
 
                                     <div className="col-7">
@@ -157,7 +157,7 @@ class MasterPassenger extends Component {
                                                 data-target={`#passengerCollapse${this.props.passenger.id}`}
                                                 aria-expanded="false"
                                                 aria-controls="collapseExample">
-                                            Toggle
+                                           <Translate value="general.Toggle"/>
                                         </button>
                                     </div>
                                 </div>
@@ -273,7 +273,8 @@ class MasterPassenger extends Component {
                                 <div className="row">
                                     <div className="col-4 offset-4">
                                         <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
-                                            Remove this Passenger
+                                            <Translate value="passengers.RemovePassenger"/>
+
                                         </button>
                                     </div>
                                 </div>

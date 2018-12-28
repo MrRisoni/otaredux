@@ -1,12 +1,16 @@
 import React from 'react';
 import Airport from './Airport'
+import { Translate } from 'react-redux-i18n';
+
 
 const Segment = (props) => {
     return (
         <div className="segments">
 
             <div className="card">
-                <div className="card-header bg-info">Segment #{props.data.segId}</div>
+                <div className="card-header bg-info">
+
+                    <Translate value="flight.Segment"/> #{props.data.segId}</div>
                 <div className="card-body">
 
                     <div className="row">
@@ -42,12 +46,12 @@ const Segment = (props) => {
                     <div className="row">
 
                         <div className="col-5">
-                            Duration {props.data.durationTime.hours}h {props.data.durationTime.minutes}m
+                            <Translate value="flight.Duration"/>  {props.data.durationTime.hours}h {props.data.durationTime.minutes}m
                         </div>
 
                         {props.data.waitTime.total > 0 ? (
                             <div className="col-5">
-                                Wait time {props.data.waitTime.hours}h {props.data.waitTime.minutes}m
+                                <Translate value="flight.WaitTime"/>  {props.data.waitTime.hours}h {props.data.waitTime.minutes}m
                             </div>
                         ) : (<div className="col-5"></div>)}
 

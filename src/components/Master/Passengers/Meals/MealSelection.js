@@ -36,6 +36,7 @@ class MealSelection extends Component {
 
 
   render() {
+
     return (
       <select className="form-control" onChange={this.handleClick}>
         <option key="" value="" />
@@ -45,7 +46,7 @@ class MealSelection extends Component {
             {ml.title}
             {' '}
             {' '}
-            {ml.price.toFixed(2)}
+            {(ml.price* this.props.currency.rate).toFixed(2)}
             {' '}
             {' '}
             {this.props.currency.code}

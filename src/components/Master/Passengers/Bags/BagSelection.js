@@ -99,7 +99,7 @@ class BagSelection extends Component {
 
           {this.props.bagData.weight}
           {' '}
-          {this.props.bagData.price.toFixed(2)}
+          {(this.props.bagData.price * this.props.currency.rate).toFixed(2)}
           {' '}
           {this.props.currency.code}
 

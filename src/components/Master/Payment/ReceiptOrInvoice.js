@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Invoice from "./Invoice";
 import Receipt from "./Receipt";
+import { Translate } from 'react-redux-i18n';
+
 
 class ReceiptOrInvoice extends Component {
     constructor(props)
@@ -61,7 +63,7 @@ class ReceiptOrInvoice extends Component {
                                                 data-toggle="collapse"
                                                 data-target="#paymentDetailsCollapse" aria-expanded="false"
                                                 aria-controls="collapseExample">
-                                            Toggle
+                                           <Translate value="general.Toggle"/>
                                         </button>
                                     </div>
 
