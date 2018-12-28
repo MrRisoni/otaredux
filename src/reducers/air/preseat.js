@@ -94,9 +94,9 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
         }
         return itm;
       });
-    case MasterCons.ADD_PASSENGER_MASTER:
+      case MasterCons.ADD_PASSENGER_MASTER:
 
-      const nextPaxId = state.length;
+      const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
       console.log('fetchCabinPaxPerSegment');
 
       return [

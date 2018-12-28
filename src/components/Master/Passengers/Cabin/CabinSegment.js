@@ -20,7 +20,7 @@ class CabinSegment extends Component {
     return (
 
 
-      <div className="card cabinSegment">
+      <div key={this.props.seg.id} className="card cabinSegment">
         <div className="card-body">
           <div className="row">
             <div className="col-2">

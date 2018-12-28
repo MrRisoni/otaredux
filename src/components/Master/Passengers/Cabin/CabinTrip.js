@@ -50,10 +50,10 @@ class CabinTrip extends Component {
         <div className="collapse" id={`cabinSelectionDivCollapse${this.props.pax.id}`}>
 
 
-          <CabinLeg segs={departTrip} leg={0} pax={this.props.pax} />
+          <CabinLeg key={0} segs={departTrip} leg={0} pax={this.props.pax} />
 
 
-          <CabinLeg segs={returnTrip} leg={1} pax={this.props.pax} />
+          <CabinLeg key={1} segs={returnTrip} leg={1} pax={this.props.pax} />
 
         </div>
 

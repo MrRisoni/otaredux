@@ -140,10 +140,9 @@ class MasterPassenger extends Component {
                                     </div>
 
                                     <div className="col-7">
-                                        <select className="form-control" onChange={this.handleAgeGroupChange}>
-                                            <option key="ADT" value="">Select Type</option>
-                                            <option key="ADT" value="ADT"
-                                                    selected={'ADT' == this.props.passenger.type}>Adult
+                                        <select defaultValue="ADT" className="form-control" onChange={this.handleAgeGroupChange}>
+                                            <option key="" value="">Select Type</option>
+                                            <option key="ADT" value="ADT"> Adult
                                             </option>
                                             <option key="CNN" value="CNN">Child</option>
                                             <option key="INF" value="INF">Infant</option>

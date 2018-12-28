@@ -1,6 +1,3 @@
-Language constants
-
--------------
 
 Currency Change
 
@@ -14,7 +11,8 @@ Immutable ... fix
 
 -----------
 
-merge deploy
+Language constants
+merge to master deploy
 
 
 -----------

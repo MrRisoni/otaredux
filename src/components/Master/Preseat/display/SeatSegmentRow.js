@@ -27,6 +27,8 @@ class SeatSegmentRow extends Component {
       seatPrice *= this.props.currency.rate;
       seatPrice = seatPrice.toFixed(2);
 
+      console.log('this.props.selectedSeats');
+      console.log(this.props.selectedSeats);
 
       const selectedSeatNo = this.props.selectedSeats.filter(st => ((st.paxId == paxId) && (st.segId == segmentId)))[0].seatNo;
 

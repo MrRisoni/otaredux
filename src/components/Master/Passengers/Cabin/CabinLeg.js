@@ -6,7 +6,7 @@ import {Translate} from 'react-redux-i18n';
 const CabinLeg = (props) => {
 
     return (
-        <div className="card cabinLegSelect ">
+        <div key={props.leg} className="card cabinLegSelect ">
             <div className="card-header">
 
             {props.leg === 0 ? (

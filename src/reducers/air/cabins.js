@@ -38,16 +38,11 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
       break;
     case MasterCons.ADD_PASSENGER_MASTER:
 
-      let nextPaxId = 0;
-      state.forEach((st) => {
-        if (st.paxId > nextPaxId) {
-          nextPaxId = st.paxId;
-        }
-      });
-      nextPaxId++;
+        const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
 
 
-      return [
+
+        return [
         ...state,
         {
           paxId: nextPaxId,
