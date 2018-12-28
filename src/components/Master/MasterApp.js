@@ -41,7 +41,6 @@ class MasterApp extends Component {
           <div className="col-8">
 
             <ItineraryData
-              product={this.props.product}
               tripData={this.props.tripData}
             />
 

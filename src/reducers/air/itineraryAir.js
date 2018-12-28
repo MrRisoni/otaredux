@@ -110,7 +110,7 @@ const trip = [
           width: 100,
         },
         waitTime: { hours: 0, mins: 0, total: 0 },
-        durationTime: { hours: 0, mins: 0 },
+        durationTime: { hours: 0, mins: 50 },
       },
       {
         segId: 1,
