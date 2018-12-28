@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actsPaxes from '../../../../actions/master/actionsPassengers';
+import {Translate} from "react-redux-i18n";
 
 
 class CabinSegment extends Component {
@@ -57,7 +58,8 @@ class CabinSegment extends Component {
                         && (
                         <div className="col-4">
 
-                            Only one cabin available for this segment
+                            <Translate value="cabins.OneType" />
+
                         </div>
                         )
                         }

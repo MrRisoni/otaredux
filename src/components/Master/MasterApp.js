@@ -57,7 +57,6 @@ class MasterApp extends Component {
               currency={this.props.currency}
               insurances={this.props.insuranceAir}
               carrierList={this.props.carrierList}
-              segments={this.props.segments}
               countryList={this.props.asyncData.countries}
             />
 
@@ -108,10 +107,8 @@ function mapStateToProps(state) {
     insuranceAir: state.airInsuranceReducer,
     boughtInsurances: state.purchasedInsuranceReducer,
     insuranceOptions: state.airInsuranceReducer,
-    segments: state.getLegsReducer,
     tripData: state.airTripReducer,
     asyncData: state.countryListReducer,
-    langs: state.getLanguagesReducer
   };
 }
 

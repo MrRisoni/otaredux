@@ -98,6 +98,7 @@ function mapStateToProps(state) {
     seatMapInfo: state.seatMapInfoReducer,
     cabinSelection: state.fetchCabinPaxPerSegmentReducer,
 
+
   };
 }
 

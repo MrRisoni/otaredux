@@ -36,7 +36,7 @@ class ReceiptOrInvoice extends Component {
 
 
 
-        var listDiv = [];
+        let listDiv = [];
         this.props.countryList.forEach((val, idx) => {
 
             listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
@@ -46,19 +46,24 @@ class ReceiptOrInvoice extends Component {
         return (
             <section>
 
-                <div className='row'>
-                    <div className='col-8'>
+                <div className="row">
+                    <div className="col-8">
 
                         <div className="card paymentDetails">
 
                             <div className="card-header">
                                 <div className="row">
 
-                                    <div className="col-3">
-                                        Payment Details
+                                    <div className="col-4">
+                                        <Translate value="pay.Details"/>
                                     </div>
 
-                                    <div className="col-2 offset-6">
+
+                                    <div className="col-2">
+                                        <i className="fas fa-file-invoice-dollar"/>
+                                    </div>
+
+                                    <div className="col-2 offset-3">
                                         <button className="btn btn-sm btn-dark btn-block btnToggle"
                                                 data-toggle="collapse"
                                                 data-target="#paymentDetailsCollapse" aria-expanded="false"
@@ -78,7 +83,8 @@ class ReceiptOrInvoice extends Component {
                                            onChange={this.handlePickReceipt} />
 
                                         <label className="form-check-label" htmlFor="payReceipt"/>
-                                            Pay with receipt
+                                            <Translate value="pay.Receipt"/>
+
 
                                 </div>
 
@@ -87,7 +93,8 @@ class ReceiptOrInvoice extends Component {
                                            id="payInvoice"  value="payInvoice" checked={this.state.invoice}
                                            onChange={this.handlePickInvoice}/>
                                         <label className="form-check-label" htmlFor="payInvoice"/>
-                                                Pay with invoice
+                                    <Translate value="pay.Invoice"/>
+
                                 </div>
 
 

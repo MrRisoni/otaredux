@@ -37,7 +37,7 @@ class MasterContact extends Component {
 
     render() {
 
-        var listDiv = [];
+        let listDiv = [];
         this.props.countryList.forEach((val, idx) => {
 
             listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
@@ -46,8 +46,8 @@ class MasterContact extends Component {
 
         return (
             <section>
-            <div className='row'>
-                <div className='col-8'>
+            <div className="row">
+                <div className="col-8">
 
                     <div className="row contactDetails">
                         <div className="col-12">
@@ -57,11 +57,17 @@ class MasterContact extends Component {
 
                                     <div className="row">
 
-                                        <div className="col-3">
-                                            Contact Details
+                                        <div className="col-4">
+                                            <Translate value="general.Contact"/>
+
                                         </div>
 
-                                        <div className="col-2 offset-6">
+                                        <div className="col-2">
+                                            <i className="fas fa-phone" />
+                                        </div>
+
+
+                                        <div className="col-2 offset-3">
                                             <button className="btn btn-sm btn-dark btn-block btnToggle"
                                                     data-toggle="collapse"
                                                     data-target="#busContactCollapse" aria-expanded="false"

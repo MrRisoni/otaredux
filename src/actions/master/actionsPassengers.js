@@ -1,4 +1,3 @@
-import { setLocale } from 'react-redux-i18n';
 import { upsalesDispatcher } from './dispatcher';
 
 
@@ -51,15 +50,13 @@ export function editMasterPassengerNameAction(paxId, surname, name, gender) {
 
 
 export function changeAirCabinClassPassengerAction(paxId, newClass, segmentId) {
-
-
   return (dispatch, getState) => {
     dispatch({
       type: MasterCons.CHANGE_CABIN,
       payload: {
-        paxId: paxId,
-        newClass: newClass,
-        segmentId: segmentId,
+        paxId,
+        newClass,
+        segmentId,
       },
     });
 
@@ -75,7 +72,7 @@ export function changeMasterPassengerAction(paxId, newCode, oldCode) {
       payload: {
         passengerId: paxId,
         newType: newCode,
-        oldType: oldCode
+        oldType: oldCode,
       },
     });
 

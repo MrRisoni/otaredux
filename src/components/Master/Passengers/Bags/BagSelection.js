@@ -87,6 +87,7 @@ class BagSelection extends Component {
             disabled={false}
             className="btn-primary btn btnPlusMinusBags"
           >
+
 +
           </button>
 
@@ -94,6 +95,7 @@ class BagSelection extends Component {
             onClick={this.handleRemove}
             className="btn-danger btn btnPlusMinusBags"
           >
+
 -
           </button>
 

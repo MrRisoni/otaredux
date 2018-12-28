@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SeatSegmentRow from './SeatSegmentRow';
 import { preseatAllowed } from '../../../../helpers';
+import {Translate} from "react-redux-i18n";
 
 
 class SegmentPaxSeat extends Component {
@@ -19,7 +20,8 @@ class SegmentPaxSeat extends Component {
               <div className="row">
                 <div className="col-4">
 
-                $t('Passenger') #
+                    <Translate value="passengers.Passenger"/>
+                    #
                   {this.props.paxData.humanId}
                 </div>
                 <div className="col-4">

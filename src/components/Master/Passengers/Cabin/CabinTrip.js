@@ -24,10 +24,10 @@ class CabinTrip extends Component {
 
 
             <div className="col-6">
-              <Translate value="SelectCabinPerSegment" />
+              <Translate value="cabins.SelectCabinPerSegment" />
             </div>
             <div className="col-2">
-              <i className="fas fa-chair" />
+              <i className="fas fa-couch" />
             </div>
 
 

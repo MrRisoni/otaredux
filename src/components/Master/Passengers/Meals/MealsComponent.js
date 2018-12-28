@@ -22,7 +22,7 @@ class MealsComponent extends Component {
               <div className="row">
                 <div className="col-6">
 
-                                    Are you hungry ?
+                    <Translate value="upsales.Hungry"/>
                 </div>
                 <div className="col-2">
                   <i className="fas fa-concierge-bell" />

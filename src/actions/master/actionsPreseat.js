@@ -1,12 +1,13 @@
 import { upsalesDispatcher } from './dispatcher';
 import * as MasterCons from './allConstants';
 
-
-export function changePreSeatSelectPassengerAction(paxId) {
+export function pickPaxSegForPreseatAction(segId, paxId) {
+console.log('type: MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT,');
   return (dispatch, getState) => {
     dispatch({
-      type: MasterCons.CHANGE_PRESEAT_SELECT_PAX,
+      type: MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT,
       payload: {
+        segId,
         paxId,
       },
     });

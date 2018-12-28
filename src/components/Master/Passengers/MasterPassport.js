@@ -24,7 +24,7 @@ class MasterPassport extends Component {
 
 
     render() {
-        var listDiv = [];
+        let listDiv = [];
         this.props.countryList.forEach( (val, idx) => {
 
             listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);

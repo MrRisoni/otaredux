@@ -6,8 +6,8 @@ const CreditCard = (props) => {
 
         <section>
 
-            <div className='row'>
-                <div className='col-8'>
+            <div className="row">
+                <div className="col-8">
 
                     <div className="card paymentDetails">
 
@@ -15,11 +15,17 @@ const CreditCard = (props) => {
 
                             <div className="row">
 
-                                <div className="col-3">
-                                    Credit Card
+                                <div className="col-4">
+                                    <Translate value="pay.CreditCard"/>
                                 </div>
 
-                                <div className="col-2 offset-6">
+
+                                <div className="col-2">
+                                    <i className="far fa-credit-card"/>
+                                </div>
+
+
+                                <div className="col-2 offset-3">
                                     <button className="btn btn-sm btn-dark btn-block btnToggle"
                                             data-toggle="collapse"
                                             data-target="#creditCardCollapse" aria-expanded="false"
@@ -75,8 +81,7 @@ const CreditCard = (props) => {
                             <br/>
 
                             <div className="row">
-                                <div className="col-4"></div>
-                                <div className="col-4">
+                                <div className="col-4 offset-4">
                                     <button className="btn btn-success">Complete Payment!</button>
                                 </div>
                             </div>

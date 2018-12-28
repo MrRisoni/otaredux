@@ -8,10 +8,17 @@
     "WaitTime": "Время ожидания",
     "Segment": "сегмент"
   },
+  "pay" : {
+    "CreditCard" : "Кредитная карта",
+    "Details": "Детали платежа",
+    "Receipt" : "Чек",
+    "Invoice" : "Счет-фактура"
+  },
   "general": {
     "Toggle": "тумблер",
     "Cost": "Стоимость",
-    "Expand": "расширять"
+    "Expand": "расширять",
+    "Contact" : "Контактная информация"
   },
   "passengers": {
     "AddPassenger": "Добавить пассажира",

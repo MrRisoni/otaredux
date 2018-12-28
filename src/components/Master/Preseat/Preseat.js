@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Translate } from 'react-redux-i18n';
 import SeatShower from './display/SeatShower';
 import SeatRow from './seats/SeatRow';
 import { fillRange } from '../../../helpers';
-import { bindActionCreators } from 'redux';
 
 import * as actsPreseat from '../../../actions/master/actionsPreseat';
 
@@ -30,9 +31,9 @@ class Preseat extends Component {
 
     // calculate chosen seats
 
-    // check if seat has been selected by this booking
+    // check if seat has been selected by this booking for the selected segment
     const activePaxIds = this.props.passengers.filter(px => ((px.active == true) && (px.type !== 'INF'))).map(pixie => pixie.id);
-    const pickedSeats = this.props.selectedSeats.filter(sst => ((sst.seatNo !== '') && (activePaxIds.indexOf(sst.paxId) > -1))).map(filtSt => filtSt.seatNo);
+    const pickedSeats = this.props.selectedSeats.filter(sst => ((sst.segId === this.props.preSeatSelectedItems.selectedSegment) && (sst.seatNo !== '') && (activePaxIds.indexOf(sst.paxId) > -1))).map(filtSt => filtSt.seatNo);
 
     return (
 
@@ -45,11 +46,14 @@ class Preseat extends Component {
                 <div className="col-5">
 
 
-                                Select your seats
+                  <Translate value="preseat.SelectYourSeats" />
                 </div>
 
                 <div className="col-4">
-                  <button onClick={this.resetClick} className="btn btn-sm btn-warning"> Reset</button>
+                  <button onClick={this.resetClick} className="btn btn-sm btn-warning">
+                    {' '}
+                    <Translate value="preseat.Reset" />
+                  </button>
                 </div>
 
                 <div className="col-3">
@@ -60,7 +64,7 @@ class Preseat extends Component {
                   >
 
 
-                                   <Translate value="general.Toggle"/>
+                    <Translate value="general.Toggle" />
                   </button>
                 </div>
 
@@ -99,6 +103,7 @@ function mapStateToProps(state) {
     preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
     seatMapInfo: state.seatMapInfoReducer,
     selectedSeats: state.fetchSeatSelectionReducer,
+
   };
 }
 

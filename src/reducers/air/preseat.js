@@ -94,7 +94,7 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
         }
         return itm;
       });
-      case MasterCons.ADD_PASSENGER_MASTER:
+    case MasterCons.ADD_PASSENGER_MASTER:
 
       const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
       console.log('fetchCabinPaxPerSegment');
@@ -119,7 +119,22 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
         },
       ];
     case MasterCons.CHANGE_PASSENGER_MASTER:
-      // reset seats
+    case MasterCons.CHANGE_CABIN:
+      // reset seats for this segment
+        console.log('  case MasterCons.CHANGE_CABIN:');
+        console.log(action.payload)
+      return state.map((itm) => {
+        const returnDiff = ((itm.paxId === action.payload.paxId) && (itm.segId === action.payload.segmentId));
+
+        if (returnDiff === true) {
+          return {
+            ...itm,
+            seatNo: '',
+          };
+        }
+        return itm;
+      });
+
     default:
       return state;
   }
@@ -128,10 +143,15 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
 
 export function fetchPreseatSelectedPaxReducer(state = preSeatSelectedItems, action) {
   switch (action.type) {
-    case MasterCons.CHANGE_PRESEAT_SELECT_PAX:
+    case MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT:
       console.log('state befoar');
       console.log(state);
-      return action.payload.paxId;
+      console.log(action.payload);
+      return {
+        ...state,
+        selectedSegment: action.payload.segId,
+        selectedPaxId: action.payload.paxId,
+      };
     default:
       return state;
   }
