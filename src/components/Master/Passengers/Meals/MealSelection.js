@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+
+import * as actsMeals from '../../../../actions/master/actionsMeals';
+
 
 class MealSelection extends Component {
   constructor(props) {
@@ -50,4 +56,21 @@ class MealSelection extends Component {
   }
 }
 
-export default MealSelection;
+function mapStateToProps(state) {
+  return {
+    currency: state.currentCurrencyReducer,
+
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+
+    addMealHandler: actsMeals.addMealAction,
+    removeMealHandler: actsMeals.removeMealAction,
+
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(MealSelection);

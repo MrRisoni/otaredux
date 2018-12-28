@@ -33,17 +33,14 @@ const MasterPassengerList = props => (
       <MasterPassenger
         key={pax.id}
         passenger={pax}
-        product={props.product}
         insurances={props.insurances}
         bagsAir={props.bagsAir}
         getBagsLimit={props.getBagsLimit}
         carrierList={props.carrierList}
         purchasedBags={props.purchasedBags}
         cabinSelection={props.cabinSelection}
-        boughtMeals={props.boughtMeals}
         segments={props.segments}
         currency={props.currency}
-        mealOptions={props.mealOptions}
         countryList={props.countryList}
         editPaxHandler={props.editPaxHandler}
         changePaxCabinClassHandler={props.changePaxCabinClassHandler}
@@ -52,8 +49,6 @@ const MasterPassengerList = props => (
         addBagHandler={props.addBagHandler}
         removeBagHandler={props.removeBagHandler}
         selectInsuranceHandler={props.selectInsuranceHandler}
-        removeMealHandler={props.removeMealHandler}
-        addMealHandler={props.addMealHandler}
       />))}
 
 

@@ -260,7 +260,6 @@ class MasterPassenger extends Component {
                                                   bagsAir={this.props.bagsAir}
                                                   cabinSelection={this.props.cabinSelection}
                                                   getBagsLimit={this.props.getBagsLimit}
-                                                  blueRibbon={this.props.blueRibbon}
                                                   addBagHandler={this.props.addBagHandler}
                                                   removeBagHandler={this.props.removeBagHandler}/>
                                     }
@@ -268,15 +267,8 @@ class MasterPassenger extends Component {
                                    {(this.state.ageGroup !== 'INF') &&
 
                                     <MealsComponent key={this.props.passenger.id}
-                                                    paxId={this.props.passenger.id}
-                                                    currency={this.props.currency}
-                                                    boughtMeals={this.props.boughtMeals}
                                                     paxData={this.props.passenger}
-                                                    cabinSelection={this.props.cabinSelection}
-                                                    mealOptions={this.props.mealOptions}
-                                                    addMealHandler={this.props.addMealHandler}
-                                                    removeMealHandler={this.props.removeMealHandler}
-                                                    segments={this.props.segments}/>
+                                                    paxId={this.props.passenger.id}/>
 
                                     }
 

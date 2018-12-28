@@ -20,9 +20,7 @@ const MealType = (props) => {
                                           paxData={props.paxData}
                                           paxId={props.paxId}
                                           segId={props.segId}
-                                          currency={props.currency}
-                                          removeMealHandler={props.removeMealHandler}
-                                          addMealHandler={props.addMealHandler}/>
+                                          />
 
 
                     </div>
