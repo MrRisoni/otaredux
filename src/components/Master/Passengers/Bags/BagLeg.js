@@ -1,46 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import BagSelection from './BagSelection';
-import MasterPassenger from '../MasterPassenger';
-
-const BagLeg = (props) => {
-  const legTitle = (props.leg == 0) ? 'Departure' : 'Return';
 
 
-  return (
-    <div className="row">
-      <div className="col-12">
+class BagLeg extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-        <div className="card">
-          <div className="card-header">
-            {legTitle}
-            {' '}
-(Max
-            {props.limitBags}
-)
-          </div>
-          <div className="card-body">
-            {props.bagsAir.filter(bg => props.allowedBags.indexOf(bg.key) > -1).map(
-              bgItem => (
-                <BagSelection
-                  bagData={bgItem}
-                  key={bgItem.key}
-                  legId={props.leg}
-                  currency={props.currency}
-                  purchasedBags={props.purchasedBags}
-                  paxId={props.paxId}
-                  limitBags={props.limitBags}
-                  addBagHandler={props.addBagHandler}
-                  removeBagHandler={props.removeBagHandler}
-                />
-              ),
-            )}
+  render() {
+    const legTitle = (this.props.leg == 0) ? 'Departure' : 'Return';
 
+
+    return (
+      <div className="row">
+        <div className="col-12">
+
+          <div className="card">
+            <div className="card-header">
+              {legTitle}
+              {' '}
+
+                            (Max
+              {this.props.limitBags}
+
+                            )
+            </div>
+            <div className="card-body">
+              {this.props.bagsAir.filter(bg => this.props.allowedBags.indexOf(bg.key) > -1).map(
+                bgItem => (
+                  <BagSelection
+                    bagData={bgItem}
+                    key={bgItem.key}
+                    limitBags={this.props.limitBags}
+                    legId={this.props.leg}
+                    paxId={this.props.paxId}
+                  />
+                ),
+              )}
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-  );
-};
+    );
+  }
+}
 
-export default BagLeg;
+function mapStateToProps(state) {
+  return {
+    bagsAir: state.getBagsReducer,
+
+  };
+}
+
+
+export default connect(mapStateToProps)(BagLeg);

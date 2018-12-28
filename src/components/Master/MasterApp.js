@@ -7,10 +7,8 @@ import MasterSideBar from './SideBar/MasterSideBar';
 import ItineraryData from './Segments/ItineraryData';
 
 
-import * as actsBags from '../../actions/master/actionsBags';
 import * as actsInsurance from '../../actions/master/actionsInsurance';
 import * as actsMaster from '../../actions/master/actionsMaster';
-import * as actsMeals from '../../actions/master/actionsMeals';
 import * as actsPaxes from '../../actions/master/actionsPassengers';
 import * as actsUpsales from '../../actions/master/actionsUpsales';
 import * as actsPreseat from '../../actions/master/actionsPreseat';
@@ -57,8 +55,6 @@ class MasterApp extends Component {
               editPaxHandler={this.props.editPaxHandler}
               changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
               editNameHandler={this.props.editPaxNameHandler}
-              addBagHandler={this.props.addBagHandler}
-              removeBagHandler={this.props.removeBagHandler}
               addMealHandler={this.props.addMealHandler}
               removeMealHandler={this.props.removeMealHandler}
               selectInsuranceHandler={this.props.selectInsuranceHandler}
@@ -69,12 +65,7 @@ class MasterApp extends Component {
               currency={this.props.currency}
               insurances={this.props.insuranceAir}
               carrierList={this.props.carrierList}
-              bagsAir={this.props.bagsAir}
               cabinSelection={this.props.cabinSelection}
-              getBagsLimit={this.props.getBagsLimit}
-              purchasedBags={this.props.purchasedBags}
-              mealOptions={this.props.mealOptions}
-              boughtMeals={this.props.boughtMeals}
               segments={this.props.segments}
               hasBlueRibbon={this.props.hasBlueRibbon}
               blueRibbonPrices={this.props.blueRibbonPrices}
@@ -140,12 +131,8 @@ function mapStateToProps(state) {
     },
     contact: state.contactMasterReducer,
     insuranceAir: state.airInsuranceReducer,
-    bagsAir: state.getBagsReducer,
-    purchasedBags: state.purchasedBagsReducer,
     boughtInsurances: state.purchasedInsuranceReducer,
     insuranceOptions: state.airInsuranceReducer,
-    mealOptions: state.getMealsReducer,
-    boughtMeals: state.purchasedMealsReducer,
     segments: state.getLegsReducer,
     tripData: state.airTripReducer,
     hasFlexibleTicket: state.hasFlexibleTicketReducer,
@@ -158,7 +145,6 @@ function mapStateToProps(state) {
     preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
-    getBagsLimit: state.getLimitBagReducer,
     selectedSeats: state.fetchSeatSelectionReducer,
   };
 }
@@ -172,11 +158,7 @@ function matchDispatchToProps(dispatch) {
     firstLoad: actsMaster.firstLoadMasterAction,
     editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
     editContactHandler: actsPaxes.editMasterContactAction,
-    addBagHandler: actsBags.addAirBagAction,
-    removeBagHandler: actsBags.removeAirBagAction,
     selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
-    addMealHandler: actsMeals.addMealAction,
-    removeMealHandler: actsMeals.removeMealAction,
     changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
     selectSeatHandler: null,
     changePreSeatSelectPassengerHandler: actsPreseat.changePreSeatSelectPassengerAction,

@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { bindActionCreators } from 'redux';
+import * as actsBags from '../../../../actions/master/actionsBags';
+
 
 class BagSelection extends Component {
   constructor(props) {
@@ -10,13 +15,12 @@ class BagSelection extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  checkLimit()
-  {
-      if ( this.getTotalBagCount() === this.props.limitBags) {
-          this.setState({ disabled: true });
-      }else {
-          this.setState({ disabled: false });
-      }
+  checkLimit() {
+    if (this.getTotalBagCount() === this.props.limitBags) {
+      this.setState({ disabled: true });
+    } else {
+      this.setState({ disabled: false });
+    }
   }
 
   handleClick() {
@@ -39,24 +43,23 @@ class BagSelection extends Component {
       legId: this.props.legId,
     });
 
-      this.checkLimit();
+    this.checkLimit();
   }
 
 
-    getTotalBagCount() {
-        let bagCountTotal = 0;
+  getTotalBagCount() {
+    let bagCountTotal = 0;
 
-        this.props.purchasedBags.forEach((purchasedBag) => {
-            if (purchasedBag.legId === this.props.legId) {
-                if (purchasedBag.paxId === this.props.paxId) {
-                    bagCountTotal++;
-                }
-            }
+    this.props.purchasedBags.forEach((purchasedBag) => {
+      if (purchasedBag.legId === this.props.legId) {
+        if (purchasedBag.paxId === this.props.paxId) {
+          bagCountTotal++;
+        }
+      }
+    });
 
-        });
-
-        return bagCountTotal;
-    }
+    return bagCountTotal;
+  }
 
   getBagCount() {
     let bagCount = 0; // bag count for this passenger ,leg and bag
@@ -83,12 +86,16 @@ class BagSelection extends Component {
             onClick={this.handleClick}
             disabled={false}
             className="btn-primary btn btnPlusMinusBags"
-          >+</button>
+          >
++
+          </button>
 
           <button
             onClick={this.handleRemove}
             className="btn-danger btn btnPlusMinusBags"
-          >-</button>
+          >
+-
+          </button>
 
           {this.props.bagData.weight}
           {' '}
@@ -99,6 +106,7 @@ class BagSelection extends Component {
         </div>
         <div className="col-2">
 
+
                      x
           {this.getBagCount()}
         </div>
@@ -107,4 +115,22 @@ class BagSelection extends Component {
 }
 
 
-export default BagSelection;
+function mapStateToProps(state) {
+  return {
+    currency: state.currentCurrencyReducer,
+    purchasedBags: state.purchasedBagsReducer,
+    purchasedBags: state.purchasedBagsReducer,
+
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+
+    addBagHandler: actsBags.addAirBagAction,
+    removeBagHandler: actsBags.removeAirBagAction,
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(BagSelection);

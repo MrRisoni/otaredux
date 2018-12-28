@@ -34,10 +34,7 @@ const MasterPassengerList = props => (
         key={pax.id}
         passenger={pax}
         insurances={props.insurances}
-        bagsAir={props.bagsAir}
-        getBagsLimit={props.getBagsLimit}
         carrierList={props.carrierList}
-        purchasedBags={props.purchasedBags}
         cabinSelection={props.cabinSelection}
         segments={props.segments}
         currency={props.currency}
@@ -46,8 +43,6 @@ const MasterPassengerList = props => (
         changePaxCabinClassHandler={props.changePaxCabinClassHandler}
         editNameHandler={props.editNameHandler}
         removePaxHandler={props.removePaxHandler}
-        addBagHandler={props.addBagHandler}
-        removeBagHandler={props.removeBagHandler}
         selectInsuranceHandler={props.selectInsuranceHandler}
       />))}
 

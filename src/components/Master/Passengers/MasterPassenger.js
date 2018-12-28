@@ -254,14 +254,7 @@ class MasterPassenger extends Component {
 
 
                                     <BagComponent paxId={this.props.passenger.id}
-                                                  currency={this.props.currency}
-                                                  paxData={this.props.passenger}
-                                                  purchasedBags={this.props.purchasedBags}
-                                                  bagsAir={this.props.bagsAir}
-                                                  cabinSelection={this.props.cabinSelection}
-                                                  getBagsLimit={this.props.getBagsLimit}
-                                                  addBagHandler={this.props.addBagHandler}
-                                                  removeBagHandler={this.props.removeBagHandler}/>
+                                                  paxData={this.props.passenger}/>
                                     }
 
                                    {(this.state.ageGroup !== 'INF') &&
