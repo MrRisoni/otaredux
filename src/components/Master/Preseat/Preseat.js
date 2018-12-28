@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SeatShower from './display/SeatShower';
 import SeatRow from './seats/SeatRow';
 import { fillRange } from '../../../helpers';
+import { bindActionCreators } from 'redux';
+
+import * as actsPreseat from '../../../actions/master/actionsPreseat';
+
 
 import './preseat.css';
 
@@ -66,28 +71,14 @@ class Preseat extends Component {
 
 
         <div id="preseatComponents" className="show">
-          <SeatShower
-            passengers={this.props.passengers}
-            segments={this.props.segments}
-            preSeatSelectedItems={this.props.preSeatSelectedItems}
-            seatMapInfo={this.props.seatMapInfo}
-            cabinSelection={this.props.cabinSelection}
-            selectedSeats={this.props.selectedSeats}
-            currency={this.props.currency}
-          />
+          <SeatShower />
 
           <section id="seatRowsElement">
             {rowArray.map(ri => (
               <SeatRow
                 key={ri}
-                seatMapInfo={this.props.seatMapInfo}
-                cabinSelection={this.props.cabinSelection}
                 firstClassLim={firstClassLim}
                 pickedSeats={pickedSeats}
-                selectedSeats={this.props.selectedSeats}
-                preSeatSelectedItems={this.props.preSeatSelectedItems}
-                passengers={this.props.passengers}
-                pickSeatHandler={this.props.pickSeatHandler}
                 rowId={ri}
               />
             ))}
@@ -102,5 +93,20 @@ class Preseat extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    passengers: state.passengersMasterReducer,
+    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
+    seatMapInfo: state.seatMapInfoReducer,
+    selectedSeats: state.fetchSeatSelectionReducer,
+  };
+}
 
-export default Preseat;
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    resetSeatsHandler: actsPreseat.resetSeatsAction,
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(Preseat);

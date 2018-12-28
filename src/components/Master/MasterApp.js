@@ -10,8 +10,6 @@ import ItineraryData from './Segments/ItineraryData';
 import * as actsInsurance from '../../actions/master/actionsInsurance';
 import * as actsMaster from '../../actions/master/actionsMaster';
 import * as actsPaxes from '../../actions/master/actionsPassengers';
-import * as actsUpsales from '../../actions/master/actionsUpsales';
-import * as actsPreseat from '../../actions/master/actionsPreseat';
 
 
 import MasterContact from './Passengers/MasterContact';
@@ -49,15 +47,12 @@ class MasterApp extends Component {
 
             <MasterPassengerList
               tripData={this.props.tripData}
-              product={this.props.product}
               addPaxHandler={this.props.addPaxHandler}
               removePaxHandler={this.props.removePaxHandler}
               editPaxHandler={this.props.editPaxHandler}
               changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
               editNameHandler={this.props.editPaxNameHandler}
               selectInsuranceHandler={this.props.selectInsuranceHandler}
-              selectSeatHandler={this.props.selectSeatHandler}
-              changePreSeatSelectPassengerHandler={this.props.changePreSeatSelectPassengerHandler}
               passengers={this.props.passengers}
               currency={this.props.currency}
               insurances={this.props.insuranceAir}
@@ -75,17 +70,7 @@ class MasterApp extends Component {
         </div>
 
 
-          {/* <Preseat
-          preSeatSelectedItems={this.props.preSeatSelectedItems}
-          passengers={this.props.passengers}
-          segments={this.props.segments}
-          currency={this.props.currency}
-          cabinSelection={this.props.cabinSelection}
-          seatMapInfo={this.props.seatMapInfo}
-          pickSeatHandler={this.props.pickSeatHandler}
-          resetSeatsHandler={this.props.resetSeatsHandler}
-          selectedSeats={this.props.selectedSeats}
-        /> */}
+         <Preseat/>
 
 
         <FlexibleTicket/>
@@ -119,27 +104,14 @@ function mapStateToProps(state) {
     carrierList: state.uniqueCarriersReducer,
     currency: state.currentCurrencyReducer,
     currencyList: state.getCurrenciesReducer,
-    pricing: {
-      total: state.pricingMasterReducer,
-      upsales: state.pricingUpsalesMasterReducer,
-    },
     contact: state.contactMasterReducer,
     insuranceAir: state.airInsuranceReducer,
     boughtInsurances: state.purchasedInsuranceReducer,
     insuranceOptions: state.airInsuranceReducer,
     segments: state.getLegsReducer,
     tripData: state.airTripReducer,
-    hasFlexibleTicket: state.hasFlexibleTicketReducer,
-    flexibleTicket: state.flexibleTicketReducer,
-    hasBlueRibbon: state.hasBlueRibbonReducer,
-    blueRibbonPrices: state.getBlueRibbonReducer,
-    ticketPrices: state.ticketPricesReducer,
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
     asyncData: state.countryListReducer,
-    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
-    seatMapInfo: state.seatMapInfoReducer,
-    langs: state.getLanguagesReducer,
-    selectedSeats: state.fetchSeatSelectionReducer,
+    langs: state.getLanguagesReducer
   };
 }
 
@@ -153,13 +125,7 @@ function matchDispatchToProps(dispatch) {
     editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
     editContactHandler: actsPaxes.editMasterContactAction,
     selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
-    changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
-    selectSeatHandler: null,
-    changePreSeatSelectPassengerHandler: actsPreseat.changePreSeatSelectPassengerAction,
-    changeLanguageHandler: actsMaster.changeLanguageAction,
     fetchCountriesAction: actsMaster.fetchCountriesAction,
-    pickSeatHandler: actsPreseat.pickSeatAction,
-    resetSeatsHandler: actsPreseat.resetSeatsAction,
   }, dispatch);
 }
 

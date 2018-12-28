@@ -119,7 +119,6 @@ function mapStateToProps(state) {
   return {
     currency: state.currentCurrencyReducer,
     purchasedBags: state.purchasedBagsReducer,
-    purchasedBags: state.purchasedBagsReducer,
 
   };
 }

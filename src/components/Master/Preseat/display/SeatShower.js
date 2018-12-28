@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SegmentPaxSeat from './SegmentPaxSeat';
 
 
-const SeatShower = props => (
-  <div className="seatShower">
-    {props.passengers.filter(px => (px.active && px.type !== 'INF')).map(px => (
-      <SegmentPaxSeat
-        paxData={px}
-        seatMapInfo={props.seatMapInfo}
-        preSeatSelectedItems={props.preSeatSelectedItems}
-        cabinSelection={props.cabinSelection}
-        selectedSeats={props.selectedSeats}
-        currency={props.currency}
-        segments={props.segments}
-      />
-    ))}
-  </div>
-);
+class SeatShower extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default SeatShower;
+  render() {
+    return (
+      <div className="seatShower">
+        {this.props.passengers.filter(px => (px.active && px.type !== 'INF')).map(px => (
+          <SegmentPaxSeat
+            paxData={px}
+          />
+        ))}
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    passengers: state.passengersMasterReducer,
+
+  };
+}
+export default connect(mapStateToProps)(SeatShower);

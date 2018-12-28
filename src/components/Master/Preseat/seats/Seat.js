@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actsPreseat from '../../../../actions/master/actionsPreseat';
+
 
 class Seat extends Component {
   constructor(props) {
@@ -87,4 +91,21 @@ class Seat extends Component {
   }
 }
 
-export default Seat;
+
+function mapStateToProps(state) {
+  return {
+    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
+    seatMapInfo: state.seatMapInfoReducer,
+    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
+
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    pickSeatHandler: actsPreseat.pickSeatAction,
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(Seat);

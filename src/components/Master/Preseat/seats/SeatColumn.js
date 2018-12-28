@@ -7,15 +7,9 @@ const SeatColumn = props => (
     <div className="col-1">
       <Seat
         rowId={props.rowId}
-        passengers={props.passengers}
         colName={props.colName}
-        seatMapInfo={props.seatMapInfo}
         firstClassLim={props.firstClassLim}
-        cabinSelection={props.cabinSelection}
         pickedSeats={props.pickedSeats}
-        selectedSeats={props.selectedSeats}
-        preSeatSelectedItems={props.preSeatSelectedItems}
-        pickSeatHandler={props.pickSeatHandler}
       />
     </div>
 
