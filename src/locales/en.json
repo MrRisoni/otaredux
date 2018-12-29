@@ -1,65 +1,72 @@
 {
   "flight": {
-    "Departure": "",
-    "Return": "",
-    "YourTrip": "",
-    "Stops": "",
-    "Duration": "",
-    "WaitTime": "",
-    "Segment": ""
+    "Departure": "Departure",
+    "Return": "Return",
+    "YourTrip": "Your trip",
+    "Stops": "Stops",
+    "Duration": "Duration",
+    "WaitTime": "Waiting time",
+    "Segment": "Segment"
+  },
+  "pay" : {
+    "CreditCard" : "Credit Card",
+    "Details": "Payment Details",
+    "Receipt" : "Receipt",
+    "Invoice" : "Invoice"
   },
   "general": {
-    "Toggle": "",
-    "Cost": "",
-    "Expand": ""
+    "Toggle": "Toggle",
+    "Cost": "Cost",
+    "Expand": "Expand",
+    "Contact" : "Contact Details"
   },
   "passengers": {
-    "AddPassenger": "",
-    "RemovePassenger": "",
-    "Fill in the passenger data": "",
-    "Passenger": "",
-    "Adult": "",
-    "Child": "",
-    "Infant": "",
-    "SelectGender": "",
-    "Name": "",
-    "Surname": ""
+    "AddPassenger": "Add Passenger",
+    "RemovePassenger": "Remove this passenger",
+    "FillThePassengerData": "Fill in the passenger data",
+    "Passenger": "Passenger",
+    "Adult": "Adult",
+    "Child": "Child",
+    "Infant": "Infant",
+    "SelectGender": "Select Gender",
+    "Name": "Name",
+    "Surname": "Surname"
   },
   "upsales": {
-    "PurchaseBags": "",
-    "upsales": "Pick extra upsales your trip!",
-    "SelectInsurance": "",
-    "Hungry": "Are you hungry ?",
-    "Main": "",
-    "Dessert": ""
+    "PurchaseBags": "Purchase bags",
+    "upsales": "Purchase upsales for your trip!",
+    "SelectInsurance": "Select an insurance",
+    "Hungry": "Are you hungry?",
+    "Main": "Main",
+    "Dessert": "Dessert"
   },
   "cabins": {
-    "SelectCabinPerSegment": "Выберите домик на сегмент",
-    "OneType": "Only one cabin available for this segment"
+    "SelectCabinPerSegment": "Select your cabin",
+    "OneType": "Only one cabin is available for this segment."
   },
   "miles": {
-    "HaveMilesCard": "Have you got miles card for your trip?",
-    "MilesCard": ""
+    "HaveMilesCard": "Have you got miles card?",
+    "MilesCard": "Miles Card"
   },
   "passport": {
-    "nationality": "",
-    "issue": "",
-    "passportNo": "",
-    "expireDate": "",
-    "dob": ""
+    "nationality": "Nationality",
+    "issue": "Issue Country",
+    "passportNo": "Passport No",
+    "expireDate": "Expiration date",
+    "dob": "Date of birth"
   },
   "preseat": {
-    "SelectYourSeats": "",
-    "Reset": "",
-    "Seat": "",
-    "PickSeat": ""
+    "SelectYourSeats": "Select your seats",
+    "Reset": "Clear all",
+    "Seat": "Seat",
+    "PickSeat": "Pick a seat"
   },
   "pricebox": {
     "PriceAnalysis": "",
-    "TicketPrice": "",
-    "UpsalePrices": "",
-    "Total": "",
-    "ChangeLang": "",
-    "ChangeCur": ""
+    "TicketPrice": "Tickets price",
+    "UpsalePrices": "Upsale prices",
+    "Total": "Total price",
+    "ChangeLang": "Change Language",
+    "ChangeCur": "Change Currency"
   }
 }
