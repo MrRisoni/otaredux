@@ -1,65 +1,72 @@
 {
   "flight": {
-    "Departure": "",
-    "Return": "",
-    "YourTrip": "",
-    "Stops": "",
-    "Duration": "",
-    "WaitTime": "",
-    "Segment": ""
+    "Departure": "Départ",
+    "Return": "Revenir",
+    "YourTrip": "Votre voyage",
+    "Stops": "Arrêts",
+    "Duration": "Durée",
+    "WaitTime": "Temps d'attente",
+    "Segment": "Segment"
+  },
+ "pay" : {
+    "CreditCard" : "Carte de crédit",
+    "Details": "Détails de paiement",
+    "Receipt" : "Reçu",
+    "Invoice" : "Facture"
   },
   "general": {
-    "Toggle": "",
-    "Cost": "",
-    "Expand": ""
+    "Toggle": "Basculer",
+    "Cost": "Coût",
+    "Expand": "étendre",
+    "Contact" : "Détails du contact"
   },
   "passengers": {
-    "AddPassenger": "",
-    "RemovePassenger": "",
-    "Fill in the passenger data": "",
-    "Passenger": "",
-    "Adult": "",
-    "Child": "",
-    "Infant": "",
-    "SelectGender": "",
-    "Name": "",
-    "Surname": ""
+    "AddPassenger": "Ajouter un passager",
+    "RemovePassenger": "Supprimer ",
+    "FillThePassengerData": "Remplir les données du passager",
+    "Passenger": "Passager",
+    "Adult": "Adulte",
+    "Child": "Enfant",
+    "Infant": "Bébé",
+    "SelectGender": "Sélectionnez le sexe",
+    "Name": "Prénom",
+    "Surname": "Nom"
   },
   "upsales": {
-    "PurchaseBags": "",
-    "upsales": "Pick extra upsales your trip!",
-    "SelectInsurance": "",
-    "Hungry": "Are you hungry ?",
-    "Main": "",
-    "Dessert": ""
+    "PurchaseBags": "Achat de bagages",
+    "upsales": "Achat des ventes pour votre voyage",
+    "SelectInsurance": "Choisissez une assurance",
+    "Hungry": "Avez-vous faim?",
+    "Main": "Plat principal",
+    "Dessert": "Dessert"
   },
   "cabins": {
-    "SelectCabinPerSegment": "Выберите домик на сегмент",
-    "OneType": "Only one cabin available for this segment"
+    "SelectCabinPerSegment": "Sélectionner une cabine par segment",
+    "OneType": "Une seule cabine est disponible pour ce segment"
   },
   "miles": {
-    "HaveMilesCard": "Have you got miles card for your trip?",
-    "MilesCard": ""
+    "HaveMilesCard": "Avez-vous une carte de mile?",
+    "MilesCard": "Carte de mile"
   },
   "passport": {
-    "nationality": "",
-    "issue": "",
-    "passportNo": "",
-    "expireDate": "",
-    "dob": ""
+    "nationality": "Nationalité",
+    "issue": "Pays d'émission",
+    "passportNo": "Numéro de passeport",
+    "expireDate": "Date d'expiration",
+    "dob": "Date de naissance"
   },
   "preseat": {
-    "SelectYourSeats": "",
-    "Reset": "",
-    "Seat": "",
-    "PickSeat": ""
+    "SelectYourSeats": "Choisissez votre places",
+    "Reset": "Réinitialiser",
+    "Seat": "place",
+    "PickSeat": "Choisissez une place"
   },
   "pricebox": {
     "PriceAnalysis": "",
-    "TicketPrice": "",
-    "UpsalePrices": "",
-    "Total": "",
-    "ChangeLang": "",
-    "ChangeCur": ""
+    "TicketPrice": "Prix ​​des billets",
+    "UpsalePrices": "Prix des extras",
+    "Total": "Prix ​​total",
+    "ChangeLang": "Changer de langue",
+    "ChangeCur": "Changer de  monnaie"
   }
 }

@@ -9,7 +9,7 @@ const languages = [
   },
   {
     code: 'fr',
-    title: 'Franch',
+    title: 'Français',
   },
   {
     code: 'de',
