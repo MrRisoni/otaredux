@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import InsuranceOption from './InsuranceOption';
 import { Translate } from 'react-redux-i18n';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actsInsurance from '../../../../actions/master/actionsInsurance';
+
 
 class Insurance extends Component {
   constructor(props) {
@@ -79,4 +84,20 @@ class Insurance extends Component {
   }
 }
 
-export default Insurance;
+function mapStateToProps(state) {
+    return {
+        insurances: state.airInsuranceReducer,
+        currency: state.currentCurrencyReducer,
+    };
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
+
+    }, dispatch);
+}
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(Insurance);
+

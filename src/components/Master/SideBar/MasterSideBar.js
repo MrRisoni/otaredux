@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import SideBarUpsale from './SideBarUpsale';
 import SideBarPersonUpsale from './SideBarPersonUpsale';
 import * as actsMaster from '../../../actions/master/actionsMaster';
-import {Translate} from 'react-redux-i18n';
+import { Translate } from 'react-redux-i18n';
 
-
+import { preSeatPrice } from '../../../helpers';
 
 class MasterSideBar extends Component {
   constructor(props) {
@@ -25,14 +25,18 @@ class MasterSideBar extends Component {
     let insuranceCount = 0;
     let mealsCount = 0;
     const otherUpsalesCount = 0;
+    let totalPreseatPrice =0;
 
-    const preSeated = false;
 
     this.props.passengers.forEach((pax) => {
       if (pax.active) {
-        // if (pax.seat.letter !== '') {
-        //    preSeated = true;
-        // }
+
+          console.log('master side bar');
+          const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
+
+          totalPreseatPrice += preSeatPrice(this.props.selectedSeats, pax, cabins, this.props.seatMapInfo);
+
+
 
         activePaxCount++;
         this.props.bagAllowance.forEach((bag) => {
@@ -54,9 +58,8 @@ x
                 {' '}
                 {bag.weight}
                 {' '}
-                {bag.price.toFixed(2)}
+                {(bag.price * this.props.currency.rate).toFixed(2)}
                 {' '}
-                {this.props.currency.code}
               </div>);
 
             bagPrices.push(<SideBarPersonUpsale
@@ -78,8 +81,7 @@ x
                   {insOption.title}
                   {' '}
                   {insOption.price.toFixed(2)}
-                  {' '}
-                  {this.props.currency.code}
+
                 </div>);
 
               insurancePrices.push(<SideBarPersonUpsale
@@ -108,9 +110,8 @@ x
                     <div className="col-12">
                       {availbMeal.title}
                       {' '}
-                      {availbMeal.price.toFixed(2)}
-                      {' '}
-                      {this.props.currency.code}
+                      {(availbMeal.price * this.props.currency.rate).toFixed(2)}
+
                     </div>
                   </div>
                 </div>,
@@ -164,7 +165,7 @@ x
     const otherUpsalesDiv = [];
 
     if (this.props.hasFlexibleTicket.state === true) {
-      const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax).toFixed(2);
+      const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
 
       otherUpsalesDiv.push(<SideBarUpsale
         title="Flexible Ticket"
@@ -174,7 +175,7 @@ x
     }
 
     if (this.props.hasBlueRibbon.state === true) {
-      const brbPrice = (activePaxCount * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
+      const brbPrice = (activePaxCount * this.props.blueRibbonPrices.pricePerPax * this.props.currency.rate).toFixed(2);
 
       otherUpsalesDiv.push(
         <SideBarUpsale
@@ -185,11 +186,12 @@ x
       );
     }
 
-    if (preSeated === true) {
+      totalPreseatPrice *= (this.props.currency.rate).toFixed(2);
+    if (totalPreseatPrice >0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Preaseating"
-          price={5}
+          price={totalPreseatPrice}
           currency={this.props.currency}
         />,
       );
@@ -198,7 +200,7 @@ x
 
     return (
 
-      <div className="pricebox position-fixed ">
+      <div className="pricebox sticky-top ">
 
         <div className="card bg-info">
           <div className="card-header">
@@ -233,7 +235,7 @@ x
               <div className="col-12">
                 <h4>
                     <Translate value="pricebox.TicketPrice" />
-
+                    {' '}
                   {this.props.ticketPrices}
                   {' '}
                   {this.props.currency.code}
@@ -252,7 +254,9 @@ x
               <div className="col-12">
                 <h4>
                     <Translate value="pricebox.UpsalePrices" />
-                  {this.props.pricing.upsales}
+                    {' '}
+
+                    {this.props.pricing.upsales}
                   {' '}
                   {this.props.currency.code}
                   {' '}

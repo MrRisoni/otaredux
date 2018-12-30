@@ -242,10 +242,7 @@ class MasterPassenger extends Component {
                                     <br/>
                                     <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
                                     <Insurance
-                                        paxId={this.props.passenger.id}
-                                        currency={this.props.currency}
-                                        insurances={this.props.insurances}
-                                        selectInsuranceHandler={this.props.selectInsuranceHandler}/>
+                                        paxId={this.props.passenger.id}/>
 
                                     {(this.state.ageGroup !== 'INF') &&
 

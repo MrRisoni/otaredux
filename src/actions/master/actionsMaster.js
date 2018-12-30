@@ -41,5 +41,6 @@ export function changeCurrencyAction(ev) {
 export function changeLanguageAction(ev) {
   return (dispatch, getState) => {
     dispatch(setLocale(ev.target.value));
+
   };
 }

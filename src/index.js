@@ -33,6 +33,8 @@ import MasterApp from './components/Master/MasterApp';
 
 import Russia from './locales/ru.json';
 import Germany from './locales/de.json';
+import French from './locales/fr.json';
+import English from './locales/en.json';
 
 
 const store = createStore(combineReducers({
@@ -70,9 +72,8 @@ applyMiddleware(thunk));
 
 
 const locales = {
-  en: {
-    SelectCabinPerSegment: 'Select Cabin Per Segment',
-  },
+  en: English,
+  fr: French,
   ru: Russia,
   de: Germany,
 };

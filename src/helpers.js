@@ -24,12 +24,32 @@ export function preseatAllowed(args) {
   return (filterAllowSegs.length > 0);
 }
 
+export function preSeatPrice(selectedSeats, pax, cabins, seatPrices) {
+  // preseat begin
+  const seletedSeatsInTheseSegs = selectedSeats.filter(ssl => ((ssl.paxId == pax.id) && (ssl.seatNo !== '')))
+    .map(slItem => slItem.segId);
+  let pricesSeats = 0;
+  for (const seatSegmntId of seletedSeatsInTheseSegs) {
+    const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
+    console.log(`calc price for ${classCabin} for seg ${seatSegmntId}`);
+    const seatPrice = seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
+
+    pricesSeats += seatPrice;
+  }
+
+  // preseat end
+  return pricesSeats;
+}
+
+
 export function calcTotalPrice(payload) {
   let total = 0;
   let upsales = 0;
   let ticketPrices = 0;
   let activePaxes = 0;
   const priceAnalysis = [];
+  let totalPreseat = 0;
+  let insurancePrice = 0;
 
   console.log('helpers calcTotalPrice');
   console.log(payload);
@@ -49,6 +69,16 @@ export function calcTotalPrice(payload) {
           }
         });
       });
+
+      const hasIns = payload.boughtInsurances.filter(ins => ins.paxId == pax.id);
+      hasIns.forEach((insdata) => {
+        payload.insuranceOptions.forEach((insOpt) => {
+          if (insOpt.id == insdata.insuranceId) {
+            insurancePrice += parseFloat(insOpt.priceEuro) * payload.currency.rate;
+          }
+        });
+      });
+
 
       const boughtBagIs = payload.boughtBags.filter(bbg => bbg.paxId == pax.id).map(bbg => bbg.bagId);
 
@@ -71,38 +101,39 @@ export function calcTotalPrice(payload) {
         }
       });
 
-      // preseat begin
-      const seletedSeatsInTheseSegs = payload.selectedSeats.filter(ssl => ((ssl.paxId == pax.id) && (ssl.seatNo !== '')))
-        .map(slItem => slItem.segId);
 
-      for (const seatSegmntId of seletedSeatsInTheseSegs) {
-        const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
-        console.log(`calc price for ${classCabin} for seg ${seatSegmntId}`);
-        const seatPrice = payload.seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
-        total += seatPrice;
-        upsales += seatPrice;
-      }
-
-      // preseat end
+      const preseatPriceThisPax = preSeatPrice(payload.selectedSeats, pax, cabins, payload.seatPrices);
+      totalPreseat += preseatPriceThisPax;
+      total += preseatPriceThisPax;
+      upsales += preseatPriceThisPax;
     } // end if pax active
   });
 
+  insurancePrice = parseFloat(insurancePrice).toFixed(2);
+  upsales += parseFloat(insurancePrice);
+  total += parseFloat(insurancePrice);
 
   if (payload.hasFlexibleTicket.state === true) {
-    total += (activePaxes * payload.flexibleTicket.pricePerPax);
+    const flexPrice = (activePaxes * payload.flexibleTicket.pricePerPax);
+
+    total += flexPrice;
+    upsales += flexPrice;
   }
 
   if (payload.hasBlueRibbon.state === true) {
-    total += (activePaxes * payload.blueRibbonPrices.pricePerPax);
+    const brbPrice = (activePaxes * payload.blueRibbonPrices.pricePerPax);
+    total += brbPrice;
+    upsales += brbPrice;
   }
 
-   total *= payload.currency.rate;
-
-
+  total *= payload.currency.rate;
+  upsales *= payload.currency.rate;
+  upsales = upsales.toFixed(2);
 
   return {
     total,
     upsales,
+    totalPreseat,
     tickets: ticketPrices,
     analysis: priceAnalysis,
   };

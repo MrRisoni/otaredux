@@ -51,10 +51,7 @@ class MasterApp extends Component {
               editPaxHandler={this.props.editPaxHandler}
               changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
               editNameHandler={this.props.editPaxNameHandler}
-              selectInsuranceHandler={this.props.selectInsuranceHandler}
               passengers={this.props.passengers}
-              currency={this.props.currency}
-              insurances={this.props.insuranceAir}
               carrierList={this.props.carrierList}
               countryList={this.props.asyncData.countries}
             />
@@ -100,12 +97,8 @@ function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
     carrierList: state.uniqueCarriersReducer,
-    currency: state.currentCurrencyReducer,
     currencyList: state.getCurrenciesReducer,
     contact: state.contactMasterReducer,
-    insuranceAir: state.airInsuranceReducer,
-    boughtInsurances: state.purchasedInsuranceReducer,
-    insuranceOptions: state.airInsuranceReducer,
     tripData: state.airTripReducer,
     asyncData: state.countryListReducer,
   };
@@ -120,7 +113,6 @@ function matchDispatchToProps(dispatch) {
     firstLoad: actsMaster.firstLoadMasterAction,
     editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
     editContactHandler: actsPaxes.editMasterContactAction,
-    selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
     fetchCountriesAction: actsMaster.fetchCountriesAction,
   }, dispatch);
 }
