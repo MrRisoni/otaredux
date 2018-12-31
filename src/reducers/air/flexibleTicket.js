@@ -12,9 +12,7 @@ export function hasFlexibleTicketReducer(state = chosenFlexibleTicket, action) {
   switch (action.type) {
     case MasterCons.ADD_FLEXIBLE_TICKET:
 
-      return Object.assign({}, state, {
-        state: action.payload,
-      });
+      return { ...state, state: action.payload };
     default:
       return state;
   }

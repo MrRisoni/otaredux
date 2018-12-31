@@ -19,7 +19,6 @@ class SeatSegmentRow extends Component {
 
 
   clickPickSeat() {
-    console.log('firing pickPaxSegForSeatHandler');
     this.props.pickPaxSegForSeatHandler(this.props.segment.id, this.props.paxData.id);
   }
 
@@ -38,8 +37,6 @@ class SeatSegmentRow extends Component {
     seatPrice *= this.props.currency.rate;
     seatPrice = seatPrice.toFixed(2);
 
-    console.log('this.props.selectedSeats');
-    console.log(this.props.selectedSeats);
 
     const selectedSeatNo = this.props.selectedSeats.filter(st => ((st.paxId == paxId) && (st.segId == segmentId)))[0].seatNo;
     let cardClassName = '';
@@ -47,9 +44,7 @@ class SeatSegmentRow extends Component {
     if ((this.props.selectedPaxSegPreseat.selectedSegment === this.props.segment.id) && (this.props.selectedPaxSegPreseat.selectedPaxId === this.props.paxData.id)) {
       cardClassName = 'text-white  bg-primary ';
     }
-    // <div className={`card text-white  segmentSeat bg-primary`}>
 
-    // <div className={`card text-white  segmentSeat ${cardClassName}`}>
 
     return (
       <div className={`card   segmentSeat ${cardClassName}`}>

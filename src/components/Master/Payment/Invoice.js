@@ -5,7 +5,7 @@ class Invoice extends Component {
         return (
             <div className="card">
                 <div className="card-header">
-                    Receipt Details
+                    Invoice Details
                 </div>
                 <div className="card-body">
                     <div className="row">

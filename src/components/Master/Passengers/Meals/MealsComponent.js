@@ -10,8 +10,6 @@ class MealsComponent extends Component {
 
   render() {
     const keys = [0, 1];
-    console.log('meals component');
-    console.log(this.props);
     return (
 
       <section>

@@ -7,7 +7,6 @@ import MasterSideBar from './SideBar/MasterSideBar';
 import ItineraryData from './Segments/ItineraryData';
 
 
-import * as actsInsurance from '../../actions/master/actionsInsurance';
 import * as actsMaster from '../../actions/master/actionsMaster';
 import * as actsPaxes from '../../actions/master/actionsPassengers';
 

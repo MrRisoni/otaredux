@@ -2,8 +2,7 @@ import React from 'react';
 import MealSelection from './MealSelection';
 
 const MealType = (props) => {
-  console.log('Meal Type ');
-  console.log(props);
+
 
   return (
     <div className="row">

@@ -12,6 +12,8 @@ export function ticketPricesReducer(state = ticketsPrice, action) {
   switch (action.type) {
     case MasterCons.FIRST_LOAD_MASTER:
     case MasterCons.PASSENGER_ARRAY_CHANGED:
+    case MasterCons.UPSALES_CHANGED:
+
       const calcTotalRsp = calcTotalPrice(action.payload);
       return calcTotalRsp.tickets;
     default:

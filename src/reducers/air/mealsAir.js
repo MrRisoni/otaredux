@@ -122,7 +122,7 @@ export function purchasedMealsReducer(state = boughtPaxMeals, action) {
         ];
       }
 
-      return state.map((ml) => {
+      return state.map(ml => {
         const samePax = ml.paxId === action.payload.paxId;
         const sameSeg = ml.segId === action.payload.segId;
         const sameType = ml.type === action.payload.type;

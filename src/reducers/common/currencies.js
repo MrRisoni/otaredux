@@ -41,10 +41,13 @@ export function currentCurrencyReducer(state = currentCurrency, action) {
         }
       });
 
-      return Object.assign({}, state, {
+      return {
+        ...state,
         code: action.payload.newCode,
         rate: newRate,
-      });
+      };
+
+
     default:
       return state;
   }

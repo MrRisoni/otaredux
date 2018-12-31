@@ -1,8 +1,6 @@
 import React from 'react';
 
 const SideBarUpsale = (props) => {
-    console.log('SideBarUpsale');
-    console.log(props);
 
   return (
     <section>

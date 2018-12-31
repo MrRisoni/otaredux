@@ -16,7 +16,7 @@ class MilesCards extends Component {
 
             <div className="col-6">
 
-                            Have you got miles card for your trip?
+                <Translate value="miles.HaveMilesCard" />
             </div>
             <div className="col-2">
               <i className="fas fa-address-card" />

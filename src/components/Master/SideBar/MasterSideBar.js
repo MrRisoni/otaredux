@@ -31,7 +31,6 @@ class MasterSideBar extends Component {
     this.props.passengers.forEach((pax) => {
       if (pax.active) {
 
-          console.log('master side bar');
           const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
 
           totalPreseatPrice += preSeatPrice(this.props.selectedSeats, pax, cabins, this.props.seatMapInfo);

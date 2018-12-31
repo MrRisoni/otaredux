@@ -16,8 +16,6 @@ class Seat extends Component {
   }
 
   pickThisSeat() {
-    console.log(`Seat ${this.props.colName} ${this.props.rowId}`);
-    console.log(this.props.preSeatSelectedItems);
     this.props.pickSeatHandler(this.props.colName + this.props.rowId, this.props.preSeatSelectedItems.selectedSegment,
       this.props.preSeatSelectedItems.selectedPaxId);
   }

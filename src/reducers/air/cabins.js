@@ -35,14 +35,12 @@ export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action
           cabin: action.payload.newClass,
         };
       });
-      break;
     case MasterCons.ADD_PASSENGER_MASTER:
 
-        const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
+      const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
 
 
-
-        return [
+      return [
         ...state,
         {
           paxId: nextPaxId,

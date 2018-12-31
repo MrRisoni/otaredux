@@ -83,9 +83,7 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
         seatNo: '',
       }));
     case MasterCons.PICK_SEAT_NO:
-      console.log('MasterCons.PICK_SEAT_NO:');
-      console.log(action.payload);
-      return state.map((itm) => {
+      return state.map(itm => {
         if ((itm.paxId == action.payload.paxId) && (itm.segId == action.payload.segId)) {
           return {
             ...itm,
@@ -97,7 +95,6 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
     case MasterCons.ADD_PASSENGER_MASTER:
 
       const nextPaxId = parseInt(state.length / 3); // we have as many records as segments
-      console.log('fetchCabinPaxPerSegment');
 
       return [
         ...state,
@@ -121,9 +118,7 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
     case MasterCons.CHANGE_PASSENGER_MASTER:
     case MasterCons.CHANGE_CABIN:
       // reset seats for this segment
-        console.log('  case MasterCons.CHANGE_CABIN:');
-        console.log(action.payload)
-      return state.map((itm) => {
+      return state.map(itm => {
         const returnDiff = ((itm.paxId === action.payload.paxId) && (itm.segId === action.payload.segmentId));
 
         if (returnDiff === true) {
@@ -144,9 +139,6 @@ export function fetchSeatSelectionReducer(state = seatSelection, action) {
 export function fetchPreseatSelectedPaxReducer(state = preSeatSelectedItems, action) {
   switch (action.type) {
     case MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT:
-      console.log('state befoar');
-      console.log(state);
-      console.log(action.payload);
       return {
         ...state,
         selectedSegment: action.payload.segId,

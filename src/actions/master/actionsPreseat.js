@@ -2,7 +2,6 @@ import { upsalesDispatcher } from './dispatcher';
 import * as MasterCons from './allConstants';
 
 export function pickPaxSegForPreseatAction(segId, paxId) {
-console.log('type: MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT,');
   return (dispatch, getState) => {
     dispatch({
       type: MasterCons.PICK_PAX_AND_SEG_FOR_PRESEAT,

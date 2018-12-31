@@ -13,9 +13,8 @@ const chosenBlueRibbon = false;
 export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
   switch (action.type) {
     case MasterCons.ADD_BLUE_RIBBON:
-      return Object.assign({}, state, {
-        state: action.payload,
-      });
+
+      return { ...state, state: action.payload };
     default:
       return state;
   }

@@ -129,6 +129,8 @@ export function calcTotalPrice(payload) {
   total *= payload.currency.rate;
   upsales *= payload.currency.rate;
   upsales = upsales.toFixed(2);
+  ticketPrices *= payload.currency.rate;
+  ticketPrices = ticketPrices.toFixed(2);
 
   return {
     total,

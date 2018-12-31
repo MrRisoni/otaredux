@@ -9,8 +9,6 @@ class MealSegment extends Component {
 
 
   render() {
-    console.log('MealSegment ');
-    console.log(this.props);
 
     let dessertsDiv = (<div />);
     if (this.props.desserts.length > 0) {

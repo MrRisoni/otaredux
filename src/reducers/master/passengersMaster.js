@@ -3,8 +3,6 @@
 import * as MasterCons from '../../actions/master/allConstants';
 
 
-
-
 const passengers = [
   {
     id: 0,
@@ -48,17 +46,19 @@ export function contactMasterReducer(state = contactData, action) {
     case MasterCons.PASSENGER_ARRAY_CHANGED:
       if (!contactData.changed) {
         firstActivePax = getFirstActivePax(action.payload.passengers);
-        return Object.assign({}, state, {
+
+
+        return {
+          ...state,
           surname: firstActivePax.surname,
           name: firstActivePax.name,
-        });
+        };
       }
-
-      return state;
 
     case MasterCons.EDIT_CONTACT_PASSENGER_MASTER:
       // { key action.payload.key}
-      return Object.assign({}, state, {
+      return {
+        ...state,
         surname: action.payload.surname,
         name: action.payload.name,
         changed: true,
@@ -70,7 +70,7 @@ export function contactMasterReducer(state = contactData, action) {
         city: action.payload.city,
         address: action.payload.address,
         postcode: action.payload.postcode,
-      });
+      };
     default:
       return contactData;
   }
@@ -80,7 +80,7 @@ function getFirstActivePax(passengers) {
   // get first adult
   const firstActivePax = { surname: '', name: '' };
   let maxId = 50;
-  passengers.forEach((pax) => {
+  passengers.forEach(pax => {
     if (pax.active && pax.id < maxId && pax.type === 'ADT') { // ADULT PAX
       maxId = pax.id;
       firstActivePax.surname = pax.surname;
@@ -94,7 +94,7 @@ export function passengersMasterReducer(state = passengers, action) {
   switch (action.type) {
     case MasterCons.ADD_PASSENGER_MASTER:
       let maxHumanId = 0;
-      state.forEach((pax) => {
+      state.forEach(pax => {
         if (pax.active && maxHumanId < pax.humanId) {
           maxHumanId = pax.humanId;
         }
@@ -133,7 +133,7 @@ export function passengersMasterReducer(state = passengers, action) {
         // reorder human ids
         let newHumanId = 1;
 
-        newPaxes.forEach((pax) => {
+        newPaxes.forEach(pax => {
           if (pax.id == paxIdRemoval) {
             pax.active = false;
           }
@@ -147,7 +147,6 @@ export function passengersMasterReducer(state = passengers, action) {
       }
 
       return state;
-
 
 
     case MasterCons.CHANGE_PASSENGER_MASTER:
