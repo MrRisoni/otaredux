@@ -28,7 +28,7 @@ class MasterSideBar extends Component {
     let totalPreseatPrice =0;
 
 
-    this.props.passengers.forEach((pax) => {
+    this.props.passengers.forEach(pax => {
       if (pax.active) {
 
           const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
@@ -38,9 +38,9 @@ class MasterSideBar extends Component {
 
 
         activePaxCount++;
-        this.props.bagAllowance.forEach((bag) => {
+        this.props.bagAllowance.forEach(bag => {
           let bagCountId = 0;
-          this.props.purchasedBags.forEach((boughtBag) => {
+          this.props.purchasedBags.forEach(boughtBag => {
             if (bag.id === boughtBag.bagId) {
               if (boughtBag.paxId === pax.id) {
                 bagCountId++;
@@ -69,8 +69,8 @@ x
         });
 
 
-        this.props.boughtInsurances.forEach((boughtIns) => {
-          this.props.insuranceOptions.forEach((insOption) => {
+        this.props.boughtInsurances.forEach(boughtIns => {
+          this.props.insuranceOptions.forEach(insOption => {
             if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id > 0)) {
               insuranceCount++;
 
@@ -91,8 +91,8 @@ x
           });
         });
 
-        this.props.boughtMeals.forEach((boughtMl) => {
-          this.props.mealOptions.forEach((availbMeal) => {
+        this.props.boughtMeals.forEach(boughtMl => {
+          this.props.mealOptions.forEach(availbMeal => {
             if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
               mealsCount++;
 

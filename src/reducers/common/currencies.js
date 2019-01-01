@@ -35,7 +35,7 @@ export function currentCurrencyReducer(state = currentCurrency, action) {
 
 
       let newRate = 1.00;
-      action.payload.currencies.forEach((cur) => {
+      action.payload.currencies.forEach(cur => {
         if (cur.code === action.payload.newCode) {
           newRate = cur.rate;
         }

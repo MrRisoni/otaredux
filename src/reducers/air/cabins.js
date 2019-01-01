@@ -22,7 +22,7 @@ const cabinPaxSelection = [
 export function fetchCabinPaxPerSegmentReducer(state = cabinPaxSelection, action) {
   switch (action.type) {
     case MasterCons.CHANGE_CABIN:
-      return state.map((cbpx) => {
+      return state.map(cbpx => {
         const diffPax = (cbpx.paxId !== action.payload.paxId);
         const samePaxDiffSeg = (cbpx.paxId === action.payload.paxId) && (cbpx.segId !== action.payload.segmentId);
         const returnSame = (diffPax === true) || (samePaxDiffSeg === true);

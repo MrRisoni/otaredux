@@ -17,7 +17,7 @@ class BagComponent extends Component {
     let limitBags = 0;
     const thisPaxCabins = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
     let bestCabin = '';
-    thisPaxCabins.forEach((sg) => {
+    thisPaxCabins.forEach(sg => {
       const thisClassLimit = this.props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
       if (thisClassLimit > limitBags) {
         limitBags = thisClassLimit;

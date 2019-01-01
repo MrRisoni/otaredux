@@ -50,7 +50,7 @@ class BagSelection extends Component {
   getTotalBagCount() {
     let bagCountTotal = 0;
 
-    this.props.purchasedBags.forEach((purchasedBag) => {
+    this.props.purchasedBags.forEach(purchasedBag => {
       if (purchasedBag.legId === this.props.legId) {
         if (purchasedBag.paxId === this.props.paxId) {
           bagCountTotal++;
@@ -64,7 +64,7 @@ class BagSelection extends Component {
   getBagCount() {
     let bagCount = 0; // bag count for this passenger ,leg and bag
 
-    this.props.purchasedBags.forEach((purchasedBag) => {
+    this.props.purchasedBags.forEach(purchasedBag => {
       if (purchasedBag.bagId === this.props.bagData.id) {
         if (purchasedBag.legId === this.props.legId) {
           if (purchasedBag.paxId === this.props.paxId) {

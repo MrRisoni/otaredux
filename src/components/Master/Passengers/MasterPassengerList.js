@@ -36,8 +36,6 @@ const MasterPassengerList = props => (
       <MasterPassenger
         key={pax.id}
         passenger={pax}
-        carrierList={props.carrierList}
-        countryList={props.countryList}
         editPaxHandler={props.editPaxHandler}
         editNameHandler={props.editNameHandler}
         removePaxHandler={props.removePaxHandler}

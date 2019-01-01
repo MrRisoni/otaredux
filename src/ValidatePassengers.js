@@ -5,11 +5,10 @@ class ValidatePassengers {
 
 
   validate(papList) {
-    console.log('Validator Passengers');
     let truthy = 0;
     let totalValids = 0;
 
-    papList.forEach((px) => {
+    papList.forEach(px => {
       if (px.active) {
         truthy += this.validateNameSurname(px.surname);
         truthy += this.validateNameSurname(px.name);
@@ -17,7 +16,6 @@ class ValidatePassengers {
       }
     });
 
-    console.log(truthy);
 
     return (totalValids === truthy);
   }

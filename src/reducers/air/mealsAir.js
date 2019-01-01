@@ -110,8 +110,7 @@ export function purchasedMealsReducer(state = boughtPaxMeals, action) {
 
 
     case MasterCons.ADD_MEAL:
-      console.log('add meal');
-      console.log(action.payload);
+
       // check if there a meal of that type for this pax
       const filters = state.filter(ml => ((ml.paxId === action.payload.paxId) && (ml.segId === action.payload.segId) && (ml.type === action.payload.type)));
 

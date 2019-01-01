@@ -51,7 +51,6 @@ class MasterApp extends Component {
               changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
               editNameHandler={this.props.editPaxNameHandler}
               passengers={this.props.passengers}
-              carrierList={this.props.carrierList}
               countryList={this.props.asyncData.countries}
             />
 
@@ -95,8 +94,6 @@ class MasterApp extends Component {
 function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
-    carrierList: state.uniqueCarriersReducer,
-    currencyList: state.getCurrenciesReducer,
     contact: state.contactMasterReducer,
     tripData: state.airTripReducer,
     asyncData: state.countryListReducer,

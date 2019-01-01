@@ -38,7 +38,7 @@ export function purchasedInsuranceReducer(state = boughtInsurances, action) {
 
       var foundPax = false;
 
-      state.forEach((obj) => {
+      state.forEach(obj => {
         if (obj.paxId === obj.paxId) {
           foundPax = true;
         }
@@ -52,7 +52,7 @@ export function purchasedInsuranceReducer(state = boughtInsurances, action) {
       }
 
 
-      return state.map((obj) => {
+      return state.map(obj => {
         if (obj.paxId == action.payload.paxId) {
           return {
             ...obj,

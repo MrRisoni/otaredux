@@ -16,12 +16,13 @@ export function preseatAllowed(args) {
   const cabin = args.cabin;
   const seatMap = args.seatMap;
 
-  console.log('preseat allowed');
-  console.log(args);
+  if (pax.type !== 'INF') {
+    const cabinForThisSeg = cabin.filter(cb => ((cb.segId == seg.id) && (cb.paxId == pax.id)))[0].cabin;
+    const filterAllowSegs = seatMap.filter(sgm => ((sgm.segId == seg.id) && sgm.allowedCabins.indexOf(cabinForThisSeg) > -1));
+    return (filterAllowSegs.length > 0);
+  }
 
-  const cabinForThisSeg = cabin.filter(cb => ((cb.segId == seg.id) && (cb.paxId == pax.id)))[0].cabin;
-  const filterAllowSegs = seatMap.filter(sgm => ((sgm.segId == seg.id) && sgm.allowedCabins.indexOf(cabinForThisSeg) > -1));
-  return (filterAllowSegs.length > 0);
+  return false;
 }
 
 export function preSeatPrice(selectedSeats, pax, cabins, seatPrices) {
@@ -31,7 +32,6 @@ export function preSeatPrice(selectedSeats, pax, cabins, seatPrices) {
   let pricesSeats = 0;
   for (const seatSegmntId of seletedSeatsInTheseSegs) {
     const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
-    console.log(`calc price for ${classCabin} for seg ${seatSegmntId}`);
     const seatPrice = seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
 
     pricesSeats += seatPrice;
@@ -51,17 +51,15 @@ export function calcTotalPrice(payload) {
   let totalPreseat = 0;
   let insurancePrice = 0;
 
-  console.log('helpers calcTotalPrice');
-  console.log(payload);
 
-  payload.passengers.forEach((pax) => {
+  payload.passengers.forEach(pax => {
     if (pax.active) {
       activePaxes++;
       const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id);
 
 
-      cabins.forEach((cb) => {
-        payload.segmentCabinPricing.forEach((segs) => {
+      cabins.forEach(cb => {
+        payload.segmentCabinPricing.forEach(segs => {
           if (segs.id == cb.segId) {
             const priceForThis = segs.cabinList.filter(pr => (pr.class === cb.cabin) && (pr.age === pax.type))[0].price;
             total += priceForThis;
@@ -71,8 +69,8 @@ export function calcTotalPrice(payload) {
       });
 
       const hasIns = payload.boughtInsurances.filter(ins => ins.paxId == pax.id);
-      hasIns.forEach((insdata) => {
-        payload.insuranceOptions.forEach((insOpt) => {
+      hasIns.forEach(insdata => {
+        payload.insuranceOptions.forEach(insOpt => {
           if (insOpt.id == insdata.insuranceId) {
             insurancePrice += parseFloat(insOpt.priceEuro) * payload.currency.rate;
           }
@@ -83,8 +81,8 @@ export function calcTotalPrice(payload) {
       const boughtBagIs = payload.boughtBags.filter(bbg => bbg.paxId == pax.id).map(bbg => bbg.bagId);
 
 
-      boughtBagIs.forEach((bbg) => {
-        payload.bagAllowance.forEach((bal) => {
+      boughtBagIs.forEach(bbg => {
+        payload.bagAllowance.forEach(bal => {
           if (bal.id == bbg) {
             total += bal.priceEuro;
             upsales += bal.priceEuro;
@@ -94,7 +92,7 @@ export function calcTotalPrice(payload) {
 
 
       const boughtMealsIds = payload.boughtMeals.filter(ml => ml.paxId == pax.id).map(ml => ml.mealId);
-      payload.mealOptions.forEach((ml) => {
+      payload.mealOptions.forEach(ml => {
         if (boughtMealsIds.indexOf(ml.id) > -1) {
           total += ml.price;
           upsales += ml.price;

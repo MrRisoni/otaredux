@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Translate } from 'react-redux-i18n';
 import SingleMilesCard from './SingleMilesCard';
+import { connect } from 'react-redux';
 
 
 class MilesCards extends Component {
@@ -53,4 +54,13 @@ class MilesCards extends Component {
   }
 }
 
-export default MilesCards;
+function mapStateToProps(state) {
+    return {
+        carrierList: state.uniqueCarriersReducer
+    };
+}
+
+
+
+
+export default connect(mapStateToProps)(MilesCards);
