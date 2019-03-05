@@ -23,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "testAir": "mocha -require babel-polyfill --require babel-core/register src/tests/air/*.js"
+    "testAir": "mocha -require babel-polyfill --require babel-core/register src/tests/air/*.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -48,5 +49,6 @@
     "sass-loader": "^7.1.0",
     "sinon": "^4.1.3",
     "webpack": "^4.28.0"
-  }
+  },
+  "heroku-run-build-script": true
 }
