@@ -13,6 +13,8 @@ export function upsalesDispatcher(status, actionType) {
       currency: status().currentCurrencyReducer,
       hasFlexibleTicket: status().hasFlexibleTicketReducer,
       flexibleTicket: status().flexibleTicketReducer,
+      hasWebCheckin: status().hasWebCheckinReducer,
+      webCheckinPrice: status().webCheckinPriceReducer,
       hasBlueRibbon: status().hasBlueRibbonReducer,
       blueRibbonPrices: status().getBlueRibbonReducer,
       cabinSelection: status().fetchCabinPaxPerSegmentReducer,

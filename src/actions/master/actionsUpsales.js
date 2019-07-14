@@ -24,3 +24,14 @@ export function changeBlueRibbonAction(data) {
     dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }
+
+export function changeWebCheckinAction(data) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: MasterCons.ADD_WEBCHECKIN,
+            payload: data,
+        });
+
+        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    };
+}

@@ -17,7 +17,8 @@ import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
 import Preseat from './Preseat/Preseat';
 import FlexibleTicket from './Passengers/FlexibleTicket';
 import BlueRibbon from './Passengers/BlueRibbon';
-import LoungeAccess from "./LoungeAccess";
+import LoungeAccess from './LoungeAccess';
+import WebCheckin from './Passengers/WebCheckin';
 
 
 class MasterApp extends Component {
@@ -63,12 +64,14 @@ class MasterApp extends Component {
           </div>
         </div>
 
+          <WebCheckin/>
 
          <Preseat/>
 
 
         <FlexibleTicket/>
 
+          <h3>Branded Fares</h3>
 
 
         <BlueRibbon/>

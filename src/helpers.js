@@ -118,6 +118,14 @@ export function calcTotalPrice(payload) {
     upsales += flexPrice;
   }
 
+  if (payload.hasWebCheckin.state === true) {
+    const webCheckPrice = (activePaxes * payload.webCheckinPrice.pricePerPax);
+
+    total += webCheckPrice;
+    upsales += webCheckPrice;
+  }
+
+
   if (payload.hasBlueRibbon.state === true) {
     const brbPrice = (activePaxes * payload.blueRibbonPrices.pricePerPax);
     total += brbPrice;

@@ -19,6 +19,6 @@ export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
 }
 
 
-export function webCheckiReducer(state = webCheckinPrice, action) {
+export function webCheckinPriceReducer(state = webCheckinPrice, action) {
     return state;
 }
