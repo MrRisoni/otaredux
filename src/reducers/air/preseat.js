@@ -23,6 +23,11 @@ const seatSelection = [
     segId: 2,
     seatNo: '',
   },
+{
+    paxId: 0,
+    segId: 3,
+    seatNo: '',
+}
 
 ];
 

@@ -17,6 +17,7 @@ import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
 import Preseat from './Preseat/Preseat';
 import FlexibleTicket from './Passengers/FlexibleTicket';
 import BlueRibbon from './Passengers/BlueRibbon';
+import LoungeAccess from "./LoungeAccess";
 
 
 class MasterApp extends Component {
@@ -73,6 +74,7 @@ class MasterApp extends Component {
         <BlueRibbon/>
 
 
+        <LoungeAccess/>
 
         <MasterContact
           contact={this.props.contact}

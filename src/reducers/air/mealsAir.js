@@ -19,7 +19,7 @@ const meals = [
     route: 'Athens-Dublin',
     type: 'Main',
     classes: ['C', 'F'],
-    title: 'Spagheti Bolognese',
+    title: 'Spaghetti Bolognese',
   },
   {
     id: 3,
@@ -86,6 +86,24 @@ const meals = [
     classes: ['W', 'Y'],
     title: 'Muslim',
   },
+    {
+        id: 10,
+        key: 'ge534dhfg7356ewsdsdsdswewe7777==',
+        price: 5.00,
+        segId: 2,
+        type: 'Main',
+        classes: ['W', 'Y'],
+        title: 'Vegan',
+    },
+    {
+        id: 11,
+        key: 'ge534dhfg7356ffdfddfdewsdsdsdswewe7777==',
+        price: 5.00,
+        segId: 2,
+        type: 'Main',
+        classes: ['W', 'Y'],
+        title: 'Muslim',
+    },
 ];
 
 const boughtPaxMeals = [];
