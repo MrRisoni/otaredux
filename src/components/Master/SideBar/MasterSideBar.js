@@ -7,6 +7,7 @@ import * as actsMaster from '../../../actions/master/actionsMaster';
 import { Translate } from 'react-redux-i18n';
 
 import { preSeatPrice } from '../../../helpers';
+import {hasWebCheckinReducer, webCheckinPriceReducer} from "../../../reducers/air/webCheckin";
 
 class MasterSideBar extends Component {
   constructor(props) {
@@ -172,6 +173,18 @@ x
         currency={this.props.currency}
       />);
     }
+
+      if (this.props.hasWebCheckin.state === true) {
+          const webCheckinPrice = (activePaxCount * this.props.webCheckinPrice.pricePerPax * this.props.currency.rate).toFixed(2);
+
+          otherUpsalesDiv.push(<SideBarUpsale
+              title="Web Checkin"
+              price={webCheckinPrice}
+              currency={this.props.currency}
+          />);
+      }
+
+
 
     if (this.props.hasBlueRibbon.state === true) {
       const brbPrice = (activePaxCount * this.props.blueRibbonPrices.pricePerPax * this.props.currency.rate).toFixed(2);
@@ -351,6 +364,8 @@ function mapStateToProps(state) {
     boughtMeals: state.purchasedMealsReducer,
     hasFlexibleTicket: state.hasFlexibleTicketReducer,
     flexibleTicket: state.flexibleTicketReducer,
+    hasWebCheckin: state.hasWebCheckinReducer,
+    webCheckinPrice: state.webCheckinPriceReducer,
     hasBlueRibbon: state.hasBlueRibbonReducer,
     blueRibbonPrices: state.getBlueRibbonReducer,
     ticketPrices: state.ticketPricesReducer,

@@ -26,6 +26,7 @@ import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir'
 import { hasFlexibleTicketReducer, flexibleTicketReducer } from './reducers/air/flexibleTicket';
 import { hasBlueRibbonReducer, getBlueRibbonReducer } from './reducers/air/blueRibbon';
 import { hasWebCheckinReducer, webCheckinPriceReducer } from './reducers/air/webCheckin';
+import { hasLoungeAccessReducer, loungeBookingsReducer ,loungeAccessPricesReducer} from './reducers/air/lounge';
 
 import { getLanguagesReducer } from './reducers/common/languages';
 
@@ -69,6 +70,9 @@ const store = createStore(combineReducers({
   getLanguagesReducer,
   hasWebCheckinReducer,
   webCheckinPriceReducer,
+  hasLoungeAccessReducer,
+  loungeBookingsReducer,
+  loungeAccessPricesReducer,
   routing: routerReducer,
   i18n: i18nReducer,
 }),

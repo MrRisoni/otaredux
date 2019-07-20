@@ -224,9 +224,9 @@ const trip = [
       {
         segId: 3,
         from: {
-          iata: 'LHR',
-          city: 'London',
-          name: 'Heathrow Arpt',
+          iata: 'TRF',
+          city: 'Oslo',
+          name: 'Oslo Arpt',
           flyTime: '09:00',
           flyTimeGMT: '09:00',
           day: 'Tues',
