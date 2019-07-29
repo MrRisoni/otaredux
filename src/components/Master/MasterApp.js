@@ -19,6 +19,7 @@ import FlexibleTicket from './Passengers/FlexibleTicket';
 import BlueRibbon from './Passengers/BlueRibbon';
 import LoungeAccess from './LoungeAccess/LoungeAccess';
 import WebCheckin from './Passengers/WebCheckin';
+import Parking from './Parking/Parking';
 
 
 class MasterApp extends Component {
@@ -78,6 +79,7 @@ class MasterApp extends Component {
 
         <BlueRibbon/>
 
+        <Parking/>
 
         <LoungeAccess/>
 

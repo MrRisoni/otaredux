@@ -26,7 +26,8 @@ import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir'
 import { hasFlexibleTicketReducer, flexibleTicketReducer } from './reducers/air/flexibleTicket';
 import { hasBlueRibbonReducer, getBlueRibbonReducer } from './reducers/air/blueRibbon';
 import { hasWebCheckinReducer, webCheckinPriceReducer } from './reducers/air/webCheckin';
-import { hasLoungeAccessReducer, loungeBookingsReducer ,loungeAccessPricesReducer} from './reducers/air/lounge';
+import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
+import { getParkingDaysReducer, getParkPricingReducer } from './reducers/air/parking';
 
 import { getLanguagesReducer } from './reducers/common/languages';
 
@@ -73,6 +74,8 @@ const store = createStore(combineReducers({
   hasLoungeAccessReducer,
   loungeBookingsReducer,
   loungeAccessPricesReducer,
+  getParkingDaysReducer,
+  getParkPricingReducer,
   routing: routerReducer,
   i18n: i18nReducer,
 }),

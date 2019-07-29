@@ -35,3 +35,27 @@ export function changeWebCheckinAction(data) {
         dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
     };
 }
+
+
+export function addParkingDayAction(data) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: MasterCons.ADD_PARK_DAYS,
+            payload: data,
+        });
+
+        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    };
+}
+
+
+export function subParkingDayAction(data) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: MasterCons.SUB_PARK_DAYS,
+            payload: data,
+        });
+
+        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    };
+}
