@@ -44,7 +44,7 @@ class Parking extends Component {
 
                                     <div className="col-3">
 
-                                        Parking
+                                        Parking up to 22 days
                                     </div>
 
                                     <div className="col-2 offset-6">

@@ -132,6 +132,29 @@ export function calcTotalPrice(payload) {
     upsales += brbPrice;
   }
 
+  if (payload.parkingDays >0) {
+      let totalParkDaysPriced = 0;
+
+      let priceTheseDays =0;
+
+      payload.parkingPrices.forEach( prkprc => {
+            if (payload.parkingDays > prkprc.upToDays) {
+                priceTheseDays = prkprc.upToDays;
+
+                totalParkDaysPriced +=  priceTheseDays;
+            }
+            else {
+                priceTheseDays =  payload.parkingDays -totalParkDaysPriced;
+            }
+
+          total += priceTheseDays * prkprc.price;
+          upsales += priceTheseDays * prkprc.price;
+
+      });
+
+
+  }
+
   total *= payload.currency.rate;
   upsales *= payload.currency.rate;
   upsales = upsales.toFixed(2);

@@ -23,9 +23,13 @@ export function getParkingDaysReducer(state = parkingDays, action) {
     switch (action.type) {
         case MasterCons.ADD_PARK_DAYS:
             console.log('adding one hour');
-            return ++state;
+            if (state < 22) {
+                return ++state;
+            }else {
+                return 0;
+            }
         case MasterCons.SUB_PARK_DAYS:
-            if (state <=1) {
+            if (state <=1 ) {
                 return 0;
             }
             return --state;
