@@ -164,7 +164,33 @@ x
 
     const otherUpsalesDiv = [];
 
-    if (this.props.hasFlexibleTicket.state === true) {
+
+      if (this.props.hasFastTrack.state === true) {
+          const fastTrackPrice = (activePaxCount * this.props.fastTrackPricing.pricePerPax * this.props.currency.rate).toFixed(2);
+
+          otherUpsalesDiv.push(<SideBarUpsale
+              title="Fast Track"
+              price={fastTrackPrice}
+              currency={this.props.currency}
+          />);
+      }
+
+
+
+      if (this.props.hasFlexibleTicket.state === true) {
+          const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
+
+          otherUpsalesDiv.push(<SideBarUpsale
+              title="Flexible Ticket"
+              price={flexiblePrice}
+              currency={this.props.currency}
+          />);
+      }
+
+
+
+
+      if (this.props.hasFlexibleTicket.state === true) {
       const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
 
       otherUpsalesDiv.push(<SideBarUpsale

@@ -74,7 +74,7 @@ class Preseat extends Component {
         </div>
 
 
-        <div id="preseatComponents" className="show">
+        <div id="preseatComponents" className="collapse">
           <SeatShower />
 
           <section id="seatRowsElement">

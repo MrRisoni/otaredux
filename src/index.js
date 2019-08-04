@@ -28,6 +28,8 @@ import { hasBlueRibbonReducer, getBlueRibbonReducer } from './reducers/air/blueR
 import { hasWebCheckinReducer, webCheckinPriceReducer } from './reducers/air/webCheckin';
 import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
 import { getParkingDaysReducer, getParkPricingReducer } from './reducers/air/parking';
+import { hasFastTrackReducer, fastTrackPriceReducer } from './reducers/air/fastTrack';
+
 
 import { getLanguagesReducer } from './reducers/common/languages';
 
@@ -76,6 +78,8 @@ const store = createStore(combineReducers({
   loungeAccessPricesReducer,
   getParkingDaysReducer,
   getParkPricingReducer,
+  fastTrackPriceReducer,
+  hasFastTrackReducer,
   routing: routerReducer,
   i18n: i18nReducer,
 }),

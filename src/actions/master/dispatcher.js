@@ -1,3 +1,4 @@
+import {fastTrackPriceReducer, hasFastTrackReducer} from "../../reducers/air/fastTrack";
 
 export function upsalesDispatcher(status, actionType) {
   return {
@@ -23,6 +24,8 @@ export function upsalesDispatcher(status, actionType) {
       seatPrices: status().seatMapInfoReducer,
       parkingPrices: status().getParkPricingReducer,
       parkingDays: status().getParkingDaysReducer,
+      hasFastTrack: status().hasFastTrackReducer,
+      fastTrackPricing: status().fastTrackPriceReducer,
     },
   };
 }

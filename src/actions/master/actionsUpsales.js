@@ -59,3 +59,16 @@ export function subParkingDayAction(data) {
         dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
     };
 }
+
+
+
+export function changeFastTrackAction(data) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: MasterCons.ADD_FAST_TRACK,
+            payload: data,
+        });
+
+        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    };
+}

@@ -137,22 +137,34 @@ export function calcTotalPrice(payload) {
 
       let priceTheseDays =0;
 
+      let remainingDays  =payload.parkingDays;
+
       payload.parkingPrices.forEach( prkprc => {
-            if (payload.parkingDays > prkprc.upToDays) {
-                priceTheseDays = prkprc.upToDays;
+          if (remainingDays >0) {
+              if (payload.parkingDays > prkprc.upToDays) {
+                  priceTheseDays = prkprc.upToDays;
 
-                totalParkDaysPriced +=  priceTheseDays;
-            }
-            else {
-                priceTheseDays =  payload.parkingDays -totalParkDaysPriced;
-            }
+                  totalParkDaysPriced += priceTheseDays;
+              } else {
+                  priceTheseDays = payload.parkingDays - totalParkDaysPriced;
+              }
 
-          total += priceTheseDays * prkprc.price;
-          upsales += priceTheseDays * prkprc.price;
-
+              remainingDays -= priceTheseDays;
+              total += priceTheseDays * prkprc.price;
+              upsales += priceTheseDays * prkprc.price;
+          }
       });
 
 
+
+  }
+
+
+  if (payload.hasFastTrack) {
+      const fastTrackPrice = (activePaxes * payload.fastTrackPricing.pricePerPax);
+
+      total += fastTrackPrice;
+      upsales += fastTrackPrice;
   }
 
   total *= payload.currency.rate;

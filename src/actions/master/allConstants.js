@@ -26,3 +26,4 @@ export const ADD_WEBCHECKIN = 'ADD_WEBCHECKIN';
 export const ADD_LOUNGE_ACCESS = 'ADD_LOUNGE_ACCESS';
 export const ADD_PARK_DAYS = 'ADD_PARK_DAYS';
 export const SUB_PARK_DAYS = 'SUB_PARK_DAYS';
+export const ADD_FAST_TRACK = 'ADD_FAST_TRACK';

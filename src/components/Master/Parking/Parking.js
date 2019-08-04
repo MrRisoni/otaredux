@@ -67,15 +67,39 @@ class Parking extends Component {
                             <div className="card-body collapse show" id="flexibleTicketCollapse">
 
                                 <div className="row">
-                                    <div className="col-8">
+                                    <div className="col-12">
+                                        <table className="table table-bordered table-stripped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Up to days</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {this.props.pricingTable.map( prcd => {
+                                                return (<tr>
+                                                        <td>Up to days {prcd.upToDays}</td>
+                                                        <td> {prcd.price} E</td></tr>)
+                                                })}
 
-park days {this.props.parkDays}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-                                        <button onClick={this.handleAddDays}>Add Day</button>
-                                        <button onClick={this.handleSubtractDays}>Remove Day</button>
+                                <div className="row">
+                                    <div className="col-6">park days {this.props.parkDays}</div>
+                                    <div className="col-4">
+                                        <button className="btn-primary btn btn-sm" onClick={this.handleAddDays}>Add
+                                            Day
+                                        </button>
+                                        <button className="btn-danger btn btn-sm"
+                                                onClick={this.handleSubtractDays}>Remove Day
+                                        </button>
 
 
                                     </div>
+
                                 </div>
                             </div>
 
@@ -92,7 +116,7 @@ park days {this.props.parkDays}
 
 function mapStateToProps(state) {
     return {
-        pricingTable: state.passengersMasterReducer,
+        pricingTable: state.getParkPricingReducer,
         parkDays: state.getParkingDaysReducer,
         currency: state.currentCurrencyReducer,
     };

@@ -20,6 +20,7 @@ import BlueRibbon from './Passengers/BlueRibbon';
 import LoungeAccess from './LoungeAccess/LoungeAccess';
 import WebCheckin from './Passengers/WebCheckin';
 import Parking from './Parking/Parking';
+import FastTrack from "./FastTrack";
 
 
 class MasterApp extends Component {
@@ -66,13 +67,11 @@ class MasterApp extends Component {
         </div>
 
 
-
          <Preseat/>
 
-
-        <FlexibleTicket/>
-
-          <WebCheckin/>
+         <FastTrack/>
+         <FlexibleTicket/>
+         <WebCheckin/>
 
           <h3>Branded Fares</h3>
 
