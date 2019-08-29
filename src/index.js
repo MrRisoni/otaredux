@@ -24,11 +24,11 @@ import { getBagsReducer, purchasedBagsReducer, getLimitBagReducer } from './redu
 import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAir';
 import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir';
 import { hasFlexibleTicketReducer, flexibleTicketReducer } from './reducers/air/flexibleTicket';
-import { hasBlueRibbonReducer, getBlueRibbonReducer } from './reducers/air/blueRibbon';
+import { hasBlueRibbonReducer, getBlueRibbonReducer, getBlueRibbonFinalCostReducer } from './reducers/air/blueRibbon';
 import { hasWebCheckinReducer, webCheckinPriceReducer } from './reducers/air/webCheckin';
 import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
-import { getParkingDaysReducer, getParkPricingReducer } from './reducers/air/parking';
-import { hasFastTrackReducer, fastTrackPriceReducer } from './reducers/air/fastTrack';
+import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parking';
+import { hasFastTrackReducer, fastTrackPriceReducer,getFastTrackFinalCostReducer } from './reducers/air/fastTrack';
 
 
 import { getLanguagesReducer } from './reducers/common/languages';
@@ -67,6 +67,7 @@ const store = createStore(combineReducers({
   flexibleTicketReducer,
   hasBlueRibbonReducer,
   getBlueRibbonReducer,
+  getBlueRibbonFinalCostReducer,
   countryListReducer,
   fetchPreseatSelectedPaxReducer,
   seatMapInfoReducer,
@@ -78,6 +79,8 @@ const store = createStore(combineReducers({
   loungeAccessPricesReducer,
   getParkingDaysReducer,
   getParkPricingReducer,
+  getParkPricingFinalCostReducer,  
+  getFastTrackFinalCostReducer,
   fastTrackPriceReducer,
   hasFastTrackReducer,
   routing: routerReducer,

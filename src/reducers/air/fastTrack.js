@@ -7,6 +7,8 @@ const fastTrackPrice = {
 
 const chosenFastTrack = false;
 
+const overallFastTrackCost = 0;
+
 
 export function hasFastTrackReducer(state = chosenFastTrack, action) {
     switch (action.type) {
@@ -22,3 +24,15 @@ export function hasFastTrackReducer(state = chosenFastTrack, action) {
 export function fastTrackPriceReducer(state = fastTrackPrice, action) {
     return state;
 }
+
+
+
+export function getFastTrackFinalCostReducer(state = overallFastTrackCost, action) {
+    if (action.type == MasterCons.UPSALES_CHANGED) {  
+      if (action.payload.hasFastTrack) { 
+          return  getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricing;
+    
+      }
+    }
+    return state;
+  }

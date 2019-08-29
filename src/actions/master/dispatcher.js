@@ -26,6 +26,9 @@ export function upsalesDispatcher(status, actionType) {
       parkingDays: status().getParkingDaysReducer,
       hasFastTrack: status().hasFastTrackReducer,
       fastTrackPricing: status().fastTrackPriceReducer,
+      overallFastTrackCost: status().getFastTrackFinalCostReducer,
+      overallPricingCost: status().getParkPricingFinalCostReducer,
+      overallBlueRibbonCost: status().getBlueRibbonFinalCostReducer
     },
   };
 }

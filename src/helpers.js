@@ -41,6 +41,16 @@ export function preSeatPrice(selectedSeats, pax, cabins, seatPrices) {
   return pricesSeats;
 }
 
+export function getNonInfantPaxes(psxList)
+{
+  let activePaxes =0;
+  psxList.forEach(pax => {
+    if (pax.active && pax.type != 'INF') {
+      activePaxes++;
+    }
+  });
+ return activePaxes;
+}
 
 export function calcTotalPrice(payload) {
   let total = 0;
@@ -125,47 +135,13 @@ export function calcTotalPrice(payload) {
     upsales += webCheckPrice;
   }
 
+  var extraCosts = [payload.overallBlueRibbonCost,payload.overallPricingCost,payload.overallFastTrackCost];
 
-  if (payload.hasBlueRibbon.state === true) {
-    const brbPrice = (activePaxes * payload.blueRibbonPrices.pricePerPax);
-    total += brbPrice;
-    upsales += brbPrice;
-  }
-
-  if (payload.parkingDays >0) {
-      let totalParkDaysPriced = 0;
-
-      let priceTheseDays =0;
-
-      let remainingDays  =payload.parkingDays;
-
-      payload.parkingPrices.forEach( prkprc => {
-          if (remainingDays >0) {
-              if (payload.parkingDays > prkprc.upToDays) {
-                  priceTheseDays = prkprc.upToDays;
-
-                  totalParkDaysPriced += priceTheseDays;
-              } else {
-                  priceTheseDays = payload.parkingDays - totalParkDaysPriced;
-              }
-
-              remainingDays -= priceTheseDays;
-              total += priceTheseDays * prkprc.price;
-              upsales += priceTheseDays * prkprc.price;
-          }
-      });
-
-
-
-  }
-
-
-  if (payload.hasFastTrack) {
-      const fastTrackPrice = (activePaxes * payload.fastTrackPricing.pricePerPax);
-
-      total += fastTrackPrice;
-      upsales += fastTrackPrice;
-  }
+  
+  extraCosts.forEach(xtrcst =>  {
+   total += xtrcst;
+   upsales += xtrcst;
+  });
 
   total *= payload.currency.rate;
   upsales *= payload.currency.rate;

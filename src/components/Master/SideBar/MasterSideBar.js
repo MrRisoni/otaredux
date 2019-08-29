@@ -165,29 +165,24 @@ x
     const otherUpsalesDiv = [];
 
 
-      if (this.props.hasFastTrack.state === true) {
-          const fastTrackPrice = (activePaxCount * this.props.fastTrackPricing.pricePerPax * this.props.currency.rate).toFixed(2);
+      if (this.props.parkingPrice >0 ) {
 
           otherUpsalesDiv.push(<SideBarUpsale
-              title="Fast Track"
-              price={fastTrackPrice}
+              title="Parking"
+              price={this.props.parkingPrice}
               currency={this.props.currency}
           />);
       }
 
 
+      if (this.props.hasFastTrack === true) {
 
-      if (this.props.hasFlexibleTicket.state === true) {
-          const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
-
-          otherUpsalesDiv.push(<SideBarUpsale
-              title="Flexible Ticket"
-              price={flexiblePrice}
-              currency={this.props.currency}
-          />);
-      }
-
-
+        otherUpsalesDiv.push(<SideBarUpsale
+            title="Fast Track"
+            price={this.props.overallFastTrackCost}
+            currency={this.props.currency}
+        />);
+    }
 
 
       if (this.props.hasFlexibleTicket.state === true) {
@@ -213,12 +208,10 @@ x
 
 
     if (this.props.hasBlueRibbon.state === true) {
-      const brbPrice = (activePaxCount * this.props.blueRibbonPrices.pricePerPax * this.props.currency.rate).toFixed(2);
-
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Blue Ribbon"
-          price={brbPrice}
+          price={this.props.overallBlueRibbonCost}
           currency={this.props.currency}
         />,
       );
@@ -392,14 +385,18 @@ function mapStateToProps(state) {
     flexibleTicket: state.flexibleTicketReducer,
     hasWebCheckin: state.hasWebCheckinReducer,
     webCheckinPrice: state.webCheckinPriceReducer,
-    hasBlueRibbon: state.hasBlueRibbonReducer,
-    blueRibbonPrices: state.getBlueRibbonReducer,
+    hasBlueRibbon: state.hasBlueRibbonReducer,  
+    overallBlueRibbonCost: state.getBlueRibbonFinalCostReducer,
+    overallFastTrackCost : state.getFastTrackFinalCostReducer,
     ticketPrices: state.ticketPricesReducer,
     cabinSelection: state.fetchCabinPaxPerSegmentReducer,
     preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
     selectedSeats: state.fetchSeatSelectionReducer,
+    parkingPrice: state.getParkPricingFinalCostReducer,
+    hasFastTrack: state.hasFastTrackReducer,
+    fastTrackPricing: state.fastTrackPriceReducer,
   };
 }
 

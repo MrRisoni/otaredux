@@ -65,7 +65,6 @@ class Parking extends Component {
 
 
                             <div className="card-body collapse show" id="flexibleTicketCollapse">
-
                                 <div className="row">
                                     <div className="col-12">
                                         <table className="table table-bordered table-stripped">
@@ -119,6 +118,7 @@ function mapStateToProps(state) {
         pricingTable: state.getParkPricingReducer,
         parkDays: state.getParkingDaysReducer,
         currency: state.currentCurrencyReducer,
+        parkingCost : state.getParkPricingFinalCostReducer,
     };
 }
 
