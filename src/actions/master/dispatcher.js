@@ -14,6 +14,7 @@ export function upsalesDispatcher(status, actionType) {
       currency: status().currentCurrencyReducer,
       hasFlexibleTicket: status().hasFlexibleTicketReducer,
       flexibleTicket: status().flexibleTicketReducer,
+      overallFlexTicketCost: status().getFlexibleTicketFinalCostReducer,
       hasWebCheckin: status().hasWebCheckinReducer,
       webCheckinPrice: status().webCheckinPriceReducer,
       hasBlueRibbon: status().hasBlueRibbonReducer,
@@ -26,6 +27,7 @@ export function upsalesDispatcher(status, actionType) {
       parkingDays: status().getParkingDaysReducer,
       hasFastTrack: status().hasFastTrackReducer,
       fastTrackPricing: status().fastTrackPriceReducer,
+      overallWebCheckinCost: status().getWebCheckinFinalCostReducer,
       overallFastTrackCost: status().getFastTrackFinalCostReducer,
       overallPricingCost: status().getParkPricingFinalCostReducer,
       overallBlueRibbonCost: status().getBlueRibbonFinalCostReducer

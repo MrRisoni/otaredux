@@ -7,6 +7,7 @@ const webCheckinPrice = {
 
 const chosenWebCheckin = false;
 
+const webCheckinCost = 30;
 
 export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
     switch (action.type) {
@@ -22,3 +23,15 @@ export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
 export function webCheckinPriceReducer(state = webCheckinPrice, action) {
     return state;
 }
+
+export function getWebCheckinFinalCostReducer(state = webCheckinCost, action) {
+    if (action.type == MasterCons.UPSALES_CHANGED) {  
+      if (action.payload.hasWebCheckin) { 
+          return  getNonInfantPaxes(action.payload.passengers) * action.payload.webCheckinPrice;
+  
+        //  return { ...state, state: action.payload };
+  
+      }
+    }
+    return state;
+  }

@@ -7,6 +7,8 @@ const flexibleTicketPrice = {
 
 const chosenFlexibleTicket = false;
 
+const flexTicketCost = 30;
+
 
 export function hasFlexibleTicketReducer(state = chosenFlexibleTicket, action) {
   switch (action.type) {
@@ -20,5 +22,18 @@ export function hasFlexibleTicketReducer(state = chosenFlexibleTicket, action) {
 
 
 export function flexibleTicketReducer(state = flexibleTicketPrice, action) {
+  return state;
+}
+
+
+export function getFlexibleTicketFinalCostReducer(state = flexTicketCost, action) {
+  if (action.type == MasterCons.UPSALES_CHANGED) {  
+    if (action.payload.hasFlexibleTicket) { 
+        return  getNonInfantPaxes(action.payload.passengers) * action.payload.flexibleTicket;
+
+      //  return { ...state, state: action.payload };
+
+    }
+  }
   return state;
 }

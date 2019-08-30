@@ -121,21 +121,10 @@ export function calcTotalPrice(payload) {
   upsales += parseFloat(insurancePrice);
   total += parseFloat(insurancePrice);
 
-  if (payload.hasFlexibleTicket.state === true) {
-    const flexPrice = (activePaxes * payload.flexibleTicket.pricePerPax);
 
-    total += flexPrice;
-    upsales += flexPrice;
-  }
-
-  if (payload.hasWebCheckin.state === true) {
-    const webCheckPrice = (activePaxes * payload.webCheckinPrice.pricePerPax);
-
-    total += webCheckPrice;
-    upsales += webCheckPrice;
-  }
-
-  var extraCosts = [payload.overallBlueRibbonCost,payload.overallPricingCost,payload.overallFastTrackCost];
+  var extraCosts = [payload.overallWebCheckinCost, payload.overallFlexTicketCost,
+     payload.overallBlueRibbonCost,payload.overallPricingCost,
+     payload.overallFastTrackCost];
 
   
   extraCosts.forEach(xtrcst =>  {
