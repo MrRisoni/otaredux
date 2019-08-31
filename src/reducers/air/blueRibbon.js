@@ -15,8 +15,9 @@ const blueRibbonCost = 0;
 export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
   switch (action.type) {
     case MasterCons.ADD_BLUE_RIBBON:
-
-      return { ...state, state: action.payload };
+      return true;
+    case MasterCons.REMOVE_BLUE_RIBBON:
+      return false;
     default:
       return state;
   }
@@ -33,9 +34,10 @@ export function getBlueRibbonFinalCostReducer(state = blueRibbonCost, action) {
     if (action.payload.hasBlueRibbon) { 
         return  getNonInfantPaxes(action.payload.passengers) * action.payload.blueRibbonPrices.pricePerPax;
 
-      //  return { ...state, state: action.payload };
-
     }
+    else {
+      return 0;
+  }
   }
   return state;
 }

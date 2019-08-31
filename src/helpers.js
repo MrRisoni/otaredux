@@ -127,10 +127,20 @@ export function calcTotalPrice(payload) {
      payload.overallFastTrackCost];
 
   
-  extraCosts.forEach(xtrcst =>  {
-   total += xtrcst;
-   upsales += xtrcst;
-  });
+     var extraCostsSelected = [payload.hasWebCheckin, payload.hasFlexibleTicket,
+      payload.hasBlueRibbon, false, payload.hasFastTrack ];
+
+console.log('helpers');
+      console.log(extraCostsSelected);
+      console.log(extraCosts);
+      
+  for (let x =0 ; x <extraCosts.length; x++) {
+
+    if (extraCostsSelected[x] ==true) {
+      total += extraCosts[x];
+      upsales += extraCosts[x];
+    }
+  }
 
   total *= payload.currency.rate;
   upsales *= payload.currency.rate;

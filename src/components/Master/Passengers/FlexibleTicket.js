@@ -16,7 +16,12 @@ class FlexibleTicket extends Component {
   }
 
   handleClick(ev) {
-    this.props.changeFlexibleTicketHandler((ev.target.value == 1));
+    if (ev.target.value == 1) {
+      this.props.changeFlexibleTicketHandler();
+    }
+    else {
+      this.props.removeFlexTicketHandler();
+    }
   }
 
   render() {
@@ -105,7 +110,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
-
+    removeFlexTicketHandler: actsUpsales.removeFlexibleTicketAction,
   }, dispatch);
 }
 

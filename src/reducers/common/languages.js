@@ -15,6 +15,10 @@ const languages = [
     code: 'de',
     title: 'Deutsch',
   },
+  {
+    code: 'no',
+    title: 'Bokmål',
+  },
 ];
 
 export function getLanguagesReducer(state = languages, action) {

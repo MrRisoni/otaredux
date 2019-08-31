@@ -77,6 +77,9 @@ export function changeMasterPassengerAction(paxId, newCode, oldCode) {
     });
 
     dispatch(upsalesDispatcher(getState, MasterCons.PASSENGER_ARRAY_CHANGED));
+
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+
   };
 }
 
@@ -91,6 +94,9 @@ export function removeMasterPassengerAction(paxId, paxType) {
     });
 
     dispatch(upsalesDispatcher(getState, MasterCons.PASSENGER_ARRAY_CHANGED));
+
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+
   };
 }
 
@@ -102,5 +108,8 @@ export function addMasterPassengerAction() {
     });
 
     dispatch(upsalesDispatcher(getState, MasterCons.PASSENGER_ARRAY_CHANGED));
+
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+
   };
 }

@@ -6,7 +6,7 @@ import { Translate } from 'react-redux-i18n';
 import * as actsUpsales from '../../actions/master/actionsUpsales';
 
 
-class FastTrack extends Component {
+class AirHelp extends Component {
     constructor(props) {
         super(props);
 
@@ -40,7 +40,7 @@ class FastTrack extends Component {
 
                                     <div className="col-10">
 
-                                        Fast Track Priority Queue in Security Check
+                                       Flight Delays recompansation
                                     </div>
 
                                     <div className="col-2">
@@ -113,5 +113,5 @@ function matchDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(FastTrack);
+export default connect(mapStateToProps, matchDispatchToProps)(AirHelp);
 

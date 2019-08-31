@@ -15,7 +15,12 @@ class WebCheckin extends Component {
   }
 
   handleClick(ev) {
-    this.props.changeWebCheckinHandler((ev.target.value == 1));
+    if (ev.target.value ==1) {
+      this.props.changeWebCheckinHandler();
+
+    }else {
+      this.props.removeWebCheckinHandler();
+    }
   }
 
   render() {
@@ -102,6 +107,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     changeWebCheckinHandler: actsUpsales.changeWebCheckinAction,
+    removeWebCheckinHandler: actsUpsales.removeWebCheckinAction,
   }, dispatch);
 }
 

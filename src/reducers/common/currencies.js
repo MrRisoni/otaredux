@@ -22,6 +22,10 @@ const currencies = [
     code: 'RUB',
     rate: 78.09,
   },
+  {
+    code: 'NOK',
+    rate: 0.94,
+  },
 ];
 
 export function getCurrenciesReducer(state = currencies, action) {

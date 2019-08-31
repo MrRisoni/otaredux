@@ -65,7 +65,7 @@ const store = createStore(combineReducers({
   uniqueCarriersReducer,
   hasFlexibleTicketReducer,
   flexibleTicketReducer,
-  getFlexibleTicketFinalCostReducerm
+  getFlexibleTicketFinalCostReducer,
   hasBlueRibbonReducer,
   getWebCheckinFinalCostReducer,
   getBlueRibbonReducer,

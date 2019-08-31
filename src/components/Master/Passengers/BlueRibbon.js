@@ -12,7 +12,13 @@ class BlueRibbon extends Component {
   }
 
   handleSelection(ev) {
-    this.props.changeBlueRibbonHandler((ev.target.value == 1));
+   
+    if(ev.target.value ==1) {
+      this.props.changeBlueRibbonHandler();
+    }
+    else {
+      this.props.removeBlueRibbonHandler();
+    }
   }
 
   render() {
@@ -105,6 +111,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     changeBlueRibbonHandler: actsUpsales.changeBlueRibbonAction,
+    removeBlueRibbonHandler: actsUpsales.removeBlueRibbonAction,
   }, dispatch);
 }
 
