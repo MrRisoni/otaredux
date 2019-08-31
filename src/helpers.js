@@ -62,6 +62,9 @@ export function calcTotalPrice(payload) {
   let insurancePrice = 0;
 
 
+  
+  console.log(payload);
+
   payload.passengers.forEach(pax => {
     if (pax.active) {
       activePaxes++;
@@ -131,7 +134,9 @@ export function calcTotalPrice(payload) {
       payload.hasBlueRibbon, false, payload.hasFastTrack ];
 
 console.log('helpers');
-      console.log(extraCostsSelected);
+console.log(payload);
+
+     console.log(extraCostsSelected);
       console.log(extraCosts);
       
   for (let x =0 ; x <extraCosts.length; x++) {

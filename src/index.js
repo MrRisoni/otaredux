@@ -28,8 +28,8 @@ import { hasBlueRibbonReducer, getBlueRibbonReducer, getBlueRibbonFinalCostReduc
 import { hasWebCheckinReducer, webCheckinPriceReducer ,getWebCheckinFinalCostReducer } from './reducers/air/webCheckin';
 import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
 import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parking';
-import { hasFastTrackReducer, fastTrackPriceReducer,getFastTrackFinalCostReducer } from './reducers/air/fastTrack';
-
+import { hasFastTrackReducer, fastTrackPriceReducer,getFastTrackFinalCostReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrack';
+import { hasAirHelpReducer, airHelpPriceReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelp';
 
 import { getLanguagesReducer } from './reducers/common/languages';
 
@@ -41,6 +41,7 @@ import Russia from './locales/ru.json';
 import Germany from './locales/de.json';
 import French from './locales/fr.json';
 import English from './locales/en.json';
+import Bokmal from './locales/no.json';
 
 
 const store = createStore(combineReducers({
@@ -85,6 +86,10 @@ const store = createStore(combineReducers({
   getFastTrackFinalCostReducer,
   fastTrackPriceReducer,
   hasFastTrackReducer,
+  hasAirHelpReducer,
+  airHelpPriceReducer,
+  getAirHelpFinalCostReducer,
+  getPurchaseCostFastTrackReducer,
   routing: routerReducer,
   i18n: i18nReducer,
 }),
@@ -96,6 +101,7 @@ const locales = {
   fr: French,
   ru: Russia,
   de: Germany,
+  no: Bokmal,
 };
 
 syncTranslationWithStore(store);

@@ -110,6 +110,7 @@ export function addMasterPassengerAction() {
     dispatch(upsalesDispatcher(getState, MasterCons.PASSENGER_ARRAY_CHANGED));
 
     dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
 
   };
 }

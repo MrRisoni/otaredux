@@ -185,7 +185,7 @@ x
     }
 
 
-      if (this.props.hasFlexibleTicket.state === true) {
+      if (this.props.hasFlexibleTicket === true) {
       const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
 
       otherUpsalesDiv.push(<SideBarUpsale
@@ -195,7 +195,7 @@ x
       />);
     }
 
-      if (this.props.hasWebCheckin.state === true) {
+      if (this.props.hasWebCheckin === true) {
           const webCheckinPrice = (activePaxCount * this.props.webCheckinPrice.pricePerPax * this.props.currency.rate).toFixed(2);
 
           otherUpsalesDiv.push(<SideBarUpsale
@@ -206,8 +206,18 @@ x
       }
 
 
+      if (this.props.hasAirHelp === true) {
+        otherUpsalesDiv.push(
+          <SideBarUpsale
+            title="AirHelp"
+            price={0}
+            currency={this.props.currency}
+          />,
+        );
+      }
 
-    if (this.props.hasBlueRibbon.state === true) {
+
+    if (this.props.hasBlueRibbon === true) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Blue Ribbon"

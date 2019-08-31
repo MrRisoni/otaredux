@@ -30,7 +30,8 @@ export function upsalesDispatcher(status, actionType) {
       overallWebCheckinCost: status().getWebCheckinFinalCostReducer,
       overallFastTrackCost: status().getFastTrackFinalCostReducer,
       overallPricingCost: status().getParkPricingFinalCostReducer,
-      overallBlueRibbonCost: status().getBlueRibbonFinalCostReducer
+      overallBlueRibbonCost: status().getBlueRibbonFinalCostReducer,
+      fastTrackData: { purchaseCost: status().getPurchaseCostFastTrackReducer }
     },
   };
 }

@@ -5,121 +5,85 @@ import * as MasterCons from './allConstants';
 
 
 export function changeFlexibleTicketAction(data) {
-  return (dispatch, getState) => {
-    dispatch({
-      type: MasterCons.ADD_FLEXIBLE_TICKET,
-      payload: data,
-    });
+  return MainDispatcher({actionName: MasterCons.ADD_FLEXIBLE_TICKET, load: data });
 
-    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-  };
 }
 
 
 export function removeFlexibleTicketAction(data) {
-  return (dispatch, getState) => {
-    dispatch({
-      type: MasterCons.REMOVE_FLEXIBLE_TICKET,
-      payload: data,
-    });
 
-    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-  };
+   return MainDispatcher({actionName: MasterCons.REMOVE_FLEXIBLE_TICKET, load: data });
+
 }
 
 
 
 export function changeBlueRibbonAction(data) {
-  return (dispatch, getState) => {
-    dispatch({
-      type: MasterCons.ADD_BLUE_RIBBON,
-      payload: data,
-    });
+  return MainDispatcher({actionName: MasterCons.ADD_BLUE_RIBBON, load: data });
 
-    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-  };
 }
 
 export function removeBlueRibbonAction(data) {
-  return (dispatch, getState) => {
-    dispatch({
-      type: MasterCons.REMOVE_BLUE_RIBBON,
-      payload: data,
-    });
+  return MainDispatcher({actionName: MasterCons.REMOVE_BLUE_RIBBON, load: data });
 
-    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-  };
 }
 
 
 
 export function changeWebCheckinAction(data) {
-    return (dispatch, getState) => {
-        dispatch({
-            type: MasterCons.ADD_WEBCHECKIN,
-            payload: data,
-        });
+    return MainDispatcher({actionName: MasterCons.ADD_WEBCHECKIN, load: data });
 
-        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-    };
 }
 
 export function removeWebCheckinAction(data) {
-  return (dispatch, getState) => {
-      dispatch({
-          type: MasterCons.REMOVE_WEBCHECKIN,
-          payload: data,
-      });
-
-      dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-  };
+   return MainDispatcher({actionName: MasterCons.REMOVE_WEBCHECKIN, load: data });
 }
 
 
 
 export function addParkingDayAction(data) {
-    return (dispatch, getState) => {
-        dispatch({
-            type: MasterCons.ADD_PARK_DAYS,
-            payload: data,
-        });
-
-        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-    };
+    return MainDispatcher({actionName: MasterCons.ADD_PARK_DAYS, load: data });
 }
 
 
 export function subParkingDayAction(data) {
-    return (dispatch, getState) => {
-        dispatch({
-            type: MasterCons.SUB_PARK_DAYS,
-            payload: data,
-        });
+    return MainDispatcher({actionName: MasterCons.SUB_PARK_DAYS, load: data });
 
-        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-    };
 }
 
 
 
 export function changeFastTrackAction(data) {
-    return (dispatch, getState) => {
-        dispatch({
-            type: MasterCons.ADD_FAST_TRACK,
-            payload: data,
-        });
+    return MainDispatcher({actionName: MasterCons.ADD_FAST_TRACK, load: data });
 
-        dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
-    };
 }
 
 export function removeFastTrackAction(data) {
-  return (dispatch, getState) => {
-      dispatch({
-          type: MasterCons.REMOVE_FAST_TRACK,
-          payload: data,
-      });
+  return MainDispatcher({actionName: MasterCons.REMOVE_FAST_TRACK, load: data });
 
-      dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+}
+
+
+export function addAirHelpAction(data) {
+  MainDispatcher({actionName: MasterCons.ADD_AIRHELP, load: data });
+}
+
+
+export function removeAirHelpAction(data) {
+  MainDispatcher({actionName: MasterCons.REMOVE_AIRHELP, load: data });
+}
+
+
+function MainDispatcher(args)
+{
+  console.log(args);
+  return (dispatch, getState) => {
+    dispatch({
+      type: args.actionName,
+      payload: args.load,
+    });
+
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
+    dispatch(upsalesDispatcher(getState, MasterCons.UPSALES_CHANGED));
   };
 }

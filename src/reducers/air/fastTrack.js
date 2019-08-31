@@ -8,8 +8,9 @@ const fastTrackPrice = {
 
 const chosenFastTrack = false;
 
-const overallFastTrackCost = 0;
+const overallFastTrackCost = 0; //after selection
 
+const purchaseCostFastTrack = fastTrackPrice.pricePerPax; // cost of purchase
 
 export function hasFastTrackReducer(state = chosenFastTrack, action) {
     switch (action.type) {
@@ -27,6 +28,15 @@ export function fastTrackPriceReducer(state = fastTrackPrice, action) {
     return state;
 }
 
+
+export function getPurchaseCostFastTrackReducer(state = purchaseCostFastTrack, action) {
+    if (action.payload !== undefined && action.payload.passengers !== undefined) {
+       return getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricing.pricePerPax;      
+    }
+    else {
+        return state;
+    }
+}
 
 
 export function getFastTrackFinalCostReducer(state = overallFastTrackCost, action) {

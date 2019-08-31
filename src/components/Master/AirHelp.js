@@ -15,10 +15,10 @@ class AirHelp extends Component {
 
     handleClick(ev) {
         if (ev.target.value == 1) {
-          this.props.changeFastTrackHandler();
+          this.props.addAirHelpHandler();
         }
         else {
-           this.props.removeFastTrackHandler();
+           this.props.removeAirHelpHandler();
         }
     }
 
@@ -107,8 +107,8 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        changeFastTrackHandler: actsUpsales.changeFastTrackAction,
-        removeFastTrackHandler : actsUpsales.removeFastTrackAction,
+        addAirHelpHandler: actsUpsales.addAirHelpAction,
+        removeAirHelpHandler : actsUpsales.removeAirHelpAction,
     }, dispatch);
 }
 

@@ -31,3 +31,5 @@ export const ADD_PARK_DAYS = 'ADD_PARK_DAYS';
 export const SUB_PARK_DAYS = 'SUB_PARK_DAYS';
 export const ADD_FAST_TRACK = 'ADD_FAST_TRACK';
 export const REMOVE_FAST_TRACK = 'REMOVE_FAST_TRACK';
+export const ADD_AIRHELP = 'ADD_AIRHELP';
+export const REMOVE_AIRHELP = 'REMOVE_AIRHELP';
