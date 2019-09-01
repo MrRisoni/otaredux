@@ -65,12 +65,12 @@ export function removeFastTrackAction(data) {
 
 
 export function addAirHelpAction(data) {
-  MainDispatcher({actionName: MasterCons.ADD_AIRHELP, load: data });
+  return MainDispatcher({actionName: MasterCons.ADD_AIRHELP, load: data });
 }
 
 
 export function removeAirHelpAction(data) {
-  MainDispatcher({actionName: MasterCons.REMOVE_AIRHELP, load: data });
+  return MainDispatcher({actionName: MasterCons.REMOVE_AIRHELP, load: data });
 }
 
 

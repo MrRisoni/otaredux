@@ -113,6 +113,7 @@ m
             {waitDiv}
           </div>
 
+  
 
           <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
             {props.data.segments.map((sg, idx) => (<Segment key={idx} data={sg} />))}

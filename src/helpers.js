@@ -126,18 +126,15 @@ export function calcTotalPrice(payload) {
 
 
   var extraCosts = [payload.overallWebCheckinCost, payload.overallFlexTicketCost,
-     payload.overallBlueRibbonCost,payload.overallPricingCost,
-     payload.overallFastTrackCost];
+     payload.overallBlueRibbonCost,payload.overallParkingPrice,
+     payload.overallFastTrackCost, payload.overallAirHelpCost];
 
   
      var extraCostsSelected = [payload.hasWebCheckin, payload.hasFlexibleTicket,
-      payload.hasBlueRibbon, false, payload.hasFastTrack ];
+      payload.hasBlueRibbon, false, 
+      payload.hasFastTrack , payload.hasAirHelp ];
 
-console.log('helpers');
-console.log(payload);
 
-     console.log(extraCostsSelected);
-      console.log(extraCosts);
       
   for (let x =0 ; x <extraCosts.length; x++) {
 

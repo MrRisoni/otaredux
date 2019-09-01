@@ -181,10 +181,10 @@ const trip = [
           day: 'Tues',
           date: '15/06/2018',
         },
-        airline: 'A3,Aegean',
-        codeShare: 'SK',
+        airline: 'SK,SAS',
+        codeShare: 'A3',
         img: {
-          url: '/logos/A3.png',
+          url: '/logos/SK.png',
           width: 100,
         },
         waitTime: { hours: 0, minutes: 0, total: 0 },

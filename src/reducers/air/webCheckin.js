@@ -1,14 +1,17 @@
 import * as MasterCons from '../../actions/master/allConstants';
 import {getNonInfantPaxes} from '../../helpers';
 
-const webCheckinPrice = {
+const webCheckinPrices = {
     pricePerPax: 3.50,
 };
 
 
 const chosenWebCheckin = false;
 
-const webCheckinCost = 30;
+
+const overallWebCheckinCost = 0; //after selection
+
+const purchaseCostWebCheckin = webCheckinPrices.pricePerPax; // cost of purchase
 
 export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
     switch (action.type) {
@@ -21,16 +24,28 @@ export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
     }
 }
 
-
-export function webCheckinPriceReducer(state = webCheckinPrice, action) {
+export function WebCheckinModelReducer(state = webCheckinPrices){
     return state;
-}
+  }
+  
+  
+  export function getPurchaseCostWebCheckinReducer(state = purchaseCostWebCheckin, action) {
+    if (action.payload !== undefined && action.payload.passengers !== undefined) {
+       return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;      
+    }
+    else {
+        return state;
+    }
+  }
 
-export function getWebCheckinFinalCostReducer(state = webCheckinCost, action) {
+  
+
+
+export function getWebCheckinFinalCostReducer(state = overallWebCheckinCost, action) {
     if (action.type == MasterCons.UPSALES_CHANGED) {  
       if (action.payload.hasWebCheckin) { 
-          return  getNonInfantPaxes(action.payload.passengers) * action.payload.webCheckinPrice;
-      }
+        return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;      
+    }
       else {
           return 0;
       }

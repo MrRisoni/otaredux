@@ -46,7 +46,7 @@ export function getFastTrackFinalCostReducer(state = overallFastTrackCost, actio
 
     if (action.type == MasterCons.UPSALES_CHANGED) {  
       if (action.payload.hasFastTrack) { 
-          return  getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricing.pricePerPax;
+          return  getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricingMdl.pricePerPax;
       }
       else {
           return 0;

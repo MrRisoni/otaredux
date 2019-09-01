@@ -169,7 +169,7 @@ x
 
           otherUpsalesDiv.push(<SideBarUpsale
               title="Parking"
-              price={this.props.parkingPrice}
+              price={this.props.overallParkingPrice}
               currency={this.props.currency}
           />);
       }
@@ -186,21 +186,18 @@ x
 
 
       if (this.props.hasFlexibleTicket === true) {
-      const flexiblePrice = (activePaxCount * this.props.flexibleTicket.pricePerPax * this.props.currency.rate).toFixed(2);
-
       otherUpsalesDiv.push(<SideBarUpsale
         title="Flexible Ticket"
-        price={flexiblePrice}
+        price={this.overallFlexTicketCost}
         currency={this.props.currency}
       />);
     }
 
       if (this.props.hasWebCheckin === true) {
-          const webCheckinPrice = (activePaxCount * this.props.webCheckinPrice.pricePerPax * this.props.currency.rate).toFixed(2);
 
           otherUpsalesDiv.push(<SideBarUpsale
               title="Web Checkin"
-              price={webCheckinPrice}
+              price={this.props.overallWebCheckinCost}
               currency={this.props.currency}
           />);
       }
@@ -210,7 +207,7 @@ x
         otherUpsalesDiv.push(
           <SideBarUpsale
             title="AirHelp"
-            price={0}
+            price={this.props.overallAirHelpCost}
             currency={this.props.currency}
           />,
         );
@@ -398,16 +395,18 @@ function mapStateToProps(state) {
     hasBlueRibbon: state.hasBlueRibbonReducer,  
     overallBlueRibbonCost: state.getBlueRibbonFinalCostReducer,
     overallFastTrackCost : state.getFastTrackFinalCostReducer,
+    overallAirHelpCost: state.getAirHelpFinalCostReducer,
+    overallFlexTicketCost : state.getFlexibleTicketFinalCostReducer,
+    overallWebCheckinCost : state.getWebCheckinFinalCostReducer,
+    overallParkingPrice: state.getParkPricingFinalCostReducer,
     ticketPrices: state.ticketPricesReducer,
     cabinSelection: state.fetchCabinPaxPerSegmentReducer,
     preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
     seatMapInfo: state.seatMapInfoReducer,
     langs: state.getLanguagesReducer,
     selectedSeats: state.fetchSeatSelectionReducer,
-    parkingPrice: state.getParkPricingFinalCostReducer,
-    hasFastTrack: state.hasFastTrackReducer,
-    fastTrackPricing: state.fastTrackPriceReducer,
-  };
+    hasFastTrack: state.hasFastTrackReducer
+    };
 }
 
 function matchDispatchToProps(dispatch) {

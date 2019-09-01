@@ -48,6 +48,15 @@ const Segment = props => (
                     />
 
                 </div>
+
+                {props.data.codeShare  !== '' ? (
+                    <div className="row">
+                        <div className="col-8">
+                            Operated by  {props.data.codeShare}
+                        </div>
+                    </div>
+                 ) : (<section></section>)}
+
             </div>
 
 

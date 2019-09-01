@@ -99,7 +99,7 @@ function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
     currency: state.currentCurrencyReducer,
-    webCheckinPrice: state.webCheckinPriceReducer,
+    webCheckinPrice: state.getPurchaseCostWebCheckinReducer,
   };
 }
 
