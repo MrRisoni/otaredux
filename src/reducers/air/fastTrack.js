@@ -24,14 +24,14 @@ export function hasFastTrackReducer(state = chosenFastTrack, action) {
 }
 
 
-export function fastTrackPriceReducer(state = fastTrackPrice, action) {
+export function fastTrackPricingModelReducer(state = fastTrackPrice){
     return state;
 }
 
 
 export function getPurchaseCostFastTrackReducer(state = purchaseCostFastTrack, action) {
     if (action.payload !== undefined && action.payload.passengers !== undefined) {
-       return getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricing.pricePerPax;      
+       return getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricingMdl.pricePerPax;      
     }
     else {
         return state;

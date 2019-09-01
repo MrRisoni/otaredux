@@ -14,7 +14,7 @@ class BlueRibbon extends Component {
   handleSelection(ev) {
    
     if(ev.target.value ==1) {
-      this.props.changeBlueRibbonHandler();
+      this.props.addBlueRibbonHandler();
     }
     else {
       this.props.removeBlueRibbonHandler();
@@ -22,8 +22,7 @@ class BlueRibbon extends Component {
   }
 
   render() {
-    let price = (this.props.passengers.filter(px => px.active === true).length * this.props.blueRibbonPrices.pricePerPax).toFixed(2);
-    price *= this.props.currency.rate;
+    let price = this.props.blueRibbonPrice * this.props.currency.rate;
       price = price.toFixed(2);
 
     return (
@@ -104,13 +103,13 @@ function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
     currency: state.currentCurrencyReducer,
-    blueRibbonPrices: state.getBlueRibbonReducer,
+    blueRibbonPrice: state.getPurchaseCostBlueRibbonReducer,
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    changeBlueRibbonHandler: actsUpsales.changeBlueRibbonAction,
+    addBlueRibbonHandler: actsUpsales.addBlueRibbonAction,
     removeBlueRibbonHandler: actsUpsales.removeBlueRibbonAction,
   }, dispatch);
 }

@@ -9,7 +9,10 @@ const blueRibbonPrices = {
 
 const chosenBlueRibbon = false;
 
-const blueRibbonCost = 0;
+
+const overallBlueRibbonCost = 0; //after selection
+
+const purchaseCostBlueRibbon = blueRibbonPrices.pricePerPax; // cost of purchase
 
 
 export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
@@ -23,16 +26,26 @@ export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
   }
 }
 
-
-export function getBlueRibbonReducer(state = blueRibbonPrices, action) {
+export function BlueRibbonPricingModelReducer(state = blueRibbonPrices){
   return state;
 }
 
 
-export function getBlueRibbonFinalCostReducer(state = blueRibbonCost, action) {
+export function getPurchaseCostBlueRibbonReducer(state = purchaseCostBlueRibbon, action) {
+  if (action.payload !== undefined && action.payload.passengers !== undefined) {
+     return getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;      
+  }
+  else {
+      return state;
+  }
+}
+
+
+
+export function getBlueRibbonFinalCostReducer(state = overallBlueRibbonCost, action) {
   if (action.type == MasterCons.UPSALES_CHANGED) {  
     if (action.payload.hasBlueRibbon) { 
-        return  getNonInfantPaxes(action.payload.passengers) * action.payload.blueRibbonPrices.pricePerPax;
+        return  getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;
 
     }
     else {

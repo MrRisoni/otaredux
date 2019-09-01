@@ -17,7 +17,7 @@ class FlexibleTicket extends Component {
 
   handleClick(ev) {
     if (ev.target.value == 1) {
-      this.props.changeFlexibleTicketHandler();
+      this.props.addFlexibleTicketHandler();
     }
     else {
       this.props.removeFlexTicketHandler();
@@ -25,8 +25,7 @@ class FlexibleTicket extends Component {
   }
 
   render() {
-    let  price = (this.props.passengers.filter(px => px.active === true).length * this.props.flexibleTicket.pricePerPax).toFixed(2);
-      price *= this.props.currency.rate;
+    let  price = (this.props.flexibleTicketPrice * this.props.currency.rate);
       price = price.toFixed(2);
 
     return (
@@ -103,13 +102,13 @@ function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
     currency: state.currentCurrencyReducer,
-    flexibleTicket: state.flexibleTicketReducer,
+    flexibleTicketPrice: state.getPurchaseCostFlexTicketReducer
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    changeFlexibleTicketHandler: actsUpsales.changeFlexibleTicketAction,
+    addFlexibleTicketHandler: actsUpsales.addFlexibleTicketAction,
     removeFlexTicketHandler: actsUpsales.removeFlexibleTicketAction,
   }, dispatch);
 }

@@ -31,7 +31,10 @@ export function upsalesDispatcher(status, actionType) {
       overallFastTrackCost: status().getFastTrackFinalCostReducer,
       overallPricingCost: status().getParkPricingFinalCostReducer,
       overallBlueRibbonCost: status().getBlueRibbonFinalCostReducer,
-      fastTrackData: { purchaseCost: status().getPurchaseCostFastTrackReducer }
+        airHelpPricingMdl: status().airHelpPricingModelReducer,
+        fastTrackPricingMdl: status().fastTrackPricingModelReducer,
+        flexTicketPricingMdl: status().flexibleTicketPricingModelReducer,
+        BlueRibbonPricingMdl: status().BlueRibbonPricingModelReducer,
     },
   };
 }

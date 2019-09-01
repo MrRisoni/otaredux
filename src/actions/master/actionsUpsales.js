@@ -4,7 +4,7 @@ import * as MasterCons from './allConstants';
 
 
 
-export function changeFlexibleTicketAction(data) {
+export function addFlexibleTicketAction(data) {
   return MainDispatcher({actionName: MasterCons.ADD_FLEXIBLE_TICKET, load: data });
 
 }
@@ -18,7 +18,7 @@ export function removeFlexibleTicketAction(data) {
 
 
 
-export function changeBlueRibbonAction(data) {
+export function addBlueRibbonAction(data) {
   return MainDispatcher({actionName: MasterCons.ADD_BLUE_RIBBON, load: data });
 
 }
@@ -30,7 +30,7 @@ export function removeBlueRibbonAction(data) {
 
 
 
-export function changeWebCheckinAction(data) {
+export function addWebCheckinAction(data) {
     return MainDispatcher({actionName: MasterCons.ADD_WEBCHECKIN, load: data });
 
 }
@@ -53,7 +53,7 @@ export function subParkingDayAction(data) {
 
 
 
-export function changeFastTrackAction(data) {
+export function addFastTrackAction(data) {
     return MainDispatcher({actionName: MasterCons.ADD_FAST_TRACK, load: data });
 
 }

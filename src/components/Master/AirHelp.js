@@ -23,8 +23,7 @@ class AirHelp extends Component {
     }
 
     render() {
-        let  price = (this.props.passengers.filter(px => px.active === true).length * this.props.fastTrackPrice.pricePerPax).toFixed(2);
-        price *= this.props.currency.rate;
+        let  price = (this.props.fastTrackPrice  *  this.props.currency.rate);
         price = price.toFixed(2);
 
         return (
@@ -101,7 +100,7 @@ function mapStateToProps(state) {
     return {
         passengers: state.passengersMasterReducer,
         currency: state.currentCurrencyReducer,
-        fastTrackPrice: state.fastTrackPriceReducer,
+        fastTrackPrice: state.getPurchasedCostAirHelpReducer,
     };
 }
 

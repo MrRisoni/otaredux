@@ -16,7 +16,7 @@ class WebCheckin extends Component {
 
   handleClick(ev) {
     if (ev.target.value ==1) {
-      this.props.changeWebCheckinHandler();
+      this.props.addWebCheckinHandler();
 
     }else {
       this.props.removeWebCheckinHandler();
@@ -24,8 +24,7 @@ class WebCheckin extends Component {
   }
 
   render() {
-    let price = (this.props.passengers.filter(px => px.active === true).length * this.props.webCheckinPrices.pricePerPax).toFixed(2);
-    price *= this.props.currency.rate;
+    let price = this.props.webCheckinPrice * this.props.currency.rate;
     price = price.toFixed(2);
 
     return (
@@ -100,13 +99,13 @@ function mapStateToProps(state) {
   return {
     passengers: state.passengersMasterReducer,
     currency: state.currentCurrencyReducer,
-    webCheckinPrices: state.webCheckinPriceReducer,
+    webCheckinPrice: state.webCheckinPriceReducer,
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    changeWebCheckinHandler: actsUpsales.changeWebCheckinAction,
+    addWebCheckinHandler: actsUpsales.addWebCheckinAction,
     removeWebCheckinHandler: actsUpsales.removeWebCheckinAction,
   }, dispatch);
 }

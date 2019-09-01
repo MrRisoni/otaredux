@@ -10,6 +10,7 @@ const hasAirHelp = false;
 
 const overallAirHelpCost = 0;
 
+const overallPurchaseCost = airHelpPrice.pricePerPax;
 
 export function hasAirHelpReducer(state = hasAirHelp, action) {
     switch (action.type) {
@@ -22,17 +23,26 @@ export function hasAirHelpReducer(state = hasAirHelp, action) {
     }
 }
 
-
-export function airHelpPriceReducer(state = airHelpPrice, action) {
+export function airHelpPricingModelReducer(state = airHelpPrice){
     return state;
 }
 
+
+export function getPurchasedCostAirHelpReducer(state = overallPurchaseCost, action) {
+    if (action.payload !== undefined && action.payload.passengers !== undefined) {
+        return  getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPricingMdl.pricePerPax;   
+    }
+    else {
+        return state;
+    }
+
+}
 
 
 export function getAirHelpFinalCostReducer(state = overallAirHelpCost, action) {
     if (action.type == MasterCons.UPSALES_CHANGED) {  
       if (action.payload.hasAirHelp) { 
-          return  getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPrice.pricePerPax;
+          return  getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPricingMdl.pricePerPax;
       }
       else {
           return 0;

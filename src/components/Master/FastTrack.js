@@ -15,7 +15,7 @@ class FastTrack extends Component {
 
     handleClick(ev) {
         if (ev.target.value == 1) {
-          this.props.changeFastTrackHandler();
+          this.props.addFastTrackHandler();
         }
         else {
            this.props.removeFastTrackHandler();
@@ -107,7 +107,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        changeFastTrackHandler: actsUpsales.changeFastTrackAction,
+        addFastTrackHandler: actsUpsales.addFastTrackAction,
         removeFastTrackHandler : actsUpsales.removeFastTrackAction,
     }, dispatch);
 }

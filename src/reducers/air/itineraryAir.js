@@ -42,7 +42,7 @@ const legs = [
     from: 'Frankfurt',
     to: 'Oslo',
     legId: 0,
-    carrier: 'SK',
+    carrier: 'A3',
     cabinList: [{ class: 'Y', price: 145, age: 'ADT' },
       { class: 'Y', price: 135, age: 'CNN' },
       { class: 'Y', price: 85, age: 'INF' },
@@ -124,6 +124,7 @@ const trip = [
           date: '15/06/2018',
         },
         airline: 'OA,OlympicAir',
+        codeShare: 'A3',
         img: {
           url: '/logos/OA.jpg',
           width: 100,
@@ -152,6 +153,7 @@ const trip = [
           date: '15/06/2018',
         },
         airline: 'A3,Aegean',
+        codeShare: '',
         img: {
           url: '/logos/A3.png',
           width: 100,
@@ -179,9 +181,10 @@ const trip = [
           day: 'Tues',
           date: '15/06/2018',
         },
-        airline: 'SK,SAS',
+        airline: 'A3,Aegean',
+        codeShare: 'SK',
         img: {
-          url: '/logos/SK.png',
+          url: '/logos/A3.png',
           width: 100,
         },
         waitTime: { hours: 0, minutes: 0, total: 0 },
@@ -242,6 +245,7 @@ const trip = [
           date: '15/06/2018',
         },
         airline: 'LH,Lufthansa',
+        codeShare: '',
         img: {
           url: '/logos/LH.jpg',
           width: 100,

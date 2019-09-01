@@ -23,13 +23,13 @@ import { pricingMasterReducer, pricingUpsalesMasterReducer, ticketPricesReducer 
 import { getBagsReducer, purchasedBagsReducer, getLimitBagReducer } from './reducers/air/bagsAir';
 import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAir';
 import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir';
-import { hasFlexibleTicketReducer, flexibleTicketReducer,getFlexibleTicketFinalCostReducer } from './reducers/air/flexibleTicket';
-import { hasBlueRibbonReducer, getBlueRibbonReducer, getBlueRibbonFinalCostReducer } from './reducers/air/blueRibbon';
+import { hasFlexibleTicketReducer, getPurchaseCostFlexTicketReducer, flexibleTicketPricingModelReducer,getFlexibleTicketFinalCostReducer } from './reducers/air/flexibleTicket';
+import { hasBlueRibbonReducer, getBlueRibbonFinalCostReducer ,BlueRibbonPricingModelReducer ,getPurchaseCostBlueRibbonReducer } from './reducers/air/blueRibbon';
 import { hasWebCheckinReducer, webCheckinPriceReducer ,getWebCheckinFinalCostReducer } from './reducers/air/webCheckin';
 import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
 import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parking';
-import { hasFastTrackReducer, fastTrackPriceReducer,getFastTrackFinalCostReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrack';
-import { hasAirHelpReducer, airHelpPriceReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelp';
+import { hasFastTrackReducer, getFastTrackFinalCostReducer,fastTrackPricingModelReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrack';
+import { hasAirHelpReducer, getPurchasedCostAirHelpReducer,airHelpPricingModelReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelp';
 
 import { getLanguagesReducer } from './reducers/common/languages';
 
@@ -65,11 +65,13 @@ const store = createStore(combineReducers({
   airTripReducer,
   uniqueCarriersReducer,
   hasFlexibleTicketReducer,
-  flexibleTicketReducer,
+  flexibleTicketPricingModelReducer,
   getFlexibleTicketFinalCostReducer,
+  getPurchaseCostFlexTicketReducer,
   hasBlueRibbonReducer,
+  getPurchaseCostBlueRibbonReducer,
+  BlueRibbonPricingModelReducer,
   getWebCheckinFinalCostReducer,
-  getBlueRibbonReducer,
   getBlueRibbonFinalCostReducer,
   countryListReducer,
   fetchPreseatSelectedPaxReducer,
@@ -81,13 +83,14 @@ const store = createStore(combineReducers({
   loungeBookingsReducer,
   loungeAccessPricesReducer,
   getParkingDaysReducer,
+  fastTrackPricingModelReducer,
   getParkPricingReducer,
   getParkPricingFinalCostReducer,  
   getFastTrackFinalCostReducer,
-  fastTrackPriceReducer,
   hasFastTrackReducer,
   hasAirHelpReducer,
-  airHelpPriceReducer,
+  airHelpPricingModelReducer,
+  getPurchasedCostAirHelpReducer,
   getAirHelpFinalCostReducer,
   getPurchaseCostFastTrackReducer,
   routing: routerReducer,
