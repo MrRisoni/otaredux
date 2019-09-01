@@ -37,7 +37,7 @@ class FastTrack extends Component {
 
                                 <div className="row">
 
-                                    <div className="col-10">
+                                    <div className="col-9">
 
                                         Fast Track Priority Queue in Security Check
                                     </div>

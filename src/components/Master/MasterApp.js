@@ -67,8 +67,6 @@ class MasterApp extends Component {
           </div>
         </div>
 
-        <h3>Branded Fares</h3>
-
          <Preseat/>
          <WebCheckin/>
 

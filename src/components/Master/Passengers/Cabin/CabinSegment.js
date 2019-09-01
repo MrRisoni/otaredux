@@ -18,6 +18,15 @@ class CabinSegment extends Component {
 
   render() {
     const cabinListForSegment = this.props.seg.cabinList.filter(cb => cb.age == this.props.pax.type);
+    
+    
+    const cabiinTitles = {
+      'Y' : 'Economy',
+      'W' : 'Premium Economy',
+      'C' : 'Business',
+      'F' : 'First',
+    }
+    
     return (
 
 
@@ -42,7 +51,7 @@ class CabinSegment extends Component {
 
                 {cabinListForSegment.map(cb => (
                   <option value={cb.class}>
-                    {cb.class}
+                    {cabiinTitles[cb.class]}
                     {' '}
                     {cb.price}
                     {' '}

@@ -37,7 +37,7 @@ class AirHelp extends Component {
 
                                 <div className="row">
 
-                                    <div className="col-10">
+                                    <div className="col-9">
 
                                        Flight Delays recompansation
                                     </div>
