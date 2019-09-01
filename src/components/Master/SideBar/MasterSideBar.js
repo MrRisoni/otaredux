@@ -7,7 +7,6 @@ import * as actsMaster from '../../../actions/master/actionsMaster';
 import { Translate } from 'react-redux-i18n';
 
 import { preSeatPrice } from '../../../helpers';
-import {hasWebCheckinReducer, webCheckinPriceReducer} from "../../../reducers/air/webCheckin";
 
 class MasterSideBar extends Component {
   constructor(props) {

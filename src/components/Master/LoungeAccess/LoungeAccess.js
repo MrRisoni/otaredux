@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Translate } from 'react-redux-i18n';
 import { connect } from 'react-redux';
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
-import { loungeAccessPricesReducer } from '../../../reducers/air/lounge';
 import LoungeAirport from './LoungeAirport';
 
 class LoungeAccess extends Component {

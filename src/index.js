@@ -12,26 +12,26 @@ import registerServiceWorker from './registerServiceWorker';
 
 import DefaultLayout from './DefaultLayout';
 
-import { currentCurrencyReducer, getCurrenciesReducer } from './reducers/common/currencies';
+import { currentCurrencyReducer, getCurrenciesReducer } from './reducers/common/currenciesRdc';
 
-import { countryListReducer } from './reducers/air/asyncAir';
-import { getLegsReducer, airTripReducer, uniqueCarriersReducer } from './reducers/air/itineraryAir';
-import { fetchCabinPaxPerSegmentReducer } from './reducers/air/cabins';
-import { fetchPreseatSelectedPaxReducer, seatMapInfoReducer, fetchSeatSelectionReducer } from './reducers/air/preseat';
-import { contactMasterReducer, passengersMasterReducer } from './reducers/master/passengersMaster';
-import { pricingMasterReducer, pricingUpsalesMasterReducer, ticketPricesReducer } from './reducers/master/pricingMaster';
-import { getBagsReducer, purchasedBagsReducer, getLimitBagReducer } from './reducers/air/bagsAir';
-import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAir';
-import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAir';
-import { hasFlexibleTicketReducer, getPurchaseCostFlexTicketReducer, flexibleTicketPricingModelReducer,getFlexibleTicketFinalCostReducer } from './reducers/air/flexibleTicket';
-import { hasBlueRibbonReducer, getBlueRibbonFinalCostReducer ,BlueRibbonPricingModelReducer ,getPurchaseCostBlueRibbonReducer } from './reducers/air/blueRibbon';
-import { hasWebCheckinReducer, WebCheckinModelReducer ,getPurchaseCostWebCheckinReducer,getWebCheckinFinalCostReducer } from './reducers/air/webCheckin';
-import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/lounge';
-import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parking';
-import { hasFastTrackReducer, getFastTrackFinalCostReducer,fastTrackPricingModelReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrack';
-import { hasAirHelpReducer, getPurchasedCostAirHelpReducer,airHelpPricingModelReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelp';
+import { countryListReducer } from './reducers/air/asyncAirRdc';
+import { getLegsReducer, airTripReducer, uniqueCarriersReducer } from './reducers/air/itineraryAirRdc';
+import { fetchCabinPaxPerSegmentReducer } from './reducers/air/cabinsRdc';
+import { fetchPreseatSelectedPaxReducer, seatMapInfoReducer, fetchSeatSelectionReducer } from './reducers/air/preseatRdc';
+import { contactMasterReducer, passengersMasterReducer } from './reducers/master/passengersMasterRdc';
+import { pricingMasterReducer, pricingUpsalesMasterReducer, ticketPricesReducer } from './reducers/master/pricingMasterRdc';
+import { getBagsReducer, purchasedBagsReducer, getLimitBagReducer } from './reducers/air/bagsAirRdc';
+import { airInsuranceReducer, purchasedInsuranceReducer } from './reducers/air/insuranceAirRdc';
+import { getMealsReducer, purchasedMealsReducer } from './reducers/air/mealsAirRdc';
+import { hasFlexibleTicketReducer, getPurchaseCostFlexTicketReducer, flexibleTicketPricingModelReducer,getFlexibleTicketFinalCostReducer } from './reducers/air/flexibleTicketRdc';
+import { hasBlueRibbonReducer, getBlueRibbonFinalCostReducer ,BlueRibbonPricingModelReducer ,getPurchaseCostBlueRibbonReducer } from './reducers/air/blueRibbonRdc';
+import { hasWebCheckinReducer, WebCheckinModelReducer ,getPurchaseCostWebCheckinReducer,getWebCheckinFinalCostReducer } from './reducers/air/webCheckinRdc';
+import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReducer } from './reducers/air/loungeRdc';
+import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parkingRdc';
+import { hasFastTrackReducer, getFastTrackFinalCostReducer,fastTrackPricingModelReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrackRdc';
+import { hasAirHelpReducer, getPurchasedCostAirHelpReducer,airHelpPricingModelReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelpRdc';
 
-import { getLanguagesReducer } from './reducers/common/languages';
+import { getLanguagesReducer } from './reducers/common/languagesRdc';
 
 import './index.css';
 
