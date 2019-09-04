@@ -33,23 +33,86 @@ const bagAllowance = [
   },
 ];
 
-// per leg
 const limitPerClass = [
   {
     cabin: 'Y',
     limit: 1,
+    airline: 'OA',
   },
   {
     cabin: 'W',
     limit: 2,
+    airline: 'OA',
   },
   {
     cabin: 'C',
-    limit: 4,
+    limit: 3,
+    airline: 'OA',
   },
   {
     cabin: 'F',
-    limit: 6,
+    limit: 5,
+    airline: 'OA',
+  },
+  {
+    cabin: 'Y',
+    limit: 1,
+    airline: 'A3',
+  },
+  {
+    cabin: 'W',
+    limit: 2,
+    airline: 'A3',
+  },
+  {
+    cabin: 'C',
+    limit: 3,
+    airline: 'A3',
+  },
+  {
+    cabin: 'F',
+    limit: 5,
+    airline: 'A3',
+  },
+  {
+    cabin: 'Y',
+    limit: 1,
+    airline: 'LH',
+  },
+  {
+    cabin: 'W',
+    limit: 2,
+    airline: 'LH',
+  },
+  {
+    cabin: 'C',
+    limit: 3,
+    airline: 'LH',
+  },
+  {
+    cabin: 'F',
+    limit: 5,
+    airline: 'LH',
+  },
+  {
+    cabin: 'Y',
+    limit: 1,
+    airline: 'SK',
+  },
+  {
+    cabin: 'W',
+    limit: 2,
+    airline: 'SK',
+  },
+  {
+    cabin: 'C',
+    limit: 3,
+    airline: 'SK',
+  },
+  {
+    cabin: 'F',
+    limit: 5,
+    airline: 'SK',
   },
 ];
 
@@ -63,7 +126,7 @@ export function getLimitBagReducer(state = limitPerClass, action) {
 export function purchasedBagsReducer(state = boughtPaxBags, action) {
   switch (action.type) {
     case MasterCons.CHANGE_CABIN:
-        return state.filter((bag, idx) => bag.paxId !== action.payload.paxId);
+      return state.filter((bag, idx) => bag.paxId !== action.payload.paxId);
     case MasterCons.ADD_BAG:
       return [
         ...state,

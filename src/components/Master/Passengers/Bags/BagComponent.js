@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Translate } from 'react-redux-i18n';
 import BagLeg from './BagLeg';
 
-
 class BagComponent extends Component {
   constructor(props) {
     super(props);
@@ -11,19 +10,30 @@ class BagComponent extends Component {
 
   render() {
     const keys = [0, 1];
-    // cabinSelection={this.props.cabinSelection} paxId
-    // paxData.paxId
-    // getBagsLimit
-    let limitBags = 0;
+
+
     const thisPaxCabins = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
-    let bestCabin = '';
-    thisPaxCabins.forEach(sg => {
+
+    const mrktCarriersList = Array.prototype.concat.apply([], this.props.trip.map(legs => legs.segments)).map(sgx => sgx.mrktCarrier);
+
+    const limitsArray = [];
+    for (let cbn = 0; cbn < thisPaxCabins.length; cbn++) {
+      const carrierSeg = mrktCarriersList[cbn];
+
+      const thisClassCarrierLimit = this.props.getBagsLimit.filter(lim => (lim.cabin == thisPaxCabins[cbn].cabin && lim.airline == mrktCarriersList[cbn]))[0].limit;
+      limitsArray.push(thisClassCarrierLimit);
+    }
+    console.log(limitsArray);
+    const limitBags = Math.min.apply(Math, limitsArray);
+
+
+    let bestCabin = ''; // most restrivice cabin
+    thisPaxCabins.forEach((sg) => {
       const thisClassLimit = this.props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
-      if (thisClassLimit > limitBags) {
-        limitBags = thisClassLimit;
         bestCabin = sg.cabin;
-      }
+
     });
+
 
     const allowedBags = this.props.bagsAir.filter(bg => bg.classes.indexOf(bestCabin) > -1).map(itm => itm.key);
 
@@ -37,7 +47,7 @@ class BagComponent extends Component {
               <div className="row">
                 <div className="col-6">
 
-                    <Translate value="upsales.PurchaseBags"/>
+                  <Translate value="upsales.PurchaseBags" />
                 </div>
                 <div className="col-2">
                   <i className="fas fa-suitcase" />
@@ -90,6 +100,7 @@ function mapStateToProps(state) {
     bagsAir: state.getBagsReducer,
     getBagsLimit: state.getLimitBagReducer,
     cabinSelection: state.fetchCabinPaxPerSegmentReducer,
+    trip: state.airTripReducer,
 
   };
 }
