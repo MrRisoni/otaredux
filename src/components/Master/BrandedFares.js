@@ -11,7 +11,21 @@ class BrandedFares extends Component {
 
     let allDescriptions = [];
     this.props.brandedFares[0].priceClasses.forEach((prc) => {
-      headers.push(<th className="text-center">{prc.code}</th>);
+    //  headers.push(<th className="text-center">{prc.code} </th>);
+      headers.push(<th className="text-center">
+        <div>
+          {prc.code}
+          <input
+            className="form-check-input exampleRadios"
+            type="radio"
+            name="exampleRadios"
+            id="exampleRadios1"
+            value="option1"
+          />
+        </div>
+                   </th>);
+
+
       prices.push(<th className="text-center">{prc.priceUpPercentage}</th>);
 
       prc.description.forEach((offr) => {
@@ -36,7 +50,10 @@ class BrandedFares extends Component {
           cols.push(<td className="brandNope text-center">No</td>);
         }
       });
-        rows.push(<tr><td>{desc}</td>{cols}</tr>);
+      rows.push(<tr>
+        <td>{desc}</td>
+        {cols}
+                </tr>);
     });
 
 
@@ -51,7 +68,7 @@ class BrandedFares extends Component {
               <tbody>
                 {rows}
               </tbody>
-              <tfoot>
+              <tfoot className="thead-dark">
                 <tr>{prices}</tr>
               </tfoot>
             </table>
