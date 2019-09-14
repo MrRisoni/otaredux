@@ -10,7 +10,8 @@ class BagComponent extends Component {
 
   render() {
     const keys = [0, 1];
-
+    console.log('cabin slection ');
+    console.log(this.props.cabinSelection);
 
     const thisPaxCabins = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
 
@@ -23,11 +24,11 @@ class BagComponent extends Component {
       const thisClassCarrierLimit = this.props.getBagsLimit.filter(lim => (lim.cabin == thisPaxCabins[cbn].cabin && lim.airline == mrktCarriersList[cbn]))[0].limit;
       limitsArray.push(thisClassCarrierLimit);
     }
-    console.log(limitsArray);
+
     const limitBags = Math.min.apply(Math, limitsArray);
 
 
-    let bestCabin = ''; // most restrivice cabin
+    let bestCabin = ''; // most restrictive cabin
     thisPaxCabins.forEach((sg) => {
       const thisClassLimit = this.props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
         bestCabin = sg.cabin;

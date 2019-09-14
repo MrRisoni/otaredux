@@ -30,6 +30,7 @@ import { hasLoungeAccessReducer, loungeBookingsReducer, loungeAccessPricesReduce
 import { getParkingDaysReducer, getParkPricingReducer, getParkPricingFinalCostReducer } from './reducers/air/parkingRdc';
 import { hasFastTrackReducer, getFastTrackFinalCostReducer,fastTrackPricingModelReducer ,getPurchaseCostFastTrackReducer } from './reducers/air/fastTrackRdc';
 import { hasAirHelpReducer, getPurchasedCostAirHelpReducer,airHelpPricingModelReducer,  getAirHelpFinalCostReducer} from './reducers/air/airHelpRdc';
+import {fetchBrandOffersReducer} from './reducers/air/brandedRdc';
 
 import { getLanguagesReducer } from './reducers/common/languagesRdc';
 
@@ -63,6 +64,7 @@ const store = createStore(combineReducers({
   purchasedMealsReducer,
   getLegsReducer,
   airTripReducer,
+        fetchBrandOffersReducer,
   uniqueCarriersReducer,
   hasFlexibleTicketReducer,
   flexibleTicketPricingModelReducer,
@@ -86,7 +88,7 @@ const store = createStore(combineReducers({
   getParkingDaysReducer,
   fastTrackPricingModelReducer,
   getParkPricingReducer,
-  getParkPricingFinalCostReducer,  
+  getParkPricingFinalCostReducer,
   getFastTrackFinalCostReducer,
   hasFastTrackReducer,
   hasAirHelpReducer,
