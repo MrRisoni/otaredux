@@ -54,6 +54,10 @@
       "expireDate": "Expiration date",
       "dob": "Date of birth"
     },
+  "branded": {
+    "Yes": "Ja",
+    "No": "Nej"
+  },
     "preseat": {
       "SelectYourSeats": "Select your seats",
       "Reset": "Clear all",
@@ -69,4 +73,3 @@
       "ChangeCur": "Change Currency"
     }
   }
-  

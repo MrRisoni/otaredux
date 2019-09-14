@@ -22,7 +22,7 @@ import WebCheckin from './Passengers/WebCheckin';
 import Parking from './Parking/Parking';
 import FastTrack from './FastTrack';
 import AirHelp from './AirHelp';
-import BrandedFares from './BrandedFares';
+import BrandedFares from './Branded/BrandedFares';
 
 
 class MasterApp extends Component {

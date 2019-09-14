@@ -1,0 +1,22 @@
+{
+  "ru": {
+    "PriorityBoarding": "Приоритетная посадка",
+    "EmptyMiddle": "Пустое среднее место"
+  },
+  "en": {
+    "PriorityBoarding": "Priority Boarding",
+    "EmptyMiddle": "Empty Middle Seat"
+  },
+  "no": {
+    "PriorityBoarding": "Prioritert ombordstigning",
+    "EmptyMiddle": "Tomt midterste sete"
+  },
+  "de": {
+    "PriorityBoarding": "Prioritert Ansteigung",
+    "EmptyMiddle": "Leerer mittlerer Sitz"
+  },
+  "fr": {
+    "PriorityBoarding": "Embarquement prioritaire",
+    "EmptyMiddle": "Siège du milieu vide"
+  }
+}

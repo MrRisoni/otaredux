@@ -55,6 +55,10 @@
     "expireDate": "Haltbarkeitsdatum",
     "dob": "Geburtsdatum"
   },
+  "branded": {
+    "Yes": "Ja",
+    "No": "Nein"
+  },
   "preseat": {
     "SelectYourSeats": "Wählen Sie Ihre Plätze aus",
     "Reset": "Löschen",

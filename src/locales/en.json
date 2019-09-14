@@ -55,6 +55,10 @@
     "expireDate": "Expiration date",
     "dob": "Date of birth"
   },
+  "branded": {
+    "Yes": "Yes",
+    "No": "No"
+  },
   "preseat": {
     "SelectYourSeats": "Select your seats",
     "Reset": "Clear all",
