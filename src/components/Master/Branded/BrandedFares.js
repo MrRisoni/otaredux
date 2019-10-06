@@ -58,14 +58,17 @@ console.log(BrandedTranslations);
     allDescriptions.forEach((descCode) => {
       const cols = [];
       this.props.brandedFares[0].priceClasses.forEach((prc) => {
-        if (prc.description.indexOf(descCode) > -1) {
+          let thisPriceOffers = prc.description.map( (prcDscrItm) => {
+              return prcDscrItm.code;
+          });
+
+        if (thisPriceOffers.indexOf(descCode) > -1) {
           cols.push(<td className="brandYes text-center">  <Translate value="branded.Yes"/></td>);
         } else {
           cols.push(<td className="brandNope text-center">  <Translate value="branded.No"/></td>);
         }
       });
 
-      console.log('adding translation of ' + descCode + ' for ' + this.props.lang.locale);
         rows.push(<tr>
             <td>{BrandedTranslations[this.props.lang.locale][descCode]}</td>
             {cols}

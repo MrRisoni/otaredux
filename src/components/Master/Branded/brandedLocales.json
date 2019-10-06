@@ -5,7 +5,9 @@
   },
   "en": {
     "PriorityBoarding": "Priority Boarding",
-    "EmptyMiddle": "Empty Middle Seat"
+    "EmptyMiddle": "Empty Middle Seat",
+    "2CheckedBags" : "Two Checked Bags",
+    "2CarryOndBags" : "Two carry-on bags"
   },
   "no": {
     "PriorityBoarding": "Prioritert ombordstigning",

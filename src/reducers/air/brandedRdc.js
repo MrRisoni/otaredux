@@ -1,5 +1,3 @@
-
-
 // priceUpPercentage up om final net price
 
 const brands = [{
@@ -9,25 +7,36 @@ const brands = [{
       code: 'Light',
       priceUpPercentage: 0,
       description: [
-        { title: 'One carry on bag', code: 'OneCarryBag' },
+        {  code: 'OneCarryBag' },
       ],
     },
     {
       code: 'Flex',
       priceUpPercentage: 20,
       description: [
-        { title: '1 Checked Bag', code: 'OneCheckedBag' },
-        { title: 'Free preseatting', code: 'FreePreSeat' },
+        {  code: 'OneCheckedBag' },
+        {  code: 'FreePreSeat' },
       ],
     },
     {
       code: 'BusinessSaver',
       priceUpPercentage: 30,
       description: [
-        { title: '2 Checked Bags', code: '2CheckedBags' },
-        { title: 'Free preseatting', code: 'FreePreSeat' },
-        { title: 'Empty middle seat', code: 'EmptyMiddle' },
-        { title: 'Priority Boarding', code: 'PriorityBoarding' },
+        {  code: '2CheckedBags' },
+        {  code: 'FreePreSeat' },
+        {  code: 'EmptyMiddle' },
+        {  code: 'PriorityBoarding' },
+      ],
+    },
+    {
+      code: 'Business',
+      priceUpPercentage: 30,
+      description: [
+        { code: '2CheckedBags' },
+        {  code: '2CarryOndBags' },
+        {  code: 'FreePreSeat' },
+        {  code: 'EmptyMiddle' },
+        {  code: 'PriorityBoarding' },
       ],
     },
   ],
