@@ -1,24 +1,52 @@
 {
   "ru": {
     "PriorityBoarding": "Приоритетная посадка",
-    "EmptyMiddle": "Пустое среднее место"
+    "EmptyMiddle": "Пустое среднее место",
+    "Lounge" : "Доступ в лаундж",
+    "2CheckedBags" : "Две проверенные сумки",
+    "2CarryOndBags" : "Две ручные сумки",
+    "OneCarryBag": "Одна ручная сумка",
+    "OneCheckedBag" : "Одна проверенная сумка",
+    "FreePreSeat" : "Бесплатный предварительный просмотр"
   },
   "en": {
     "PriorityBoarding": "Priority Boarding",
     "EmptyMiddle": "Empty Middle Seat",
+    "Lounge" : "Lounge Access",
     "2CheckedBags" : "Two Checked Bags",
-    "2CarryOndBags" : "Two carry-on bags"
+    "2CarryOndBags" : "Two carry-on bags",
+    "OneCarryBag": "One carry-on bag",
+    "OneCheckedBag" : "One checked bag",
+    "FreePreSeat" : "Free preseatting"
   },
   "no": {
     "PriorityBoarding": "Prioritert ombordstigning",
-    "EmptyMiddle": "Tomt midterste sete"
+    "EmptyMiddle": "Tomt midterste sete",
+    "Lounge" : "Tilgang til salong",
+    "2CheckedBags" : "To innsjekkede vesker",
+    "2CarryOndBags" : "To bæreposer",
+    "OneCarryBag": "Én bæreveske",
+    "OneCheckedBag" : "En innsjekket bag",
+    "FreePreSeat" : "Gratis preseatting"
   },
   "de": {
     "PriorityBoarding": "Prioritert Ansteigung",
-    "EmptyMiddle": "Leerer mittlerer Sitz"
+    "EmptyMiddle": "Leerer mittlerer Sitz",
+    "Lounge" : "Accès au salon",
+    "2CheckedBags" : "Deux sacs vérifiés",
+    "2CarryOndBags" : "Deux bagages à main",
+    "OneCarryBag": "Une bagage à main",
+    "OneCheckedBag" : "Un bagage enregistré",
+    "FreePreSeat" : "Gratis preseatting"
   },
   "fr": {
     "PriorityBoarding": "Embarquement prioritaire",
-    "EmptyMiddle": "Siège du milieu vide"
+    "EmptyMiddle": "Siège du milieu vide",
+    "Lounge" : "Lounge Access",
+    "2CheckedBags" : "Two Checked Bags",
+    "2CarryOndBags" : "Two carry-on bags",
+    "OneCarryBag": "One carry-on bag",
+    "OneCheckedBag" : "One checked bag",
+    "FreePreSeat" : "Free preseatting"
   }
 }

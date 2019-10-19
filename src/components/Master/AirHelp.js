@@ -70,8 +70,8 @@ class AirHelp extends Component {
                                         {' '}
                                         {this.props.currency.code}
                                         {' '}
-                                        and you will
-                                        be placed in a priority queue during security check
+                                        and you may get
+                                        compensation for every delayed flight
                                     </div>
 
                                     <div className="col-3">

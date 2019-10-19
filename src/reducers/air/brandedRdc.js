@@ -7,25 +7,27 @@ const brands = [{
       code: 'Light',
       priceUpPercentage: 0,
       description: [
-        {  code: 'OneCarryBag' },
+        { code: 'OneCarryBag' },
       ],
     },
     {
       code: 'Flex',
       priceUpPercentage: 20,
       description: [
-        {  code: 'OneCheckedBag' },
-        {  code: 'FreePreSeat' },
+        { code: 'OneCheckedBag' },
+        { code: 'FreePreSeat' },
       ],
     },
     {
       code: 'BusinessSaver',
       priceUpPercentage: 30,
       description: [
-        {  code: '2CheckedBags' },
-        {  code: 'FreePreSeat' },
-        {  code: 'EmptyMiddle' },
-        {  code: 'PriorityBoarding' },
+        { code: '2CheckedBags' },
+        { code: 'FreePreSeat' },
+        { code: 'EmptyMiddle' },
+        { code: 'PriorityBoarding' },
+        { code: 'Lounge' },
+
       ],
     },
     {
@@ -33,10 +35,12 @@ const brands = [{
       priceUpPercentage: 30,
       description: [
         { code: '2CheckedBags' },
-        {  code: '2CarryOndBags' },
-        {  code: 'FreePreSeat' },
-        {  code: 'EmptyMiddle' },
-        {  code: 'PriorityBoarding' },
+        { code: '2CarryOndBags' },
+        { code: 'FreePreSeat' },
+        { code: 'EmptyMiddle' },
+        { code: 'PriorityBoarding' },
+        { code: 'Lounge' },
+
       ],
     },
   ],
