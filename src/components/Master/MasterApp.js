@@ -23,6 +23,7 @@ import Parking from './Parking/Parking';
 import FastTrack from './FastTrack';
 import AirHelp from './AirHelp';
 import BrandedFares from './Branded/BrandedFares';
+import {Translate} from "react-redux-i18n";
 
 
 class MasterApp extends Component {
@@ -69,16 +70,6 @@ class MasterApp extends Component {
                 </div>
 
 
-                <BrandedFares/>
-                <Preseat/>
-                <WebCheckin/>
-                <FastTrack/>
-                <FlexibleTicket/>
-                <AirHelp/>
-                <BlueRibbon/>
-                <Parking/>
-                <LoungeAccess/>
-
                 <MasterContact
                     contact={this.props.contact}
                     countryList={this.props.asyncData.countries}
@@ -86,8 +77,14 @@ class MasterApp extends Component {
                 />
 
 
-                <ReceiptOrInvoice countryList={this.props.asyncData.countries}/>
-                <CreditCard/>
+
+                <div className="row addOnePassenger show passengerListCollapse">
+                    <div className="col-4 offset-4">
+                        <button className="btn btn-primary btn-success">
+                           Next
+                        </button>
+                    </div>
+                </div>
 
 
             </div>

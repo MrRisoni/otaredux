@@ -17,7 +17,11 @@ const languages = [
   },
   {
     code: 'no',
-    title: 'Norsk',
+    title: 'Norsk Bokmål',
+  },
+  {
+    code: 'sv',
+    title: 'Svenska',
   },
 ];
 

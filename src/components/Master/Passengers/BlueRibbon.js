@@ -12,7 +12,7 @@ class BlueRibbon extends Component {
   }
 
   handleSelection(ev) {
-   
+
     if(ev.target.value ==1) {
       this.props.addBlueRibbonHandler();
     }
@@ -60,7 +60,7 @@ class BlueRibbon extends Component {
             </div>
 
 
-            <div className="card-body collapse show" id="blueRibbonCollapse">
+            <div className="card-body collapse" id="blueRibbonCollapse">
 
               <div className="row">
                 <div className="col-8">

@@ -37,12 +37,15 @@ import { getLanguagesReducer } from './reducers/common/languagesRdc';
 import './index.css';
 
 import MasterApp from './components/Master/MasterApp';
+import UpsalesPage from './components/Master/UpsalesPage';
+
 
 import Russia from './locales/ru.json';
 import Germany from './locales/de.json';
 import French from './locales/fr.json';
 import English from './locales/en.json';
 import Bokmal from './locales/no.json';
+import Svenska from './locales/sv.json';
 
 
 const store = createStore(combineReducers({
@@ -108,6 +111,7 @@ const locales = {
   ru: Russia,
   de: Germany,
   no: Bokmal,
+  sv: Svenska
 };
 
 syncTranslationWithStore(store);
@@ -120,6 +124,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <DefaultLayout exact path="/" component={() => <MasterApp product="air" />} />
+        <DefaultLayout exact path="/flight/upsales" component={() => <UpsalesPage />} />
       </div>
     </BrowserRouter>
   </Provider>,

@@ -64,7 +64,7 @@ class Parking extends Component {
                             </div>
 
 
-                            <div className="card-body collapse show" id="flexibleTicketCollapse">
+                            <div className="card-body collapse" id="flexibleTicketCollapse">
                                 <div className="row">
                                     <div className="col-12">
                                         <table className="table table-bordered table-stripped">

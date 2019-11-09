@@ -59,7 +59,7 @@ class AirHelp extends Component {
                             </div>
 
 
-                            <div className="card-body collapse show" id="fastTrackCollapse">
+                            <div className="card-body collapse " id="fastTrackCollapse">
 
                                 <div className="row">
                                     <div className="col-8">

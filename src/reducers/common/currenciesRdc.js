@@ -20,11 +20,15 @@ const currencies = [
   },
   {
     code: 'RUB',
-    rate: 78.09,
+    rate: 70.09,
   },
   {
     code: 'NOK',
-    rate: 0.94,
+    rate: 10.94,
+  },
+  {
+    code: 'SEK',
+    rate: 10.94,
   },
 ];
 
@@ -39,7 +43,7 @@ export function currentCurrencyReducer(state = currentCurrency, action) {
 
 
       let newRate = 1.00;
-      action.payload.currencies.forEach(cur => {
+      action.payload.currencies.forEach((cur) => {
         if (cur.code === action.payload.newCode) {
           newRate = cur.rate;
         }

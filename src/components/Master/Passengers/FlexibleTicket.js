@@ -61,7 +61,7 @@ aria-expanded="false"
             </div>
 
 
-            <div className="card-body collapse show" id="flexibleTicketCollapse">
+            <div className="card-body collapse" id="flexibleTicketCollapse">
 
               <div className="row">
                 <div className="col-8">

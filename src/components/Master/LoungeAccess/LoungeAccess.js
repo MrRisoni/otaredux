@@ -73,7 +73,7 @@ class LoungeAccess extends Component {
               </div>
 
 
-              <div className="card-body collapse show" id="blueRibbonCollapse">
+              <div className="card-body collapse " id="blueRibbonCollapse">
 
                   <div className="alert alert-primary" role="alert">
                       {StopDataDep.legTitle}

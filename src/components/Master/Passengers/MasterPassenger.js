@@ -10,11 +10,7 @@ import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from './MasterPassport';
-import Insurance from './Insurance/Insurance';
-import BagComponent from './Bags/BagComponent';
-import MealsComponent from './Meals/MealsComponent';
 import MilesCards from './Miles/MilesCards';
-import CabinTrip from './Cabin/CabinTrip';
 import * as actsPaxes from '../../../actions/master/actionsPassengers';
 import * as actsMaster from '../../../actions/master/actionsMaster';
 
@@ -240,48 +236,12 @@ Adult
                 <MasterPassport countryList={this.props.asyncData.countries} />
 
 
-                <CabinTrip
-                  tripData={this.props.tripData}
-                  pax={this.props.passenger}
-                />
 
                 {(this.state.ageGroup !== 'INF')
                                 && <MilesCards />
                                 }
 
 
-                <div>
-                  <br />
-                  <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
-                  <Insurance
-                    paxId={this.props.passenger.id}
-                  />
-
-                  {(this.state.ageGroup !== 'INF')
-
-
-                                    && (
-                                    <BagComponent
-                                      paxId={this.props.passenger.id}
-                                      paxData={this.props.passenger}
-                                    />
-                                    )
-                                    }
-
-                  {(this.state.ageGroup !== 'INF')
-
-                                    && (
-                                    <MealsComponent
-                                      key={this.props.passenger.id}
-                                      paxData={this.props.passenger}
-                                      paxId={this.props.passenger.id}
-                                    />
-                                    )
-
-                                    }
-
-
-                </div>
 
               </div>
 
