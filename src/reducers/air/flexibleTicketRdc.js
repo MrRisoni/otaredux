@@ -11,7 +11,7 @@ const chosenFlexibleTicket = false;
 
 const overallFlexTicketCost = 0;
 
-const purchaseCostFlexTicket = flexibleTicketPrice.pricePerPax; 
+const purchaseCostFlexTicket = flexibleTicketPrice.pricePerPax;
 
 
 export function hasFlexibleTicketReducer(state = chosenFlexibleTicket, action) {
@@ -33,8 +33,15 @@ export function flexibleTicketPricingModelReducer(state = flexibleTicketPrice, a
 
 
 export function getPurchaseCostFlexTicketReducer(state = purchaseCostFlexTicket, action) {
-  if (action.payload !== undefined && action.payload.passengers !== undefined) {
-     return getNonInfantPaxes(action.payload.passengers) * action.payload.flexTicketPricingMdl.pricePerPax;      
+
+  if (
+      (action.type == MasterCons.UPSALES_CHANGED) &&
+      (action.payload !== undefined) &&
+      (action.payload.passengers !== undefined)
+  ) {
+      console.log('flex payload rdc');
+      console.log(action.payload);
+     return getNonInfantPaxes(action.payload.passengers) * action.payload.flexTicketPricingMdl.pricePerPax;
   }
   else {
       return state;
@@ -43,8 +50,8 @@ export function getPurchaseCostFlexTicketReducer(state = purchaseCostFlexTicket,
 
 
 export function getFlexibleTicketFinalCostReducer(state = overallFlexTicketCost, action) {
-  if (action.type == MasterCons.UPSALES_CHANGED) {  
-    if (action.payload.hasFlexibleTicket) { 
+  if (action.type == MasterCons.UPSALES_CHANGED) {
+    if (action.payload.hasFlexibleTicket) {
         return  getNonInfantPaxes(action.payload.passengers) * action.payload.flexTicketPricingMdl.pricePerPax;
     }
     else {

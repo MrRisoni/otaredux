@@ -12,26 +12,26 @@ import * as actsPaxes from '../../actions/master/actionsPassengers';
 
 
 import MasterContact from './Passengers/MasterContact';
-import CreditCard from './Payment/CreditCard';
-import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
-import Preseat from './Preseat/Preseat';
-import FlexibleTicket from './Passengers/FlexibleTicket';
-import BlueRibbon from './Passengers/BlueRibbon';
-import LoungeAccess from './LoungeAccess/LoungeAccess';
-import WebCheckin from './Passengers/WebCheckin';
-import Parking from './Parking/Parking';
-import FastTrack from './FastTrack';
-import AirHelp from './AirHelp';
-import BrandedFares from './Branded/BrandedFares';
 import {Translate} from "react-redux-i18n";
+import { withRouter } from "react-router-dom";
 
 
 class MasterApp extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+
+        this.upsalesPage = this.upsalesPage.bind(this);
+
+
     }
 
+    upsalesPage()
+    {
+        console.log('click');
+       history.push("/some/Path");
+
+    }
 
     componentDidMount() {
         this.props.fetchCountriesAction();
@@ -80,7 +80,7 @@ class MasterApp extends Component {
 
                 <div className="row addOnePassenger show passengerListCollapse">
                     <div className="col-4 offset-4">
-                        <button className="btn btn-primary btn-success">
+                        <button className="btn btn-primary btn-success" onClick={this.upsalesPage}>
                            Next
                         </button>
                     </div>

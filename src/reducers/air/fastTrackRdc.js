@@ -30,8 +30,11 @@ export function fastTrackPricingModelReducer(state = fastTrackPrice){
 
 
 export function getPurchaseCostFastTrackReducer(state = purchaseCostFastTrack, action) {
-    if (action.payload !== undefined && action.payload.passengers !== undefined) {
-       return getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricingMdl.pricePerPax;      
+    if (action.type == MasterCons.UPSALES_CHANGED) {
+
+        if (action.payload !== undefined && action.payload.passengers !== undefined) {
+            return getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricingMdl.pricePerPax;
+        }
     }
     else {
         return state;
@@ -44,8 +47,8 @@ export function getFastTrackFinalCostReducer(state = overallFastTrackCost, actio
 
     console.log(action.payload);
 
-    if (action.type == MasterCons.UPSALES_CHANGED) {  
-      if (action.payload.hasFastTrack) { 
+    if (action.type == MasterCons.UPSALES_CHANGED) {
+      if (action.payload.hasFastTrack) {
           return  getNonInfantPaxes(action.payload.passengers) * action.payload.fastTrackPricingMdl.pricePerPax;
       }
       else {

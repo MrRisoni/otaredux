@@ -29,8 +29,11 @@ export function airHelpPricingModelReducer(state = airHelpPrice){
 
 
 export function getPurchasedCostAirHelpReducer(state = overallPurchaseCost, action) {
-    if (action.payload !== undefined && action.payload.passengers !== undefined) {
-        return  getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPricingMdl.pricePerPax;   
+    if (action.type == MasterCons.UPSALES_CHANGED) {
+
+        if (action.payload !== undefined && action.payload.passengers !== undefined) {
+            return getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPricingMdl.pricePerPax;
+        }
     }
     else {
         return state;
@@ -40,8 +43,8 @@ export function getPurchasedCostAirHelpReducer(state = overallPurchaseCost, acti
 
 
 export function getAirHelpFinalCostReducer(state = overallAirHelpCost, action) {
-    if (action.type == MasterCons.UPSALES_CHANGED) {  
-      if (action.payload.hasAirHelp) { 
+    if (action.type == MasterCons.UPSALES_CHANGED) {
+      if (action.payload.hasAirHelp) {
           return  getNonInfantPaxes(action.payload.passengers) * action.payload.airHelpPricingMdl.pricePerPax;
       }
       else {

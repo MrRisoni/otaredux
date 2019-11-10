@@ -27,24 +27,27 @@ export function hasWebCheckinReducer(state = chosenWebCheckin, action) {
 export function WebCheckinModelReducer(state = webCheckinPrices){
     return state;
   }
-  
-  
+
+
   export function getPurchaseCostWebCheckinReducer(state = purchaseCostWebCheckin, action) {
-    if (action.payload !== undefined && action.payload.passengers !== undefined) {
-       return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;      
-    }
+      if (action.type == MasterCons.UPSALES_CHANGED) {
+
+          if (action.payload !== undefined && action.payload.passengers !== undefined) {
+              return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;
+          }
+      }
     else {
         return state;
     }
   }
 
-  
+
 
 
 export function getWebCheckinFinalCostReducer(state = overallWebCheckinCost, action) {
-    if (action.type == MasterCons.UPSALES_CHANGED) {  
-      if (action.payload.hasWebCheckin) { 
-        return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;      
+    if (action.type == MasterCons.UPSALES_CHANGED) {
+      if (action.payload.hasWebCheckin) {
+        return getNonInfantPaxes(action.payload.passengers) * action.payload.WebCheckinPricingMdl.pricePerPax;
     }
       else {
           return 0;

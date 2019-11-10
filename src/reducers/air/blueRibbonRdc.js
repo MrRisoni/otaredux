@@ -1,5 +1,5 @@
 import * as MasterCons from '../../actions/master/allConstants';
-import {getNonInfantPaxes} from '../../helpers';
+import { getNonInfantPaxes } from '../../helpers';
 
 const blueRibbonPrices = {
   pricePerPax: 6.00,
@@ -10,7 +10,7 @@ const blueRibbonPrices = {
 const chosenBlueRibbon = false;
 
 
-const overallBlueRibbonCost = 0; //after selection
+const overallBlueRibbonCost = 0; // after selection
 
 const purchaseCostBlueRibbon = blueRibbonPrices.pricePerPax; // cost of purchase
 
@@ -26,31 +26,29 @@ export function hasBlueRibbonReducer(state = chosenBlueRibbon, action) {
   }
 }
 
-export function BlueRibbonPricingModelReducer(state = blueRibbonPrices){
+export function BlueRibbonPricingModelReducer(state = blueRibbonPrices) {
   return state;
 }
 
 
 export function getPurchaseCostBlueRibbonReducer(state = purchaseCostBlueRibbon, action) {
-  if (action.payload !== undefined && action.payload.passengers !== undefined) {
-     return getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;      
-  }
-  else {
-      return state;
+  if (action.type == MasterCons.UPSALES_CHANGED) {
+    if (action.payload !== undefined && action.payload.passengers !== undefined) {
+      return getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;
+    }
+  } else {
+    return state;
   }
 }
 
 
-
 export function getBlueRibbonFinalCostReducer(state = overallBlueRibbonCost, action) {
-  if (action.type == MasterCons.UPSALES_CHANGED) {  
-    if (action.payload.hasBlueRibbon) { 
-        return  getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;
-
+  if (action.type == MasterCons.UPSALES_CHANGED) {
+    if (action.payload.hasBlueRibbon) {
+      return getNonInfantPaxes(action.payload.passengers) * action.payload.BlueRibbonPricingMdl.pricePerPax;
     }
-    else {
-      return 0;
-  }
+
+    return 0;
   }
   return state;
 }

@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ItineraryData from './Segments/ItineraryData';
-import MasterPassengerList from "./Passengers/MasterPassengerList";
-import MasterSideBar from "./SideBar/MasterSideBar";
-import BrandedFares from "./Branded/BrandedFares";
-import Preseat from "./Preseat/Preseat";
-import WebCheckin from "./Passengers/WebCheckin";
-import FastTrack from "./FastTrack";
-import FlexibleTicket from "./Passengers/FlexibleTicket";
-import AirHelp from "./AirHelp";
-import BlueRibbon from "./Passengers/BlueRibbon";
-import Parking from "./Parking/Parking";
-import LoungeAccess from "./LoungeAccess/LoungeAccess";
-import MasterContact from "./Passengers/MasterContact";
-import ReceiptOrInvoice from "./Payment/ReceiptOrInvoice";
-import CreditCard from "./Payment/CreditCard";
-import * as actsPaxes from "../../actions/master/actionsPassengers";
-import * as actsMaster from "../../actions/master/actionsMaster";
+import MasterSideBar from './SideBar/MasterSideBar';
+import BrandedFares from './Branded/BrandedFares';
+import Preseat from './Preseat/Preseat';
+import WebCheckin from './Passengers/WebCheckin';
+import FastTrack from './FastTrack';
+import FlexibleTicket from './Passengers/FlexibleTicket';
+import AirHelp from './AirHelp';
+import BlueRibbon from './Passengers/BlueRibbon';
+import Parking from './Parking/Parking';
+import LoungeAccess from './LoungeAccess/LoungeAccess';
+import * as actsMaster from '../../actions/master/actionsMaster';
+import PassengerTable from './Passengers/PassengerTable';
 
 
 class UpsalesPage extends Component {
@@ -32,15 +28,8 @@ class UpsalesPage extends Component {
                         tripData={this.props.tripData}
                     />
 
-                    <MasterPassengerList
-                        tripData={this.props.tripData}
-                        addPaxHandler={this.props.addPaxHandler}
-                        removePaxHandler={this.props.removePaxHandler}
-                        editPaxHandler={this.props.editPaxHandler}
-                        changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
-                        editNameHandler={this.props.editPaxNameHandler}
+                    <PassengerTable
                         passengers={this.props.passengers}
-                        countryList={this.props.asyncData.countries}
                     />
 
 
@@ -80,13 +69,6 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-      addPaxHandler: actsPaxes.addMasterPassengerAction,
-      removePaxHandler: actsPaxes.removeMasterPassengerAction,
-      editPaxHandler: actsPaxes.changeMasterPassengerAction,
-      changePaxCabinClassHandler: actsPaxes.changeAirCabinClassPassengerAction,
-      firstLoad: actsMaster.firstLoadMasterAction,
-      editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
-      editContactHandler: actsPaxes.editMasterContactAction,
       fetchCountriesAction: actsMaster.fetchCountriesAction,
   }, dispatch);
 }
