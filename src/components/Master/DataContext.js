@@ -1,7 +1,12 @@
 import React, { Component, createContext } from 'react';
 
-import Russia from './../../locales/ru.json';
+import Russian from './../../locales/ru.json';
 import Bokmal from './../../locales/no.json';
+import German from './../../locales/de.json';
+import French from './../../locales/fr.json';
+import Swedish from './../../locales/sv.json';
+import English from './../../locales/en.json';
+
 
 
 export const DataContext = createContext();
@@ -63,21 +68,21 @@ class DataContextProvider extends Component {
             code: 'sv',
             title: 'Svenska',
         }],
-        translations: {ru: Russia, no:Bokmal}
+        translations: {ru: Russian, no:Bokmal, de:German,en:English,fr:French,sv:Swedish}
     };
 
-    updateChosenLang(newLang){
+    updateChosenLang = (newLang) => {
+        console.log('new lan is ' + newLang)
         this.setState({
             lang: newLang
         });
-
     }
 
 
     render() {
         return (
             <DataContext.Provider    value={{
-                state: this.state,
+                 ...this.state,
                 functions : {
                     updateChosenLang : this.updateChosenLang
                 }

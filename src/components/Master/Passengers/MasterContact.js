@@ -22,6 +22,8 @@ class MasterContact extends Component {
       listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
     });
 
+    console.log('this.context.lang ' + this.context.lang);
+
 
     return (
       <section>
@@ -37,7 +39,7 @@ class MasterContact extends Component {
                     <div className="row">
 
                       <div className="col-4">
-                          {this.context.state.translations['ru'].passport.nationality}
+                          {this.context.translations[this.context.lang].passport.nationality}
                             <Translate value="general.Contact"  />
 
                           </div>
@@ -79,7 +81,7 @@ class MasterContact extends Component {
                       <div className="col-5">
                             <input
                                 type="text" placeholder="Surname"
-                                value={this.context.state.contactData.surname}
+                                value={this.context.contactData.surname}
                                 onChange={this.handleSurname}
                                 className="form-control"
                               />
@@ -89,7 +91,7 @@ class MasterContact extends Component {
                       <div className="col-5">
                             <input
                                 type="text" placeholder="Name"
-                                value={this.context.state.contactData.name}
+                                value={this.context.contactData.name}
                                 className="form-control"
                               />
                           </div>

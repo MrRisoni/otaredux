@@ -332,9 +332,9 @@ x
                   onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
-                      {this.context.state.translations['ru'].pricebox.ChangeLang}
+                      {this.context.translations['ru'].pricebox.ChangeLang}
                   </option>
-                  {this.context.state.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                  {this.context.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
                 </select>
               </div>
             </div>
