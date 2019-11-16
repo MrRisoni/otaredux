@@ -5,8 +5,17 @@ import {DataContext} from "../DataContext";
 class MasterSideBar extends Component {
 
     static contextType = DataContext;
+    constructor(props) {
+        super(props);
 
+        this.updateChosenLangLcl = this.updateChosenLangLcl.bind(this);
 
+    }
+
+    updateChosenLangLcl(ev) {
+        console.log(ev.target.value);
+        this.context.functions.updateChosenLang(ev.target.value);
+    }
     render() {
     const paxPrices = [];
     let activePaxCount = 0;
@@ -320,12 +329,12 @@ x
                 <select
                   className="form-control"
                   id="exampleFormControlSelect2"
-                  onChange={this.props.changeLanguageHandler}
+                  onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
-                      {this.context.translations['ru'].pricebox.ChangeLang}
+                      {this.context.state.translations['ru'].pricebox.ChangeLang}
                   </option>
-                  {this.context.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                  {this.context.state.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
                 </select>
               </div>
             </div>

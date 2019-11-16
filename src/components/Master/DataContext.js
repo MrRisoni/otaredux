@@ -66,9 +66,22 @@ class DataContextProvider extends Component {
         translations: {ru: Russia, no:Bokmal}
     };
 
+    updateChosenLang(newLang){
+        this.setState({
+            lang: newLang
+        });
+
+    }
+
+
     render() {
         return (
-            <DataContext.Provider value={{...this.state}}>
+            <DataContext.Provider    value={{
+                state: this.state,
+                functions : {
+                    updateChosenLang : this.updateChosenLang
+                }
+            }}>
                 {this.props.children}
             </DataContext.Provider>
         );
