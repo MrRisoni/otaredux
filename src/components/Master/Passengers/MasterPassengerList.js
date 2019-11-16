@@ -1,7 +1,5 @@
 import React from 'react';
 import MasterPassenger from './MasterPassenger';
-import { Translate } from 'react-redux-i18n';
-
 
 const MasterPassengerList = props => (
     <section>

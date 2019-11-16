@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar';
-import ItineraryData from './Segments/ItineraryData';
+//import ItineraryData from './Segments/ItineraryData';
 
 
 

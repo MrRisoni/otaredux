@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Translate } from 'react-redux-i18n';
 
-import { bindActionCreators } from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from './MasterPassport';
 import MilesCards from './Miles/MilesCards';
-import * as actsPaxes from '../../../actions/master/actionsPassengers';
-import * as actsMaster from '../../../actions/master/actionsMaster';
+
 
 
 class MasterPassenger extends Component {
@@ -265,21 +261,4 @@ Adult
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-    asyncData: state.countryListReducer,
-
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    removePaxHandler: actsPaxes.removeMasterPassengerAction,
-    editPaxHandler: actsPaxes.changeMasterPassengerAction,
-    editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(MasterPassenger);
+export default MasterPassenger

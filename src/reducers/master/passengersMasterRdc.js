@@ -1,42 +1,5 @@
 
 
-import * as MasterCons from '../../actions/master/allConstants';
-
-
-const passengers = [
-  {
-    id: 0,
-    humanId: 1,
-    active: true,
-    type: 'ADT',
-    name: '',
-    surname: '',
-    gender: '',
-    dob: '',
-    passport: {
-      issueCountry: '',
-      nationality: '',
-      expiresAt: '',
-      passNo: '',
-    },
-  },
-];
-
-
-const contactData = {
-  surname: 'FOO',
-  name: 'BAR',
-  changed: false,
-  gender: '',
-  prefix: '',
-  mobile: '',
-  email: '',
-  country: '',
-  city: '',
-  address: '',
-  postcode: '',
-};
-
 
 export function contactMasterReducer(state = contactData, action) {
   let firstActivePax = { surname: 'KTO', name: '' };

@@ -68,7 +68,37 @@ class DataContextProvider extends Component {
             code: 'sv',
             title: 'Svenska',
         }],
-        translations: {ru: Russian, no:Bokmal, de:German,en:English,fr:French,sv:Swedish}
+        translations: {ru: Russian, no:Bokmal, de:German,en:English,fr:French,sv:Swedish},
+        currencies : [
+            {
+                code: 'EUR',
+                rate: 1.00,
+            },
+            {
+                code: 'USD',
+                rate: 1.14,
+            },
+            {
+                code: 'CHF',
+                rate: 1.13,
+            },
+            {
+                code: 'RUB',
+                rate: 70.09,
+            },
+            {
+                code: 'NOK',
+                rate: 10.94,
+            },
+            {
+                code: 'SEK',
+                rate: 10.94,
+            },
+        ],
+        currentCurrency : {
+            code: 'EUR',
+            rate: 1.00,
+        }
     };
 
     updateChosenLang = (newLang) => {
