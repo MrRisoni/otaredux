@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
 import { Translate } from 'react-redux-i18n';
+import {DataContext} from "../DataContext";
 
 
 class MasterContact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+    
+    static contextType = DataContext;
 
-    this.liftState = this.liftState.bind(this);
-    this.handleSurname = this.handleSurname(this);
-  }
-
-  liftState() {
-    this.props.editContactHandler({
-      surname: 'surname',
-      name: 'name',
-      gender: 'gender',
-      prefix: 'contactData.prefix',
-      mobile: 'contactData.mobile',
-      email: 'contactData.email',
-      country: 'contactData.country',
-      city: 'contactData.city',
-      address: 'contactData.address',
-      postcode: 'contactData.postcode',
-    });
-  }
 
   handleSurname(ev) {
-    this.liftState();
   }
 
   handleName(ev) {
@@ -96,7 +77,7 @@ class MasterContact extends Component {
                       <div className="col-5">
                             <input
                                 type="text" placeholder="Surname"
-                                value={this.props.contact.surname}
+                                value={this.context.contactData.surname}
                                 onChange={this.handleSurname}
                                 className="form-control"
                               />
@@ -106,7 +87,7 @@ class MasterContact extends Component {
                       <div className="col-5">
                             <input
                                 type="text" placeholder="Name"
-                                value={this.props.contact.name}
+                                value={this.context.contactData.name}
                                 className="form-control"
                               />
                           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware,combineReducers } from 'redux';
 import thunk from 'redux-thunk';
@@ -7,7 +7,6 @@ import { routerReducer } from 'react-router-redux';
 import { loadTranslations, setLocale, syncTranslationWithStore, i18nReducer,
 } from 'react-redux-i18n';
 
-import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
 import DefaultLayout from './DefaultLayout';
@@ -46,6 +45,8 @@ import French from './locales/fr.json';
 import English from './locales/en.json';
 import Bokmal from './locales/no.json';
 import Svenska from './locales/sv.json';
+
+import DataContextProvider from "./components/Master/DataContext";
 
 
 const store = createStore(combineReducers({
@@ -119,15 +120,12 @@ store.dispatch(loadTranslations(locales));
 store.dispatch(setLocale('en'));
 
 
+
+
+
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <div>
-        <DefaultLayout exact path="/" component={() => <MasterApp product="air" />} />
-        <DefaultLayout exact path="/flight/upsales" component={() => <UpsalesPage />} />
-      </div>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'),
-);
+    <DataContextProvider>
+    <MasterApp />
+    </DataContextProvider>, document.getElementById('root'));
+
 registerServiceWorker();

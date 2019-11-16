@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar';
 import ItineraryData from './Segments/ItineraryData';
 
 
-import * as actsMaster from '../../actions/master/actionsMaster';
-import * as actsPaxes from '../../actions/master/actionsPassengers';
-
 
 import MasterContact from './Passengers/MasterContact';
-import {Translate} from "react-redux-i18n";
-import { withRouter } from "react-router-dom";
+
+
+import "../../sass/main.scss";
 
 
 class MasterApp extends Component {
@@ -34,9 +30,9 @@ class MasterApp extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchCountriesAction();
+       // this.props.fetchCountriesAction();
 
-        this.props.firstLoad();
+       // this.props.firstLoad();
     }
 
     render() {
@@ -46,9 +42,9 @@ class MasterApp extends Component {
 
                     <div className="col-8">
 
-                        <ItineraryData
+                        {/* <ItineraryData
                             tripData={this.props.tripData}
-                        />
+                        /> *}
 
                         <MasterPassengerList
                             tripData={this.props.tripData}
@@ -60,20 +56,20 @@ class MasterApp extends Component {
                             passengers={this.props.passengers}
                             countryList={this.props.asyncData.countries}
                         />
-
+  */}
 
                     </div>
 
                     <div className="col-4">
-                        <MasterSideBar/>
+                        {/*   <MasterSideBar/> */}
                     </div>
                 </div>
 
 
                 <MasterContact
                     contact={this.props.contact}
-                    countryList={this.props.asyncData.countries}
-                    editContactHandler={this.props.editContactHandler}
+                    countryList={[]}
+                    editContactHandler={null}
                 />
 
 
@@ -93,6 +89,7 @@ class MasterApp extends Component {
     }
 }
 
+/*
 function mapStateToProps(state) {
     return {
         passengers: state.passengersMasterReducer,
@@ -114,6 +111,6 @@ function matchDispatchToProps(dispatch) {
         fetchCountriesAction: actsMaster.fetchCountriesAction,
     }, dispatch);
 }
+*/
 
-
-export default connect(mapStateToProps, matchDispatchToProps)(MasterApp);
+export default MasterApp;

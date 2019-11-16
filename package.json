@@ -1,6 +1,6 @@
 {
-  "name": "otaredux",
-  "version": "0.1.0",
+  "name": "otacontext",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -20,23 +20,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "testAir": "mocha -require babel-polyfill --require babel-core/register src/tests/air/*.js",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "assert": "^1.4.1",
     "babel-loader": "^8.0.4",
-    "chai": "^4.1.2",
-    "chai-http": "^3.0.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -44,10 +35,8 @@
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "ignore-styles": "^5.0.1",
-    "mocha": "^4.1.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "sinon": "^4.1.3",
     "webpack": "^4.28.0"
   },
   "heroku-run-build-script": true
