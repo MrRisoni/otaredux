@@ -29,7 +29,7 @@ class MasterApp extends Component {
     upsalesPage()
     {
         console.log('click');
-       history.push("/some/Path");
+       this.props.router.push("/some/Path");
 
     }
 
