@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import SideBarUpsale from './SideBarUpsale';
-import SideBarPersonUpsale from './SideBarPersonUpsale';
-import * as actsMaster from '../../../actions/master/actionsMaster';
-import { Translate } from 'react-redux-i18n';
+import {DataContext} from "../DataContext";
 
-import { preSeatPrice } from '../../../helpers';
 
 class MasterSideBar extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
+    static contextType = DataContext;
+
+
+    render() {
     const paxPrices = [];
     let activePaxCount = 0;
 
@@ -28,7 +22,7 @@ class MasterSideBar extends Component {
     let totalPreseatPrice =0;
 
 
-    this.props.passengers.forEach(pax => {
+   /* this.props.passengers.forEach(pax => {
       if (pax.active) {
 
           const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
@@ -234,6 +228,9 @@ x
       );
     }
 
+    */
+
+
 
     return (
 
@@ -258,7 +255,7 @@ x
                   aria-controls="priceBoxCollapse"
                 >
 
-                    <Translate value="general.Expand" />
+                    {/* <Translate value="general.Expand" /> */}
                 </button>
               </div>
 
@@ -271,32 +268,27 @@ x
             <div className="row">
               <div className="col-12">
                 <h4>
-                    <Translate value="pricebox.TicketPrice" />
-                    {' '}
-                  {this.props.ticketPrices}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
+              Ticket Price
                 </h4>
               </div>
             </div>
 
-            {bagsDiv}
+              {/*   {bagsDiv}
             {insuranceDiv}
             {mealsDiv}
-            {otherUpsalesDiv}
+            {otherUpsalesDiv} */}
 
 
             <div className="row">
               <div className="col-12">
                 <h4>
-                    <Translate value="pricebox.UpsalePrices" />
+                    {/*  <Translate value="pricebox.UpsalePrices" />
                     {' '}
 
                     {this.props.pricing.upsales}
                   {' '}
                   {this.props.currency.code}
-                  {' '}
+                  {' '} */}
                 </h4>
               </div>
             </div>
@@ -310,12 +302,12 @@ x
               <div className="col-12">
 
                 <h4>
-                  <Translate value="pricebox.Total" /> :
+                    {/* <Translate value="pricebox.Total" /> :
                   {' '}
                   {this.props.pricing.total.toFixed(2)}
                   {' '}
                   {this.props.currency.code}
-                  {' '}
+                  {' '} */}
 
                 </h4>
 
@@ -331,16 +323,15 @@ x
                   onChange={this.props.changeLanguageHandler}
                 >
                   <option value="en">
-
-                   <Translate value="pricebox.ChangeLang" />
+                      {this.context.translations['ru'].pricebox.ChangeLang}
                   </option>
-                  {this.props.langs.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                  {this.context.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
                 </select>
               </div>
             </div>
 
 
-            <div className="row">
+              {/*   <div className="row">
               <div className="col-12">
 
                 <div className="row selectLang">
@@ -358,7 +349,7 @@ x
                 </div>
 
               </div>
-            </div>
+            </div> */}
 
 
           </div>
@@ -371,49 +362,4 @@ x
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    currencyList: state.getCurrenciesReducer,
-    pricing: {
-      total: state.pricingMasterReducer,
-      upsales: state.pricingUpsalesMasterReducer,
-    },
-    insuranceAir: state.airInsuranceReducer,
-    bagAllowance: state.getBagsReducer,
-    purchasedBags: state.purchasedBagsReducer,
-    boughtInsurances: state.purchasedInsuranceReducer,
-    insuranceOptions: state.airInsuranceReducer,
-    mealOptions: state.getMealsReducer,
-    boughtMeals: state.purchasedMealsReducer,
-    hasFlexibleTicket: state.hasFlexibleTicketReducer,
-    flexibleTicket: state.flexibleTicketReducer,
-    hasWebCheckin: state.hasWebCheckinReducer,
-    webCheckinPrice: state.webCheckinPriceReducer,
-    hasBlueRibbon: state.hasBlueRibbonReducer,  
-    overallBlueRibbonCost: state.getBlueRibbonFinalCostReducer,
-    overallFastTrackCost : state.getFastTrackFinalCostReducer,
-    overallAirHelpCost: state.getAirHelpFinalCostReducer,
-    overallFlexTicketCost : state.getFlexibleTicketFinalCostReducer,
-    overallWebCheckinCost : state.getWebCheckinFinalCostReducer,
-    overallParkingPrice: state.getParkPricingFinalCostReducer,
-    ticketPrices: state.ticketPricesReducer,
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
-    seatMapInfo: state.seatMapInfoReducer,
-    langs: state.getLanguagesReducer,
-    selectedSeats: state.fetchSeatSelectionReducer,
-    hasFastTrack: state.hasFastTrackReducer
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    changeLanguageHandler: actsMaster.changeLanguageAction,
-    changeCurrencyHandler: actsMaster.changeCurrencyAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(MasterSideBar);
+export default MasterSideBar;

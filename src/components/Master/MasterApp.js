@@ -9,7 +9,6 @@ import ItineraryData from './Segments/ItineraryData';
 import MasterContact from './Passengers/MasterContact';
 
 
-import "../../sass/main.scss";
 
 
 class MasterApp extends Component {
@@ -61,7 +60,7 @@ class MasterApp extends Component {
                     </div>
 
                     <div className="col-4">
-                        {/*   <MasterSideBar/> */}
+                          <MasterSideBar/>
                     </div>
                 </div>
 

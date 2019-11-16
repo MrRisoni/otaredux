@@ -22,6 +22,7 @@ class MasterContact extends Component {
       listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
     });
 
+
     return (
       <section>
         <div className="row">
@@ -36,7 +37,8 @@ class MasterContact extends Component {
                     <div className="row">
 
                       <div className="col-4">
-                            <Translate value="general.Contact" />
+                          {this.context.translations['ru'].passport.nationality}
+                            <Translate value="general.Contact"  />
 
                           </div>
 

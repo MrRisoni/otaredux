@@ -1,5 +1,9 @@
 import React, { Component, createContext } from 'react';
 
+import Russia from './../../locales/ru.json';
+import Bokmal from './../../locales/no.json';
+
+
 export const DataContext = createContext();
 
 class DataContextProvider extends Component {
@@ -33,9 +37,34 @@ class DataContextProvider extends Component {
                     passNo: '',
                 }
             }
-        ]
-
-    }
+        ],
+        lang:'ru',
+        languages:  [{
+            code: 'ru',
+            title: 'русский',
+        },
+        {
+            code: 'en',
+            title: 'English',
+        },
+        {
+            code: 'fr',
+            title: 'Français',
+        },
+        {
+            code: 'de',
+            title: 'Deutsch',
+        },
+        {
+            code: 'no',
+            title: 'Bokmål',
+        },
+        {
+            code: 'sv',
+            title: 'Svenska',
+        }],
+        translations: {ru: Russia, no:Bokmal}
+    };
 
     render() {
         return (
