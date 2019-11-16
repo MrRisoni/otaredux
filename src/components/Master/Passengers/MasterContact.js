@@ -4,7 +4,7 @@ import {DataContext} from "../DataContext";
 
 
 class MasterContact extends Component {
-    
+
     static contextType = DataContext;
 
 

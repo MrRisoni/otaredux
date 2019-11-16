@@ -15,7 +15,26 @@ class DataContextProvider extends Component {
             city: '',
             address: '',
             postcode: '',
-        }
+        },
+        passengers : [
+            {
+                id: 0,
+                humanId: 1,
+                active: true,
+                type: 'ADT',
+                name: '',
+                surname: '',
+                gender: '',
+                dob: '',
+                passport: {
+                    issueCountry: '',
+                    nationality: '',
+                    expiresAt: '',
+                    passNo: '',
+                }
+            }
+        ]
+
     }
 
     render() {
