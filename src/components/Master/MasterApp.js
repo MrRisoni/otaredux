@@ -43,19 +43,10 @@ class MasterApp extends Component {
 
                         {/* <ItineraryData
                             tripData={this.props.tripData}
-                        /> *}
+                        /> */}
 
-                        <MasterPassengerList
-                            tripData={this.props.tripData}
-                            addPaxHandler={this.props.addPaxHandler}
-                            removePaxHandler={this.props.removePaxHandler}
-                            editPaxHandler={this.props.editPaxHandler}
-                            changePaxCabinClassHandler={this.props.changePaxCabinClassHandler}
-                            editNameHandler={this.props.editPaxNameHandler}
-                            passengers={this.props.passengers}
-                            countryList={this.props.asyncData.countries}
-                        />
-  */}
+                        <MasterPassengerList/>
+
 
                     </div>
 

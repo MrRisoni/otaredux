@@ -109,12 +109,47 @@ class DataContextProvider extends Component {
     }
 
 
+
+    addPassenger() {
+     //   const self = this;
+
+        console.log(this.state);
+
+       /* let newPaxObj =  {
+            id: self.state.passengers.length,
+            humanId: 1,
+            active: true,
+            type: 'ADT',
+            name: '',
+            surname: '',
+            gender: '',
+            dob: '',
+            passport: {
+                issueCountry: '',
+                nationality: '',
+                expiresAt: '',
+                passNo: '',
+            }
+        };
+
+        this.setState({
+            passngers: [...self.state.passngers, newPaxObj]
+        }); */
+
+
+
+
+
+    }
+
+
     render() {
         return (
             <DataContext.Provider    value={{
                  ...this.state,
                 functions : {
-                    updateChosenLang : this.updateChosenLang
+                    updateChosenLang : this.updateChosenLang,
+                    addPassenger: this.addPassenger
                 }
             }}>
                 {this.props.children}

@@ -6,8 +6,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Error from '../../Common/Error';
 
 import ValidatePassengers from '../../../ValidatePassengers';
-import MasterPassport from './MasterPassport';
-import MilesCards from './Miles/MilesCards';
+//import MasterPassport from './MasterPassport';
+//import MilesCards from './Miles/MilesCards';
 
 
 
@@ -126,7 +126,7 @@ class MasterPassenger extends Component {
                 <div className="row">
 
                   <div className="col-2">
-                    <Translate value="passengers.Passenger" />
+                    Passenger
 
                                         #
                     {this.props.passenger.humanId}
@@ -153,7 +153,7 @@ Adult
                       aria-expanded="false"
                       aria-controls="collapseExample"
                     >
-                      <Translate value="general.Toggle" />
+                      Toggle
                     </button>
                   </div>
                 </div>
@@ -229,14 +229,14 @@ Adult
                 </div>
 
 
-                <MasterPassport countryList={this.props.asyncData.countries} />
+                  {/* <MasterPassport countryList={this.props.asyncData.countries} /> */}
 
 
-
+                  {/*
                 {(this.state.ageGroup !== 'INF')
                                 && <MilesCards />
                                 }
-
+*/}
 
 
               </div>
@@ -246,7 +246,7 @@ Adult
                 <div className="row">
                   <div className="col-4 offset-4">
                     <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
-                      <Translate value="passengers.RemovePassenger" />
+                     Remove Passenger
 
                     </button>
                   </div>
