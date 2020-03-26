@@ -110,12 +110,12 @@ class OtaContextProvider extends Component {
 
 
 
-    addPassenger() {
-     //   const self = this;
+    addPassenger = () => {
+        const self = this;
 
         console.log(this.state);
 
-       /* let newPaxObj =  {
+        let newPaxObj =  {
             id: self.state.passengers.length,
             humanId: 1,
             active: true,
@@ -132,13 +132,12 @@ class OtaContextProvider extends Component {
             }
         };
 
+        let paxes =self.state.passengers;
+        paxes.push(newPaxObj);
+
         this.setState({
-            passngers: [...self.state.passngers, newPaxObj]
-        }); */
-
-
-
-
+            passngers: paxes
+        });
 
     }
 
