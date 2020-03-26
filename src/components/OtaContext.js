@@ -1,17 +1,17 @@
 import React, { Component, createContext } from 'react';
 
-import Russian from './../../locales/ru.json';
-import Bokmal from './../../locales/no.json';
-import German from './../../locales/de.json';
-import French from './../../locales/fr.json';
-import Swedish from './../../locales/sv.json';
-import English from './../../locales/en.json';
+import Russian from './../locales/ru.json';
+import Bokmal from './../locales/no.json';
+import German from './../locales/de.json';
+import French from './../locales/fr.json';
+import Swedish from './../locales/sv.json';
+import English from './../locales/en.json';
 
 
 
 export const DataContext = createContext();
 
-class DataContextProvider extends Component {
+class OtaContextProvider extends Component {
     state = {
         contactData : {
             surname: 'FOOBAARR',
@@ -158,4 +158,4 @@ class DataContextProvider extends Component {
     }
 }
 
-export default DataContextProvider;
+export default OtaContextProvider;

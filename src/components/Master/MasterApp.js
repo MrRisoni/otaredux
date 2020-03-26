@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
-import MasterSideBar from './SideBar/MasterSideBar';
+import MasterSideBar from './SideBar/MasterSideBar'
 //import ItineraryData from './Segments/ItineraryData';
 
 

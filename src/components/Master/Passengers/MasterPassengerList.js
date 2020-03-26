@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MasterPassenger from './MasterPassenger';
-import {DataContext} from "../DataContext";
+import {DataContext} from "../../OtaContext";
 
 
 class MasterPassengerList extends Component {

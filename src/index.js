@@ -4,20 +4,21 @@ import { BrowserRouter } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import OtaContextProvider from './components/OtaContext';
+/*
 import DefaultLayout from './DefaultLayout';
 
 
 import './main.scss';
-
+*/
 import MasterApp from './components/Master/MasterApp';
 
 
-import DataContextProvider from './components/Master/DataContext';
 
 
 ReactDOM.render(
-    <DataContextProvider>
+    <OtaContextProvider>
     <MasterApp />
-    </DataContextProvider>, document.getElementById('root'));
+    </OtaContextProvider>, document.getElementById('root'));
 
 registerServiceWorker();
