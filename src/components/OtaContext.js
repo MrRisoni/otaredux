@@ -25,6 +25,29 @@ class OtaContextProvider extends Component {
             address: '',
             postcode: '',
         },
+        upsales: {
+          preseatingCost:0,
+          preseatingCostEur:0,
+          webCheckinCost:0,
+          webCheckinCostEur:0,
+          mealsCost:0,
+          mealsCostEur:0,
+          fastTrackCost:0,
+          fastTrackCostEur:0,
+          blueRibbonCost:0,
+          blueRibbonCostEur:0,
+          airHelpCost:0,
+          airHelpCostEur:0,
+          insuranceCost:0,
+          insuranceCostEur:0,
+          loungeCost:0,
+          loungeCostEur:0,
+          parking: {
+            cost:0,
+            costEur:0,
+            days:0
+          }
+        }
         passengers : [
             {
                 id: 0,
@@ -40,7 +63,23 @@ class OtaContextProvider extends Component {
                     nationality: '',
                     expiresAt: '',
                     passNo: '',
+                },
+                upsalesData:{
+                  insurance: {
+                    "code" :"",
+                    cost:0,
+                    costEur:0,
+                  }
+                  meals:[{leg:0,choice:'',cost:0,costEur:0},
+                {leg:1,choice:'',cost:0,costEur:0}],
+                preseating: {
+                  totalCost:0,
+                  totalEur:0,
+                  choices:[
+                    {segId:0,choice:'',cost:0,costEur:0}
+                  ]
                 }
+              }
             }
         ],
         lang:'ru',
