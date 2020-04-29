@@ -1,6 +1,7 @@
 [
   {
     "legId": 0,
+    "legKey":"CLoqKGvW0H8w2",
     "from": {
       "iata": "RHO",
       "city": "Rhodes",
@@ -29,9 +30,15 @@
     "h":2,
     "m": 10,
     },
+    "pricing" : [
+      {  "costEur": 135, "age": "ADT" },
+        {  "costEur": 110, "age": "CNN" },
+          {  "costEur": 50, "age": "INF" },
+    ],
     "segments": [
       {
         "segId": 0,
+        "segKey":"Q6fa7dr9T48NT",
         "from": {
           "iata": "RHO",
           "city": "Rhodes",
@@ -62,6 +69,7 @@
       },
       {
         "segId": 1,
+        "segKey":"6ge0OUKCx3OMO",
         "from": {
           "iata": "ATH",
           "city": "Athens",
@@ -92,6 +100,7 @@
       },
       {
         "segId": 2,
+        "segKey":"MIjJ8WnZuQ7vM",
         "from": {
           "iata": "FRA",
           "city": "Frankfurt",
@@ -123,8 +132,8 @@
     ],
   },
   {
-    "segId": 1,
     "legId": 1,
+    "legKey":"EihRTXtsIQOfi",
     "from": {
       "iata": "TRF",
       "city": "Oslo",
@@ -153,9 +162,15 @@
     "h":0,
     "m": 0,
     },
+    "pricing" : [
+      {  "costEur": 350, "age": "ADT" },
+        {  "costEur": 300, "age": "CNN" },
+          {  "costEur": 90, "age": "INF" },
+    ],
     "segments": [
       {
         "segId": 3,
+        "segKey":"2CytZDoCF1mNh",
         "from": {
           "iata": "TRF",
           "city": "Oslo",
