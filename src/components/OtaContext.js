@@ -42,12 +42,14 @@ class OtaContextProvider extends Component {
           insuranceCostEur:0,
           loungeCost:0,
           loungeCostEur:0,
+          flexTicketCost:0,
+          flexTicketCostEur:0,
           parking: {
             cost:0,
             costEur:0,
             days:0
           }
-        }
+        },
         passengers : [
             {
                 id: 0,
@@ -66,10 +68,10 @@ class OtaContextProvider extends Component {
                 },
                 upsalesData:{
                   insurance: {
-                    "code" :"",
+                    code:"",
                     cost:0,
                     costEur:0,
-                  }
+                  },
                   meals:[{leg:0,choice:'',cost:0,costEur:0},
                 {leg:1,choice:'',cost:0,costEur:0}],
                 preseating: {

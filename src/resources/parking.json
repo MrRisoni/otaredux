@@ -1,0 +1,15 @@
+{"ATH" :[
+  {
+    "upToDays": 3,
+    "costEuro": 3,
+  },
+  {
+    "upToDays": 7,
+    "costEuro": 7,
+  },
+  {
+    "upToDays": 15,
+    "costEuro": 12,
+  },
+]
+}

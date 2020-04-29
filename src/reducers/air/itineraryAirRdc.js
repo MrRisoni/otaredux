@@ -280,18 +280,3 @@ const trip = [
 
   },
 ];
-
-
-export function airTripReducer(state = trip, action) {
-  return state;
-}
-
-
-export function getLegsReducer(state = legs, action) {
-  return state;
-}
-
-
-export function uniqueCarriersReducer(state = uniqueCarriers, action) {
-  return state;
-}

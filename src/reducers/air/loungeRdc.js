@@ -14,24 +14,3 @@ const loungePrices = [{
     { ptc: 'CNN', perHour: 6 }],
 },
 ];
-
-
-
-
-const loungeBooking = [];
-
-
-export function hasLoungeAccessReducer(state = loungeBooking, action) {
-    let size = loungeBooking.length;
-    return (size >0);
-}
-
-
-export function loungeBookingsReducer(state = loungeBooking, action) {
-    return state;
-}
-
-
-export function loungeAccessPricesReducer(state = loungePrices, action) {
-  return state;
-}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "code": 0,
+    "title": "No insurance",
+    "costEuro": { "ADT":0,"CNN":0}
+  },
+  {
+    "id": 1,
+    "code": 5678,
+    "title": "Globy Classic",
+    "costEuro": { "ADT":15,"CNN":10}
+  },
+  {
+    "id": 2,
+    "code": 3560,
+    "title": "Globy Cancellation",
+    "costEuro": { "ADT":22,"CNN":17}
+  },
+  {
+    "id": 3,
+    "code": 4092,
+    "title": "Globy Schengen",
+    "costEuro": { "ADT":35,"CNN":24}
+  },
+]
