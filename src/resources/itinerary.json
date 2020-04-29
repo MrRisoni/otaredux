@@ -31,9 +31,9 @@
     "m": 10,
     },
     "pricing" : [
-      {  "costEur": 135, "age": "ADT" },
-        {  "costEur": 110, "age": "CNN" },
-          {  "costEur": 50, "age": "INF" },
+      {  "fareEur": 350, "taxesEur":50, "age": "ADT" },
+        {  "fareEur": 300,"taxesEur":50, "age": "CNN" },
+          {  "fareEur": 90, "taxesEur":20,"age": "INF" },
     ],
     "segments": [
       {
@@ -163,9 +163,9 @@
     "m": 0,
     },
     "pricing" : [
-      {  "costEur": 350, "age": "ADT" },
-        {  "costEur": 300, "age": "CNN" },
-          {  "costEur": 90, "age": "INF" },
+      {  "fareEur": 350, "taxesEur":150, "age": "ADT" },
+        {  "fareEur": 300,"taxesEur":150, "age": "CNN" },
+          {  "fareEur": 90, "taxesEur":40,"age": "INF" },
     ],
     "segments": [
       {

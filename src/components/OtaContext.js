@@ -60,6 +60,15 @@ class OtaContextProvider extends Component {
                 surname: '',
                 gender: '',
                 dob: '',
+                meals:[],
+                pricing:[
+                  {
+                    legId:0,class:'Y',fareEur:0,taxEur:0,ttl:0
+                  },
+                  {
+                    legId:1,class:'Y',fareEur:0,taxEur:0,ttl:0
+                  }
+                ],
                 passport: {
                     issueCountry: '',
                     nationality: '',

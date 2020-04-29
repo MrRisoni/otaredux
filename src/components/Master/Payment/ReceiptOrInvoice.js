@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Invoice from "./Invoice";
 import Receipt from "./Receipt";
-import { Translate } from 'react-redux-i18n';
 
 
 class ReceiptOrInvoice extends Component {
@@ -122,5 +121,3 @@ class ReceiptOrInvoice extends Component {
 }
 
 export default ReceiptOrInvoice;
-
-

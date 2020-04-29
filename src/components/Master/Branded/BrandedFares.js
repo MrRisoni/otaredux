@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import _ from 'lodash';
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
-import { Translate } from 'react-redux-i18n';
 
 import  BrandedTranslations from './brandedLocales';
 

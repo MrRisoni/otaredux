@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar'
-//import ItineraryData from './Segments/ItineraryData';
+import ItineraryData from './Segments/ItineraryData';
 
 
 
@@ -41,9 +41,9 @@ class MasterApp extends Component {
 
                     <div className="col-8">
 
-                        {/* <ItineraryData
+                        { <ItineraryData
                             tripData={this.props.tripData}
-                        /> */}
+                        />}
 
                         <MasterPassengerList/>
 
@@ -78,29 +78,5 @@ class MasterApp extends Component {
         );
     }
 }
-
-/*
-function mapStateToProps(state) {
-    return {
-        passengers: state.passengersMasterReducer,
-        contact: state.contactMasterReducer,
-        tripData: state.airTripReducer,
-        asyncData: state.countryListReducer,
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addPaxHandler: actsPaxes.addMasterPassengerAction,
-        removePaxHandler: actsPaxes.removeMasterPassengerAction,
-        editPaxHandler: actsPaxes.changeMasterPassengerAction,
-        changePaxCabinClassHandler: actsPaxes.changeAirCabinClassPassengerAction,
-        firstLoad: actsMaster.firstLoadMasterAction,
-        editPaxNameHandler: actsPaxes.editMasterPassengerNameAction,
-        editContactHandler: actsPaxes.editMasterContactAction,
-        fetchCountriesAction: actsMaster.fetchCountriesAction,
-    }, dispatch);
-}
-*/
 
 export default MasterApp;

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Translate, I18n } from 'react-redux-i18n';
 
 class MasterPassport extends Component {
     constructor(props) {
@@ -90,5 +89,3 @@ class MasterPassport extends Component {
 }
 
 export default MasterPassport;
-
-

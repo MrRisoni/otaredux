@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import InsuranceOption from './InsuranceOption';
-import { Translate } from 'react-redux-i18n';
-
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
 import * as actsInsurance from '../../../../actions/master/actionsInsurance';
 
@@ -100,4 +96,3 @@ function matchDispatchToProps(dispatch) {
 
 
 export default connect(mapStateToProps, matchDispatchToProps)(Insurance);
-

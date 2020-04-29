@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Translate } from 'react-redux-i18n';
 import SeatShower from './display/SeatShower';
 import SeatRow from './seats/SeatRow';
 import { fillRange } from '../../../helpers';

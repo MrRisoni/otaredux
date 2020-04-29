@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Translate } from 'react-redux-i18n';
 import SingleMilesCard from './SingleMilesCard';
-import { connect } from 'react-redux';
 
 
 class MilesCards extends Component {

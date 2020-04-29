@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Translate } from 'react-redux-i18n';
+
 
 
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
@@ -115,4 +113,3 @@ function matchDispatchToProps(dispatch) {
 
 
 export default connect(mapStateToProps, matchDispatchToProps)(FlexibleTicket);
-

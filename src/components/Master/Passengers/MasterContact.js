@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Translate } from 'react-redux-i18n';
-import {DataContext} from "../../OtaContext";
+
 
 
 class MasterContact extends Component {

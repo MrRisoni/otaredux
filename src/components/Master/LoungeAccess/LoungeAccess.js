@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Translate } from 'react-redux-i18n';
-import { connect } from 'react-redux';
 import * as actsUpsales from '../../../actions/master/actionsUpsales';
 import LoungeAirport from './LoungeAirport';
 
