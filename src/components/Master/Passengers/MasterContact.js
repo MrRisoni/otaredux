@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {DataContext} from "../../OtaContext";
+import { Translate } from 'react-redux-i18n';
 
 
 

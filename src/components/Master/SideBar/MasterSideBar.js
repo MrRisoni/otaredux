@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import {DataContext} from "../DataContext";
 import {DataContext} from "../../OtaContext";
 
 
@@ -18,6 +17,19 @@ class MasterSideBar extends Component {
         this.context.functions.updateChosenLang(ev.target.value);
     }
     render() {
+
+      let {
+        totalCost,
+        totalFare,
+        totalTax,
+        languages,
+        lang,
+        currencies,
+        translations,
+        currentCurrency
+  } = this.context;
+
+console.log(totalCost);
     const paxPrices = [];
     let activePaxCount = 0;
 
@@ -264,7 +276,7 @@ x
                   aria-expanded="false"
                   aria-controls="priceBoxCollapse"
                 >
-
+                  ExpandTranltr
                     {/* <Translate value="general.Expand" /> */}
                 </button>
               </div>
@@ -278,7 +290,7 @@ x
             <div className="row">
               <div className="col-12">
                 <h4>
-              Ticket Price
+                  Ticket Price
                 </h4>
               </div>
             </div>
@@ -289,19 +301,19 @@ x
             {otherUpsalesDiv} */}
 
 
-            <div className="row">
+            {/*  <div className="row">
               <div className="col-12">
                 <h4>
-                    {/*  <Translate value="pricebox.UpsalePrices" />
+                    <Translate value="pricebox.UpsalePrices" />
                     {' '}
 
                     {this.props.pricing.upsales}
                   {' '}
                   {this.props.currency.code}
-                  {' '} */}
+                  {' '}
                 </h4>
               </div>
-            </div>
+            </div> */}
 
 
           </div>
@@ -312,12 +324,12 @@ x
               <div className="col-12">
 
                 <h4>
-                    {/* <Translate value="pricebox.Total" /> :
+                   pricebox.Total :
                   {' '}
-                  {this.props.pricing.total.toFixed(2)}
+                  {this.totalCost.toFixed(2)}
                   {' '}
                   {this.props.currency.code}
-                  {' '} */}
+                  {' '}
 
                 </h4>
 

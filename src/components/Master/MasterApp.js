@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar'
 import ItineraryData from './Segments/ItineraryData';
+import {DataContext} from "../OtaContext";
 
 
 
@@ -12,6 +13,8 @@ import MasterContact from './Passengers/MasterContact';
 
 
 class MasterApp extends Component {
+  static contextType = DataContext;
+
     constructor(props) {
         super(props);
         this.state = {};
@@ -31,7 +34,7 @@ class MasterApp extends Component {
     componentDidMount() {
        // this.props.fetchCountriesAction();
 
-       // this.props.firstLoad();
+      this.context.functions.firstLoad();
     }
 
     render() {
@@ -41,9 +44,9 @@ class MasterApp extends Component {
 
                     <div className="col-8">
 
-                        { <ItineraryData
+                        {/*  <ItineraryData
                             tripData={this.props.tripData}
-                        />}
+                        /> */}
 
                         <MasterPassengerList/>
 
