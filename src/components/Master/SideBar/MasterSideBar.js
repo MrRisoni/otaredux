@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {DataContext} from "../../OtaContext";
+import SideBarUpsale from "./SideBarUpsale";
 
 
 class MasterSideBar extends Component {
@@ -18,18 +19,7 @@ class MasterSideBar extends Component {
     }
     render() {
 
-      let {
-        totalCost,
-        totalFare,
-        totalTax,
-        languages,
-        lang,
-        currencies,
-        translations,
-        currentCurrency
-  } = this.context;
 
-console.log(totalCost);
     const paxPrices = [];
     let activePaxCount = 0;
 
@@ -287,13 +277,16 @@ x
 
           <div className="card-body show text-white" id="priceBoxCollapse">
 
-            <div className="row">
-              <div className="col-12">
-                <h4>
-                  Ticket Price
-                </h4>
-              </div>
-            </div>
+
+
+            <SideBarUpsale title={"Ticket Price"} price={this.context.totalCost} currency={this.context.currentCurrency}></SideBarUpsale>
+            <SideBarUpsale title={"Fare"} price={this.context.totalFare} currency={this.context.currentCurrency}></SideBarUpsale>
+
+            <SideBarUpsale title={"Taxes"} price={this.context.totalTax} currency={this.context.currentCurrency}></SideBarUpsale>
+
+            <hr/>
+              <hr/>
+                <hr/>
 
               {/*   {bagsDiv}
             {insuranceDiv}
@@ -316,25 +309,7 @@ x
             </div> */}
 
 
-          </div>
 
-
-          <div className="card-footer">
-            <div className="row">
-              <div className="col-12">
-
-                <h4>
-                   pricebox.Total :
-                  {' '}
-                  {this.totalCost.toFixed(2)}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-
-                </h4>
-
-              </div>
-            </div>
 
 
             <div className="row langSelector">
@@ -353,7 +328,7 @@ x
             </div>
 
 
-              {/*   <div className="row">
+               <div className="row">
               <div className="col-12">
 
                 <div className="row selectLang">
@@ -362,16 +337,16 @@ x
                       className="form-control"
                       onChange={this.props.changeCurrencyHandler}>
                       <option value="">
-                          <Translate value="pricebox.ChangeCur" />
+                            {this.context.translations['ru'].pricebox.ChangeCur}
 
                           </option>
-                      {this.props.currencyList.map(cur => (<option value={cur.code}>{cur.code}</option>))}
+                      {this.context.currencies.map(cur => (<option value={cur.code}>{cur.code}</option>))}
                     </select>
                   </div>
                 </div>
 
               </div>
-            </div> */}
+            </div>
 
 
           </div>

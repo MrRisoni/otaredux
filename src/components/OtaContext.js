@@ -152,7 +152,7 @@ class OtaContextProvider extends Component {
         ],
         currentCurrency : {
             code: 'EUR',
-            rate: 1.00,
+            rate: 1.13,
         }
     };
 
@@ -234,7 +234,11 @@ class OtaContextProvider extends Component {
          }
        }
 
-       console.log('Total cost is ' + ttl);
+       ttl = (ttl*this.state.currentCurrency.rate).toFixed(2);
+       ttlFare = (ttlFare*this.state.currentCurrency.rate).toFixed(2);
+       ttlTax = (ttlTax*this.state.currentCurrency.rate).toFixed(2);
+
+
        this.setState({
            totalCost: ttl,
            totalFare:ttlFare,
