@@ -3,13 +3,11 @@ import React, {Component} from 'react';
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar'
 import ItineraryData from './Segments/ItineraryData';
+import FareTaxes from './Segments/FareTaxes';  
+
 import {DataContext} from "../OtaContext";
 
-
-
 import MasterContact from './Passengers/MasterContact';
-
-
 
 
 class MasterApp extends Component {
@@ -20,7 +18,6 @@ class MasterApp extends Component {
         this.state = {};
 
         this.upsalesPage = this.upsalesPage.bind(this);
-
 
     }
 
@@ -47,6 +44,7 @@ class MasterApp extends Component {
                         {/*  <ItineraryData
                             tripData={this.props.tripData}
                         /> */}
+                         <FareTaxes/>
 
                         <MasterPassengerList/>
 

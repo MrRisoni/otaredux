@@ -55,6 +55,9 @@ class OtaContextProvider extends Component {
             days:0
           }
         },
+        numADT:1,
+        numCNN:0,
+        numINF:0,
         passengers : [
             {
                 id: 0,
@@ -188,11 +191,15 @@ class OtaContextProvider extends Component {
         };
 
         let paxes =self.state.passengers;
+        let adts = self.state.numADT++;
         paxes.push(newPaxObj);
 
         this.setState({
-            passngers: paxes
+            passngers: paxes,
+            numADT:adts
         });
+
+        this.firstLoad();
 
     }
 
