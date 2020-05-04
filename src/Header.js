@@ -4,10 +4,11 @@ import React from 'react';
 const Header = () => (
   <div className="row">
     <div className="col-4 offset-2 otaTitle">
-      <img src="/logos/ReduxLogo.png" />
-        React-Redux OTA SPA
+<i class="fas fa-fighter-jet"></i>        React-ContextAPI OTA 
     </div>
   </div>
 );
+
+
 
 export default Header;
