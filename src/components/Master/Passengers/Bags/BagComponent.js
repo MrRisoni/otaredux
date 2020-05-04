@@ -94,15 +94,6 @@ class BagComponent extends Component {
 }
 
 
-function mapStateToProps(state) {
-  return {
-    bagsAir: state.getBagsReducer,
-    getBagsLimit: state.getLimitBagReducer,
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-    trip: state.airTripReducer,
-
-  };
-}
 
 
 export default connect(mapStateToProps)(BagComponent);

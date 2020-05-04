@@ -58,20 +58,4 @@ class UpsalesPage extends Component {
 }
 
 
-function mapStateToProps(state) {
-  return {
-      passengers: state.passengersMasterReducer,
-      contact: state.contactMasterReducer,
-      tripData: state.airTripReducer,
-      asyncData: state.countryListReducer,
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-      fetchCountriesAction: actsMaster.fetchCountriesAction,
-  }, dispatch);
-}
-
-
 export default connect(mapStateToProps, matchDispatchToProps)(UpsalesPage);

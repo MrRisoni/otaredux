@@ -110,21 +110,6 @@ class Parking extends Component {
 }
 
 
-function mapStateToProps(state) {
-    return {
-        pricingTable: state.getParkPricingReducer,
-        parkDays: state.getParkingDaysReducer,
-        currency: state.currentCurrencyReducer,
-        parkingCost : state.getParkPricingFinalCostReducer,
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addParkingDayHandler: actsUpsales.addParkingDayAction,
-        subParkingDayHandler: actsUpsales.subParkingDayAction,
-    }, dispatch);
-}
 
 
 export default connect(mapStateToProps, matchDispatchToProps)(Parking);

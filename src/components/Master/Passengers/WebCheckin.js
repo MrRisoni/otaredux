@@ -90,21 +90,4 @@ class WebCheckin extends Component {
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    webCheckinPrice: state.getPurchaseCostWebCheckinReducer,
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    addWebCheckinHandler: actsUpsales.addWebCheckinAction,
-    removeWebCheckinHandler: actsUpsales.removeWebCheckinAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(WebCheckin);
+export default WebCheckin;

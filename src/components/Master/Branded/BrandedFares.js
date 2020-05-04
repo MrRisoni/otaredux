@@ -97,22 +97,6 @@ console.log(BrandedTranslations);
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    fastTrackPrice: state.getPurchasedCostAirHelpReducer,
-    brandedFares: state.fetchBrandOffersReducer,
-      lang: state.i18n,
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    addAirHelpHandler: actsUpsales.addAirHelpAction,
-    removeAirHelpHandler: actsUpsales.removeAirHelpAction,
-  }, dispatch);
-}
 
 
 export default connect(mapStateToProps, matchDispatchToProps)(BrandedFares);

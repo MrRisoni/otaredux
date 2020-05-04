@@ -97,20 +97,4 @@ and you
 }
 
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    blueRibbonPrice: state.getPurchaseCostBlueRibbonReducer,
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    addBlueRibbonHandler: actsUpsales.addBlueRibbonAction,
-    removeBlueRibbonHandler: actsUpsales.removeBlueRibbonAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(BlueRibbon);
+export default BlueRibbon)

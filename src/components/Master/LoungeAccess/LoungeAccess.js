@@ -94,14 +94,5 @@ class LoungeAccess extends Component {
 }
 
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    itinerary: state.airTripReducer,
-    currency: state.currentCurrencyReducer,
-    loungePrices: state.loungeAccessPricesReducer,
-  };
-}
-
 
 export default connect(mapStateToProps)(LoungeAccess);

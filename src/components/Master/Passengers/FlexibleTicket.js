@@ -96,20 +96,5 @@ and you may
 }
 
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    flexibleTicketPrice: state.getPurchaseCostFlexTicketReducer
-  };
-}
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    addFlexibleTicketHandler: actsUpsales.addFlexibleTicketAction,
-    removeFlexTicketHandler: actsUpsales.removeFlexibleTicketAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(FlexibleTicket);
+export default FlexibleTicket;

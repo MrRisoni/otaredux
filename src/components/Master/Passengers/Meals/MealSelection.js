@@ -55,21 +55,6 @@ class MealSelection extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    currency: state.currentCurrencyReducer,
-
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-
-    addMealHandler: actsMeals.addMealAction,
-    removeMealHandler: actsMeals.removeMealAction,
-
-  }, dispatch);
-}
 
 
 export default connect(mapStateToProps, matchDispatchToProps)(MealSelection);

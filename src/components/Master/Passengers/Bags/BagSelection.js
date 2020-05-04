@@ -115,21 +115,5 @@ class BagSelection extends Component {
 }
 
 
-function mapStateToProps(state) {
-  return {
-    currency: state.currentCurrencyReducer,
-    purchasedBags: state.purchasedBagsReducer,
-
-  };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-
-    addBagHandler: actsBags.addAirBagAction,
-    removeBagHandler: actsBags.removeAirBagAction,
-  }, dispatch);
-}
-
 
 export default connect(mapStateToProps, matchDispatchToProps)(BagSelection);

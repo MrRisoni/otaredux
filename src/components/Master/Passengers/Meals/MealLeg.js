@@ -63,13 +63,6 @@ class MealLeg extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-    mealOptions: state.getMealsReducer,
-    segments: state.getLegsReducer,
-  };
-}
 
 
 export default connect(mapStateToProps)(MealLeg);

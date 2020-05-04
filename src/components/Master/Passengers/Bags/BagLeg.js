@@ -51,12 +51,6 @@ class BagLeg extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    bagsAir: state.getBagsReducer,
-
-  };
-}
 
 
 export default connect(mapStateToProps)(BagLeg);

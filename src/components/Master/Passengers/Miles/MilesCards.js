@@ -52,12 +52,6 @@ class MilesCards extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-        carrierList: state.uniqueCarriersReducer
-    };
-}
-
 
 
 

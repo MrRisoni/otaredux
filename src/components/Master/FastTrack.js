@@ -94,21 +94,4 @@ class FastTrack extends Component {
 }
 
 
-function mapStateToProps(state) {
-    console.log(state);
-    return {
-        passengers: state.passengersMasterReducer,
-        currency: state.currentCurrencyReducer,
-        fastTrackPrice: state.getPurchaseCostFastTrackReducer,
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addFastTrackHandler: actsUpsales.addFastTrackAction,
-        removeFastTrackHandler : actsUpsales.removeFastTrackAction,
-    }, dispatch);
-}
-
-
 export default connect(mapStateToProps, matchDispatchToProps)(FastTrack);

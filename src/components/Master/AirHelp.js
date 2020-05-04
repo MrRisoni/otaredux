@@ -94,20 +94,5 @@ class AirHelp extends Component {
 }
 
 
-function mapStateToProps(state) {
-    return {
-        passengers: state.passengersMasterReducer,
-        currency: state.currentCurrencyReducer,
-        fastTrackPrice: state.getPurchasedCostAirHelpReducer,
-    };
-}
 
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addAirHelpHandler: actsUpsales.addAirHelpAction,
-        removeAirHelpHandler : actsUpsales.removeAirHelpAction,
-    }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(AirHelp);
+export default AirHelp;
