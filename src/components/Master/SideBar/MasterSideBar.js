@@ -279,7 +279,7 @@ x
 
 
 
-            <SideBarUpsale title={"Ticket Price"} price={this.context.totalCost} currency={this.context.currentCurrency}></SideBarUpsale>
+            <SideBarUpsale title={"Total"} price={this.context.totalCost} currency={this.context.currentCurrency}></SideBarUpsale>
             <SideBarUpsale title={"Fare"} price={this.context.totalFare} currency={this.context.currentCurrency}></SideBarUpsale>
 
             <SideBarUpsale title={"Taxes"} price={this.context.totalTax} currency={this.context.currentCurrency}></SideBarUpsale>

@@ -210,12 +210,16 @@ class OtaContextProvider extends Component {
        var ttl=0;
        var ttlFare = 0;
        var ttlTax = 0;
-
+var fareEur =0;
+var taxesEur =0;
        var passengersNew = this.state.passengers;
 
        for(var p=0;p< this.state.passengers.length; p++) {
          if (this.state.passengers[p].active) {
            var ptc = this.state.passengers[p].ptc;
+
+           ttl += parseFloat(this.state.passengers[p].upsalesData['insurance']['costEur']);
+           console.log('tttll ' + ttl);
            console.log('ptc is ' + ptc);
            var pricingNew = [];
 
@@ -225,14 +229,15 @@ class OtaContextProvider extends Component {
                  console.log('pricingid is ' + pr);
 
                     if (this.state.ItineraryRsc[legId].pricing[pr].ptc == ptc) {
-                      var fareEur = this.state.ItineraryRsc[legId].pricing[pr].fareEur;
-                      var taxesEur = this.state.ItineraryRsc[legId].pricing[pr].taxesEur;
+                       fareEur = parseFloat(this.state.ItineraryRsc[legId].pricing[pr].fareEur);
+                       taxesEur = parseFloat(this.state.ItineraryRsc[legId].pricing[pr].taxesEur);
 
                           pricingNew.push({legId:legId,class:'Y',fareEur:fareEur,taxEur:taxesEur,ttl:0});
 
                           ttlFare += fareEur;
                           ttlTax += taxesEur;
 
+                          console.log('fareur' + fareEur +  '  taxeur  ' + taxesEur)
                           ttl += fareEur;
                           ttl += taxesEur;
 
@@ -262,23 +267,45 @@ class OtaContextProvider extends Component {
           return insItm.id == data.insuranceId;
       })[0];
       console.log(insuranceOpt);
+      let euroCost  = 0;
 
       for (var p =0; p < paxsnew.length; p++) {
          if (paxsnew[p].id === data.pax.id) {
             console.log('found pax');
             paxsnew[p].upsalesData['insurance']['code'] = insuranceOpt.code;
-            let euroCost  = (data.pax['ptc'] === 'ADT') ? insuranceOpt.costEuro['ADT'] : insuranceOpt.costEuro['CNN'];
+            euroCost  = (data.pax['ptc'] === 'ADT') ? insuranceOpt.costEuro['ADT'] : insuranceOpt.costEuro['CNN'];
+euroCost = parseFloat(euroCost);
             paxsnew[p].upsalesData['insurance']['costEur'] = euroCost;
             paxsnew[p].upsalesData['insurance']['cost'] = euroCost * this.state.currentCurrency.rate;
 
 
          }
       }
+      euroCost = euroCost.toFixed(2);
 
-      this.state.passengers = paxsnew;
-      console.log(this.state.passengers);
+
+      let upsalesNew = this.state.upsales;
+      upsalesNew.insuranceCostEur += euroCost;
+      upsalesNew.insuranceCost += euroCost * this.state.currentCurrency.rate;
+
+      var totalCostNew = parseFloat(this.state.totalCost) + euroCost * this.state.currentCurrency.rate;
+      // update total cost;
+      //
+
+      this.setState({
+        passengers:paxsnew,
+        upsales:upsalesNew,
+      })
+
+      this.firstLoad();
 
     };
+
+
+    updateTotalCost()
+    {
+
+    }
 
     render() {
         return (
