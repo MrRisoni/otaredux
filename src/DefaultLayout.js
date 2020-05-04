@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header';
+import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const DefaultLayout = ({ component: Component, ...rest }) => (
   <Route
@@ -8,18 +9,21 @@ const DefaultLayout = ({ component: Component, ...rest }) => (
     render={matchProps => (
       <div className="DefaultLayout">
         <header>
-          <div className="Header"><Header /></div>
+          <div className="Header">
+            <Header />
+          </div>
         </header>
         <main>
           <Component {...matchProps} />
         </main>
         <footer>
-          <div className="Header"><Header /></div>
+          <div className="Footer">
+            <Footer />
+          </div>
         </footer>
       </div>
     )}
   />
 );
-
 
 export default DefaultLayout;

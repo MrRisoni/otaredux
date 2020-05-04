@@ -1,55 +1,17 @@
 export function fillRange(start, end) {
-  return Array(end - start + 1).fill().map((item, index) => start + index);
+  return Array(end - start + 1)
+    .fill()
+    .map((item, index) => start + index);
 }
 
-export function seatCost(args) {
-  const cabinForThisSeg = args.cabins.filter(cb => ((cb.segId == args.segId) && (cb.paxId == args.paxId)))[0].cabin;
-  const seatPrice = args.seatInfo.filter(sif => sif.segId == args.segId)[0].prices.filter(pr => pr.class == cabinForThisSeg)[0].price;
-
-  return seatPrice.toFixed(2);
-}
-
-
-export function preseatAllowed(args) {
-  const seg = args.seg;
-  const pax = args.pax;
-  const cabin = args.cabin;
-  const seatMap = args.seatMap;
-
-  if (pax.type !== 'INF') {
-    const cabinForThisSeg = cabin.filter(cb => ((cb.segId == seg.id) && (cb.paxId == pax.id)))[0].cabin;
-    const filterAllowSegs = seatMap.filter(sgm => ((sgm.segId == seg.id) && sgm.allowedCabins.indexOf(cabinForThisSeg) > -1));
-    return (filterAllowSegs.length > 0);
-  }
-
-  return false;
-}
-
-export function preSeatPrice(selectedSeats, pax, cabins, seatPrices) {
-  // preseat begin
-  const seletedSeatsInTheseSegs = selectedSeats.filter(ssl => ((ssl.paxId == pax.id) && (ssl.seatNo !== '')))
-    .map(slItem => slItem.segId);
-  let pricesSeats = 0;
-  for (const seatSegmntId of seletedSeatsInTheseSegs) {
-    const classCabin = cabins.filter(cb => cb.segId == seatSegmntId)[0].cabin;
-    const seatPrice = seatPrices.filter(stpr => stpr.segId == seatSegmntId)[0].prices.filter(prList => prList.class == classCabin)[0].price;
-
-    pricesSeats += seatPrice;
-  }
-
-  // preseat end
-  return pricesSeats;
-}
-
-export function getNonInfantPaxes(psxList)
-{
-  let activePaxes =0;
+export function getNonInfantPaxes(psxList) {
+  let activePaxes = 0;
   psxList.forEach(pax => {
-    if (pax.active && pax.type != 'INF') {
+    if (pax.active && pax.type != "INF") {
       activePaxes++;
     }
   });
- return activePaxes;
+  return activePaxes;
 }
 
 export function calcTotalPrice(payload) {
@@ -61,8 +23,6 @@ export function calcTotalPrice(payload) {
   let totalPreseat = 0;
   let insurancePrice = 0;
 
-
-  
   console.log(payload);
 
   payload.passengers.forEach(pax => {
@@ -70,29 +30,33 @@ export function calcTotalPrice(payload) {
       activePaxes++;
       const cabins = payload.cabinSelection.filter(cab => cab.paxId == pax.id);
 
-
       cabins.forEach(cb => {
         payload.segmentCabinPricing.forEach(segs => {
           if (segs.id == cb.segId) {
-            const priceForThis = segs.cabinList.filter(pr => (pr.class === cb.cabin) && (pr.age === pax.type))[0].price;
+            const priceForThis = segs.cabinList.filter(
+              pr => pr.class === cb.cabin && pr.age === pax.type
+            )[0].price;
             total += priceForThis;
             ticketPrices += priceForThis;
           }
         });
       });
 
-      const hasIns = payload.boughtInsurances.filter(ins => ins.paxId == pax.id);
+      const hasIns = payload.boughtInsurances.filter(
+        ins => ins.paxId == pax.id
+      );
       hasIns.forEach(insdata => {
         payload.insuranceOptions.forEach(insOpt => {
           if (insOpt.id == insdata.insuranceId) {
-            insurancePrice += parseFloat(insOpt.priceEuro) * payload.currency.rate;
+            insurancePrice +=
+              parseFloat(insOpt.priceEuro) * payload.currency.rate;
           }
         });
       });
 
-
-      const boughtBagIs = payload.boughtBags.filter(bbg => bbg.paxId == pax.id).map(bbg => bbg.bagId);
-
+      const boughtBagIs = payload.boughtBags
+        .filter(bbg => bbg.paxId == pax.id)
+        .map(bbg => bbg.bagId);
 
       boughtBagIs.forEach(bbg => {
         payload.bagAllowance.forEach(bal => {
@@ -103,8 +67,9 @@ export function calcTotalPrice(payload) {
         });
       });
 
-
-      const boughtMealsIds = payload.boughtMeals.filter(ml => ml.paxId == pax.id).map(ml => ml.mealId);
+      const boughtMealsIds = payload.boughtMeals
+        .filter(ml => ml.paxId == pax.id)
+        .map(ml => ml.mealId);
       payload.mealOptions.forEach(ml => {
         if (boughtMealsIds.indexOf(ml.id) > -1) {
           total += ml.price;
@@ -112,8 +77,12 @@ export function calcTotalPrice(payload) {
         }
       });
 
-
-      const preseatPriceThisPax = preSeatPrice(payload.selectedSeats, pax, cabins, payload.seatPrices);
+      const preseatPriceThisPax = preSeatPrice(
+        payload.selectedSeats,
+        pax,
+        cabins,
+        payload.seatPrices
+      );
       totalPreseat += preseatPriceThisPax;
       total += preseatPriceThisPax;
       upsales += preseatPriceThisPax;
@@ -124,21 +93,26 @@ export function calcTotalPrice(payload) {
   upsales += parseFloat(insurancePrice);
   total += parseFloat(insurancePrice);
 
+  var extraCosts = [
+    payload.overallWebCheckinCost,
+    payload.overallFlexTicketCost,
+    payload.overallBlueRibbonCost,
+    payload.overallParkingPrice,
+    payload.overallFastTrackCost,
+    payload.overallAirHelpCost
+  ];
 
-  var extraCosts = [payload.overallWebCheckinCost, payload.overallFlexTicketCost,
-     payload.overallBlueRibbonCost,payload.overallParkingPrice,
-     payload.overallFastTrackCost, payload.overallAirHelpCost];
+  var extraCostsSelected = [
+    payload.hasWebCheckin,
+    payload.hasFlexibleTicket,
+    payload.hasBlueRibbon,
+    false,
+    payload.hasFastTrack,
+    payload.hasAirHelp
+  ];
 
-  
-     var extraCostsSelected = [payload.hasWebCheckin, payload.hasFlexibleTicket,
-      payload.hasBlueRibbon, false, 
-      payload.hasFastTrack , payload.hasAirHelp ];
-
-
-      
-  for (let x =0 ; x <extraCosts.length; x++) {
-
-    if (extraCostsSelected[x] ==true) {
+  for (let x = 0; x < extraCosts.length; x++) {
+    if (extraCostsSelected[x] == true) {
       total += extraCosts[x];
       upsales += extraCosts[x];
     }
@@ -155,6 +129,6 @@ export function calcTotalPrice(payload) {
     upsales,
     totalPreseat,
     tickets: ticketPrices,
-    analysis: priceAnalysis,
+    analysis: priceAnalysis
   };
 }
