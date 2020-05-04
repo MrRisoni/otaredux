@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import InsuranceOption from './InsuranceOption';
-
-import * as actsInsurance from '../../../../actions/master/actionsInsurance';
+import {DataContext} from "../../../OtaContext";
 
 
 class Insurance extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
 
@@ -19,8 +20,8 @@ class Insurance extends Component {
     const self = this;
     self.setState({ checkedInsurance: optionId });
 
-    this.props.selectInsuranceHandler({
-      paxId: this.props.paxId,
+    this.context.functions.purchaseInsurance({
+      pax: this.props.pax,
       insuranceId: optionId,
     });
   }
@@ -52,7 +53,7 @@ class Insurance extends Component {
                   aria-controls="collapseExample"
                 >
 
-                               <Translate value="general.Toggle"/>
+                               general.Toggle
                 </button>
               </div>
 
@@ -63,13 +64,13 @@ class Insurance extends Component {
           <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
 
             <div className="row">
-              {this.props.insurances.map(ins => (
+              {this.context.InsuranceRsc.map(ins => (
                 <InsuranceOption
                   key={ins.id}
                   insData={ins}
+                  paxData={this.props.pax}
                   updateOptions={this.handleOptionsChange}
                   selectedOption={this.state.checkedInsurance}
-                  currency={this.props.currency}
                 />
               ))}
             </div>
@@ -80,19 +81,5 @@ class Insurance extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-        insurances: state.airInsuranceReducer,
-        currency: state.currentCurrencyReducer,
-    };
-}
 
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
-
-    }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(Insurance);
+export default Insurance;

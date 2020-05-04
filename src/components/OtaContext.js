@@ -8,6 +8,7 @@ import Swedish from './../locales/sv.json';
 import English from './../locales/en.json';
 
 import ItineraryRsc from './../resources/itinerary.json';
+import InsuranciesRsc from './../resources/insurances.json';
 
 
 export const DataContext = createContext();
@@ -26,6 +27,7 @@ class OtaContextProvider extends Component {
             address: '',
             postcode: '',
         },
+        InsuranceRsc:InsuranciesRsc,
         ItineraryRsc:ItineraryRsc,
         totalCost:0,
         totalFare:0,
@@ -253,6 +255,31 @@ class OtaContextProvider extends Component {
        });
     }
 
+    purchaseInsurance = (data) => {
+    //  console.log(data);
+      let paxsnew = this.state.passengers;
+      let  insuranceOpt = this.state.InsuranceRsc.filter(insItm => {
+          return insItm.id == data.insuranceId;
+      })[0];
+      console.log(insuranceOpt);
+
+      for (var p =0; p < paxsnew.length; p++) {
+         if (paxsnew[p].id === data.pax.id) {
+            console.log('found pax');
+            paxsnew[p].upsalesData['insurance']['code'] = insuranceOpt.code;
+            let euroCost  = (data.pax['ptc'] === 'ADT') ? insuranceOpt.costEuro['ADT'] : insuranceOpt.costEuro['CNN'];
+            paxsnew[p].upsalesData['insurance']['costEur'] = euroCost;
+            paxsnew[p].upsalesData['insurance']['cost'] = euroCost * this.state.currentCurrency.rate;
+
+
+         }
+      }
+
+      this.state.passengers = paxsnew;
+      console.log(this.state.passengers);
+
+    };
+
     render() {
         return (
             <DataContext.Provider    value={{
@@ -260,7 +287,8 @@ class OtaContextProvider extends Component {
                 functions : {
                     updateChosenLang : this.updateChosenLang,
                     addPassenger: this.addPassenger,
-                    firstLoad: this.firstLoad
+                    firstLoad: this.firstLoad,
+                      purchaseInsurance: this.purchaseInsurance
                 }
             }}>
                 {this.props.children}

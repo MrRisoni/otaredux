@@ -4,6 +4,7 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Error from '../../Common/Error';
+import Insurance from './Insurance/Insurance';
 
 import ValidatePassengers from '../../../ValidatePassengers';
 //import MasterPassport from './MasterPassport';
@@ -238,6 +239,18 @@ Adult
                                 }
 */}
 
+<div>
+                 <br />
+                 <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
+
+                 {(this.props.passenger.ptc !== 'INF')
+                                 &&  <Insurance
+                                    pax={this.props.passenger}
+                                  />
+                                 }
+
+
+                 </div>
 
               </div>
 

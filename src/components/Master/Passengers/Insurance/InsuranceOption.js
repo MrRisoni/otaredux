@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import {DataContext} from "../../../OtaContext";
+
 
 class InsuranceOption extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -11,7 +15,10 @@ class InsuranceOption extends Component {
   }
 
   render() {
-    const price = (this.props.insData.price * this.props.currency.rate).toFixed(2);
+    var price = this.props.paxData.ptc == 'ADT' ? this.props.insData.costEuro.ADT : this.props.insData.costEuro.CNN;
+
+    price *= this.context.currentCurrency.rate;
+    price = price.toFixed(2);
     return (
       <div className="col-3">
 
@@ -33,7 +40,7 @@ class InsuranceOption extends Component {
           <div className="card-footer">
             {price}
             {' '}
-            {this.props.currency.code}
+            {this.context.currentCurrency.code}
           </div>
         </div>
 
