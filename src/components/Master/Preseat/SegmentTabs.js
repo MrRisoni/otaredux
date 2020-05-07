@@ -1,15 +1,33 @@
 import React, { Component } from "react";
 import SeatMap from "./SeatMap";
-import { DataContext } from "./PreSeatContext";
+import {DataContext} from "../../OtaContext";
 
 class SegmentTabs extends Component {
   static contextType = DataContext;
 
   render() {
-    let { segments } = this.context;
+    let  segments  = [];
+    //   console.log('reseat leggss');
+
+   //console.log(this.context.ItineraryRsc);
+
+
+   this.context.ItineraryRsc.forEach(leg => {
+    //   console.log(leg);
+
+      leg.segments.forEach(sg => {
+        segments.push(sg);
+      });
+    });
+
+   
 
     let segsArr = segments.map((sg, idx) => {
-      let key = sg.from.toLowerCase() + "-" + sg.to.toLowerCase();
+      let key = sg.segKey; //sg.from['iata'] + "-" + sg.to['iata'];
+         console.log(sg);
+
+   console.log(sg.from['iata']);
+
 
       return Object.assign(
         {},
@@ -59,7 +77,7 @@ class SegmentTabs extends Component {
                     <SeatMap
                       key={sgx.key}
                       segId={sgx.id}
-                      stmp={this.props.stmp[sgx.id]}
+                      stmp={this.props.stmp[sgx.segId]}
                     />
                   </div>
                 );

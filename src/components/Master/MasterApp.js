@@ -8,6 +8,7 @@ import FareTaxes from './Segments/FareTaxes';
 import {DataContext} from "../OtaContext";
 
 import MasterContact from './Passengers/MasterContact';
+import PreSeat from './Preseat/PreSeat';
 
 
 class MasterApp extends Component {
@@ -63,6 +64,8 @@ class MasterApp extends Component {
                     editContactHandler={null}
                 />
 
+
+            <PreSeat/>
 
 
                 <div className="row addOnePassenger show passengerListCollapse">

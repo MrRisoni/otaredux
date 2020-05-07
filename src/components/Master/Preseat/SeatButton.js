@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { DataContext } from "./PreSeatContext";
+import {DataContext} from "../../OtaContext";
 
 class SeatButton extends Component {
   static contextType = DataContext;
@@ -33,7 +33,7 @@ class SeatButton extends Component {
     var seatId = this.props.rowId + this.props.colName;
     var isChosen = false;
     for (var p = 0; p < passengers.length; p++) {
-      var selSeat = passengers[p].selection[this.props.segId]["chosen"];
+      var selSeat =0;// passengers[p].selection[this.props.segId]["chosen"];
 
       if (selSeat === seatId) {
         isChosen = true;
@@ -44,7 +44,7 @@ class SeatButton extends Component {
     if (isChosen) {
       clsName += " seatChosen ";
     }
-    var tip = [pricingInfo[this.props.pricingKey] + " " + currentCurrency.code];
+    var tip ='';// [pricingInfo[this.props.pricingKey] + " " + currentCurrency.code];
     if (this.props.tooltips.indexOf("LG") > -1) {
       tip.push(translations[currentLang].LG);
     }
