@@ -5404,11 +5404,6 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
 
-intl@^1.2:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
-  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
-
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -6796,7 +6791,7 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
-moment@^2.20.1, moment@^2.22.1:
+moment@^2.20.1:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
@@ -8288,15 +8283,6 @@ react-error-overlay@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
 
-react-i18nify@^1.11.8:
-  version "1.11.18"
-  resolved "https://registry.yarnpkg.com/react-i18nify/-/react-i18nify-1.11.18.tgz#8ac56b83ac493e7230bdeafb8b94d5016ba6d3e9"
-  integrity sha512-flSSBzMI2gvJvCC+byP6Cl7vtyUsNH88VxjyER4zj8Fdl5rsLmXoJ9K4kNz8A6JUTmdFMWbTIp6aPXVIEbpE8w==
-  dependencies:
-    intl "^1.2"
-    moment "^2.22.1"
-    prop-types "^15.6.1"
-
 react-is@^16.8.1:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
@@ -8318,13 +8304,6 @@ react-popper@^1.0.2:
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
     warning "^4.0.2"
-
-react-redux-i18n@^1.9.3:
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/react-redux-i18n/-/react-redux-i18n-1.9.3.tgz#c3bd2c83e99d939c78a35e00df16a85b851f6315"
-  integrity sha1-w70sg+mdk5x4o14A3xaoW4UfYxU=
-  dependencies:
-    react-i18nify "^1.11.8"
 
 react-router-dom@^4.2.2:
   version "4.3.1"

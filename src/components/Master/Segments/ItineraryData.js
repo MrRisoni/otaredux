@@ -1,5 +1,4 @@
 import React from 'react';
-import { Translate } from 'react-redux-i18n';
 import Leg from './Leg';
 
 const ItineraryData = (props) => {
@@ -17,7 +16,7 @@ const ItineraryData = (props) => {
         <div className="row">
           <div className="col-3">
 
-              <Translate value="flight.YourTrip"/>
+              flight.YourTrip
           </div>
 
           <div className="col-2 offset-7">
@@ -28,7 +27,7 @@ const ItineraryData = (props) => {
               aria-expanded="false"
               aria-controls="collapseExample"
             >
-              <Translate value="general.Toggle" />
+              general.Toggle" 
             </button>
           </div>
 

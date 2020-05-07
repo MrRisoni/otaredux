@@ -1,5 +1,4 @@
 import React from 'react';
-import { Translate } from 'react-redux-i18n';
 import Airport from './Airport';
 import Segment from './Segment';
 
@@ -7,7 +6,7 @@ import Segment from './Segment';
 const Leg = (props) => {
   const waitDiv = props.data.waiting.total > 0 ? (
     <div className="col-4">
-      <Translate value="flight.WaitTime" />
+     flight.WaitTime
       {' '}
 :
       {props.data.waiting.h}
@@ -18,7 +17,7 @@ m
   ) : (<div />);
 
 
-  const legTitle = (props.legId == 0) ? <p><Translate value="flight.Departure" /></p> : <p><Translate value="flight.Return" /></p>;
+  const legTitle = "flight.Departurepe";
 
   return (
     <div className="Leg legsCollapse show">
@@ -38,7 +37,7 @@ m
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <Translate value="general.Toggle" />
+                general.Toggle />
               </button>
             </div>
           </div>
@@ -79,7 +78,7 @@ m
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <Translate value="general.Expand" />
+                general.Expand
 
               </button>
             </div>
@@ -93,14 +92,14 @@ m
           <div className="row">
 
             <div className="col-4">
-              <Translate value="flight.Stops" />
+              flight.Stops
 
                             :
               {props.data.stops}
             </div>
 
             <div className="col-4">
-              <Translate value="flight.Duration" />
+              flight.Duration
               {' '}
 :
               {props.data.duration.h}

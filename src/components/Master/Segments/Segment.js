@@ -1,5 +1,4 @@
 import React from 'react';
-import {Translate} from 'react-redux-i18n';
 import Airport from './Airport';
 
 
@@ -9,7 +8,7 @@ const Segment = props => (
         <div className="card">
             <div className="card-header bg-info">
 
-                <Translate value="flight.Segment"/>
+                flight.Segment
                 {' '}
 
                 #
@@ -64,7 +63,7 @@ const Segment = props => (
                 <div className="row">
 
                     <div className="col-5 offset-4">
-                        <Translate value="flight.Duration"/>
+                       flight.Duration
                         {' '}
                         {props.data.durationTime.hours}
 

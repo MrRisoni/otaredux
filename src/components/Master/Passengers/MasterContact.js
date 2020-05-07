@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {DataContext} from "../../OtaContext";
-import { Translate } from 'react-redux-i18n';
 
 
 
@@ -41,7 +40,7 @@ class MasterContact extends Component {
 
                       <div className="col-4">
                           {this.context.translations[this.context.lang].passport.nationality}
-                            <Translate value="general.Contact"  />
+                           general.Contact"  
 
                           </div>
 
@@ -57,7 +56,7 @@ class MasterContact extends Component {
                                 data-target="#busContactCollapse" aria-expanded="false"
                                 aria-controls="collapseExample"
                               >
-                                <Translate value="general.Toggle" />
+                                general.Toggle"
                               </button>
                           </div>
 
