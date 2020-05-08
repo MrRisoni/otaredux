@@ -23,7 +23,6 @@ class SegmentTabs extends Component {
 
 
     let segsArr = segments.map((sg, idx) => {
-      let key = sg.segKey; //sg.from['iata'] + "-" + sg.to['iata'];
         // console.log(sg);
 
   // console.log(sg.from['iata']);
@@ -31,7 +30,7 @@ class SegmentTabs extends Component {
 
       return Object.assign(
         {},
-        { key, href: "#" + key, tab: "tb" + key, sel: idx === 0,
+        {  href: "#" + sg.segKey, tab: "tb" + sg.segKey, sel: idx === 0,
       her:sg.from['iata'],hin:sg.to['iata'] },
         sg
       );
@@ -46,13 +45,13 @@ class SegmentTabs extends Component {
            <div className="col-8 offset-2">
              <ul className="nav nav-tabs" id="myTab" role="tablist">
                {segsArr.map(sgx => {
-                 let clsName = sgx.id > 0 ? " nav-link " : "nav-link active";
+                 let clsName = sgx.segId > 0 ? " nav-link " : "nav-link active";
 
                  return (
-                   <li key={sgx.key} className="nav-item">
+                   <li key={sgx.segKey} className="nav-item">
                      <a
                        className={clsName}
-                       id={`string${sgx.key}`}
+                       id={sgx.segKey}
                        data-toggle="tab"
                        href={sgx.href}
                        role="tab"
@@ -69,20 +68,22 @@ class SegmentTabs extends Component {
              <div className="tab-content" id="myTabContent">
                {segsArr.map(sgx => {
                  let clsName =
-                   sgx.id > 0 ? " tab-pane fade " : "tab-pane fade show active";
+                   sgx.segId > 0 ? " tab-pane fade " : "tab-pane fade show active";
                  return (
                    <div
-                     key={sgx.key}
+                     key={sgx.segKey}
                      className={clsName}
-                     id={sgx.key}
+                     id={sgx.segKey}
                      role="tabpanel"
                      aria-labelledby={sgx.tab}
                    >
-                     <SeatMap
+
+                   {sgx.segId}
+                  {/*    <SeatMap
                        key={sgx.key}
-                       segId={sgx.id}
+                       segId={sgx.segId}
                        seats_map={this.props.seat_map_data[sgx.segId]}
-                     />
+                     />   */}
                    </div>
                  );
                })}

@@ -87,7 +87,7 @@
 			},
 			{
 				"segId": 1,
-				"segKey": "6ge0OUKCx3OMO",
+				"segKey": "A6ge0OUKCx3OMO",
 				"from": {
 					"iata": "ATH",
 					"city": "Athens",
@@ -214,7 +214,7 @@
 		],
 		"segments": [{
 			"segId": 3,
-			"segKey": "2CytZDoCF1mNh",
+			"segKey": "Z2CytZDoCF1mNh",
 			"from": {
 				"iata": "TRF",
 				"city": "Oslo",
