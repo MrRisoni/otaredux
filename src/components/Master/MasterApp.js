@@ -3,12 +3,11 @@ import React, {Component} from 'react';
 import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar'
 import ItineraryData from './Segments/ItineraryData';
-import FareTaxes from './Segments/FareTaxes';  
+import FareTaxes from './Segments/FareTaxes';
 
 import {DataContext} from "../OtaContext";
 
 import MasterContact from './Passengers/MasterContact';
-import PreSeat from './Preseat/PreSeat';
 
 
 class MasterApp extends Component {
@@ -65,7 +64,6 @@ class MasterApp extends Component {
                 />
 
 
-            <PreSeat/>
 
 
                 <div className="row addOnePassenger show passengerListCollapse">

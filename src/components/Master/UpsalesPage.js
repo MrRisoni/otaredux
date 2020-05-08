@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import ItineraryData from './Segments/ItineraryData';
 import MasterSideBar from './SideBar/MasterSideBar';
 import BrandedFares from './Branded/BrandedFares';
-import Preseat from './Preseat/Preseat';
+import PreSeat from './Preseat/PreSeat';
 import WebCheckin from './Passengers/WebCheckin';
 import FastTrack from './FastTrack';
 import FlexibleTicket from './Passengers/FlexibleTicket';
@@ -41,8 +39,10 @@ class UpsalesPage extends Component {
             </div>
 
 
-            <BrandedFares/>
             <Preseat/>
+
+
+          {/*  <BrandedFares/>
             <WebCheckin/>
             <FastTrack/>
             <FlexibleTicket/>
@@ -50,7 +50,7 @@ class UpsalesPage extends Component {
             <BlueRibbon/>
             <Parking/>
             <LoungeAccess/>
-
+ */}
 
         </div>
     );
@@ -58,4 +58,4 @@ class UpsalesPage extends Component {
 }
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(UpsalesPage);
+export default UpsalesPage;

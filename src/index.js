@@ -12,6 +12,7 @@ import OtaContextProvider from './components/OtaContext';
 import './main.scss';
 */
 import MasterApp from './components/Master/MasterApp';
+import UpsalesPage from './components/Master/UpsalesPage';
 
 
 
@@ -21,6 +22,8 @@ ReactDOM.render(
     <BrowserRouter>
         <div>
           <DefaultLayout exact path="/" component={() => <MasterApp product="air" />} />
+          <DefaultLayout exact path="/upsales" component={() => <UpsalesPage product="air" />} />
+
         </div>
       </BrowserRouter>
           </OtaContextProvider>, document.getElementById('root'));
