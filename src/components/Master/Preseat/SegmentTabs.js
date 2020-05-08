@@ -81,7 +81,7 @@ class SegmentTabs extends Component {
                      <SeatMap
                        key={sgx.key}
                        segId={sgx.id}
-                       stmp={this.props.stmp[sgx.id]}
+                       seats_map={this.props.seat_map_data[sgx.segId]}
                      />
                    </div>
                  );

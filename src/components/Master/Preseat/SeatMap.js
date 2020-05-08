@@ -5,7 +5,7 @@ class SeatMap extends Component {
   render() {
     return (
       <section>
-        {this.props.stmp.sections.map(section => (
+        {this.props.seats_map.sections.map(section => (
           <SeatsSection
             key={section.sectionId}
             segId={this.props.segId}

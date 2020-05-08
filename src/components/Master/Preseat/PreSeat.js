@@ -10,7 +10,7 @@ class PreSeat extends Component {
 render() {
   return (
     <main>
-      <SegmentTabs stmp={seatMaps} />
+      <SegmentTabs seat_map_data={seatMaps} />
     </main>
   );
 }

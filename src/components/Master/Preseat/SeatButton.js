@@ -57,7 +57,7 @@ class SeatButton extends Component {
           className={clsName}
           data-toggle="tooltip"
           data-placement="top"
-          title={tip.join(" ")}
+          title={"Foo"}
           onClick={this.handleClick}
         >
           {this.props.colName}
