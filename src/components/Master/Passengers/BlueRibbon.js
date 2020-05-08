@@ -50,7 +50,7 @@ class BlueRibbon extends Component {
                   >
 
 
-                                       <Translate value="general.Toggle"/>
+                                       general.Toggle
                   </button>
                 </div>
 

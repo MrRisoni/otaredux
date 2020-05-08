@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ItineraryData from './Segments/ItineraryData';
 import MasterSideBar from './SideBar/MasterSideBar';
-import BrandedFares from './Branded/BrandedFares';
+//import BrandedFares from './Branded/BrandedFares';
 import PreSeat from './Preseat/PreSeat';
+/*
 import WebCheckin from './Passengers/WebCheckin';
 import FastTrack from './FastTrack';
 import FlexibleTicket from './Passengers/FlexibleTicket';
@@ -12,7 +13,7 @@ import Parking from './Parking/Parking';
 import LoungeAccess from './LoungeAccess/LoungeAccess';
 import * as actsMaster from '../../actions/master/actionsMaster';
 import PassengerTable from './Passengers/PassengerTable';
-
+*/
 
 class UpsalesPage extends Component {
   render() {
@@ -22,13 +23,13 @@ class UpsalesPage extends Component {
 
                 <div className="col-8">
 
-                    <ItineraryData
+                  {/*  <ItineraryData
                         tripData={this.props.tripData}
                     />
 
                     <PassengerTable
                         passengers={this.props.passengers}
-                    />
+                    /> */}
 
 
                 </div>
@@ -39,7 +40,7 @@ class UpsalesPage extends Component {
             </div>
 
 
-            <Preseat/>
+            <PreSeat/>
 
 
           {/*  <BrandedFares/>

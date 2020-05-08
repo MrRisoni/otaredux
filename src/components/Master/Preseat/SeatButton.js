@@ -46,10 +46,10 @@ class SeatButton extends Component {
     }
     var tip ='';// [pricingInfo[this.props.pricingKey] + " " + currentCurrency.code];
     if (this.props.tooltips.indexOf("LG") > -1) {
-      tip.push(translations[currentLang].LG);
+      //tip.push(translations[currentLang].LG);
     }
     if (this.props.tooltips.indexOf("EX") > -1) {
-      tip.push(translations[currentLang].EX);
+    //  tip.push(translations[currentLang].EX);
     }
     return (
       <span>

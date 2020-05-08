@@ -51,7 +51,7 @@ aria-expanded="false"
                     aria-controls="collapseExample"
                   >
 
-                                       <Translate value="general.Toggle"/>
+                                      general.Toggle
 </button>
                 </div>
 

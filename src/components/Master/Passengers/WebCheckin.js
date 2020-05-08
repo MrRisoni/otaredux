@@ -45,7 +45,7 @@ class WebCheckin extends Component {
                       aria-controls="collapseExample"
                     >
 
-                      <Translate value="general.Toggle" />
+                      general.Toggle
                     </button>
                   </div>
 

@@ -53,7 +53,7 @@ class Parking extends Component {
                                             aria-controls="collapseExample"
                                         >
 
-                                            <Translate value="general.Toggle"/>
+                                            general.Toggle
                                         </button>
                                     </div>
 
@@ -112,4 +112,4 @@ class Parking extends Component {
 
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(Parking);
+export default Parking;

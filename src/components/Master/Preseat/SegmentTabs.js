@@ -20,74 +20,78 @@ class SegmentTabs extends Component {
       });
     });
 
-   
+
 
     let segsArr = segments.map((sg, idx) => {
       let key = sg.segKey; //sg.from['iata'] + "-" + sg.to['iata'];
-         console.log(sg);
+        // console.log(sg);
 
-   console.log(sg.from['iata']);
+  // console.log(sg.from['iata']);
 
 
       return Object.assign(
         {},
-        { key, href: "#" + key, tab: "tb" + key, selected: idx === 0 },
+        { key, href: "#" + key, tab: "tb" + key, sel: idx === 0,
+      her:sg.from['iata'],hin:sg.to['iata'] },
         sg
       );
     });
 
-    return (
-      <section>
-        <div className="row">
-          <div className="col-8 offset-2">
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
-              {segsArr.map(sgx => {
-                let clsName = sgx.id > 0 ? " nav-link " : "nav-link active";
 
-                return (
-                  <li key={sgx.key} className="nav-item">
-                    <a
-                      className={clsName}
-                      id={`string${sgx.key}`}
-                      data-toggle="tab"
-                      href={sgx.href}
-                      role="tab"
-                      aria-controls={sgx.key}
-                      aria-selected={sgx.sel}
-                    >
-                      {sgx.from}-{sgx.to}{" "}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+      console.log(segsArr);
 
-            <div className="tab-content" id="myTabContent">
-              {segsArr.map(sgx => {
-                let clsName =
-                  sgx.id > 0 ? " tab-pane fade " : "tab-pane fade show active";
-                return (
-                  <div
-                    key={sgx.key}
-                    className={clsName}
-                    id={sgx.key}
-                    role="tabpanel"
-                    aria-labelledby={sgx.tab}
-                  >
-                    <SeatMap
-                      key={sgx.key}
-                      segId={sgx.id}
-                      stmp={this.props.stmp[sgx.segId]}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-}
+      return (
+       <section>
+         <div className="row">
+           <div className="col-8 offset-2">
+             <ul className="nav nav-tabs" id="myTab" role="tablist">
+               {segsArr.map(sgx => {
+                 let clsName = sgx.id > 0 ? " nav-link " : "nav-link active";
 
-export default SegmentTabs;
+                 return (
+                   <li key={sgx.key} className="nav-item">
+                     <a
+                       className={clsName}
+                       id={`string${sgx.key}`}
+                       data-toggle="tab"
+                       href={sgx.href}
+                       role="tab"
+                       aria-controls={sgx.key}
+                       aria-selected={sgx.sel}
+                     >
+                       {sgx.her}-{sgx.hin}{" "}
+                     </a>
+                   </li>
+                 );
+               })}
+             </ul>
+
+             <div className="tab-content" id="myTabContent">
+               {segsArr.map(sgx => {
+                 let clsName =
+                   sgx.id > 0 ? " tab-pane fade " : "tab-pane fade show active";
+                 return (
+                   <div
+                     key={sgx.key}
+                     className={clsName}
+                     id={sgx.key}
+                     role="tabpanel"
+                     aria-labelledby={sgx.tab}
+                   >
+                     <SeatMap
+                       key={sgx.key}
+                       segId={sgx.id}
+                       stmp={this.props.stmp[sgx.id]}
+                     />
+                   </div>
+                 );
+               })}
+             </div>
+           </div>
+         </div>
+       </section>
+     );
+   }
+ }
+
+ export default SegmentTabs;

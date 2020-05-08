@@ -63,7 +63,7 @@ class LoungeAccess extends Component {
                     >
 
 
-                      <Translate value="general.Toggle" />
+                      general.Toggle
                     </button>
                   </div>
 
@@ -95,4 +95,4 @@ class LoungeAccess extends Component {
 
 
 
-export default connect(mapStateToProps)(LoungeAccess);
+export default LoungeAccess;

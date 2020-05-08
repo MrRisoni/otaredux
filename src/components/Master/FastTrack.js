@@ -49,7 +49,7 @@ class FastTrack extends Component {
                                             aria-controls="collapseExample"
                                         >
 
-                                            <Translate value="general.Toggle"/>
+                                            general.Toggle
                                         </button>
                                     </div>
 
@@ -94,4 +94,4 @@ class FastTrack extends Component {
 }
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(FastTrack);
+export default FastTrack;

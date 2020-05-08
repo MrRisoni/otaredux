@@ -60,9 +60,9 @@ console.log(BrandedTranslations);
           });
 
         if (thisPriceOffers.indexOf(descCode) > -1) {
-          cols.push(<td className="brandYes text-center">  <Translate value="branded.Yes"/></td>);
+          cols.push(<td className="brandYes text-center">  branded.Yes</td>);
         } else {
-          cols.push(<td className="brandNope text-center">  <Translate value="branded.No"/></td>);
+          cols.push(<td className="brandNope text-center">  branded.No</td>);
         }
       });
 
@@ -99,4 +99,4 @@ console.log(BrandedTranslations);
 
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(BrandedFares);
+export default BrandedFares;
