@@ -9,7 +9,7 @@ import English from './../locales/en.json';
 
 import ItineraryRsc from './../resources/itinerary.json';
 import InsuranciesRsc from './../resources/insurances.json';
-
+import FastTrackRsc from './../resources/fastTrack.json';
 
 export const DataContext = createContext();
 
@@ -29,6 +29,7 @@ class OtaContextProvider extends Component {
         },
         InsuranceRsc:InsuranciesRsc,
         ItineraryRsc:ItineraryRsc,
+        FastTrackRsc,
         totalCost:0,
         totalFare:0,
         totalTax:0,

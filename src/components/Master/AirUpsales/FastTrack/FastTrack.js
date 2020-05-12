@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
-
-
+import {DataContext} from "../../../OtaContext";
 
 class FastTrack extends Component {
+    static contextType = DataContext
+
     constructor(props) {
         super(props);
 
@@ -20,7 +20,7 @@ class FastTrack extends Component {
     }
 
     render() {
-        let  price =  this.props.fastTrackPrice.toFixed(2) * this.props.currency.rate;
+        let  price =  this.props.price.toFixed(2) * this.context.currentCurrency.rate;
         price = price.toFixed(2);
 
         return (
@@ -65,10 +65,11 @@ class FastTrack extends Component {
                                         {' '}
                                         {price}
                                         {' '}
-                                        {this.props.currency.code}
+                                        {this.context.currentCurrency.code}
                                         {' '}
                                         and you will
                                         be placed in a priority queue during security check
+                                        for airport <b>{this.props.point}</b>
                                     </div>
 
                                     <div className="col-3">

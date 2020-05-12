@@ -1,41 +1,21 @@
 import React, {Component} from 'react';
 import {DataContext} from "../../../OtaContext";
-import _ from 'lodash';
+import FastTrack from "./FastTrack";
 
 class FastTrackList extends Component {
-    static contextType =DataContext
+    static contextType = DataContext
 
     render() {
-        var segs = [];
 
-        this.context.ItineraryRsc.forEach(leg => {
-            leg.segments.forEach(sg => {
-                segs.push(sg.from['iata']);
-                segs.push(sg.to['iata']);
-            });
-        });
-        segs = _.uniqBy(segs);
-        console.log(segs);
-
-
-        var segsn  = this.context.ItineraryRsc.map(leg => {
-            return leg.segments;
+        var fastTrackHere = this.context.ItineraryRsc.map(legItm => {
+            return legItm.from['iata']
+        }).filter(point => {
+            return (point in this.context.FastTrackRsc);
         })
-
-        var segsnnnnn  = this.context.ItineraryRsc.map(leg => {
-            return leg.segments;
-        }).map(legSegs => {
-             return legSegs.map(sgItm => {
-                 return [sgItm.from['iata'],sgItm.to['iata']]
-             })
-        })
-        console.log(segsnnnnn);
-
-
-
         return (
-            <div> {segs} </div>
-
+            fastTrackHere.map(fst => {
+                return <div> <FastTrack point={fst} price={this.context.FastTrackRsc[fst]} /> </div>
+            })
         );
     }
 }
