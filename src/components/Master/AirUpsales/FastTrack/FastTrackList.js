@@ -16,6 +16,23 @@ class FastTrackList extends Component {
         });
         segs = _.uniqBy(segs);
         console.log(segs);
+
+
+        var segsn  = this.context.ItineraryRsc.map(leg => {
+            return leg.segments;
+        })
+
+        var segsnnnnn  = this.context.ItineraryRsc.map(leg => {
+            return leg.segments;
+        }).map(legSegs => {
+             return legSegs.map(sgItm => {
+                 return [sgItm.from['iata'],sgItm.to['iata']]
+             })
+        })
+        console.log(segsnnnnn);
+
+
+
         return (
             <div> {segs} </div>
 
