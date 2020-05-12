@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import * as actsUpsales from '../../../actions/master/actionsUpsales';
+import * as actsUpsales from '../../../../actions/master/actionsUpsales';
 
-import  BrandedTranslations from './brandedLocales';
+import  BrandedTranslations from './brandedLocales.json';
 
 class BrandedFares extends Component {
   render() {

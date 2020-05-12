@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ItineraryData from './Segments/ItineraryData';
 import MasterSideBar from './SideBar/MasterSideBar';
 //import BrandedFares from './Branded/BrandedFares';
-import PreSeat from './Preseat/PreSeat';
+import PreSeat from './AirUpsales/Preseat/PreSeat';
+
+import WebCheckin from './AirUpsales/WebCheckin';
+import FastTrack from './AirUpsales/FastTrack';
+import FlexibleTicket from './AirUpsales/FlexibleTicket';
+import AirHelp from './AirUpsales/AirHelp';
+import BlueRibbon from './AirUpsales/BlueRibbon';
 /*
-import WebCheckin from './Passengers/WebCheckin';
-import FastTrack from './FastTrack';
-import FlexibleTicket from './Passengers/FlexibleTicket';
-import AirHelp from './AirHelp';
-import BlueRibbon from './Passengers/BlueRibbon';
 import Parking from './Parking/Parking';
 import LoungeAccess from './LoungeAccess/LoungeAccess';
 import * as actsMaster from '../../actions/master/actionsMaster';
@@ -42,16 +43,14 @@ class UpsalesPage extends Component {
 
             <PreSeat/>
 
-
-          {/*  <BrandedFares/>
-            <WebCheckin/>
             <FastTrack/>
+
+            {/*   <WebCheckin/>
+
             <FlexibleTicket/>
             <AirHelp/>
-            <BlueRibbon/>
-            <Parking/>
-            <LoungeAccess/>
- */}
+            <BlueRibbon/> */}
+
 
         </div>
     );

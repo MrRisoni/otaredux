@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as actsUpsales from '../../../actions/master/actionsUpsales';
 import LoungeAirport from './LoungeAirport';
 
 class LoungeAccess extends Component {

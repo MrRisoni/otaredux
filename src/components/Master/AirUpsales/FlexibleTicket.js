@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 
 
-import * as actsUpsales from '../../../actions/master/actionsUpsales';
 
-class BlueRibbon extends Component {
+
+
+class FlexibleTicket extends Component {
   constructor(props) {
     super(props);
-    this.handleSelection = this.handleSelection.bind(this);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleSelection(ev) {
-
-    if(ev.target.value ==1) {
-      this.props.addBlueRibbonHandler();
+  handleClick(ev) {
+    if (ev.target.value == 1) {
+      this.props.addFlexibleTicketHandler();
     }
     else {
-      this.props.removeBlueRibbonHandler();
+      this.props.removeFlexTicketHandler();
     }
   }
 
   render() {
-    let price = this.props.blueRibbonPrice * this.props.currency.rate;
+    let  price = (this.props.flexibleTicketPrice * this.props.currency.rate);
       price = price.toFixed(2);
 
     return (
         <section>
 
-        <div className="row contactDetails">
+      <div className="row contactDetails">
         <div className="col-8">
 
           <div className="card">
@@ -34,49 +35,46 @@ class BlueRibbon extends Component {
 
               <div className="row">
 
-                <div className="col-6">
+                <div className="col-3">
 
-
-                                    Buy Blue Ribbon Bag Insurance!
+                                    Flexible Ticket
                 </div>
 
-                <div className="col-2 offset-3">
+                <div className="col-2 offset-6">
                   <button
                     className="btn btn-sm btn-dark btn-block btnToggle"
                     data-toggle="collapse"
-                    data-target="#blueRibbonCollapse"
-                    aria-expanded="false"
+                    data-target="#flexibleTicketCollapse"
+aria-expanded="false"
                     aria-controls="collapseExample"
                   >
 
-
-                                       general.Toggle
-                  </button>
+                                      general.Toggle
+</button>
                 </div>
 
               </div>
             </div>
 
 
-            <div className="card-body collapse" id="blueRibbonCollapse">
+            <div className="card-body collapse" id="flexibleTicketCollapse">
 
               <div className="row">
                 <div className="col-8">
 
-
-                  Pay
+                   Pay
+                    {' '}
                   {price}
                   {' '}
                   {this.props.currency.code}
                   {' '}
-
-and you
-                                    will receive 1000 EUR reimbursement for each lost baggage
+and you may
+                                    cancel/amend your ticket for free!
                 </div>
 
                 <div className="col-3">
 
-                  <select className="form-control" onChange={this.handleSelection}>
+                  <select className="form-control" onChange={this.handleClick}>
                     <option key="no" value="0">No thanks</option>
                     <option key="yes" value="1">Yes please</option>
                   </select>
@@ -91,10 +89,10 @@ and you
 
       </div>
         </section>
-
     );
   }
 }
 
 
-export default BlueRibbon;
+
+export default FlexibleTicket;

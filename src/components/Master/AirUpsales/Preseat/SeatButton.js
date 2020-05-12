@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {DataContext} from "../../OtaContext";
+import {DataContext} from "../../../OtaContext";
 
 class SeatButton extends Component {
   static contextType = DataContext;

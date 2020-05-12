@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SeatMap from "./SeatMap";
-import {DataContext} from "../../OtaContext";
+import {DataContext} from "../../../OtaContext";
 
 class SegmentTabs extends Component {
   static contextType = DataContext;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import * as actsUpsales from '../../../actions/master/actionsUpsales';
 
 
 class WebCheckin extends Component {

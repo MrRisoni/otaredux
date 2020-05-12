@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 
-import * as actsUpsales from '../../actions/master/actionsUpsales';
-
 
 class AirHelp extends Component {
     constructor(props) {

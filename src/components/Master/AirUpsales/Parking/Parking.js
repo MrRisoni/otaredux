@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as actsUpsales from '../../../actions/master/actionsUpsales';
+import * as actsUpsales from '../../../../actions/master/actionsUpsales';
 
 
 class Parking extends Component {

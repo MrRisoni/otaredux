@@ -1,9 +1,9 @@
 
 import React, { Component } from "react";
 import SegmentTabs from "./SegmentTabs";
-import {DataContext} from "../../OtaContext";
+import {DataContext} from "../../../OtaContext";
 
-const seatMaps = require("../../../resources/seatMapLayout");
+const seatMaps = require("../../../../resources/seatMapLayout.json");
 
 
 class PreSeat extends Component {
