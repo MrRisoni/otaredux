@@ -41,7 +41,7 @@ class UpsalesPage extends Component {
             </div>
 
 
-            <PreSeat/>
+            {/*  <PreSeat/> */}
 
             <FastTrackList/>
 

@@ -10,12 +10,11 @@ class FastTrackList extends Component {
 
         this.context.ItineraryRsc.forEach(leg => {
             leg.segments.forEach(sg => {
-                console.log(sg);
                 segs.push(sg.from['iata']);
                 segs.push(sg.to['iata']);
             });
         });
-        console.log('---------------');
+        segs = _.uniqBy(segs);
         console.log(segs);
         return (
             <div> {segs} </div>
