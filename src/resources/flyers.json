@@ -1,6 +1,18 @@
- [
-  { "code": "OA", "name": "Olympic Air" },
-  { "code": "A3", "name": "Aegean" },
-  { "code": "SK", "name": "SAS" },
-  { "code": "LH", "name": "Lufthansa" },
+[
+  {
+    "code": "OA",
+    "name": "Olympic Air"
+  },
+  {
+    "code": "A3",
+    "name": "Aegean"
+  },
+  {
+    "code": "SK",
+    "name": "SAS"
+  },
+  {
+    "code": "LH",
+    "name": "Lufthansa"
+  }
 ]

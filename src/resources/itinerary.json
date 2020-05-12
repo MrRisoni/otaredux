@@ -1,256 +1,260 @@
-[{
-		"legId": 0,
-		"legKey": "CLoqKGvW0H8w2",
-		"from": {
-			"iata": "RHO",
-			"city": "Rhodes",
-			"name": "Diagoras Arpt",
-			"flyTime": "08:00",
-			"flyTimeGMT": "08:00",
-			"day": "Tues",
-			"date": "15/06/2018"
-		},
-		"to": {
-			"iata": "TRF",
-			"city": "Oslo",
-			"name": "Oslo Arpt",
-			"flyTime": "20:00",
-			"flyTimeGMT": "20:00",
-			"day": "Tues",
-			"date": "15/06/2018"
-		},
-		"stops": 2,
-		"duration": {
-			"h": 5,
-			"m": 35
-		},
-		"waiting": {
-			"total": 130,
-			"h": 2,
-			"m": 10
-		},
-		"pricing": [{
-				"fareEur": 350,
-				"taxesEur": 50,
-				"ptc": "ADT"
-			},
-			{
-				"fareEur": 300,
-				"taxesEur": 50,
-				"ptc": "CNN"
-			},
-			{
-				"fareEur": 90,
-				"taxesEur": 20,
-				"ptc": "INF"
-			}
-		],
-		"segments": [{
-				"segId": 0,
-				"segKey": "Q6fa7dr9T48NT",
-				"from": {
-					"iata": "RHO",
-					"city": "Rhodes",
-					"name": "Diagoras Arpt",
-					"flyTime": "08:00",
-					"flyTimeGMT": "08:00",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"to": {
-					"iata": "ATH",
-					"city": "Athens",
-					"name": "Venizelos Arpt",
-					"flyTime": "08:50",
-					"flyTimeGMT": "08:50",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"mrktCarrier": "OA",
-				"airline": "OA,OlympicAir",
-				"codeShare": "A3",
-				"img": {
-					"url": "/logos/OA.jpg",
-					"w": 0,
-
-					"th": 100
-				},
-				"waitTime": {
-					"hours": 3,
-					"minutes": 0,
-					"total": 180
-				},
-				"durationTime": {
-					"hours": 0,
-					"minutes": 50
-				}
-			},
-			{
-				"segId": 1,
-				"segKey": "A6ge0OUKCx3OMO",
-				"from": {
-					"iata": "ATH",
-					"city": "Athens",
-					"name": "Venizelos Arpt",
-					"flyTime": "15:00",
-					"flyTimeGMT": "15:00",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"to": {
-					"iata": "FRA",
-					"city": "Frankfurt",
-					"name": "Frankfurt Arpt",
-					"flyTime": "17:00",
-					"flyTimeGMT": "17:00",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"mrktCarrier": "A3",
-				"airline": "A3,Aegean",
-				"codeShare": "",
-				"img": {
-					"url": "/logos/A3.png",
-					"w": 0,
-					"h": 100
-				},
-				"waitTime": {
-					"hours": 0,
-					"minutes": 0,
-					"total": 0
-				},
-				"durationTime": {
-					"hours": 3,
-					"minutes": 0
-				}
-			},
-			{
-				"segId": 2,
-				"segKey": "MIjJ8WnZuQ7vM",
-				"from": {
-					"iata": "FRA",
-					"city": "Frankfurt",
-					"name": "Frankfurt Arpt",
-					"flyTime": "15:00",
-					"flyTimeGMT": "15:00",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"to": {
-					"iata": "TRF",
-					"city": "Oslo",
-					"name": "Oslo Arpt",
-					"flyTime": "17:00",
-					"flyTimeGMT": "17:00",
-					"day": "Tues",
-					"date": "15/06/2018"
-				},
-				"mrktCarrier": "SK",
-				"airline": "SK,SAS",
-				"codeShare": "A3",
-				"img": {
-					"url": "/logos/SK.png",
-					"w": 0,
-					"h": 100
-				},
-				"waitTime": {
-					"hours": 0,
-					"minutes": 0,
-					"total": 0
-				},
-				"durationTime": {
-					"hours": 3,
-					"minutes": 0
-				}
-			}
-		]
-	},
-	{
-		"legId": 1,
-		"legKey": "EihRTXtsIQOfi",
-		"from": {
-			"iata": "TRF",
-			"city": "Oslo",
-			"name": "Oslo Arpt",
-			"flyTime": "09:00",
-			"flyTimeGMT": "09:00",
-			"day": "Tues",
-			"date": "22/06/2018"
-		},
-		"to": {
-			"iata": "RHO",
-			"city": "Rhodes",
-			"name": "Diagoras Arpt",
-			"flyTime": "13:00",
-			"flyTimeGMT": "14:00",
-			"day": "Tues",
-			"date": "22/06/2018"
-		},
-		"stops": 0,
-		"duration": {
-			"h": 2,
-			"m": 45
-		},
-		"waiting": {
-			"total": 0,
-			"h": 0,
-			"m": 0
-		},
-		"pricing": [{
-				"fareEur": 350,
-				"taxesEur": 150,
-				"ptc": "ADT"
-			},
-			{
-				"fareEur": 300,
-				"taxesEur": 150,
-				"ptc": "CNN"
-			},
-			{
-				"fareEur": 90,
-				"taxesEur": 40,
-				"ptc": "INF"
-			}
-		],
-		"segments": [{
-			"segId": 3,
-			"segKey": "Z2CytZDoCF1mNh",
-			"from": {
-				"iata": "TRF",
-				"city": "Oslo",
-				"name": "Oslo Arpt",
-				"flyTime": "09:00",
-				"flyTimeGMT": "09:00",
-				"day": "Tues",
-				"date": "22/06/2018"
-			},
-			"to": {
-				"iata": "RHO",
-				"city": "Rhodes",
-				"name": "Diagoras Arpt",
-				"flyTime": "10:00",
-				"flyTimeGMT": "10:00",
-				"day": "Tues",
-				"date": "15/06/2018"
-			},
-			"mrktCarrier": "LH",
-			"airline": "LH,Lufthansa",
-			"codeShare": "",
-			"img": {
-				"url": "/logos/LH.jpg",
-				"w": 0,
-				"h": 100
-			},
-			"waitTime": {
-				"hours": 0,
-				"minutes": 0,
-				"total": 0
-			},
-			"durationTime": {
-				"hours": 0,
-				"minutes": 0
-			}
-		}]
-
-	}
+[
+  {
+    "legId": 0,
+    "legKey": "CLoqKGvW0H8w2",
+    "from": {
+      "iata": "RHO",
+      "city": "Rhodes",
+      "name": "Diagoras Arpt",
+      "flyTime": "08:00",
+      "flyTimeGMT": "08:00",
+      "day": "Tues",
+      "date": "15/06/2018"
+    },
+    "to": {
+      "iata": "TRF",
+      "city": "Oslo",
+      "name": "Oslo Arpt",
+      "flyTime": "20:00",
+      "flyTimeGMT": "20:00",
+      "day": "Tues",
+      "date": "15/06/2018"
+    },
+    "stops": 2,
+    "duration": {
+      "h": 5,
+      "m": 35
+    },
+    "waiting": {
+      "total": 130,
+      "h": 2,
+      "m": 10
+    },
+    "pricing": [
+      {
+        "fareEur": 350,
+        "taxesEur": 50,
+        "ptc": "ADT"
+      },
+      {
+        "fareEur": 300,
+        "taxesEur": 50,
+        "ptc": "CNN"
+      },
+      {
+        "fareEur": 90,
+        "taxesEur": 20,
+        "ptc": "INF"
+      }
+    ],
+    "segments": [
+      {
+        "segId": 0,
+        "segKey": "Q6fa7dr9T48NT",
+        "from": {
+          "iata": "RHO",
+          "city": "Rhodes",
+          "name": "Diagoras Arpt",
+          "flyTime": "08:00",
+          "flyTimeGMT": "08:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "to": {
+          "iata": "ATH",
+          "city": "Athens",
+          "name": "Venizelos Arpt",
+          "flyTime": "08:50",
+          "flyTimeGMT": "08:50",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "mrktCarrier": "OA",
+        "airline": "OA,OlympicAir",
+        "codeShare": "A3",
+        "img": {
+          "url": "/logos/OA.jpg",
+          "w": 0,
+          "th": 100
+        },
+        "waitTime": {
+          "hours": 3,
+          "minutes": 0,
+          "total": 180
+        },
+        "durationTime": {
+          "hours": 0,
+          "minutes": 50
+        }
+      },
+      {
+        "segId": 1,
+        "segKey": "A6ge0OUKCx3OMO",
+        "from": {
+          "iata": "ATH",
+          "city": "Athens",
+          "name": "Venizelos Arpt",
+          "flyTime": "15:00",
+          "flyTimeGMT": "15:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "to": {
+          "iata": "FRA",
+          "city": "Frankfurt",
+          "name": "Frankfurt Arpt",
+          "flyTime": "17:00",
+          "flyTimeGMT": "17:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "mrktCarrier": "A3",
+        "airline": "A3,Aegean",
+        "codeShare": "",
+        "img": {
+          "url": "/logos/A3.png",
+          "w": 0,
+          "h": 100
+        },
+        "waitTime": {
+          "hours": 0,
+          "minutes": 0,
+          "total": 0
+        },
+        "durationTime": {
+          "hours": 3,
+          "minutes": 0
+        }
+      },
+      {
+        "segId": 2,
+        "segKey": "MIjJ8WnZuQ7vM",
+        "from": {
+          "iata": "FRA",
+          "city": "Frankfurt",
+          "name": "Frankfurt Arpt",
+          "flyTime": "15:00",
+          "flyTimeGMT": "15:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "to": {
+          "iata": "TRF",
+          "city": "Oslo",
+          "name": "Oslo Arpt",
+          "flyTime": "17:00",
+          "flyTimeGMT": "17:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "mrktCarrier": "SK",
+        "airline": "SK,SAS",
+        "codeShare": "A3",
+        "img": {
+          "url": "/logos/SK.png",
+          "w": 0,
+          "h": 100
+        },
+        "waitTime": {
+          "hours": 0,
+          "minutes": 0,
+          "total": 0
+        },
+        "durationTime": {
+          "hours": 3,
+          "minutes": 0
+        }
+      }
+    ]
+  },
+  {
+    "legId": 1,
+    "legKey": "EihRTXtsIQOfi",
+    "from": {
+      "iata": "TRF",
+      "city": "Oslo",
+      "name": "Oslo Arpt",
+      "flyTime": "09:00",
+      "flyTimeGMT": "09:00",
+      "day": "Tues",
+      "date": "22/06/2018"
+    },
+    "to": {
+      "iata": "RHO",
+      "city": "Rhodes",
+      "name": "Diagoras Arpt",
+      "flyTime": "13:00",
+      "flyTimeGMT": "14:00",
+      "day": "Tues",
+      "date": "22/06/2018"
+    },
+    "stops": 0,
+    "duration": {
+      "h": 2,
+      "m": 45
+    },
+    "waiting": {
+      "total": 0,
+      "h": 0,
+      "m": 0
+    },
+    "pricing": [
+      {
+        "fareEur": 350,
+        "taxesEur": 150,
+        "ptc": "ADT"
+      },
+      {
+        "fareEur": 300,
+        "taxesEur": 150,
+        "ptc": "CNN"
+      },
+      {
+        "fareEur": 90,
+        "taxesEur": 40,
+        "ptc": "INF"
+      }
+    ],
+    "segments": [
+      {
+        "segId": 3,
+        "segKey": "Z2CytZDoCF1mNh",
+        "from": {
+          "iata": "TRF",
+          "city": "Oslo",
+          "name": "Oslo Arpt",
+          "flyTime": "09:00",
+          "flyTimeGMT": "09:00",
+          "day": "Tues",
+          "date": "22/06/2018"
+        },
+        "to": {
+          "iata": "RHO",
+          "city": "Rhodes",
+          "name": "Diagoras Arpt",
+          "flyTime": "10:00",
+          "flyTimeGMT": "10:00",
+          "day": "Tues",
+          "date": "15/06/2018"
+        },
+        "mrktCarrier": "LH",
+        "airline": "LH,Lufthansa",
+        "codeShare": "",
+        "img": {
+          "url": "/logos/LH.jpg",
+          "w": 0,
+          "h": 100
+        },
+        "waitTime": {
+          "hours": 0,
+          "minutes": 0,
+          "total": 0
+        },
+        "durationTime": {
+          "hours": 0,
+          "minutes": 0
+        }
+      }
+    ]
+  }
 ]

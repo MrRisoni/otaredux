@@ -5,7 +5,7 @@ import MasterSideBar from './SideBar/MasterSideBar';
 import PreSeat from './AirUpsales/Preseat/PreSeat';
 
 import WebCheckin from './AirUpsales/WebCheckin';
-import FastTrack from './AirUpsales/FastTrack';
+import FastTrackList from './AirUpsales/FastTrack/FastTrackList';
 import FlexibleTicket from './AirUpsales/FlexibleTicket';
 import AirHelp from './AirUpsales/AirHelp';
 import BlueRibbon from './AirUpsales/BlueRibbon';
@@ -43,7 +43,7 @@ class UpsalesPage extends Component {
 
             <PreSeat/>
 
-            <FastTrack/>
+            <FastTrackList/>
 
             {/*   <WebCheckin/>
 

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
 
-import {DataContext} from "../../OtaContext";
 
 
 class FastTrack extends Component {
-    static contextType =DataContext
     constructor(props) {
         super(props);
 

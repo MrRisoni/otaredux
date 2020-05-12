@@ -1,20 +1,32 @@
 [
- {
-   "id": 0,
-   "legId":0,
-   "key": "xfsfgrdtrtXFSCFGnotY",
-   "pricing" : [
-     {  "costEur": 18, "age": "ADT" },
-       {  "costEur": 12, "age": "CNN" },
-   ],
- },
- {
-   "id": 0,
-   "legId":1,
-   "key": "xfsfgrdtrtWCFXFS",
-   "pricing" : [
-     {  "costEur": 28, "age": "ADT" },
-       {  "costEur": 20, "age": "CNN" },
-   ],
- },
-];
+  {
+    "id": 0,
+    "legId": 0,
+    "key": "xfsfgrdtrtXFSCFGnotY",
+    "pricing": [
+      {
+        "costEur": 18,
+        "age": "ADT"
+      },
+      {
+        "costEur": 12,
+        "age": "CNN"
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "legId": 1,
+    "key": "xfsfgrdtrtWCFXFS",
+    "pricing": [
+      {
+        "costEur": 28,
+        "age": "ADT"
+      },
+      {
+        "costEur": 20,
+        "age": "CNN"
+      }
+    ]
+  }
+]
