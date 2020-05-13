@@ -1,93 +1,34 @@
 import React, { Component } from 'react';
 import LoungeAirport from './LoungeAirport';
+import {DataContext} from "../../../OtaContext";
+import FastTrack from "../FastTrack/FastTrack";
+
 
 class LoungeAccess extends Component {
+  static contextType = DataContext
+
   render() {
-    const StopDataDep = { legTitle: '', priceData: [] };
-    const StopDataRet = { legTitle: '', priceData: [] };
+    //actually you can add segments here if waiting time is too long
+    var loungesPoints = this.context.ItineraryRsc.map(legItm => {
+      return legItm.from['iata']
+    }).filter(point => {
+      return (point in this.context.upsalesPricing['Lounge']);
+    })
 
-    for (let i = 0; i < this.props.itinerary.length; i++) {
-      const segLen = this.props.itinerary[i].segments.length;
+    var loungesPricing = loungesPoints.map(airport => {
+      return (this.context.upsalesPricing['Lounge'][airport]['pricing']['ADT'] * this.context.numADT +
+      this.context.upsalesPricing['Lounge'][airport]['pricing']['CNN'] * this.context.numCNN);
+    });
 
-      const startPoint = this.props.itinerary[i].from.iata;
-      const endPoint = this.props.itinerary[i].to.iata;
-
-      const legTitle = `${startPoint} - ${endPoint}`;
-      const priceData = [];
-
-      if (segLen > 1) {
-        for (let j = 0; j < segLen; j++) {
-          const stop = this.props.itinerary[i].segments[j].from.iata;
-          for (let k = 0; k < this.props.loungePrices.length; k++) {
-            if (this.props.loungePrices[k].airport == stop) {
-              priceData.push(this.props.loungePrices[k]);
-            }
-          }
-        }
-        if (priceData.length > 0) {
-          StopDataDep.legTitle = legTitle;
-          StopDataDep.priceData = priceData;
-        }
-      }
+    var overall = [];
+    for (var i =0;i < loungesPoints.length; i++) {
+      overall.push({airport:loungesPoints[i],hourlyPrice:loungesPricing[i]});
     }
 
-
-    console.log(StopDataDep);
     return (
-
-
-      <section>
-
-        <div className="row contactDetails">
-          <div className="col-8">
-
-            <div className="card">
-              <div className="card-header bg-light">
-
-                <div className="row">
-
-                  <div className="col-6">
-
-
-                                        Get Airport Lounge Access!
-                  </div>
-
-                  <div className="col-2 offset-3">
-                    <button
-                      className="btn btn-sm btn-dark btn-block btnToggle"
-                      data-toggle="collapse"
-                      data-target="#blueRibbonCollapse"
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-
-
-                      general.Toggle
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-
-
-              <div className="card-body collapse " id="blueRibbonCollapse">
-
-                  <div className="alert alert-primary" role="alert">
-                      {StopDataDep.legTitle}
-                  </div>
-
-                    {StopDataDep.priceData.map((prc ,idx ) => {
-                       return (<LoungeAirport prices={prc} />);
-                    })}
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
+        overall.map(ovrl => {
+          return <div> <LoungeAirport point={ovrl.airport} price={ovrl.hourlyPrice} /> </div>
+        })
     );
   }
 }

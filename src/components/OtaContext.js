@@ -8,8 +8,9 @@ import Swedish from "./../locales/sv.json";
 import English from "./../locales/en.json";
 
 import ItineraryRsc from "./../resources/itinerary.json";
-import InsuranciesRsc from "./../resources/insurances.json";
+import InsurancesRsc from "./../resources/insurances.json";
 import FastTrackRsc from "./../resources/fastTrack.json";
+import LoungeRsc from "./../resources/lounge.json";
 
 export const DataContext = createContext();
 
@@ -27,10 +28,11 @@ class OtaContextProvider extends Component {
       address: "",
       postcode: ""
     },
-    InsuranceRsc: InsuranciesRsc,
     ItineraryRsc: ItineraryRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,
+      Lounge:LoungeRsc,
+      Insurance: InsurancesRsc,
       webCheckin: 2,
       airHelp: 1.56,
       flexTicket: 5,
