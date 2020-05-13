@@ -21,7 +21,6 @@ yarn-error.log*
 *.mp3
 *.log
 *.env
-*googleAPI*
-*googleAPIKey
-src/googleAPIKey.json
 src/appConfig.json
+*.swp
+*~
