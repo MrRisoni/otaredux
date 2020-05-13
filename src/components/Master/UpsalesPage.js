@@ -44,8 +44,8 @@ class UpsalesPage extends Component {
             {/*  <PreSeat/> */}
 
             <FastTrackList/>
-
-            {/*   <WebCheckin/>
+            <WebCheckin/>
+            {/*
 
             <FlexibleTicket/>
             <AirHelp/>

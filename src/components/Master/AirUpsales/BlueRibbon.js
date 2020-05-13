@@ -22,9 +22,9 @@ class BlueRibbon extends Component {
       price = price.toFixed(2);
 
     return (
-        <section>
+        <section className="upsalesSection">
 
-        <div className="row contactDetails">
+            <div className="row">
         <div className="col-8">
 
           <div className="card">

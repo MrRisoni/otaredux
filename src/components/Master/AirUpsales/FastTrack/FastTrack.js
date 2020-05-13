@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {DataContext} from "../../../OtaContext";
+import ButtonToggle from "../../../Common/ButtonToggle";
 
 class FastTrack extends Component {
     static contextType = DataContext
@@ -24,9 +25,9 @@ class FastTrack extends Component {
         price = price.toFixed(2);
 
         return (
-            <section>
+            <section className="upsalesSection">
 
-                <div className="row contactDetails">
+                <div className="row">
                     <div className="col-8">
 
                         <div className="card">
@@ -39,18 +40,7 @@ class FastTrack extends Component {
                                         Fast Track Priority Queue in Security Check
                                     </div>
 
-                                    <div className="col-2">
-                                        <button
-                                            className="btn btn-sm btn-dark btn-block btnToggle"
-                                            data-toggle="collapse"
-                                            data-target="#fastTrackCollapse"
-                                            aria-expanded="false"
-                                            aria-controls="collapseExample"
-                                        >
-
-                                            general.Toggle
-                                        </button>
-                                    </div>
+                                    <ButtonToggle target={"fastTrackCollapse"}/>
 
                                 </div>
                             </div>

@@ -29,7 +29,10 @@ class OtaContextProvider extends Component {
         },
         InsuranceRsc:InsuranciesRsc,
         ItineraryRsc:ItineraryRsc,
-        FastTrackRsc,
+        upsalesPricing: {
+            fastTrack:FastTrackRsc,
+            webCheckin: 2,
+        },
         totalCost:0,
         totalFare:0,
         totalTax:0,

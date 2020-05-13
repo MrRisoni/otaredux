@@ -10,11 +10,11 @@ class FastTrackList extends Component {
         var fastTrackHere = this.context.ItineraryRsc.map(legItm => {
             return legItm.from['iata']
         }).filter(point => {
-            return (point in this.context.FastTrackRsc);
+            return (point in this.context.upsalesPricing['fastTrack']);
         })
         return (
             fastTrackHere.map(fst => {
-                return <div> <FastTrack point={fst} price={this.context.FastTrackRsc[fst]} /> </div>
+                return <div> <FastTrack point={fst} price={this.context.upsalesPricing['fastTrack'][fst]} /> </div>
             })
         );
     }
