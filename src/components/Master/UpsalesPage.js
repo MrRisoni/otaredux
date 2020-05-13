@@ -10,13 +10,9 @@ import FlexibleTicket from "./AirUpsales/FlexibleTicket";
 import AirHelp from "./AirUpsales/AirHelp";
 import BlueRibbon from "./AirUpsales/BlueRibbon";
 import LoungeAccess from './AirUpsales/LoungeAccess/LoungeAccess';
-
-/*
-import Parking from './Parking/Parking';
-import LoungeAccess from './LoungeAccess/LoungeAccess';
-import * as actsMaster from '../../actions/master/actionsMaster';
 import PassengerTable from './Passengers/PassengerTable';
-*/
+import Parking from "./AirUpsales/Parking/Parking";
+
 
 class UpsalesPage extends Component {
     render() {
@@ -27,10 +23,8 @@ class UpsalesPage extends Component {
                         {/*  <ItineraryData
                         tripData={this.props.tripData}
                     />
-
-                    <PassengerTable
-                        passengers={this.props.passengers}
-                    /> */}
+*/}
+                    <PassengerTable/>
                     </div>
 
                     <div className="col-4">
@@ -43,6 +37,7 @@ class UpsalesPage extends Component {
                 <FastTrackList/>
                 <WebCheckin/>
                 <LoungeAccess/>
+                <Parking/>
 
                 <AirHelp/>
                 <FlexibleTicket/>

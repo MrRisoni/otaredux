@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
+import {DataContext} from "../../OtaContext";
 
-/*
-.map((px,idx) => {
-                        return (<tr>aaasa</tr>)
-                    })}
- */
+
 class PassengerTable extends Component {
+    static contextType = DataContext;
+
     render() {
         return (
             <section>
@@ -18,12 +17,12 @@ class PassengerTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.props.passengers.filter(allpx => allpx.active).map((px,idx) => {
-                            return (<tr>
+                    {this.context.passengers.filter(allpx => allpx.active).map((px,idx) => (
+                            <tr>
                                 <td>{px.name}</td>
                                     <td>{px.surame}</td>
-                            </tr>);
-                        })}
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </section>
