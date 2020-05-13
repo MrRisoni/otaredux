@@ -23,7 +23,7 @@ class WebCheckin extends Component {
 
     render() {
 
-        let price = this.context.upsalesPricing.webCheckin * this.context.currentCurrency.rate;
+        let price = this.context.upsalesPricing.webCheckin * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
         price = price.toFixed(2);
 
         return (

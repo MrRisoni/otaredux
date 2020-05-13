@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import ButtonToggle from "../../Common/ButtonToggle";
+import {DataContext} from "../../OtaContext";
 
 
 
 class AirHelp extends Component {
+    static contextType = DataContext
+
     constructor(props) {
         super(props);
 
@@ -19,7 +23,7 @@ class AirHelp extends Component {
     }
 
     render() {
-        let  price = (this.props.fastTrackPrice  *  this.props.currency.rate);
+        let price = this.context.upsalesPricing.airHelp * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
         price = price.toFixed(2);
 
         return (
@@ -38,24 +42,14 @@ class AirHelp extends Component {
                                        Flight Delays recompansation
                                     </div>
 
-                                    <div className="col-2">
-                                        <button
-                                            className="btn btn-sm btn-dark btn-block btnToggle"
-                                            data-toggle="collapse"
-                                            data-target="#fastTrackCollapse"
-                                            aria-expanded="false"
-                                            aria-controls="collapseExample"
-                                        >
+                                    <ButtonToggle target={"flexTicketCollapse"}/>
 
-                                            general.Toggle
-                                        </button>
-                                    </div>
 
                                 </div>
                             </div>
 
 
-                            <div className="card-body collapse " id="fastTrackCollapse">
+                            <div className="card-body collapse " id="flexTicketCollapse">
 
                                 <div className="row">
                                     <div className="col-8">
@@ -64,7 +58,7 @@ class AirHelp extends Component {
                                         {' '}
                                         {price}
                                         {' '}
-                                        {this.props.currency.code}
+                                        {this.context.currentCurrency.code}
                                         {' '}
                                         and you may get
                                         compensation for every delayed flight

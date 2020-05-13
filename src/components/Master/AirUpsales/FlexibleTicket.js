@@ -1,98 +1,87 @@
-import React, { Component } from 'react';
-
-
-
+import React, {Component} from 'react';
+import {DataContext} from "../../OtaContext";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 
 class FlexibleTicket extends Component {
-  constructor(props) {
-    super(props);
+    static contextType = DataContext
 
-    this.handleClick = this.handleClick.bind(this);
-  }
+    constructor(props) {
+        super(props);
 
-  handleClick(ev) {
-    if (ev.target.value == 1) {
-      this.props.addFlexibleTicketHandler();
+        this.handleClick = this.handleClick.bind(this);
     }
-    else {
-      this.props.removeFlexTicketHandler();
+
+    handleClick(ev) {
+        if (ev.target.value == 1) {
+            this.props.addFlexibleTicketHandler();
+        } else {
+            this.props.removeFlexTicketHandler();
+        }
     }
-  }
 
-  render() {
-    let  price = (this.props.flexibleTicketPrice * this.props.currency.rate);
-      price = price.toFixed(2);
+    render() {
+        let price = this.context.upsalesPricing.flexTicket * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
+        price = price.toFixed(2);
 
-    return (
-        <section className="upsalesSection">
+        return (
+            <section className="upsalesSection">
 
-            <div className="row">
-        <div className="col-8">
+                <div className="row">
+                    <div className="col-8">
 
-          <div className="card">
-            <div className="card-header bg-light">
+                        <div className="card">
+                            <div className="card-header bg-light">
 
-              <div className="row">
+                                <div className="row">
 
-                <div className="col-3">
+                                    <div className="col-3">
 
-                                    Flexible Ticket
-                </div>
+                                        Flexible Ticket
+                                    </div>
 
-                <div className="col-2 offset-6">
-                  <button
-                    className="btn btn-sm btn-dark btn-block btnToggle"
-                    data-toggle="collapse"
-                    data-target="#flexibleTicketCollapse"
-aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
+                                    <ButtonToggle target="flexibleTicketCollapse"
+                                                  clsName={"offset-6"}/>
 
-                                      general.Toggle
-</button>
-                </div>
-
-              </div>
-            </div>
+                                </div>
+                            </div>
 
 
-            <div className="card-body collapse" id="flexibleTicketCollapse">
+                            <div className="card-body collapse" id="flexibleTicketCollapse">
 
-              <div className="row">
-                <div className="col-8">
+                                <div className="row">
+                                    <div className="col-8">
 
-                   Pay
-                    {' '}
-                  {price}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-and you may
-                                    cancel/amend your ticket for free!
-                </div>
+                                        Pay
+                                        {' '}
+                                        {price}
+                                        {' '}
+                                        {this.context.currentCurrency.code}
+                                        {' '}
+                                        and you may
+                                        cancel/amend your ticket for free!
+                                    </div>
 
-                <div className="col-3">
+                                    <div className="col-3">
 
-                  <select className="form-control" onChange={this.handleClick}>
-                    <option key="no" value="0">No thanks</option>
-                    <option key="yes" value="1">Yes please</option>
-                  </select>
+                                        <select className="form-control" onChange={this.handleClick}>
+                                            <option key="no" value="0">No thanks</option>
+                                            <option key="yes" value="1">Yes please</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
 
                 </div>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
-
-      </div>
-        </section>
-    );
-  }
+            </section>
+        );
+    }
 }
-
 
 
 export default FlexibleTicket;

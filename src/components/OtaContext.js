@@ -32,6 +32,8 @@ class OtaContextProvider extends Component {
         upsalesPricing: {
             fastTrack:FastTrackRsc,
             webCheckin: 2,
+            airHelp:1.56,
+            flexTicket:5
         },
         totalCost:0,
         totalFare:0,
