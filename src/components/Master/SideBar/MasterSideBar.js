@@ -33,6 +33,19 @@ class MasterSideBar extends Component {
     const otherUpsalesCount = 0;
     let totalPreseatPrice =0;
 
+    let otherUpsalesDiv = [];
+
+
+    if (this.context.upsales.blueRibbonCost >0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Blue Ribbon"
+          price={this.context.upsales.blueRibbonCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
 
    /* this.props.passengers.forEach(pax => {
       if (pax.active) {
@@ -287,6 +300,7 @@ x
             <hr/>
               <hr/>
                 <hr/>
+                {otherUpsalesDiv}
 
               {/*   {bagsDiv}
             {insuranceDiv}

@@ -12,9 +12,9 @@ class BlueRibbon extends Component {
 
   handleSelection(ev) {
     if (ev.target.value == 1) {
-      this.props.addBlueRibbonHandler();
+      this.context.functions.actionBlueRibbon(1);
     } else {
-      this.props.removeBlueRibbonHandler();
+      this.context.functions.actionBlueRibbon(0);
     }
   }
 

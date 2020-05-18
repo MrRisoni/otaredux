@@ -236,6 +236,11 @@ class OtaContextProvider extends Component {
     var taxesEur = 0;
     var passengersNew = this.state.passengers;
 
+
+    ttl += parseFloat(
+      this.state.upsales.blueRibbonCost
+    );
+
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
         var ptc = this.state.passengers[p].ptc;
@@ -340,6 +345,31 @@ class OtaContextProvider extends Component {
 
   updateTotalCost() {}
 
+
+  actionBlueRibbon= yay => {
+    const brbEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
+    const brb =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+
+
+    let new_upsales  = this.state.upsales;
+    if (yay ==1) {
+      new_upsales.blueRibbonCost =brb;
+      new_upsales.blueRibbonCostEur =brbEur;
+
+    }else {
+      new_upsales.blueRibbonCost =0;
+      new_upsales.blueRibbonCostEur =0;
+    }
+
+
+    this.setState({
+      upsales: new_upsales
+    });
+
+this.firstLoad();
+
+  }
+
   render() {
     return (
       <DataContext.Provider
@@ -349,7 +379,8 @@ class OtaContextProvider extends Component {
             updateChosenLang: this.updateChosenLang,
             addPassenger: this.addPassenger,
             firstLoad: this.firstLoad,
-            purchaseInsurance: this.purchaseInsurance
+            purchaseInsurance: this.purchaseInsurance,
+            actionBlueRibbon: this.actionBlueRibbon
           }
         }}
       >

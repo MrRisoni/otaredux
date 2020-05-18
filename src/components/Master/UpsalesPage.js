@@ -32,7 +32,9 @@ class UpsalesPage extends Component {
                     </div>
                 </div>
 
-                {/*  <PreSeat/> */}
+                <BlueRibbon/>
+
+                {/*  <PreSeat/>
 
                 <FastTrackList/>
                 <WebCheckin/>
@@ -40,8 +42,7 @@ class UpsalesPage extends Component {
                 <Parking/>
 
                 <AirHelp/>
-                <FlexibleTicket/>
-                <BlueRibbon/>
+                <FlexibleTicket/> */}
             </div>
         );
     }
