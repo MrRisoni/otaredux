@@ -347,8 +347,12 @@ class OtaContextProvider extends Component {
 
 
   actionBlueRibbon= yay => {
-    const brbEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
-    const brb =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+    let brbEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
+    let brb =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+
+brbEur = brbEur.toFixed(2);
+brb = brb.toFixed(2);
+
 
 
     let new_upsales  = this.state.upsales;
