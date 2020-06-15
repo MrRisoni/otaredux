@@ -46,9 +46,10 @@ class UpsalesPage extends Component {
                 </div>
 
 
-                <YesNoUpsale title="Buy Blue Ribbon Bag Insurance!" description={brbDescr}/>
+                <YesNoUpsale title="Buy Blue Ribbon Bag Insurance!" 
+                upsaleHandler={this.context.functions.actionBlueRibbon}
+                description={brbDescr}/>
 
-                <BlueRibbon/>
   <FlexibleTicket/>
 
                 {/*  <PreSeat/>
