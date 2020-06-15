@@ -374,6 +374,39 @@ this.firstLoad();
 
   }
 
+
+
+  updateTotalCost() {}
+
+
+  actionFlexTicket= yay => {
+    let brbEur =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) ;
+    let brb =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+
+brbEur = brbEur.toFixed(2);
+brb = brb.toFixed(2);
+
+
+
+    let new_upsales  = this.state.upsales;
+    if (yay ==1) {
+      new_upsales.flexTicketCost =brb;
+      new_upsales.flexTicketCostEur =brbEur;
+
+    }else {
+      new_upsales.flexTicketCost =0;
+      new_upsales.flexTicketCostEur =0;
+    }
+
+
+    this.setState({
+      upsales: new_upsales
+    });
+
+this.firstLoad();
+
+  }
+
   render() {
     return (
       <DataContext.Provider

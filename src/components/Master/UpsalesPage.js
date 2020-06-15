@@ -3,6 +3,7 @@ import ItineraryData from "./Segments/ItineraryData";
 import MasterSideBar from "./SideBar/MasterSideBar";
 //import BrandedFares from './Branded/BrandedFares';
 import PreSeat from "./AirUpsales/Preseat/PreSeat";
+import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
 import WebCheckin from "./AirUpsales/WebCheckin";
 import FastTrackList from "./AirUpsales/FastTrack/FastTrackList";
@@ -12,10 +13,22 @@ import BlueRibbon from "./AirUpsales/BlueRibbon";
 import LoungeAccess from './AirUpsales/LoungeAccess/LoungeAccess';
 import PassengerTable from './Passengers/PassengerTable';
 import Parking from "./AirUpsales/Parking/Parking";
+import { DataContext } from "../OtaContext";
 
 
 class UpsalesPage extends Component {
+  static contextType = DataContext;
+
     render() {
+
+      let priceBrb =
+        this.context.upsalesPricing.blueRibbon *
+        this.context.currentCurrency.rate;
+
+      priceBrb = priceBrb.toFixed(2);
+
+      let brbDescr = " Pay " + priceBrb + " " + this.context.currentCurrency.code +   "  and you will receive 1000 EUR reimbursement for each lost   baggage";
+
         return (
             <div className="busApp">
                 <div className="row">
@@ -32,7 +45,11 @@ class UpsalesPage extends Component {
                     </div>
                 </div>
 
+
+                <YesNoUpsale title="Buy Blue Ribbon Bag Insurance!" description={brbDescr}/>
+
                 <BlueRibbon/>
+  <FlexibleTicket/>
 
                 {/*  <PreSeat/>
 
@@ -42,7 +59,7 @@ class UpsalesPage extends Component {
                 <Parking/>
 
                 <AirHelp/>
-                <FlexibleTicket/> */}
+              */}
             </div>
         );
     }
