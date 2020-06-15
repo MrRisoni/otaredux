@@ -31,7 +31,7 @@ class OtaContextProvider extends Component {
     ItineraryRsc: ItineraryRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,
-      Lounge:LoungeRsc,
+      Lounge: LoungeRsc,
       Insurance: InsurancesRsc,
       webCheckin: 2,
       airHelp: 1.56,
@@ -236,19 +236,10 @@ class OtaContextProvider extends Component {
     var taxesEur = 0;
     var passengersNew = this.state.passengers;
 
-
-    ttl += parseFloat(
-      this.state.upsales.blueRibbonCost
-    );
-    ttl += parseFloat(
-      this.state.upsales.webCheckinCost
-    );
-    ttl += parseFloat(
-      this.state.upsales.flexTicketCost
-    );
-    ttl += parseFloat(
-      this.state.upsales.airHelpCost
-    );
+    ttl += parseFloat(this.state.upsales.blueRibbonCost);
+    ttl += parseFloat(this.state.upsales.webCheckinCost);
+    ttl += parseFloat(this.state.upsales.flexTicketCost);
+    ttl += parseFloat(this.state.upsales.airHelpCost);
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -354,126 +345,119 @@ class OtaContextProvider extends Component {
 
   updateTotalCost() {}
 
+  actionBlueRibbon = yay => {
+    let brbEur =
+      this.state.upsalesPricing.blueRibbon *
+      (this.state.numADT + this.state.numCNN);
+    let brb =
+      this.state.upsalesPricing.blueRibbon *
+      (this.state.numADT + this.state.numCNN) *
+      this.state.currentCurrency.rate;
 
-  actionBlueRibbon= yay => {
-    let brbEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
-    let brb =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+    brbEur = brbEur.toFixed(2);
+    brb = brb.toFixed(2);
 
-brbEur = brbEur.toFixed(2);
-brb = brb.toFixed(2);
-
-
-
-    let new_upsales  = this.state.upsales;
-    if (yay ==1) {
-      new_upsales.blueRibbonCost =brb;
-      new_upsales.blueRibbonCostEur =brbEur;
-
-    }else {
-      new_upsales.blueRibbonCost =0;
-      new_upsales.blueRibbonCostEur =0;
+    let new_upsales = this.state.upsales;
+    if (yay == 1) {
+      new_upsales.blueRibbonCost = brb;
+      new_upsales.blueRibbonCostEur = brbEur;
+    } else {
+      new_upsales.blueRibbonCost = 0;
+      new_upsales.blueRibbonCostEur = 0;
     }
-
 
     this.setState({
       upsales: new_upsales
     });
 
-this.firstLoad();
+    this.firstLoad();
+  };
 
-  }
-
-
-
-  actionWebCheckin= yay => {
-    let webCheckEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
-    let webCheck =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+  actionWebCheckin = yay => {
+    let webCheckEur =
+      this.state.upsalesPricing.blueRibbon *
+      (this.state.numADT + this.state.numCNN);
+    let webCheck =
+      this.state.upsalesPricing.blueRibbon *
+      (this.state.numADT + this.state.numCNN) *
+      this.state.currentCurrency.rate;
 
     webCheckEur = webCheckEur.toFixed(2);
     webCheck = webCheck.toFixed(2);
 
-
-
-    let new_upsales  = this.state.upsales;
-    if (yay ==1) {
-      new_upsales.webCheckinCost =webCheck;
-      new_upsales.webCheckinCostEur =webCheckEur;
-
-    }else {
-      new_upsales.webCheckinCost =0;
-      new_upsales.webCheckinCostEur =0;
+    let new_upsales = this.state.upsales;
+    if (yay == 1) {
+      new_upsales.webCheckinCost = webCheck;
+      new_upsales.webCheckinCostEur = webCheckEur;
+    } else {
+      new_upsales.webCheckinCost = 0;
+      new_upsales.webCheckinCostEur = 0;
     }
-
 
     this.setState({
       upsales: new_upsales
     });
 
-this.firstLoad();
-
-  }
-
-
+    this.firstLoad();
+  };
 
   updateTotalCost() {}
 
-
-  actionFlexTicket= yay => {
-    let flxEur =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) ;
-    let flx =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+  actionFlexTicket = yay => {
+    let flxEur =
+      this.state.upsalesPricing.flexTicket *
+      (this.state.numADT + this.state.numCNN);
+    let flx =
+      this.state.upsalesPricing.flexTicket *
+      (this.state.numADT + this.state.numCNN) *
+      this.state.currentCurrency.rate;
 
     flxEur = flxEur.toFixed(2);
     flx = flx.toFixed(2);
 
-
-
-    let new_upsales  = this.state.upsales;
-    if (yay ==1) {
-      new_upsales.flexTicketCost =flx;
-      new_upsales.flexTicketCostEur =flxEur;
-
-    }else {
-      new_upsales.flexTicketCost =0;
-      new_upsales.flexTicketCostEur =0;
+    let new_upsales = this.state.upsales;
+    if (yay == 1) {
+      new_upsales.flexTicketCost = flx;
+      new_upsales.flexTicketCostEur = flxEur;
+    } else {
+      new_upsales.flexTicketCost = 0;
+      new_upsales.flexTicketCostEur = 0;
     }
-
 
     this.setState({
       upsales: new_upsales
     });
 
-this.firstLoad();
+    this.firstLoad();
+  };
 
-  }
-
-
-  actionAirHelp= yay => {
-    let airHelpEur =this.state.upsalesPricing.airHelp * (this.state.numADT + this.state.numCNN) ;
-    let airHelp =this.state.upsalesPricing.airHelp * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+  actionAirHelp = yay => {
+    let airHelpEur =
+      this.state.upsalesPricing.airHelp *
+      (this.state.numADT + this.state.numCNN);
+    let airHelp =
+      this.state.upsalesPricing.airHelp *
+      (this.state.numADT + this.state.numCNN) *
+      this.state.currentCurrency.rate;
 
     airHelpEur = airHelpEur.toFixed(2);
     airHelp = airHelp.toFixed(2);
 
-
-
-    let new_upsales  = this.state.upsales;
-    if (yay ==1) {
-      new_upsales.airHelpCost =airHelp;
-      new_upsales.airHelpCostEur =airHelpEur;
-
-    }else {
-      new_upsales.airHelpCost =0;
-      new_upsales.airHelpCostEur =0;
+    let new_upsales = this.state.upsales;
+    if (yay == 1) {
+      new_upsales.airHelpCost = airHelp;
+      new_upsales.airHelpCostEur = airHelpEur;
+    } else {
+      new_upsales.airHelpCost = 0;
+      new_upsales.airHelpCostEur = 0;
     }
-
 
     this.setState({
       upsales: new_upsales
     });
 
-this.firstLoad();
-
-  }
+    this.firstLoad();
+  };
 
   render() {
     return (
@@ -486,10 +470,9 @@ this.firstLoad();
             firstLoad: this.firstLoad,
             purchaseInsurance: this.purchaseInsurance,
             actionBlueRibbon: this.actionBlueRibbon,
-            actionFlexTicket : this.actionFlexTicket,
+            actionFlexTicket: this.actionFlexTicket,
             actionWebCheckin: this.actionWebCheckin,
             actionAirHelp: this.actionAirHelp
-
           }
         }}
       >
