@@ -7,9 +7,7 @@ import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
 import WebCheckin from "./AirUpsales/WebCheckin";
 import FastTrackList from "./AirUpsales/FastTrack/FastTrackList";
-import FlexibleTicket from "./AirUpsales/FlexibleTicket";
 import AirHelp from "./AirUpsales/AirHelp";
-import BlueRibbon from "./AirUpsales/BlueRibbon";
 import LoungeAccess from './AirUpsales/LoungeAccess/LoungeAccess';
 import PassengerTable from './Passengers/PassengerTable';
 import Parking from "./AirUpsales/Parking/Parking";
@@ -27,7 +25,11 @@ class UpsalesPage extends Component {
 
       priceBrb = priceBrb.toFixed(2);
 
-      let brbDescr = " Pay " + priceBrb + " " + this.context.currentCurrency.code +   "  and you will receive 1000 EUR reimbursement for each lost   baggage";
+      let priceFlex = this.context.upsalesPricing.flexTicket * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
+      priceFlex = priceFlex.toFixed(2);
+
+      const brbDescr = " Pay " + priceBrb + " " + this.context.currentCurrency.code +   "  and you will receive 1000 EUR reimbursement for each lost   baggage";
+      const flexDescr = "  Pay " +  priceFlex  + " " +  this.context.currentCurrency.code + "  and you may cancel/amend your ticket for free! ";
 
         return (
             <div className="busApp">
@@ -47,10 +49,16 @@ class UpsalesPage extends Component {
 
 
                 <YesNoUpsale title="Buy Blue Ribbon Bag Insurance!" 
+                code="brb"
                 upsaleHandler={this.context.functions.actionBlueRibbon}
                 description={brbDescr}/>
 
-  <FlexibleTicket/>
+
+                <YesNoUpsale title="Flexible Ticket" 
+                 code="flxtkt"
+                upsaleHandler={this.context.functions.actionFlexTicket}
+                description={flexDescr}/>
+
 
                 {/*  <PreSeat/>
 

@@ -36,14 +36,16 @@ class YesNoUpsale extends Component {
 
                                     <div className="col-3">{this.props.title}</div>
 
-                                    <ButtonToggle target="webCheckinCollapse"
+                                    
+
+                                    <ButtonToggle target={`${this.props.code}Collapse`}
                                                   clsName={"offset-6"}/>
 
                                 </div>
                             </div>
 
 
-                            <div className="card-body collapse" id="webCheckinCollapse">
+                            <div className="card-body collapse" id={`${this.props.code}Collapse`}>
 
                                 <div className="row">
                                     <div className="col-8">

@@ -380,18 +380,18 @@ this.firstLoad();
 
 
   actionFlexTicket= yay => {
-    let brbEur =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) ;
-    let brb =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+    let flxEur =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) ;
+    let flx =this.state.upsalesPricing.flexTicket * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
 
-brbEur = brbEur.toFixed(2);
-brb = brb.toFixed(2);
+    flxEur = flxEur.toFixed(2);
+    flx = flx.toFixed(2);
 
 
 
     let new_upsales  = this.state.upsales;
     if (yay ==1) {
-      new_upsales.flexTicketCost =brb;
-      new_upsales.flexTicketCostEur =brbEur;
+      new_upsales.flexTicketCost =flx;
+      new_upsales.flexTicketCostEur =flxEur;
 
     }else {
       new_upsales.flexTicketCost =0;
@@ -417,7 +417,8 @@ this.firstLoad();
             addPassenger: this.addPassenger,
             firstLoad: this.firstLoad,
             purchaseInsurance: this.purchaseInsurance,
-            actionBlueRibbon: this.actionBlueRibbon
+            actionBlueRibbon: this.actionBlueRibbon,
+            actionFlexTicket : this.actionFlexTicket
           }
         }}
       >

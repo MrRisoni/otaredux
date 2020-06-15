@@ -46,6 +46,15 @@ class MasterSideBar extends Component {
       );
     }
 
+    if (this.context.upsales.flexTicketCost >0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Flex Ticket"
+          price={this.context.upsales.flexTicketCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
 
    /* this.props.passengers.forEach(pax => {
       if (pax.active) {

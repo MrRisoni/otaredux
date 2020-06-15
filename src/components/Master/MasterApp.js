@@ -56,14 +56,11 @@ class MasterApp extends Component {
                     </div>
                 </div>
 
-
                 <MasterContact
                     contact={this.props.contact}
                     countryList={[]}
                     editContactHandler={null}
                 />
-
-
 
 
                 <div className="row addOnePassenger show passengerListCollapse">
