@@ -240,6 +240,12 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(
       this.state.upsales.blueRibbonCost
     );
+    ttl += parseFloat(
+      this.state.upsales.webCheckinCost
+    );
+    ttl += parseFloat(
+      this.state.upsales.flexTicketCost
+    );
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -376,6 +382,36 @@ this.firstLoad();
 
 
 
+  actionWebCheckin= yay => {
+    let webCheckEur =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) ;
+    let webCheck =this.state.upsalesPricing.blueRibbon * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+
+    webCheckEur = webCheckEur.toFixed(2);
+    webCheck = webCheck.toFixed(2);
+
+
+
+    let new_upsales  = this.state.upsales;
+    if (yay ==1) {
+      new_upsales.webCheckinCost =webCheck;
+      new_upsales.webCheckinCostEur =webCheckEur;
+
+    }else {
+      new_upsales.webCheckinCost =0;
+      new_upsales.webCheckinCostEur =0;
+    }
+
+
+    this.setState({
+      upsales: new_upsales
+    });
+
+this.firstLoad();
+
+  }
+
+
+
   updateTotalCost() {}
 
 
@@ -418,7 +454,8 @@ this.firstLoad();
             firstLoad: this.firstLoad,
             purchaseInsurance: this.purchaseInsurance,
             actionBlueRibbon: this.actionBlueRibbon,
-            actionFlexTicket : this.actionFlexTicket
+            actionFlexTicket : this.actionFlexTicket,
+            actionWebCheckin: this.actionWebCheckin
           }
         }}
       >

@@ -56,6 +56,17 @@ class MasterSideBar extends Component {
       );
     }
 
+
+    if (this.context.upsales.webCheckinCost >0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Web Checkin"
+          price={this.context.upsales.webCheckinCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
    /* this.props.passengers.forEach(pax => {
       if (pax.active) {
 
@@ -212,44 +223,10 @@ x
     }
 
 
-      if (this.props.hasFlexibleTicket === true) {
-      otherUpsalesDiv.push(<SideBarUpsale
-        title="Flexible Ticket"
-        price={this.overallFlexTicketCost}
-        currency={this.props.currency}
-      />);
-    }
+    
 
-      if (this.props.hasWebCheckin === true) {
-
-          otherUpsalesDiv.push(<SideBarUpsale
-              title="Web Checkin"
-              price={this.props.overallWebCheckinCost}
-              currency={this.props.currency}
-          />);
-      }
-
-
-      if (this.props.hasAirHelp === true) {
-        otherUpsalesDiv.push(
-          <SideBarUpsale
-            title="AirHelp"
-            price={this.props.overallAirHelpCost}
-            currency={this.props.currency}
-          />,
-        );
-      }
-
-
-    if (this.props.hasBlueRibbon === true) {
-      otherUpsalesDiv.push(
-        <SideBarUpsale
-          title="Blue Ribbon"
-          price={this.props.overallBlueRibbonCost}
-          currency={this.props.currency}
-        />,
-      );
-    }
+      
+    
 
       totalPreseatPrice *= (this.props.currency.rate).toFixed(2);
     if (totalPreseatPrice >0) {

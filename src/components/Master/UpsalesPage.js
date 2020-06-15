@@ -5,9 +5,7 @@ import MasterSideBar from "./SideBar/MasterSideBar";
 import PreSeat from "./AirUpsales/Preseat/PreSeat";
 import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
-import WebCheckin from "./AirUpsales/WebCheckin";
 import FastTrackList from "./AirUpsales/FastTrack/FastTrackList";
-import AirHelp from "./AirUpsales/AirHelp";
 import LoungeAccess from './AirUpsales/LoungeAccess/LoungeAccess';
 import PassengerTable from './Passengers/PassengerTable';
 import Parking from "./AirUpsales/Parking/Parking";
@@ -28,8 +26,16 @@ class UpsalesPage extends Component {
       let priceFlex = this.context.upsalesPricing.flexTicket * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
       priceFlex = priceFlex.toFixed(2);
 
+
+      let priceWebCheck = this.context.upsalesPricing.webCheckin * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
+      priceWebCheck = priceWebCheck.toFixed(2);
+
+
       const brbDescr = " Pay " + priceBrb + " " + this.context.currentCurrency.code +   "  and you will receive 1000 EUR reimbursement for each lost   baggage";
       const flexDescr = "  Pay " +  priceFlex  + " " +  this.context.currentCurrency.code + "  and you may cancel/amend your ticket for free! ";
+      const webCheckDescr = "  Pay " +  priceWebCheck  + " " +  this.context.currentCurrency.code + " and we will do the checkin for you and send you the boarding passes ";
+      const airHelpDescr = "  Pay " +  priceFlex  + " " +  this.context.currentCurrency.code + "  and you may cancel/amend your ticket for free! ";
+
 
         return (
             <div className="busApp">
@@ -60,14 +66,27 @@ class UpsalesPage extends Component {
                 description={flexDescr}/>
 
 
+                <YesNoUpsale title="Web checkin" 
+                code="webchck"
+                upsaleHandler={this.context.functions.actionWebCheckin}
+                description={webCheckDescr}/>
+
+
+
+                <YesNoUpsale title="Air Help" 
+                code="airhlp"
+                upsaleHandler={this.context.functions.actionFlexTicket}
+                description={airHelpDescr}/>
+
+
                 {/*  <PreSeat/>
 
                 <FastTrackList/>
-                <WebCheckin/>
+             
                 <LoungeAccess/>
                 <Parking/>
 
-                <AirHelp/>
+              
               */}
             </div>
         );
