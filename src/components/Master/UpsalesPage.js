@@ -31,10 +31,13 @@ class UpsalesPage extends Component {
       priceWebCheck = priceWebCheck.toFixed(2);
 
 
+      let priceAirHelp = this.context.upsalesPricing.airHelp * this.context.currentCurrency.rate * (this.context.numADT + this.context.numCNN);
+      priceAirHelp = priceAirHelp.toFixed(2);
+
       const brbDescr = " Pay " + priceBrb + " " + this.context.currentCurrency.code +   "  and you will receive 1000 EUR reimbursement for each lost   baggage";
       const flexDescr = "  Pay " +  priceFlex  + " " +  this.context.currentCurrency.code + "  and you may cancel/amend your ticket for free! ";
       const webCheckDescr = "  Pay " +  priceWebCheck  + " " +  this.context.currentCurrency.code + " and we will do the checkin for you and send you the boarding passes ";
-      const airHelpDescr = "  Pay " +  priceFlex  + " " +  this.context.currentCurrency.code + "  and you may cancel/amend your ticket for free! ";
+      const airHelpDescr = "  Pay " +  priceAirHelp  + " " +  this.context.currentCurrency.code + "    and you may get  compensation for every delayed flight ";
 
 
         return (
@@ -73,9 +76,9 @@ class UpsalesPage extends Component {
 
 
 
-                <YesNoUpsale title="Air Help" 
+                <YesNoUpsale title="Flight Delays recompansation" 
                 code="airhlp"
-                upsaleHandler={this.context.functions.actionFlexTicket}
+                upsaleHandler={this.context.functions.actionAirHelp}
                 description={airHelpDescr}/>
 
 

@@ -67,6 +67,17 @@ class MasterSideBar extends Component {
       );
     }
 
+
+    if (this.context.upsales.airHelpCost >0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Air Help"
+          price={this.context.upsales.airHelpCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
    /* this.props.passengers.forEach(pax => {
       if (pax.active) {
 

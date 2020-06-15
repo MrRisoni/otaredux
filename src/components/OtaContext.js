@@ -246,6 +246,9 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(
       this.state.upsales.flexTicketCost
     );
+    ttl += parseFloat(
+      this.state.upsales.airHelpCost
+    );
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -443,6 +446,35 @@ this.firstLoad();
 
   }
 
+
+  actionAirHelp= yay => {
+    let airHelpEur =this.state.upsalesPricing.airHelp * (this.state.numADT + this.state.numCNN) ;
+    let airHelp =this.state.upsalesPricing.airHelp * (this.state.numADT + this.state.numCNN) * this.state.currentCurrency.rate;
+
+    airHelpEur = airHelpEur.toFixed(2);
+    airHelp = airHelp.toFixed(2);
+
+
+
+    let new_upsales  = this.state.upsales;
+    if (yay ==1) {
+      new_upsales.airHelpCost =airHelp;
+      new_upsales.airHelpCostEur =airHelpEur;
+
+    }else {
+      new_upsales.airHelpCost =0;
+      new_upsales.airHelpCostEur =0;
+    }
+
+
+    this.setState({
+      upsales: new_upsales
+    });
+
+this.firstLoad();
+
+  }
+
   render() {
     return (
       <DataContext.Provider
@@ -455,7 +487,9 @@ this.firstLoad();
             purchaseInsurance: this.purchaseInsurance,
             actionBlueRibbon: this.actionBlueRibbon,
             actionFlexTicket : this.actionFlexTicket,
-            actionWebCheckin: this.actionWebCheckin
+            actionWebCheckin: this.actionWebCheckin,
+            actionAirHelp: this.actionAirHelp
+
           }
         }}
       >
