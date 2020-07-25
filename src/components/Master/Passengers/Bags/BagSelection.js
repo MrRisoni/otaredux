@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {DataContext} from "../../../OtaContext";
 
 
 class BagSelection extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -95,18 +98,17 @@ class BagSelection extends Component {
 -
           </button>
 
-          {this.props.bagData.weight}
+      
+          {(this.props.bagData.costEur * this.context.currentCurrency.rate).toFixed(2)}
           {' '}
-          {(this.props.bagData.price * this.props.currency.rate).toFixed(2)}
-          {' '}
-          {this.props.currency.code}
+          {this.context.currentCurrency.code}
 
         </div>
         <div className="col-2">
 
 
                      x
-          {this.getBagCount()}
+          {}
         </div>
       </div>);
   }

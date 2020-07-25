@@ -10,7 +10,6 @@ class BagLeg extends Component {
   render() {
     const legTitle = (this.props.leg == 0) ? 'Departure' : 'Return';
 
-
     return (
       <section>
         <div className="row">
@@ -21,15 +20,10 @@ class BagLeg extends Component {
                 {legTitle}
                 {' '}
 
-
-                            (Max
-                {this.props.limitBags}
-
-
-                            )
+                 (Max {this.props.limitBags})
               </div>
               <div className="card-body">
-                {this.props.bagsAir.filter(bg => this.props.allowedBags.indexOf(bg.key) > -1).map(
+                {this.props.bagList.filter(bg => this.props.leg == bg.legId).map(
                   bgItem => (
                     <BagSelection
                       bagData={bgItem}

@@ -57,6 +57,7 @@ class BagComponent extends Component {
                   key={kk}
                   leg={kk}
                   limitBags={2}
+                  bagList={this.context.BagsRsc}
                   paxId={this.props.paxId}
                 />
               </div>
