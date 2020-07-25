@@ -248,6 +248,7 @@ class MasterPassenger extends Component {
                       {(this.props.passenger.ptc !== 'INF')
                                     &&  <BagComponent
                                         paxId={this.props.passenger.id}
+                                        ptc={this.props.passenger.ptc}
                                       />
                       }
 

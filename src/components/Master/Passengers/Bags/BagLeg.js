@@ -28,6 +28,7 @@ class BagLeg extends Component {
                     <BagSelection
                       bagData={bgItem}
                       key={bgItem.key}
+                      ptc={this.props.ptc}
                       limitBags={this.props.limitBags}
                       legId={this.props.leg}
                       paxId={this.props.paxId}

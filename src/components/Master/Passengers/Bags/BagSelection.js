@@ -77,6 +77,10 @@ class BagSelection extends Component {
   }
 
   render() {
+    console.log('bag data');
+    console.log(this.props.bagData);
+    let priceEur = this.props.bagData.pricing.filter(prc => prc.age==this.props.ptc)[0].costEur;
+    
     return (
       <div className="row">
         <div className="col-6">
@@ -99,7 +103,7 @@ class BagSelection extends Component {
           </button>
 
       
-          {(this.props.bagData.costEur * this.context.currentCurrency.rate).toFixed(2)}
+          {(priceEur * this.context.currentCurrency.rate).toFixed(2)}
           {' '}
           {this.context.currentCurrency.code}
 
