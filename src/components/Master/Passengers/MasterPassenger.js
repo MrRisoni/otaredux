@@ -9,9 +9,12 @@ import Insurance from './Insurance/Insurance';
 import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from './MasterPassport';
 //import MilesCards from './Miles/MilesCards';
+import {DataContext} from "../../OtaContext";
 
 
 class MasterPassenger extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
 
@@ -80,7 +83,7 @@ class MasterPassenger extends Component {
   }
 
   removeMe() {
-    this.props.removePaxHandler(this.props.passenger.id, this.props.passenger.type);
+    this.context.functions.removePassenger(this.props.passenger.id);
   }
 
 

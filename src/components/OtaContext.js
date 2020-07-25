@@ -196,34 +196,98 @@ class OtaContextProvider extends Component {
     });
   };
 
+
+  removePassenger = paxId => {
+    const self = this;
+    console.log(paxId);
+    let newPaxes = this.state.passengers.filter(pax => {
+       if (pax.id != paxId) {
+         console.log(pax.id + ' ' + paxId);
+         return pax;
+       }
+    })
+    // recalc humanIds and nums per ptc
+    let humanId =1;
+    let adts =0;
+    newPaxes.forEach(px => {
+        px.humanId= humanId;
+        humanId++;
+        if (px.ptc == 'ADT') {
+          adts++;
+        }
+    })
+ 
+    this.setState({
+      passengers: newPaxes,
+      numADT: adts
+
+    });
+
+    this.firstLoad();
+  } 
+
   addPassenger = () => {
     const self = this;
 
     console.log(this.state);
+    let newHumanId = this.state.passengers.filter(pax => pax.active).length +1
 
-    let newPaxObj = {
-      id: self.state.passengers.length,
-      humanId: 1,
+    let newPaxObj =  {
+      id: this.state.passengers.length,
+      humanId: newHumanId,
       active: true,
       ptc: "ADT",
       name: "",
       surname: "",
       gender: "",
       dob: "",
+      meals: [],
+      pricing: [
+        {
+          legId: 0,
+          class: "Y",
+          fareEur: 0,
+          taxEur: 0,
+          ttl: 0
+        },
+        {
+          legId: 1,
+          class: "Y",
+          fareEur: 0,
+          taxEur: 0,
+          ttl: 0
+        }
+      ],
       passport: {
         issueCountry: "",
         nationality: "",
         expiresAt: "",
         passNo: ""
+      },
+      upsalesData: {
+        insurance: {
+          code: "",
+          cost: 0,
+          costEur: 0
+        },
+        meals: [
+          { leg: 0, choice: "", cost: 0, costEur: 0 },
+          { leg: 1, choice: "", cost: 0, costEur: 0 }
+        ],
+        preseating: {
+          totalCost: 0,
+          totalEur: 0,
+          choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 }]
+        }
       }
-    };
+    }
 
     let paxes = self.state.passengers;
     let adts = self.state.numADT++;
     paxes.push(newPaxObj);
 
     this.setState({
-      passngers: paxes,
+      passengers: paxes,
       numADT: adts
     });
 
@@ -469,6 +533,7 @@ class OtaContextProvider extends Component {
           functions: {
             updateChosenLang: this.updateChosenLang,
             addPassenger: this.addPassenger,
+            removePassenger: this.removePassenger,
             firstLoad: this.firstLoad,
             purchaseInsurance: this.purchaseInsurance,
             actionBlueRibbon: this.actionBlueRibbon,
