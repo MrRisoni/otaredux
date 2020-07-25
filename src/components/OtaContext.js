@@ -197,6 +197,48 @@ class OtaContextProvider extends Component {
   };
 
 
+  editPassenger = data => {
+     console.log(data);
+    
+
+     let newPaxes = this.state.passengers.map(px => {
+        if (px.id != data.paxId) {
+          return px;
+        }
+        else {
+          return  {
+            ...px,
+            ptc: data.newPtc
+          };
+        }
+     })
+     let adt =0;
+     let cnn =0;
+     let inf =0;
+
+     this.state.passengers.forEach(px => {
+       if (px.active) {
+         if (px.ptc == 'ADT') {
+           adt++;
+         }
+         if (px.ptc == 'CNN') {
+          cnn++;
+        }
+        if (px.ptc == 'INF') {
+          inf++;
+        }
+       }
+     });
+
+     this.setState({
+      passengers: newPaxes,
+      numADT: adt,
+      numCNN : cnn,
+      numINF: inf    
+    });
+  }
+
+
   removePassenger = paxId => {
     const self = this;
     console.log(paxId);
@@ -208,18 +250,34 @@ class OtaContextProvider extends Component {
     })
     // recalc humanIds and nums per ptc
     let humanId =1;
-    let adts =0;
     newPaxes.forEach(px => {
         px.humanId= humanId;
-        humanId++;
-        if (px.ptc == 'ADT') {
-          adts++;
-        }
+        humanId++;       
     })
+
+    let adt =0;
+    let cnn =0;
+    let inf =0;
+
+    this.state.passengers.forEach(px => {
+      if (px.active) {
+        if (px.ptc == 'ADT') {
+          adt++;
+        }
+        if (px.ptc == 'CNN') {
+         cnn++;
+       }
+       if (px.ptc == 'INF') {
+         inf++;
+       }
+      }
+    });
  
     this.setState({
       passengers: newPaxes,
-      numADT: adts    
+      numADT: adt,
+      numCNN : cnn,
+      numINF: inf     
     });
 
     this.firstLoad();
@@ -537,6 +595,7 @@ class OtaContextProvider extends Component {
             updateChosenLang: this.updateChosenLang,
             addPassenger: this.addPassenger,
             removePassenger: this.removePassenger,
+            editPassenger:this.editPassenger,
             firstLoad: this.firstLoad,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
