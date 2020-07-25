@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {DataContext} from "../../OtaContext";
 
-
 class FareTaxes extends Component {
 
     static contextType = DataContext;
-
 
     render() {
 
@@ -27,7 +25,7 @@ class FareTaxes extends Component {
                     singleRow.push(<td>Leg</td>);
                     singleRow.push(<td>{prices.ptc}</td>);
                     singleRow.push(<td>{prices.fareEur}</td>);
-                    singleRow.push(<td>{prices.ptc}</td>);
+                    singleRow.push(<td>{prices.taxesEur}</td>);
 
                     rows.push(singleRow);
                 }
@@ -46,14 +44,10 @@ class FareTaxes extends Component {
                 </thead>
                 <tbody>
                 {rows.map(rw => (
-
                     <tr>{rw}</tr>
-
-
                 ))}
                 </tbody>
             </table>
-
         </section>)
     }
 }

@@ -64,7 +64,7 @@ class Insurance extends Component {
           <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
 
             <div className="row">
-              {this.context.InsuranceRsc.map(ins => (
+              {this.context.upsalesPricing.Insurance.map(ins => (
                 <InsuranceOption
                   key={ins.id}
                   insData={ins}

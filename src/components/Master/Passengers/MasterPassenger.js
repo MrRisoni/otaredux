@@ -7,9 +7,8 @@ import Error from '../../Common/Error';
 import Insurance from './Insurance/Insurance';
 
 import ValidatePassengers from '../../../ValidatePassengers';
-//import MasterPassport from './MasterPassport';
+import MasterPassport from './MasterPassport';
 //import MilesCards from './Miles/MilesCards';
-
 
 
 class MasterPassenger extends Component {
@@ -74,7 +73,6 @@ class MasterPassenger extends Component {
         break;
     }
 
-
     this.setState({
       minBirthDate: minDate,
       ageGroup: ev.target.value,
@@ -127,21 +125,23 @@ class MasterPassenger extends Component {
                 <div className="row">
 
                   <div className="col-2">
-                    Passenger
-
-                                        #
-                    {this.props.passenger.humanId}
+                    Passenger  #{this.props.passenger.humanId}
                   </div>
 
-                  <div className="col-7">
+                  <div className="col-4">
                     <select defaultValue="ADT" className="form-control" onChange={this.handleAgeGroupChange}>
                       <option key="" value="">Select Type</option>
-                      <option key="ADT" value="ADT">
-                            {' '}
-Adult
-                          </option>
+                      <option key="ADT" value="ADT">Adult</option>
                       <option key="CNN" value="CNN">Child</option>
                       <option key="INF" value="INF">Infant</option>
+                    </select>
+                  </div>
+
+                  <div className="col-3">
+                    <select className="form-control" onChange={this.handleGenderChange}>
+                      <option key="" value="">Select Gender</option>
+                      <option key="M" value="M">Male</option>
+                      <option key="F" value="F">Female</option>
                     </select>
                   </div>
 
@@ -162,22 +162,6 @@ Adult
               </div>
 
               <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
-
-
-                <div className="row">
-
-
-                  <div className="col-3">
-                    <select className="form-control" onChange={this.handleGenderChange}>
-                      <option key="" value="">Select Gender</option>
-                      <option key="M" value="M">Male</option>
-                      <option key="F" value="F">Female</option>
-                    </select>
-                  </div>
-
-
-                </div>
-
 
                 <div className="row">
 
@@ -230,7 +214,7 @@ Adult
                 </div>
 
 
-                  {/* <MasterPassport countryList={this.props.asyncData.countries} /> */}
+                 <MasterPassport paxId={this.props.passenger.id} />
 
 
                   {/*
@@ -247,7 +231,7 @@ Adult
                                  &&  <Insurance
                                     pax={this.props.passenger}
                                   />
-                                 }
+                  }
 
 
                  </div>
@@ -260,7 +244,6 @@ Adult
                   <div className="col-4 offset-4">
                     <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
                      Remove Passenger
-
                     </button>
                   </div>
                 </div>

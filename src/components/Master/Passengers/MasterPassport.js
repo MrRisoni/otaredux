@@ -2,8 +2,12 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import {DataContext} from "../../OtaContext";
+
 
 class MasterPassport extends Component {
+    static contextType = DataContext;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,9 +17,7 @@ class MasterPassport extends Component {
         };
 
         this.changeExpiry = this.changeExpiry.bind(this);
-
     }
-
 
     changeExpiry(date) {
         this.setState({
@@ -23,33 +25,28 @@ class MasterPassport extends Component {
         });
     }
 
-
     render() {
         let listDiv = [];
-        this.props.countryList.forEach( (val, idx) => {
-
+        this.context.CountriesRsc.forEach( (val, idx) => {
             listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
-
         });
-
 
         return (
             <section>
 
             <div className="passportDiv">
-
                 <br/>
                 <div className="row">
                     <div className="col-6">
-                        <label htmlFor="birthday"> <Translate value="passport.nationality" /></label>
+                        <label htmlFor="birthday"> passport.nationality</label>
                         <select className="form-control">
-                            <option key="" value=""> {I18n.t("passport.nationality")}</option>
+                            <option key="" value=""> passport.nationality</option>
                             {listDiv}
                         </select>
                     </div>
 
                     <div className="col-6">
-                        <label htmlFor="birthday"><Translate value="passport.issue" /></label>
+                        <label htmlFor="birthday">passport.issue</label>
                         <select className="form-control">
                             <option key="" value="">Issue Country</option>
                             {listDiv}
@@ -62,14 +59,14 @@ class MasterPassport extends Component {
                 <div className="row">
 
                     <div className="col-6">
-                        <label htmlFor="birthday"><Translate value="passport.passportNo" /></label>
+                        <label htmlFor="birthday">passport.passportNo</label>
                         <input type="text" placeholder="Passport No"
                                className="form-control"/>
                     </div>
 
                     {/* min date should be fly date */}
                     <div className="col-6">
-                        <label htmlFor="birthday"><Translate value="passport.expireDate" /></label>
+                        <label htmlFor="birthday">passport.expireDate</label>
                         <DatePicker className="form-control"
                                     dateFormat="DD/MM/YYYY"
                                     minDate={this.state.minExpiryDate}
