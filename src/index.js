@@ -7,11 +7,7 @@ import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 
 import OtaContextProvider from "./components/OtaContext";
-/*
 
-
-import './main.scss';
-*/
 import MasterApp from "./components/Master/MasterApp";
 import UpsalesPage from "./components/Master/UpsalesPage";
 

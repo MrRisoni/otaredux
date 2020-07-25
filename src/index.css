@@ -194,18 +194,12 @@ body { padding: 40px; }
 }
 
 
-.btnPlusMinusTiny {
-}
 
-.brandYes {
-    color:blue;
-    font-weight: bold;
-}
-
-.brandNope {
-    color:red;
-}
 
 .exampleRadios {
     margin-left: 12px;
+}
+
+.btnToggle:hover {
+    transform: scale(1.2);
 }

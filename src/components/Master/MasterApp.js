@@ -8,6 +8,7 @@ import FareTaxes from './Segments/FareTaxes';
 import {DataContext} from "../OtaContext";
 
 import MasterContact from './Passengers/MasterContact';
+import UpsalesPage from "./UpsalesPage";
 
 
 class MasterApp extends Component {
@@ -29,9 +30,7 @@ class MasterApp extends Component {
     }
 
     componentDidMount() {
-       // this.props.fetchCountriesAction();
-
-      this.context.functions.firstLoad();
+        this.context.functions.firstLoad();
     }
 
     render() {
@@ -62,6 +61,8 @@ class MasterApp extends Component {
                     editContactHandler={null}
                 />
 
+                <UpsalesPage product="air" />
+                        
 
                 <div className="row addOnePassenger show passengerListCollapse">
                     <div className="col-4 offset-4">
