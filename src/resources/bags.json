@@ -3,30 +3,54 @@
     "id": 0,
     "legId": 0,
     "key": "xfsfgrdtrtXFSCFGnotY",
-    "pricing": [
-      {
-        "costEur": 18,
-        "age": "ADT"
-      },
-      {
-        "costEur": 12,
-        "age": "CNN"
-      }
-    ]
+    "pricing": {
+      "firstBag" :  [
+        {
+          "costEur": 28,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 20,
+          "ptc": "CNN"
+        }
+      ],
+      "secondBag" :  [
+        {
+          "costEur": 38,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 29,
+          "ptc": "CNN"
+        }
+      ]
+    }
   },
   {
     "id": 0,
     "legId": 1,
     "key": "xfsfgrdtrtWCFXFS",
-    "pricing": [
-      {
-        "costEur": 28,
-        "age": "ADT"
-      },
-      {
-        "costEur": 20,
-        "age": "CNN"
-      }
-    ]
+    "pricing": {
+      "firstBag" :  [
+        {
+          "costEur": 28,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 20,
+          "ptc": "CNN"
+        }
+      ],
+      "secondBag" :  [
+        {
+          "costEur": 38,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 29,
+          "ptc": "CNN"
+        }
+      ]
+    }
   }
 ]

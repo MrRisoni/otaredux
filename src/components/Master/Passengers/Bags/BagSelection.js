@@ -14,14 +14,7 @@ class BagSelection extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  checkLimit() {
-    if (this.getTotalBagCount() === this.props.limitBags) {
-      this.setState({ disabled: true });
-    } else {
-      this.setState({ disabled: false });
-    }
-  }
-
+ 
   handleClick() {
     const bgCount = this.getTotalBagCount();
     if ((bgCount + 1) <= this.props.limitBags) {
@@ -31,7 +24,6 @@ class BagSelection extends Component {
         legId: this.props.legId,
       });
     }
-    this.checkLimit();
   }
 
 
@@ -42,78 +34,39 @@ class BagSelection extends Component {
       legId: this.props.legId,
     });
 
-    this.checkLimit();
   }
 
-
-  getTotalBagCount() {
-    let bagCountTotal = 0;
-
-    this.props.purchasedBags.forEach(purchasedBag => {
-      if (purchasedBag.legId === this.props.legId) {
-        if (purchasedBag.paxId === this.props.paxId) {
-          bagCountTotal++;
-        }
-      }
-    });
-
-    return bagCountTotal;
-  }
-
-  getBagCount() {
-    let bagCount = 0; // bag count for this passenger ,leg and bag
-
-    this.props.purchasedBags.forEach(purchasedBag => {
-      if (purchasedBag.bagId === this.props.bagData.id) {
-        if (purchasedBag.legId === this.props.legId) {
-          if (purchasedBag.paxId === this.props.paxId) {
-            bagCount++;
-          }
-        }
-      }
-    });
-
-    return bagCount;
-  }
 
   render() {
     console.log('bag data');
     console.log(this.props.bagData);
-    let priceEur = this.props.bagData.pricing.filter(prc => prc.age==this.props.ptc)[0].costEur;
-    
+    let priceOneBags = 0;
+    let priceTwoBags = 0
+
+    console.log('this.props.bagData');
+    console.log(this.props.bagData);
+
+    priceOneBags = this.props.bagData.pricing['firstBag'].filter(bg => bg.ptc == this.props.ptc)[0].costEur;
+    priceOneBags *= this.context.currentCurrency.rate;
+    priceOneBags = priceOneBags.toFixed(2);
+
+    priceTwoBags += this.props.bagData.pricing['secondBag'].filter(bg => bg.ptc == this.props.ptc)[0].costEur;
+    priceTwoBags *= this.context.currentCurrency.rate;
+    priceTwoBags = priceTwoBags.toFixed(2);
+
     return (
       <div className="row">
         <div className="col-6">
 
-          <button
-            onClick={this.handleClick}
-            disabled={false}
-            className="btn-primary btn btnPlusMinusBags"
-          >
-
-+
-          </button>
-
-          <button
-            onClick={this.handleRemove}
-            className="btn-danger btn btnPlusMinusBags"
-          >
-
--
-          </button>
-
-      
-          {(priceEur * this.context.currentCurrency.rate).toFixed(2)}
-          {' '}
-          {this.context.currentCurrency.code}
+         <select defaultValue="0" className="form-control">
+            <option value="0"></option>
+            <option value="1">One Bag {priceOneBags}   {this.context.currentCurrency.code}</option>
+            <option value="2" >Two Bags {priceTwoBags}  {this.context.currentCurrency.code}</option>
+          </select>
+       
 
         </div>
-        <div className="col-2">
-
-
-                     x
-          {}
-        </div>
+        
       </div>);
   }
 }
