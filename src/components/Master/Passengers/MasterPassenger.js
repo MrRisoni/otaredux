@@ -226,31 +226,29 @@ class MasterPassenger extends Component {
                                 }
 */}
 
-<div>
-                 <br />
-                 <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
+                <div>                
+                    <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
 
-                 {(this.props.passenger.ptc !== 'INF')
-                                 &&  <Insurance
-                                    pax={this.props.passenger}
-                                  />
-                  }
-
-
+                    {(this.props.passenger.ptc !== 'INF')
+                                    &&  <Insurance
+                                        pax={this.props.passenger}
+                                      />
+                      }
                  </div>
 
               </div>
 
-
-              <div className="card-footer">
-                <div className="row">
-                  <div className="col-4 offset-4">
-                    <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
-                     Remove Passenger
-                    </button>
+              {(this.context.activePaxesLen > 1) && 
+                <div className="card-footer">
+                  <div className="row">
+                    <div className="col-4 offset-4">
+                      <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
+                      Remove Passenger
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              }
 
             </div>
 
