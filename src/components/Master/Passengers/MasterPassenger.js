@@ -116,6 +116,14 @@ class MasterPassenger extends Component {
   }
 
   render() {
+
+    let ptcOptions = [];
+    ptcOptions.push(<option key="ADT" value="ADT">Adult</option>);
+    if (this.context.functions.getActivePaxesLen() > 1)  {
+      ptcOptions.push(<option key="CNN" value="CNN">Child</option>)
+      ptcOptions.push(<option key="INF" value="INF">Infant</option>)
+    } 
+
     return (
       <section>
         <div className="row passengerCompo show passengerListCollapse">
@@ -134,9 +142,7 @@ class MasterPassenger extends Component {
                   <div className="col-4">
                     <select defaultValue="ADT" className="form-control" onChange={this.handleAgeGroupChange}>
                       <option key="" value="">Select Type</option>
-                      <option key="ADT" value="ADT">Adult</option>
-                      <option key="CNN" value="CNN">Child</option>
-                      <option key="INF" value="INF">Infant</option>
+                       {ptcOptions}
                     </select>
                   </div>
 
@@ -238,7 +244,7 @@ class MasterPassenger extends Component {
 
               </div>
 
-              {(this.context.activePaxesLen > 1) && 
+              {(this.context.functions.getActivePaxesLen() > 1) && 
                 <div className="card-footer">
                   <div className="row">
                     <div className="col-4 offset-4">

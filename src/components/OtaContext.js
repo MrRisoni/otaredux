@@ -71,7 +71,6 @@ class OtaContextProvider extends Component {
     numADT: 1,
     numCNN: 0,
     numINF: 0,
-    activePaxesLen :1,
     passengers: [
       {
         id: 0,
@@ -220,8 +219,7 @@ class OtaContextProvider extends Component {
  
     this.setState({
       passengers: newPaxes,
-      numADT: adts,
-      activePaxesLen: this.getActivePaxesLen()
+      numADT: adts    
     });
 
     this.firstLoad();
@@ -290,7 +288,6 @@ class OtaContextProvider extends Component {
     this.setState({
       passengers: paxes,
       numADT: adts,
-      activePaxesLen: this.getActivePaxesLen()
     });
 
     this.firstLoad();
@@ -541,6 +538,7 @@ class OtaContextProvider extends Component {
             addPassenger: this.addPassenger,
             removePassenger: this.removePassenger,
             firstLoad: this.firstLoad,
+            getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
             actionBlueRibbon: this.actionBlueRibbon,
             actionFlexTicket: this.actionFlexTicket,
