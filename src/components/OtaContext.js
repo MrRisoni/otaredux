@@ -7,12 +7,13 @@ import French from "./../locales/fr.json";
 import Swedish from "./../locales/sv.json";
 import English from "./../locales/en.json";
 
-import BrandedRsc from "./../resources/branded.json";
 import ItineraryRsc from "./../resources/itinerary.json";
 import InsurancesRsc from "./../resources/insurances.json";
 import FastTrackRsc from "./../resources/fastTrack.json";
 import LoungeRsc from "./../resources/lounge.json";
 import CountriesRsc from "./../resources/countries.json";
+import BagsRsc from "./../resources/bags.json";
+
 
 export const DataContext = createContext();
 
@@ -32,7 +33,7 @@ class OtaContextProvider extends Component {
     },
     ItineraryRsc: ItineraryRsc,
     CountriesRsc:CountriesRsc,
-    BrandedRsc:BrandedRsc,
+    BagsRsc:BagsRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,
       Lounge: LoungeRsc,

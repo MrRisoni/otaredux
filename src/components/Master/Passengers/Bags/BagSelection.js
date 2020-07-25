@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import * as actsBags from '../../../../actions/master/actionsBags';
-
 
 class BagSelection extends Component {
   constructor(props) {
@@ -116,4 +114,4 @@ class BagSelection extends Component {
 
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(BagSelection);
+export default BagSelection;

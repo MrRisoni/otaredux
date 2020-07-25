@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ItineraryData from "./Segments/ItineraryData";
 import MasterSideBar from "./SideBar/MasterSideBar";
-import BrandedFares from './AirUpsales/Branded/BrandedFares';
 import PreSeat from "./AirUpsales/Preseat/PreSeat";
 import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
@@ -80,7 +79,6 @@ class UpsalesPage extends Component {
           </div>
         </div>
 
-        <BrandedFares/>
 
         <YesNoUpsale
           title="Buy Blue Ribbon Bag Insurance!"

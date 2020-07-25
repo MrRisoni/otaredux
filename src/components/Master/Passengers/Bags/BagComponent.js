@@ -1,40 +1,18 @@
 import React, { Component } from 'react';
 import BagLeg from './BagLeg';
+import {DataContext} from "../../../OtaContext";
+
 
 class BagComponent extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
   }
 
   render() {
     const keys = [0, 1];
-    console.log('cabin slection ');
-    console.log(this.props.cabinSelection);
 
-    const thisPaxCabins = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
-
-    const mrktCarriersList = Array.prototype.concat.apply([], this.props.trip.map(legs => legs.segments)).map(sgx => sgx.mrktCarrier);
-
-    const limitsArray = [];
-    for (let cbn = 0; cbn < thisPaxCabins.length; cbn++) {
-      const carrierSeg = mrktCarriersList[cbn];
-
-      const thisClassCarrierLimit = this.props.getBagsLimit.filter(lim => (lim.cabin == thisPaxCabins[cbn].cabin && lim.airline == mrktCarriersList[cbn]))[0].limit;
-      limitsArray.push(thisClassCarrierLimit);
-    }
-
-    const limitBags = Math.min.apply(Math, limitsArray);
-
-
-    let bestCabin = ''; // most restrictive cabin
-    thisPaxCabins.forEach((sg) => {
-      const thisClassLimit = this.props.getBagsLimit.filter(lim => lim.cabin == sg.cabin)[0].limit;
-        bestCabin = sg.cabin;
-
-    });
-
-
-    const allowedBags = this.props.bagsAir.filter(bg => bg.classes.indexOf(bestCabin) > -1).map(itm => itm.key);
 
     return (
       <section>
@@ -46,7 +24,7 @@ class BagComponent extends Component {
               <div className="row">
                 <div className="col-6">
 
-                  <Translate value="upsales.PurchaseBags" />
+                  upsales.PurchaseBags
                 </div>
                 <div className="col-2">
                   <i className="fas fa-suitcase" />
@@ -61,7 +39,7 @@ class BagComponent extends Component {
                     aria-controls="collapseExample"
                   >
 
-                    <Translate value="general.Toggle" />
+                    general.Toggle
                   </button>
                 </div>
 
@@ -78,9 +56,7 @@ class BagComponent extends Component {
                 <BagLeg
                   key={kk}
                   leg={kk}
-                  limitBags={limitBags}
-                  allowedBags={allowedBags}
-                  paxData={this.props.paxData}
+                  limitBags={2}
                   paxId={this.props.paxId}
                 />
               </div>
@@ -96,4 +72,4 @@ class BagComponent extends Component {
 
 
 
-export default connect(mapStateToProps)(BagComponent);
+export default BagComponent;

@@ -53,4 +53,4 @@ class BagLeg extends Component {
 
 
 
-export default connect(mapStateToProps)(BagLeg);
+export default BagLeg;

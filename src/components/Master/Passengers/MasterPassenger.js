@@ -10,7 +10,7 @@ import ValidatePassengers from '../../../ValidatePassengers';
 import MasterPassport from './MasterPassport';
 //import MilesCards from './Miles/MilesCards';
 import {DataContext} from "../../OtaContext";
-
+import BagComponent from "./Bags/BagComponent";
 
 class MasterPassenger extends Component {
   static contextType = DataContext;
@@ -244,6 +244,15 @@ class MasterPassenger extends Component {
                                         pax={this.props.passenger}
                                       />
                       }
+
+                      {(this.props.passenger.ptc !== 'INF')
+                                    &&  <BagComponent
+                                        paxId={this.props.passenger.id}
+                                      />
+                      }
+
+
+
                  </div>
 
               </div>
