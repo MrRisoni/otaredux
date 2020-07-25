@@ -7,6 +7,7 @@ import French from "./../locales/fr.json";
 import Swedish from "./../locales/sv.json";
 import English from "./../locales/en.json";
 
+import BrandedRsc from "./../resources/branded.json";
 import ItineraryRsc from "./../resources/itinerary.json";
 import InsurancesRsc from "./../resources/insurances.json";
 import FastTrackRsc from "./../resources/fastTrack.json";
@@ -31,6 +32,7 @@ class OtaContextProvider extends Component {
     },
     ItineraryRsc: ItineraryRsc,
     CountriesRsc:CountriesRsc,
+    BrandedRsc:BrandedRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,
       Lounge: LoungeRsc,
@@ -184,7 +186,7 @@ class OtaContextProvider extends Component {
       }
     ],
     currentCurrency: {
-      code: "EUR",
+      code: "CHF",
       rate: 1.13
     }
   };
@@ -428,39 +430,42 @@ class OtaContextProvider extends Component {
   };
 
   purchaseInsurance = data => {
-    //  console.log(data);
+     console.log(data);
     let paxsnew = this.state.passengers;
-    let insuranceOpt = this.state.InsuranceRsc.filter(insItm => {
+    let insuranceOpt = this.state.upsalesPricing.Insurance.filter(insItm => {
       return insItm.id == data.insuranceId;
     })[0];
     console.log(insuranceOpt);
-    let euroCost = 0;
 
     for (var p = 0; p < paxsnew.length; p++) {
       if (paxsnew[p].id === data.pax.id) {
         console.log("found pax");
         paxsnew[p].upsalesData["insurance"]["code"] = insuranceOpt.code;
-        euroCost =
-          data.pax["ptc"] === "ADT"
-            ? insuranceOpt.costEuro["ADT"]
-            : insuranceOpt.costEuro["CNN"];
+        let euroCost =   data.pax["ptc"] === "ADT"  ? insuranceOpt.costEuro["ADT"]  : insuranceOpt.costEuro["CNN"];
         euroCost = parseFloat(euroCost);
+        euroCost = euroCost.toFixed(2);
+
         paxsnew[p].upsalesData["insurance"]["costEur"] = euroCost;
-        paxsnew[p].upsalesData["insurance"]["cost"] =
-          euroCost * this.state.currentCurrency.rate;
+        paxsnew[p].upsalesData["insurance"]["cost"] = euroCost * this.state.currentCurrency.rate;
       }
     }
-    euroCost = euroCost.toFixed(2);
 
     let upsalesNew = this.state.upsales;
-    upsalesNew.insuranceCostEur += euroCost;
-    upsalesNew.insuranceCost += euroCost * this.state.currentCurrency.rate;
+    let newInsuranceCost = 0;
+    let newInsuranceCostEur = 0;
 
-    var totalCostNew =
-      parseFloat(this.state.totalCost) +
-      euroCost * this.state.currentCurrency.rate;
-    // update total cost;
-    //
+    paxsnew.forEach(px => {
+      if (px.active) {
+        newInsuranceCostEur += px.upsalesData["insurance"]["costEur"];
+        newInsuranceCost += px.upsalesData["insurance"]["costEur"] *  this.state.currentCurrency.rate;
+
+      }
+    })
+
+    upsalesNew.insuranceCostEur = newInsuranceCost;
+    upsalesNew.insuranceCost = newInsuranceCost * this.state.currentCurrency.rate;
+
+   
 
     this.setState({
       passengers: paxsnew,

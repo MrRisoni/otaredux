@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import * as actsUpsales from '../../../../actions/master/actionsUpsales';
-
+import {DataContext} from "../../../OtaContext";
 import  BrandedTranslations from './brandedLocales.json';
 
 class BrandedFares extends Component {
+  static contextType = DataContext
+
   render() {
 
       console.log('lang branded');
-console.log(BrandedTranslations);
-      console.log(this.props.lang.locale);
-      console.log(BrandedTranslations[this.props.lang.locale]);
+    console.log(BrandedTranslations);
+      console.log(this.context.lang);
+      console.log(BrandedTranslations[this.context.lang]);
 
-      console.log(BrandedTranslations[this.props.lang.locale]['PriorityBoarding']);
+      console.log(BrandedTranslations[this.context.lang]['PriorityBoarding']);
 
-      console.log(BrandedTranslations[this.props.lang.locale].PriorityBoarding);
+      console.log(BrandedTranslations[this.context.lang].PriorityBoarding);
 
 
       const headers = [<th>Offer</th>];
     const prices = [<th>Price</th>];
 
     let allDescriptions = [];
-    this.props.brandedFares[0].priceClasses.forEach((prc) => {
+    this.context.BrandedRsc[0].priceClasses.forEach((prc) => {
 
       headers.push(<th className="text-center">
         <div>
@@ -54,7 +55,7 @@ console.log(BrandedTranslations);
 
     allDescriptions.forEach((descCode) => {
       const cols = [];
-      this.props.brandedFares[0].priceClasses.forEach((prc) => {
+      this.context.BrandedRsc[0].priceClasses.forEach((prc) => {
           let thisPriceOffers = prc.description.map( (prcDscrItm) => {
               return prcDscrItm.code;
           });
@@ -67,7 +68,7 @@ console.log(BrandedTranslations);
       });
 
         rows.push(<tr>
-            <td>{BrandedTranslations[this.props.lang.locale][descCode]}</td>
+            <td>{BrandedTranslations[this.context.lang][descCode]}</td>
             {cols}
         </tr>);
     });

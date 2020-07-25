@@ -78,6 +78,16 @@ class MasterSideBar extends Component {
       );
     }
 
+    if (this.context.upsales.insuranceCost >0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Insurance"
+          price={this.context.upsales.insuranceCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
    /* this.props.passengers.forEach(pax => {
       if (pax.active) {
 

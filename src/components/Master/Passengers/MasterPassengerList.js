@@ -8,16 +8,12 @@ class MasterPassengerList extends Component {
 
     constructor(props) {
         super(props);
-
         this.addPaxHandler = this.addPaxHandler.bind(this);
-
-
     }
 
     addPaxHandler()
     {
         this.context.functions.addPassenger();
-
     }
     render() {
 
@@ -41,11 +37,9 @@ class MasterPassengerList extends Component {
                                     aria-expanded="false"
                                     aria-controls="collapseExample"
                                 >
-
                                     Toggle
                                 </button>
                             </div>
-
                         </div>
                     </div>
 
@@ -56,7 +50,6 @@ class MasterPassengerList extends Component {
                             passenger={pax}
                         />))}
 
-
                     <div className="row addOnePassenger show passengerListCollapse">
                         <div className="col-4 offset-4">
                             <button className="btn btn-primary btn-success" onClick={this.addPaxHandler}>
@@ -64,7 +57,6 @@ class MasterPassengerList extends Component {
                             </button>
                         </div>
                     </div>
-
 
                 </div>
             </section>);
