@@ -13,6 +13,7 @@ import FastTrackRsc from "./../resources/fastTrack.json";
 import LoungeRsc from "./../resources/lounge.json";
 import CountriesRsc from "./../resources/countries.json";
 import BagsRsc from "./../resources/bags.json";
+import ParkingRsc from "./../resources/parking.json";
 
 
 export const DataContext = createContext();
@@ -33,6 +34,7 @@ class OtaContextProvider extends Component {
     },
     ItineraryRsc: ItineraryRsc,
     CountriesRsc:CountriesRsc,
+    ParkingRsc:ParkingRsc,
     BagsRsc:BagsRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,

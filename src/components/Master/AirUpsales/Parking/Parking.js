@@ -4,11 +4,12 @@ import ButtonToggle from "../../../Common/ButtonToggle";
 
 
 class Parking extends Component {
+    static contextType = DataContext;
+
     constructor(props) {
         super(props);
         this.handleAddDays = this.handleAddDays.bind(this);
         this.handleSubtractDays = this.handleSubtractDays.bind(this);
-
     }
 
     handleAddDays()
@@ -17,21 +18,20 @@ class Parking extends Component {
         this.props.addParkingDayHandler();
     }
 
-
     handleSubtractDays()
     {
         console.log('remove park days');
-
         this.props.subParkingDayHandler();
     }
 
 
     render() {
-
+        const originAirport = this.context.ItineraryRsc[0].from.iata;
+        console.log('origin airport ' + originAirport);
+        console.log(originAirport);
 
         return (
             <section>
-
                 <div className="row contactDetails">
                     <div className="col-8">
 
@@ -73,7 +73,7 @@ class Parking extends Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            {this.props.pricingTable.map( prcd => {
+                                            {this.context.ParkingRsc[originAirport].map( prcd => {
                                                 return (<tr>
                                                         <td>Up to days {prcd.upToDays}</td>
                                                         <td> {prcd.price} E</td></tr>)
@@ -94,12 +94,10 @@ class Parking extends Component {
                                                 onClick={this.handleSubtractDays}>Remove Day
                                         </button>
 
-
                                     </div>
 
                                 </div>
                             </div>
-
 
                         </div>
                     </div>
@@ -109,8 +107,6 @@ class Parking extends Component {
         );
     }
 }
-
-
 
 
 export default Parking;
