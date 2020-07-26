@@ -95,13 +95,15 @@ class UpsalesComponent extends Component {
           description={airHelpDescr}
         />
 
+        <FastTrackList/>
+        <Parking/>
 
         {/*  <PreSeat/>
 
-                <FastTrackList/>
+             
              
                 <LoungeAccess/>
-                <Parking/>
+               
 
               
               */}
