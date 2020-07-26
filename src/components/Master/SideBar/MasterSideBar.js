@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {DataContext} from "../../OtaContext";
 import SideBarUpsale from "./SideBarUpsale";
+import FareTaxes from './../Segments/FareTaxes';
 
 
 class MasterSideBar extends Component {
@@ -349,7 +350,7 @@ x
             </div>
 
 
-               <div className="row">
+             <div className="row">
               <div className="col-12">
 
                 <div className="row selectLang">
@@ -366,6 +367,19 @@ x
                   </div>
                 </div>
 
+              </div>
+            </div>
+
+
+
+            
+            <div className="row addOnePassenger  passengerListCollapse">
+              <div className="col-12">
+
+                        <button className="btn btn-primary btn-success">
+                           Checkout
+                        </button>
+                    
               </div>
             </div>
 

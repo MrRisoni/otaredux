@@ -31,6 +31,8 @@ class MasterPassenger extends Component {
       minAdultBirthDate: moment().subtract(150, 'years'),
       showSurnameErr: false,
       showNameErr: false,
+      nameErrMsg:'',
+      surNameErrMsg:'',
     };
 
     this.editSurname = this.editSurname.bind(this);
@@ -56,7 +58,7 @@ class MasterPassenger extends Component {
       gender: fieldInput,
     });
 
-    this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
+   // this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
   }
 
 
@@ -95,14 +97,16 @@ class MasterPassenger extends Component {
     const fieldInput = ev.target.value.toUpperCase();
 
     const VP = new ValidatePassengers();
+    const valResult = VP.validateNameSurname(fieldInput);
 
     this.setState({
-      showSurnameErr: !VP.validateNameSurname(fieldInput),
+      showSurnameErr: !valResult.valid,
+      surNameErrMsg: valResult.reasonCode,
       surname: fieldInput,
     });
 
 
-    this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
+   // this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
   }
 
 
@@ -110,13 +114,16 @@ class MasterPassenger extends Component {
     const fieldInput = ev.target.value.toUpperCase();
 
     const VP = new ValidatePassengers();
+    const valResult = VP.validateNameSurname(fieldInput);
+  
+      this.setState({
+        showNameErr: !valResult.valid,
+        nameErrMsg: valResult.reasonCode,
+        name: fieldInput,
+      });
+ 
 
-    this.setState({
-      showNameErr: !VP.validateNameSurname(fieldInput),
-      name: fieldInput,
-    });
-
-    this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
+  //  this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
   }
 
   render() {
@@ -189,7 +196,7 @@ class MasterPassenger extends Component {
                     <Error
                       show={this.state.showNameErr}
                       class="textInputErr"
-                      msg="Only letters are allowed"
+                      msg={this.state.nameErrMsg}
                     />
 
                   </div>
@@ -204,14 +211,12 @@ class MasterPassenger extends Component {
                     <Error
                       show={this.state.showSurnameErr}
                       class="textInputErr"
-                      msg="Only letters are allowed"
+                      msg={this.state.surNameErrMsg}
                     />
 
                   </div>
 
-
                 </div>
-
 
                 <div className="row">
                   <div className="col-6">

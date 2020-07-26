@@ -43,8 +43,8 @@ class BagSelection extends Component {
     let priceOneBags = 0;
     let priceTwoBags = 0
 
-    console.log('this.props.bagData');
-    console.log(this.props.bagData);
+  //  console.log('this.props.bagData');
+   // console.log(this.props.bagData);
 
     priceOneBags = this.props.bagData.pricing['firstBag'].filter(bg => bg.ptc == this.props.ptc)[0].costEur;
     priceOneBags *= this.context.currentCurrency.rate;

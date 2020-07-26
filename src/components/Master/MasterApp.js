@@ -8,7 +8,7 @@ import FareTaxes from './Segments/FareTaxes';
 import {DataContext} from "../OtaContext";
 
 import MasterContact from './Passengers/MasterContact';
-import UpsalesPage from "./UpsalesPage";
+import UpsalesComponent from "./UpsalesComponent";
 
 
 class MasterApp extends Component {
@@ -40,10 +40,7 @@ class MasterApp extends Component {
 
                     <div className="col-8">
 
-                        {/*  <ItineraryData
-                            tripData={this.props.tripData}
-                        /> */}
-                         <FareTaxes/>
+                    
 
                         <MasterPassengerList/>
 
@@ -51,7 +48,9 @@ class MasterApp extends Component {
                     </div>
 
                     <div className="col-4">
+                           <FareTaxes/>
                           <MasterSideBar/>
+                         
                     </div>
                 </div>
 
@@ -61,7 +60,7 @@ class MasterApp extends Component {
                     editContactHandler={null}
                 />
 
-                <UpsalesPage product="air" />
+                <UpsalesComponent product="air" />
                         
 
                 <div className="row addOnePassenger show passengerListCollapse">
