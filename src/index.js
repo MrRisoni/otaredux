@@ -1,27 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import DefaultLayout from "./DefaultLayout";
 import "./index.css";
 
 import registerServiceWorker from "./registerServiceWorker";
-
 import OtaContextProvider from "./components/OtaContext";
-
 import MasterApp from "./components/Master/MasterApp";
-import UpsalesPage from "./components/Master/UpsalesPage";
+import Header from "./Header";
+import Footer from "./Footer";
 
 ReactDOM.render(
   <OtaContextProvider>
-    <BrowserRouter>
-      <div>
-        <DefaultLayout
-          exact
-          path="/"
-          component={() => <MasterApp product="air" />}
-        />       
-      </div>
-    </BrowserRouter>
+        <div className="DefaultLayout">
+          <header>
+            <div className="Header">
+              <Header />
+            </div>
+          </header>
+          <main>
+            <MasterApp product="air" />
+          </main>
+          <footer>
+            <div className="Footer">
+              <Footer />
+            </div>
+          </footer>
+        </div>
   </OtaContextProvider>,
   document.getElementById("root")
 );

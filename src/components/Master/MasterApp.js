@@ -4,9 +4,7 @@ import MasterPassengerList from './Passengers/MasterPassengerList';
 import MasterSideBar from './SideBar/MasterSideBar'
 import ItineraryData from './Segments/ItineraryData';
 import FareTaxes from './Segments/FareTaxes';
-
 import {DataContext} from "../OtaContext";
-
 import MasterContact from './Passengers/MasterContact';
 import UpsalesComponent from "./UpsalesComponent";
 
@@ -17,18 +15,8 @@ class MasterApp extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-
-        this.upsalesPage = this.upsalesPage.bind(this);
-
+     
     }
-
-    upsalesPage()
-    {
-        console.log('click');
-       this.props.router.push("/some/Path");
-
-    }
-
     componentDidMount() {
         this.context.functions.firstLoad();
     }
