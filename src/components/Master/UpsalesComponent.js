@@ -97,12 +97,13 @@ class UpsalesComponent extends Component {
 
         <FastTrackList/>
         <Parking/>
+        <LoungeAccess/>
 
         {/*  <PreSeat/>
 
              
              
-                <LoungeAccess/>
+              
                
 
               

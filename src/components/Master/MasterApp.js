@@ -8,7 +8,6 @@ import {DataContext} from "../OtaContext";
 import MasterContact from './Passengers/MasterContact';
 import UpsalesComponent from "./UpsalesComponent";
 
-
 class MasterApp extends Component {
   static contextType = DataContext;
 
@@ -27,18 +26,13 @@ class MasterApp extends Component {
                 <div className="row">
 
                     <div className="col-8">
-
-                    
                         <ItineraryData tripData={this.context.ItineraryRsc}/>
                         <MasterPassengerList/>
-
-
                     </div>
 
                     <div className="col-4">
                            <FareTaxes/>
-                          <MasterSideBar/>
-                         
+                          <MasterSideBar/>                         
                     </div>
                 </div>
 
@@ -50,9 +44,6 @@ class MasterApp extends Component {
 
                 <UpsalesComponent product="air" />
                         
-
-                
-
 
             </div>
 
