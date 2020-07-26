@@ -4,8 +4,8 @@ import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
 import FastTrackList from "./AirUpsales/FastTrack/FastTrackList";
 import LoungeAccess from "./AirUpsales/LoungeAccess/LoungeAccess";
-import PassengerTable from "./Passengers/PassengerTable";
 import Parking from "./AirUpsales/Parking/Parking";
+
 import { DataContext } from "../OtaContext";
 
 class UpsalesComponent extends Component {
@@ -98,6 +98,7 @@ class UpsalesComponent extends Component {
         <FastTrackList/>
         <Parking/>
         <LoungeAccess/>
+     
 
         {/*  <PreSeat/>
 

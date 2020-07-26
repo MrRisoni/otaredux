@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 
-import * as actsMeals from '../../../../actions/master/actionsMeals';
-
-
 class MealSelection extends Component {
   constructor(props) {
     super(props);
@@ -57,4 +54,4 @@ class MealSelection extends Component {
 
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(MealSelection);
+export default MealSelection;

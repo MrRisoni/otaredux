@@ -11,6 +11,7 @@ import MasterPassport from './MasterPassport';
 //import MilesCards from './Miles/MilesCards';
 import {DataContext} from "../../OtaContext";
 import BagComponent from "./Bags/BagComponent";
+import MealsComponent from "./Meals/MealsComponent";
 
 class MasterPassenger extends Component {
   static contextType = DataContext;
@@ -257,6 +258,9 @@ class MasterPassenger extends Component {
                                       />
                       }
 
+                      {(this.props.passenger.ptc !== 'INF') &&
+                         <MealsComponent/>
+                      }
 
 
                  </div>

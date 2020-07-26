@@ -65,4 +65,4 @@ class MealLeg extends Component {
 
 
 
-export default connect(mapStateToProps)(MealLeg);
+export default MealLeg;

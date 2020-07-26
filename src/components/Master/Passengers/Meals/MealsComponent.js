@@ -19,7 +19,7 @@ class MealsComponent extends Component {
               <div className="row">
                 <div className="col-6">
 
-                    <Translate value="upsales.Hungry"/>
+                    upsales.Hungry
                 </div>
                 <div className="col-2">
                   <i className="fas fa-concierge-bell" />
@@ -35,7 +35,7 @@ class MealsComponent extends Component {
 aria-controls="collapseExample"
                   >
 
-                                       <Translate value="general.Toggle"/>
+                                      general.Toggle
 </button>
                 </div>
 
