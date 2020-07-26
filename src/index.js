@@ -19,12 +19,7 @@ ReactDOM.render(
           exact
           path="/"
           component={() => <MasterApp product="air" />}
-        />
-        <DefaultLayout
-          exact
-          path="/upsales"
-          component={() => <UpsalesPage product="air" />}
-        />
+        />       
       </div>
     </BrowserRouter>
   </OtaContextProvider>,

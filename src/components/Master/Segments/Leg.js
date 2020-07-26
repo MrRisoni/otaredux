@@ -29,7 +29,7 @@ m
             <div className="col-4">{legTitle}</div>
 
 
-            <div className="col-2 offset-5">
+            <div className="col-2 offset-6">
               <button
                 className="btn btn-sm btn-dark btn-block btnToggle"
                 data-toggle="collapse"

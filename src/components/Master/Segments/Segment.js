@@ -19,7 +19,7 @@ const Segment = props => (
 
                 <div className="row">
                     <div className="col-2">
-                        <img
+                        <img className="airlineLogos"
                             width={props.data.img.width}
                             src={props.data.img.url}
                         />

@@ -41,7 +41,7 @@ class MasterApp extends Component {
                     <div className="col-8">
 
                     
-
+                        <ItineraryData tripData={this.context.ItineraryRsc}/>
                         <MasterPassengerList/>
 
 
@@ -63,13 +63,7 @@ class MasterApp extends Component {
                 <UpsalesComponent product="air" />
                         
 
-                <div className="row addOnePassenger show passengerListCollapse">
-                    <div className="col-4 offset-4">
-                        <button className="btn btn-primary btn-success" onClick={this.upsalesPage}>
-                           Next
-                        </button>
-                    </div>
-                </div>
+                
 
 
             </div>

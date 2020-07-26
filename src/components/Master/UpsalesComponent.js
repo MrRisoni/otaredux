@@ -64,7 +64,7 @@ class UpsalesComponent extends Component {
     return (
       <div className="busApp">
         <div className="row">
-          <div className="col-8">
+          <div className="col-12">
 
 
         <YesNoUpsale
