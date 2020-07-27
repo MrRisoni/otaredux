@@ -7,6 +7,7 @@ import French from "./../locales/fr.json";
 import Swedish from "./../locales/sv.json";
 import English from "./../locales/en.json";
 
+import MealsRsc from "./../resources/meals.json";
 import ItineraryRsc from "./../resources/itinerary.json";
 import InsurancesRsc from "./../resources/insurances.json";
 import FastTrackRsc from "./../resources/fastTrack.json";
@@ -32,6 +33,7 @@ class OtaContextProvider extends Component {
       address: "",
       postcode: ""
     },
+    MealsRsc:MealsRsc,
     ItineraryRsc: ItineraryRsc,
     CountriesRsc:CountriesRsc,
     ParkingRsc:ParkingRsc,
