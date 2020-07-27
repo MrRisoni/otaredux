@@ -55,10 +55,8 @@ class MasterPassport extends Component {
                         </div>
                     </div>
 
-
             
                     <div className="row">
-
                         <div className="col-6">
                             <label htmlFor="birthday">passport.passportNo</label>
                             <input type="text" placeholder="Passport No"

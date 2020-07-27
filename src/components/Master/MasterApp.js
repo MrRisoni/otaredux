@@ -9,6 +9,7 @@ import MasterContact from './Passengers/MasterContact';
 import UpsalesComponent from "./UpsalesComponent";
 import CreditCard from './Payment/CreditCard';
 import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
+import PreSeat from './AirUpsales/Preseat/PreSeat';
 
 class MasterApp extends Component {
   static contextType = DataContext;
@@ -47,7 +48,8 @@ class MasterApp extends Component {
                 <ReceiptOrInvoice/>
                 <CreditCard/>
                 <UpsalesComponent product="air" />
-                        
+
+                <PreSeat/>        
 
             </div>
 

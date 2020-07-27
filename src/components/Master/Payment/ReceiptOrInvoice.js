@@ -30,8 +30,6 @@ class ReceiptOrInvoice extends Component {
 
     render() {
 
-        //    listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
-
         return (
             <section>
 
