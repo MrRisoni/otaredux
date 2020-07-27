@@ -33,7 +33,7 @@ class SegmentTabs extends Component {
       return (
        <section>
          <div className="row">
-           <div className="col-8">
+           <div className="col-8 offset-1">
              <ul className="nav nav-tabs" id="myTab" role="tablist">
                {segsArr.map(sgx => {
                  let clsName = sgx.segId > 0 ? " nav-link " : "nav-link active";
@@ -69,12 +69,11 @@ class SegmentTabs extends Component {
                      aria-labelledby={sgx.tab}
                    >
 
-                   SegmentId {sgx.segId}
-                  {/*    <SeatMap
-                       key={sgx.key}
+                    <SeatMap
+                       key={sgx.segKey}
                        segId={sgx.segId}
                        seats_map={this.props.seat_map_data[sgx.segId]}
-                     />   */}
+                     />  
                    </div>
                  );
                })}

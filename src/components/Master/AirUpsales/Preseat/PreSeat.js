@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import SegmentTabs from "./SegmentTabs";
 import {DataContext} from "../../../OtaContext";
-
+import "./preseat.css";
 const seatMaps = require("../../../../resources/seatMapLayout.json");
 
 
