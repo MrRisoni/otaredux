@@ -7,6 +7,8 @@ import FareTaxes from './Segments/FareTaxes';
 import {DataContext} from "../OtaContext";
 import MasterContact from './Passengers/MasterContact';
 import UpsalesComponent from "./UpsalesComponent";
+import CreditCard from './Payment/CreditCard';
+import ReceiptOrInvoice from './Payment/ReceiptOrInvoice';
 
 class MasterApp extends Component {
   static contextType = DataContext;
@@ -38,10 +40,12 @@ class MasterApp extends Component {
 
                 <MasterContact
                     contact={this.props.contact}
-                    countryList={[]}
+                    countryList={ this.context.CountriesRsc}
                     editContactHandler={null}
                 />
 
+                <ReceiptOrInvoice/>
+                <CreditCard/>
                 <UpsalesComponent product="air" />
                         
 

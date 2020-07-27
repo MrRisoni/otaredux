@@ -15,7 +15,7 @@ const CreditCard = (props) => {
                             <div className="row">
 
                                 <div className="col-4">
-                                    <Translate value="pay.CreditCard"/>
+                                    pay.CreditCard
                                 </div>
 
 
@@ -29,7 +29,7 @@ const CreditCard = (props) => {
                                             data-toggle="collapse"
                                             data-target="#creditCardCollapse" aria-expanded="false"
                                             aria-controls="collapseExample">
-                                       <Translate value="general.Toggle"/>
+                                      general.Toggle
                                     </button>
                                 </div>
 
@@ -79,11 +79,7 @@ const CreditCard = (props) => {
 
                             <br/>
 
-                            <div className="row">
-                                <div className="col-4 offset-4">
-                                    <button className="btn btn-success">Complete Payment!</button>
-                                </div>
-                            </div>
+                           
 
 
                         </div>

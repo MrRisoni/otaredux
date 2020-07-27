@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import Invoice from "./Invoice";
 import Receipt from "./Receipt";
+import {DataContext} from "../../OtaContext";
 
 
 class ReceiptOrInvoice extends Component {
+    static contextType = DataContext;
+
     constructor(props)
     {
         super(props);
@@ -11,20 +14,14 @@ class ReceiptOrInvoice extends Component {
             receipt:true,
             invoice:false
         };
-
-
         this.handlePickReceipt = this.handlePickReceipt.bind(this);
         this.handlePickInvoice= this.handlePickInvoice.bind(this);
-
     }
 
     handlePickReceipt()
     {
-
         this.setState({receipt:true,invoice:false})
     }
-
-
 
     handlePickInvoice()
     {
@@ -33,14 +30,7 @@ class ReceiptOrInvoice extends Component {
 
     render() {
 
-
-
-        let listDiv = [];
-        this.props.countryList.forEach((val, idx) => {
-
-            listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
-
-        });
+        //    listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
 
         return (
             <section>
@@ -54,9 +44,8 @@ class ReceiptOrInvoice extends Component {
                                 <div className="row">
 
                                     <div className="col-4">
-                                        <Translate value="pay.Details"/>
+                                        pay.Details
                                     </div>
-
 
                                     <div className="col-2">
                                         <i className="fas fa-file-invoice-dollar"/>
@@ -67,10 +56,9 @@ class ReceiptOrInvoice extends Component {
                                                 data-toggle="collapse"
                                                 data-target="#paymentDetailsCollapse" aria-expanded="false"
                                                 aria-controls="collapseExample">
-                                           <Translate value="general.Toggle"/>
+                                           general.Toggle
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -82,9 +70,7 @@ class ReceiptOrInvoice extends Component {
                                            onChange={this.handlePickReceipt} />
 
                                         <label className="form-check-label" htmlFor="payReceipt"/>
-                                            <Translate value="pay.Receipt"/>
-
-
+                                            pay.Receipt
                                 </div>
 
                                 <div className="form-check">
@@ -92,30 +78,22 @@ class ReceiptOrInvoice extends Component {
                                            id="payInvoice"  value="payInvoice" checked={this.state.invoice}
                                            onChange={this.handlePickInvoice}/>
                                         <label className="form-check-label" htmlFor="payInvoice"/>
-                                    <Translate value="pay.Invoice"/>
-
+                                    pay.Invoice
                                 </div>
 
-
                                 {this.state.receipt &&
-                                    <Receipt countryList={listDiv}/>
+                                    <Receipt countryList={ this.context.CountriesRsc}/>
                                 }
 
-
                                 {this.state.invoice &&
-                                    <Invoice countryList={listDiv}/>
+                                    <Invoice countryList={ this.context.CountriesRsc}/>
                                 }
 
                             </div>
-
-
                         </div>
-
-
                     </div>
                 </div>
             </section>
-
         );
     }
 }

@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import {DataContext} from "../../OtaContext";
 
 
-
 class MasterContact extends Component {
-
     static contextType = DataContext;
-
 
   handleSurname(ev) {
   }
@@ -17,13 +14,6 @@ class MasterContact extends Component {
 
 
   render() {
-    const listDiv = [];
-    this.props.countryList.forEach((val, idx) => {
-      listDiv.push(<option key={val.Code} value={val.Code}>{val.Country}</option>);
-    });
-
-    console.log('this.context.lang ' + this.context.lang);
-
 
     return (
       <section>
@@ -133,7 +123,9 @@ class MasterContact extends Component {
                       <div className="col-5">
                             <select className="form-control">
                                 <option>Select Country</option>
-                                {listDiv}
+                                {this.props.countryList.map((val,idx) => (
+                                     <option key={val.Code} value={val.Code}>{val.Country}</option>
+                                 ))}
                               </select>
                           </div>
 

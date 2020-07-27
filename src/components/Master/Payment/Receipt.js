@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
 
 class Receipt extends Component {
-
-
     constructor(props) {
         super(props);
-
-
     }
 
     render() {
-
 
         return (
             <div className="card">
@@ -37,7 +32,9 @@ class Receipt extends Component {
                             <label htmlFor="birthday">Country</label>
                             <select className="form-control">
                                 <option>Select Country</option>
-                                {this.props.listDiv}
+                                 {this.props.countryList.map((val,idx) => (
+                                     <option key={val.Code} value={val.Code}>{val.Country}</option>
+                                 ))}
                             </select>
 
                         </div>
