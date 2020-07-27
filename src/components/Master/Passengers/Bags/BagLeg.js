@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import BagSelection from './BagSelection';
-
+import React, { Component } from "react";
+import BagSelection from "./BagSelection";
 
 class BagLeg extends Component {
   constructor(props) {
@@ -8,23 +7,20 @@ class BagLeg extends Component {
   }
 
   render() {
-    const legTitle = (this.props.leg == 0) ? 'Departure' : 'Return';
+    const legTitle = this.props.leg == 0 ? "Departure" : "Return";
 
     return (
       <section>
         <div className="row">
           <div className="col-12">
-
             <div className="card">
               <div className="card-header">
-                {legTitle}
-                {' '}
-
-                 (Max {this.props.limitBags})
+                {legTitle} (Max {this.props.limitBags})
               </div>
               <div className="card-body">
-                {this.props.bagList.filter(bg => this.props.leg == bg.legId).map(
-                  bgItem => (
+                {this.props.bagList
+                  .filter(bg => this.props.leg == bg.legId)
+                  .map(bgItem => (
                     <BagSelection
                       bagData={bgItem}
                       key={bgItem.key}
@@ -32,19 +28,14 @@ class BagLeg extends Component {
                       legId={this.props.leg}
                       paxId={this.props.paxId}
                     />
-                  ),
-                )}
-
+                  ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-
     );
   }
 }
-
-
 
 export default BagLeg;

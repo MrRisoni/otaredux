@@ -16,7 +16,6 @@ import CountriesRsc from "./../resources/countries.json";
 import BagsRsc from "./../resources/bags.json";
 import ParkingRsc from "./../resources/parking.json";
 
-
 export const DataContext = createContext();
 
 class OtaContextProvider extends Component {
@@ -33,11 +32,11 @@ class OtaContextProvider extends Component {
       address: "",
       postcode: ""
     },
-    MealsRsc:MealsRsc,
+    MealsRsc: MealsRsc,
     ItineraryRsc: ItineraryRsc,
-    CountriesRsc:CountriesRsc,
-    ParkingRsc:ParkingRsc,
-    BagsRsc:BagsRsc,
+    CountriesRsc: CountriesRsc,
+    ParkingRsc: ParkingRsc,
+    BagsRsc: BagsRsc,
     upsalesPricing: {
       fastTrack: FastTrackRsc,
       Lounge: LoungeRsc,
@@ -203,100 +202,96 @@ class OtaContextProvider extends Component {
     });
   };
 
-
   editPassenger = data => {
-     console.log(data);
-    
+    console.log(data);
 
-     let newPaxes = this.state.passengers.map(px => {
-        if (px.id != data.paxId) {
-          return px;
-        }
-        else {
-          return  {
-            ...px,
-            ptc: data.newPtc
-          };
-        }
-     })
-     let adt =0;
-     let cnn =0;
-     let inf =0;
+    let newPaxes = this.state.passengers.map(px => {
+      if (px.id != data.paxId) {
+        return px;
+      } else {
+        return {
+          ...px,
+          ptc: data.newPtc
+        };
+      }
+    });
+    let adt = 0;
+    let cnn = 0;
+    let inf = 0;
 
-     this.state.passengers.forEach(px => {
-       if (px.active) {
-         if (px.ptc == 'ADT') {
-           adt++;
-         }
-         if (px.ptc == 'CNN') {
+    this.state.passengers.forEach(px => {
+      if (px.active) {
+        if (px.ptc == "ADT") {
+          adt++;
+        }
+        if (px.ptc == "CNN") {
           cnn++;
         }
-        if (px.ptc == 'INF') {
+        if (px.ptc == "INF") {
           inf++;
         }
-       }
-     });
+      }
+    });
 
-     this.setState({
+    this.setState({
       passengers: newPaxes,
       numADT: adt,
-      numCNN : cnn,
-      numINF: inf    
+      numCNN: cnn,
+      numINF: inf
     });
-  }
-
+  };
 
   removePassenger = paxId => {
     const self = this;
     console.log(paxId);
     let newPaxes = this.state.passengers.filter(pax => {
-       if (pax.id != paxId) {
-         console.log(pax.id + ' ' + paxId);
-         return pax;
-       }
-    })
+      if (pax.id != paxId) {
+        console.log(pax.id + " " + paxId);
+        return pax;
+      }
+    });
     // recalc humanIds and nums per ptc
-    let humanId =1;
+    let humanId = 1;
     newPaxes.forEach(px => {
-        px.humanId= humanId;
-        humanId++;       
-    })
+      px.humanId = humanId;
+      humanId++;
+    });
 
-    let adt =0;
-    let cnn =0;
-    let inf =0;
+    let adt = 0;
+    let cnn = 0;
+    let inf = 0;
 
     this.state.passengers.forEach(px => {
       if (px.active) {
-        if (px.ptc == 'ADT') {
+        if (px.ptc == "ADT") {
           adt++;
         }
-        if (px.ptc == 'CNN') {
-         cnn++;
-       }
-       if (px.ptc == 'INF') {
-         inf++;
-       }
+        if (px.ptc == "CNN") {
+          cnn++;
+        }
+        if (px.ptc == "INF") {
+          inf++;
+        }
       }
     });
- 
+
     this.setState({
       passengers: newPaxes,
       numADT: adt,
-      numCNN : cnn,
-      numINF: inf     
+      numCNN: cnn,
+      numINF: inf
     });
 
     this.firstLoad();
-  } 
+  };
 
   addPassenger = () => {
     const self = this;
 
     console.log(this.state);
-    let newHumanId = this.state.passengers.filter(pax => pax.active).length +1
+    let newHumanId = this.state.passengers.filter(pax => pax.active).length + 1;
 
-    let newPaxObj =  {
+    let newPaxObj = {
       id: this.state.passengers.length,
       humanId: newHumanId,
       active: true,
@@ -344,7 +339,7 @@ class OtaContextProvider extends Component {
           choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 }]
         }
       }
-    }
+    };
 
     let paxes = self.state.passengers;
     let adts = self.state.numADT++;
@@ -352,15 +347,15 @@ class OtaContextProvider extends Component {
 
     this.setState({
       passengers: paxes,
-      numADT: adts,
+      numADT: adts
     });
 
     this.firstLoad();
   };
 
   getActivePaxesLen = () => {
-     return this.state.passengers.filter(px => px.active).length;
-  }
+    return this.state.passengers.filter(px => px.active).length;
+  };
 
   firstLoad = () => {
     var ttl = 0;
@@ -435,7 +430,7 @@ class OtaContextProvider extends Component {
   };
 
   purchaseInsurance = data => {
-     console.log(data);
+    console.log(data);
     let paxsnew = this.state.passengers;
     let insuranceOpt = this.state.upsalesPricing.Insurance.filter(insItm => {
       return insItm.id == data.insuranceId;
@@ -446,12 +441,16 @@ class OtaContextProvider extends Component {
       if (paxsnew[p].id === data.pax.id) {
         console.log("found pax");
         paxsnew[p].upsalesData["insurance"]["code"] = insuranceOpt.code;
-        let euroCost =   data.pax["ptc"] === "ADT"  ? insuranceOpt.costEuro["ADT"]  : insuranceOpt.costEuro["CNN"];
+        let euroCost =
+          data.pax["ptc"] === "ADT"
+            ? insuranceOpt.costEuro["ADT"]
+            : insuranceOpt.costEuro["CNN"];
         euroCost = parseFloat(euroCost);
         euroCost = euroCost.toFixed(2);
 
         paxsnew[p].upsalesData["insurance"]["costEur"] = euroCost;
-        paxsnew[p].upsalesData["insurance"]["cost"] = euroCost * this.state.currentCurrency.rate;
+        paxsnew[p].upsalesData["insurance"]["cost"] =
+          euroCost * this.state.currentCurrency.rate;
       }
     }
 
@@ -462,15 +461,15 @@ class OtaContextProvider extends Component {
     paxsnew.forEach(px => {
       if (px.active) {
         newInsuranceCostEur += px.upsalesData["insurance"]["costEur"];
-        newInsuranceCost += px.upsalesData["insurance"]["costEur"] *  this.state.currentCurrency.rate;
-
+        newInsuranceCost +=
+          px.upsalesData["insurance"]["costEur"] *
+          this.state.currentCurrency.rate;
       }
-    })
+    });
 
     upsalesNew.insuranceCostEur = newInsuranceCost;
-    upsalesNew.insuranceCost = newInsuranceCost * this.state.currentCurrency.rate;
-
-   
+    upsalesNew.insuranceCost =
+      newInsuranceCost * this.state.currentCurrency.rate;
 
     this.setState({
       passengers: paxsnew,
@@ -605,7 +604,7 @@ class OtaContextProvider extends Component {
             updateChosenLang: this.updateChosenLang,
             addPassenger: this.addPassenger,
             removePassenger: this.removePassenger,
-            editPassenger:this.editPassenger,
+            editPassenger: this.editPassenger,
             firstLoad: this.firstLoad,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,

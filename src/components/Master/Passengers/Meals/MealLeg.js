@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import {DataContext} from "../../../OtaContext";
-
+import React, { Component } from "react";
+import { DataContext } from "../../../OtaContext";
 
 class MealLeg extends Component {
   static contextType = DataContext;
@@ -9,24 +8,22 @@ class MealLeg extends Component {
     super(props);
   }
 
-
   render() {
-
     return (
       <div className="row">
         <div className="col-12">
-         <select className="form-control">
-          <option key="" value="" />
+          <select className="form-control">
+            <option key="" value="" />
             {this.context.MealsRsc.map(ml => (
-                  <option key={ml.key} value={ml.id}>{ml.title}</option>
-                ))}
-         </select>
-      </div>
+              <option key={ml.key} value={ml.id}>
+                {ml.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
 }
-
-
 
 export default MealLeg;

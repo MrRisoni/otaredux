@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import MealLeg from './MealLeg';
-
+import React, { Component } from "react";
+import MealLeg from "./MealLeg";
 
 class MealsComponent extends Component {
   constructor(props) {
@@ -10,17 +9,12 @@ class MealsComponent extends Component {
   render() {
     const keys = [0, 1];
     return (
-
       <section>
         <div className="row">
           <div className="col-12">
             <div className="alert alert-success" role="alert">
-
               <div className="row">
-                <div className="col-6">
-
-                    upsales.Hungry
-                </div>
+                <div className="col-6">upsales.Hungry</div>
                 <div className="col-2">
                   <i className="fas fa-concierge-bell" />
                   <i className="fas fa-utensils" />
@@ -32,21 +26,17 @@ class MealsComponent extends Component {
                     data-toggle="collapse"
                     data-target={`#mealsCollapse${this.props.paxId}`}
                     aria-expanded="false"
-aria-controls="collapseExample"
+                    aria-controls="collapseExample"
                   >
-
-                                      general.Toggle
-</button>
+                    general.Toggle
+                  </button>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
 
-
         <div className="collapse" id={`mealsCollapse${this.props.paxId}`}>
-
           {keys.map(kk => (
             <div className="row">
               <div className="col-12">
@@ -59,14 +49,10 @@ aria-controls="collapseExample"
               </div>
             </div>
           ))}
-
-
         </div>
-
       </section>
     );
   }
 }
-
 
 export default MealsComponent;

@@ -65,42 +65,39 @@ class UpsalesComponent extends Component {
       <div className="busApp">
         <div className="row">
           <div className="col-12">
+            <YesNoUpsale
+              title="Buy Blue Ribbon Bag Insurance!"
+              code="brb"
+              upsaleHandler={this.context.functions.actionBlueRibbon}
+              description={brbDescr}
+            />
 
+            <YesNoUpsale
+              title="Flexible Ticket"
+              code="flxtkt"
+              upsaleHandler={this.context.functions.actionFlexTicket}
+              description={flexDescr}
+            />
 
-        <YesNoUpsale
-          title="Buy Blue Ribbon Bag Insurance!"
-          code="brb"
-          upsaleHandler={this.context.functions.actionBlueRibbon}
-          description={brbDescr}
-        />
+            <YesNoUpsale
+              title="Web checkin"
+              code="webchck"
+              upsaleHandler={this.context.functions.actionWebCheckin}
+              description={webCheckDescr}
+            />
 
-        <YesNoUpsale
-          title="Flexible Ticket"
-          code="flxtkt"
-          upsaleHandler={this.context.functions.actionFlexTicket}
-          description={flexDescr}
-        />
+            <YesNoUpsale
+              title="Flight Delays recompansation"
+              code="airhlp"
+              upsaleHandler={this.context.functions.actionAirHelp}
+              description={airHelpDescr}
+            />
 
-        <YesNoUpsale
-          title="Web checkin"
-          code="webchck"
-          upsaleHandler={this.context.functions.actionWebCheckin}
-          description={webCheckDescr}
-        />
+            <FastTrackList />
+            <Parking />
+            <LoungeAccess />
 
-        <YesNoUpsale
-          title="Flight Delays recompansation"
-          code="airhlp"
-          upsaleHandler={this.context.functions.actionAirHelp}
-          description={airHelpDescr}
-        />
-
-        <FastTrackList/>
-        <Parking/>
-        <LoungeAccess/>
-     
-
-        {/*  <PreSeat/>
+            {/*  <PreSeat/>
 
              
              
@@ -109,8 +106,8 @@ class UpsalesComponent extends Component {
 
               
               */}
-      </div>
-      </div>
+          </div>
+        </div>
       </div>
     );
   }

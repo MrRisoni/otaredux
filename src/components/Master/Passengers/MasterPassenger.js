@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
+import React, { Component } from "react";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
 
-import Error from '../../Common/Error';
-import Insurance from './Insurance/Insurance';
+import Error from "../../Common/Error";
+import Insurance from "./Insurance/Insurance";
 
-import ValidatePassengers from '../../../ValidatePassengers';
-import MasterPassport from './MasterPassport';
+import ValidatePassengers from "../../../ValidatePassengers";
+import MasterPassport from "./MasterPassport";
 //import MilesCards from './Miles/MilesCards';
-import {DataContext} from "../../OtaContext";
+import { DataContext } from "../../OtaContext";
 import BagComponent from "./Bags/BagComponent";
 import MealsComponent from "./Meals/MealsComponent";
 
@@ -20,20 +20,20 @@ class MasterPassenger extends Component {
     super(props);
 
     this.state = {
-      ageGroup: 'ADT',
-      cabinClass: 'Y',
-      surname: '',
-      name: '',
-      gender: '',
+      ageGroup: "ADT",
+      cabinClass: "Y",
+      surname: "",
+      name: "",
+      gender: "",
       birthDate: moment(),
-      minBirthDate: moment().subtract(150, 'years'),
-      minInfantBirthDate: moment().subtract(2, 'years'),
-      minChildBirthDate: moment().subtract(15, 'years'),
-      minAdultBirthDate: moment().subtract(150, 'years'),
+      minBirthDate: moment().subtract(150, "years"),
+      minInfantBirthDate: moment().subtract(2, "years"),
+      minChildBirthDate: moment().subtract(15, "years"),
+      minAdultBirthDate: moment().subtract(150, "years"),
       showSurnameErr: false,
       showNameErr: false,
-      nameErrMsg:'',
-      surNameErrMsg:'',
+      nameErrMsg: "",
+      surNameErrMsg: ""
     };
 
     this.editSurname = this.editSurname.bind(this);
@@ -44,55 +44,53 @@ class MasterPassenger extends Component {
     this.changeBirthDate = this.changeBirthDate.bind(this);
   }
 
-
   changeBirthDate(date) {
     this.setState({
-      birthDate: date,
+      birthDate: date
     });
   }
-
 
   handleGenderChange(ev) {
     const fieldInput = ev.target.value;
 
     this.setState({
-      gender: fieldInput,
+      gender: fieldInput
     });
 
-   // this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
+    // this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
   }
 
-
   handleAgeGroupChange(ev) {
-    const data = {paxId:this.props.passenger.id,
-    newPtc:ev.target.value,
-    oldPtc:this.props.passenger.ptc}
+    const data = {
+      paxId: this.props.passenger.id,
+      newPtc: ev.target.value,
+      oldPtc: this.props.passenger.ptc
+    };
 
     this.context.functions.editPassenger(data);
 
-    let minDate = '';
+    let minDate = "";
     switch (ev.target.value) {
-      case 'ADT':
+      case "ADT":
         minDate = this.state.minAdultBirthDate;
         break;
-      case 'CNN':
+      case "CNN":
         minDate = this.state.minChildBirthDate;
         break;
-      case 'INF':
+      case "INF":
         minDate = this.state.minInfantBirthDate;
         break;
     }
 
     this.setState({
       minBirthDate: minDate,
-      ageGroup: ev.target.value,
+      ageGroup: ev.target.value
     });
   }
 
   removeMe() {
     this.context.functions.removePassenger(this.props.passenger.id);
   }
-
 
   editSurname(ev) {
     const fieldInput = ev.target.value.toUpperCase();
@@ -103,69 +101,87 @@ class MasterPassenger extends Component {
     this.setState({
       showSurnameErr: !valResult.valid,
       surNameErrMsg: valResult.reasonCode,
-      surname: fieldInput,
+      surname: fieldInput
     });
 
-
-   // this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
+    // this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
   }
-
 
   editName(ev) {
     const fieldInput = ev.target.value.toUpperCase();
 
     const VP = new ValidatePassengers();
     const valResult = VP.validateNameSurname(fieldInput);
-  
-      this.setState({
-        showNameErr: !valResult.valid,
-        nameErrMsg: valResult.reasonCode,
-        name: fieldInput,
-      });
- 
 
-  //  this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
+    this.setState({
+      showNameErr: !valResult.valid,
+      nameErrMsg: valResult.reasonCode,
+      name: fieldInput
+    });
+
+    //  this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
   }
 
   render() {
-
     let ptcOptions = [];
-    ptcOptions.push(<option key="ADT" value="ADT">Adult</option>);
-    if (this.context.functions.getActivePaxesLen() > 1)  {
-      ptcOptions.push(<option key="CNN" value="CNN">Child</option>)
-      ptcOptions.push(<option key="INF" value="INF">Infant</option>)
-    } 
+    ptcOptions.push(
+      <option key="ADT" value="ADT">
+        Adult
+      </option>
+    );
+    if (this.context.functions.getActivePaxesLen() > 1) {
+      ptcOptions.push(
+        <option key="CNN" value="CNN">
+          Child
+        </option>
+      );
+      ptcOptions.push(
+        <option key="INF" value="INF">
+          Infant
+        </option>
+      );
+    }
 
     return (
       <section>
         <div className="row passengerCompo show passengerListCollapse">
           <div className="col-12">
-
-
             <div className="card bg-light">
               <div className="card-header">
-
                 <div className="row">
-
                   <div className="col-2">
-                    Passenger  #{this.props.passenger.humanId}
+                    Passenger #{this.props.passenger.humanId}
                   </div>
 
                   <div className="col-4">
-                    <select defaultValue="ADT" className="form-control" onChange={this.handleAgeGroupChange}>
-                      <option key="" value="">Select Type</option>
-                       {ptcOptions}
+                    <select
+                      defaultValue="ADT"
+                      className="form-control"
+                      onChange={this.handleAgeGroupChange}
+                    >
+                      <option key="" value="">
+                        Select Type
+                      </option>
+                      {ptcOptions}
                     </select>
                   </div>
 
                   <div className="col-3">
-                    <select className="form-control" onChange={this.handleGenderChange}>
-                      <option key="" value="">Select Gender</option>
-                      <option key="M" value="M">Male</option>
-                      <option key="F" value="F">Female</option>
+                    <select
+                      className="form-control"
+                      onChange={this.handleGenderChange}
+                    >
+                      <option key="" value="">
+                        Select Gender
+                      </option>
+                      <option key="M" value="M">
+                        Male
+                      </option>
+                      <option key="F" value="F">
+                        Female
+                      </option>
                     </select>
                   </div>
-
 
                   <div className="col-2 offset-1">
                     <button
@@ -179,44 +195,46 @@ class MasterPassenger extends Component {
                     </button>
                   </div>
                 </div>
-
               </div>
 
-              <div className="card-body collapse show" id={`passengerCollapse${this.props.passenger.id}`}>
-
+              <div
+                className="card-body collapse show"
+                id={`passengerCollapse${this.props.passenger.id}`}
+              >
                 <div className="row">
-
                   <br />
 
                   <div className="col-5">
                     <input
-                      type="text" placeholder="Name" id={`#paxName${this.props.passenger.id}`}
+                      type="text"
+                      placeholder="Name"
+                      id={`#paxName${this.props.passenger.id}`}
                       value={this.state.name}
-                      onChange={this.editName} className="form-control"
+                      onChange={this.editName}
+                      className="form-control"
                     />
                     <Error
                       show={this.state.showNameErr}
                       class="textInputErr"
                       msg={this.state.nameErrMsg}
                     />
-
                   </div>
 
                   <div className="col-6">
                     <input
-                      type="text" placeholder="Surname"
+                      type="text"
+                      placeholder="Surname"
                       id={`#paxSurname${this.props.passenger.id}`}
                       value={this.state.surname}
-                      onChange={this.editSurname} className="form-control"
+                      onChange={this.editSurname}
+                      className="form-control"
                     />
                     <Error
                       show={this.state.showSurnameErr}
                       class="textInputErr"
                       msg={this.state.surNameErrMsg}
                     />
-
                   </div>
-
                 </div>
 
                 <div className="row">
@@ -229,62 +247,56 @@ class MasterPassenger extends Component {
                       onChange={this.changeBirthDate}
                     />
                   </div>
-
                 </div>
 
+                <MasterPassport paxId={this.props.passenger.id} />
 
-                 <MasterPassport paxId={this.props.passenger.id} />
-
-
-                  {/*
+                {/*
                 {(this.state.ageGroup !== 'INF')
                                 && <MilesCards />
                                 }
 */}
 
-                <div>                
-                    <div className="alert alert-info" role="alert">Pick extra upsales your trip!</div>
+                <div>
+                  <div className="alert alert-info" role="alert">
+                    Pick extra upsales your trip!
+                  </div>
 
-                    {(this.props.passenger.ptc !== 'INF')
-                                    &&  <Insurance
-                                        pax={this.props.passenger}
-                                      />
-                      }
+                  {this.props.passenger.ptc !== "INF" && (
+                    <Insurance pax={this.props.passenger} />
+                  )}
 
-                      {(this.props.passenger.ptc !== 'INF')
-                                    &&  <BagComponent
-                                        paxId={this.props.passenger.id}
-                                        ptc={this.props.passenger.ptc}
-                                      />
-                      }
+                  {this.props.passenger.ptc !== "INF" && (
+                    <BagComponent
+                      paxId={this.props.passenger.id}
+                      ptc={this.props.passenger.ptc}
+                    />
+                  )}
 
-                      {(this.props.passenger.ptc !== 'INF') &&
-                         <MealsComponent/>
-                      }
-
-
-                 </div>
-
+                  {this.props.passenger.ptc !== "INF" && <MealsComponent />}
+                </div>
               </div>
 
-              {(this.context.functions.getActivePaxesLen() > 1) && 
+              {this.context.functions.getActivePaxesLen() > 1 && (
                 <div className="card-footer">
                   <div className="row">
                     <div className="col-4 offset-4">
-                      <button className="btn btn-primary btn btn-danger" onClick={this.removeMe}>
-                      Remove Passenger
+                      <button
+                        className="btn btn-primary btn btn-danger"
+                        onClick={this.removeMe}
+                      >
+                        Remove Passenger
                       </button>
                     </div>
                   </div>
                 </div>
-              }
-
+              )}
             </div>
-
           </div>
         </div>
-      </section>);
+      </section>
+    );
   }
 }
 
-export default MasterPassenger
+export default MasterPassenger;

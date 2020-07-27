@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import InsuranceOption from './InsuranceOption';
-import {DataContext} from "../../../OtaContext";
-
+import React, { Component } from "react";
+import InsuranceOption from "./InsuranceOption";
+import { DataContext } from "../../../OtaContext";
 
 class Insurance extends Component {
   static contextType = DataContext;
@@ -10,7 +9,7 @@ class Insurance extends Component {
     super(props);
 
     this.state = {
-      checkedInsurance: 0,
+      checkedInsurance: 0
     };
 
     this.handleOptionsChange = this.handleOptionsChange.bind(this);
@@ -22,7 +21,7 @@ class Insurance extends Component {
 
     this.context.functions.purchaseInsurance({
       pax: this.props.pax,
-      insuranceId: optionId,
+      insuranceId: optionId
     });
   }
 
@@ -30,19 +29,12 @@ class Insurance extends Component {
     return (
       <section>
         <div className="insuranceCard">
-
           <div className="alert alert-success" role="alert">
             <div className="row">
-
-
-              <div className="col-6">
-
-                            Select an Insurance
-              </div>
+              <div className="col-6">Select an Insurance</div>
               <div className="col-2">
                 <i className="fas fa-ambulance" />
               </div>
-
 
               <div className="col-2">
                 <button
@@ -52,17 +44,13 @@ class Insurance extends Component {
                   aria-expanded="false"
                   aria-controls="collapseExample"
                 >
-
-                               general.Toggle
+                  general.Toggle
                 </button>
               </div>
-
             </div>
           </div>
 
-
           <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
-
             <div className="row">
               {this.context.upsalesPricing.Insurance.map(ins => (
                 <InsuranceOption
@@ -80,6 +68,5 @@ class Insurance extends Component {
     );
   }
 }
-
 
 export default Insurance;

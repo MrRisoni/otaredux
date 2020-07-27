@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import BagLeg from './BagLeg';
-import {DataContext} from "../../../OtaContext";
-
+import React, { Component } from "react";
+import BagLeg from "./BagLeg";
+import { DataContext } from "../../../OtaContext";
 
 class BagComponent extends Component {
   static contextType = DataContext;
@@ -13,19 +12,13 @@ class BagComponent extends Component {
   render() {
     const keys = [0, 1];
 
-
     return (
       <section>
-
         <div className="row">
           <div className="col-12">
             <div className="alert alert-success" role="alert">
-
               <div className="row">
-                <div className="col-6">
-
-                  upsales.PurchaseBags
-                </div>
+                <div className="col-6">upsales.PurchaseBags</div>
                 <div className="col-2">
                   <i className="fas fa-suitcase" />
                 </div>
@@ -38,18 +31,15 @@ class BagComponent extends Component {
                     aria-expanded="false"
                     aria-controls="collapseExample"
                   >
-
                     general.Toggle
                   </button>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
 
         <div className="collapse" id={`bagCollapse${this.props.paxId}`}>
-
           {keys.map(kk => (
             <div className="row bagLegDiv">
               <div className="col-10 offset-1">
@@ -61,16 +51,12 @@ class BagComponent extends Component {
                   ptc={this.props.ptc}
                 />
               </div>
-            </div>))}
-
-
+            </div>
+          ))}
         </div>
-
-      </section>);
+      </section>
+    );
   }
 }
-
-
-
 
 export default BagComponent;

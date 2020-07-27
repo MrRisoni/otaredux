@@ -1,33 +1,25 @@
-import React from 'react';
-import Airport from './Airport';
-import Segment from './Segment';
+import React from "react";
+import Airport from "./Airport";
+import Segment from "./Segment";
 
-
-const Leg = (props) => {
-  const waitDiv = props.data.waiting.total > 0 ? (
-    <div className="col-4">
-     flight.WaitTime
-      {' '}
-:
-      {props.data.waiting.h}
-h
-      {props.data.waiting.m}
-m
-    </div>
-  ) : (<div />);
-
+const Leg = props => {
+  const waitDiv =
+    props.data.waiting.total > 0 ? (
+      <div className="col-4">
+        flight.WaitTime :{props.data.waiting.h}h{props.data.waiting.m}m
+      </div>
+    ) : (
+      <div />
+    );
 
   const legTitle = "flight.Departurepe";
 
   return (
     <div className="Leg legsCollapse show">
       <div className="card  bg-light mb-3 border-primary mb-3">
-
         <div className="card-header">
           <div className="row">
-
             <div className="col-4">{legTitle}</div>
-
 
             <div className="col-2 offset-6">
               <button
@@ -41,15 +33,10 @@ m
               </button>
             </div>
           </div>
-
         </div>
 
-
         <div className="card-body show" id={`legCollapse${props.data.legId}`}>
-
           <div className="row">
-
-
             <Airport
               iata={props.data.from.iata}
               city={props.data.from.city}
@@ -79,50 +66,30 @@ m
                 aria-controls="collapseExample"
               >
                 general.Expand
-
               </button>
             </div>
-
           </div>
-
 
           <br />
 
-
           <div className="row">
+            <div className="col-4">flight.Stops :{props.data.stops}</div>
 
             <div className="col-4">
-              flight.Stops
-
-                            :
-              {props.data.stops}
+              flight.Duration :{props.data.duration.h}h{props.data.duration.m}m
             </div>
-
-            <div className="col-4">
-              flight.Duration
-              {' '}
-:
-              {props.data.duration.h}
-h
-              {props.data.duration.m}
-m
-            </div>
-
 
             {waitDiv}
           </div>
 
-  
-
           <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
-            {props.data.segments.map((sg, idx) => (<Segment key={idx} data={sg} />))}
+            {props.data.segments.map((sg, idx) => (
+              <Segment key={idx} data={sg} />
+            ))}
           </div>
-
         </div>
-
       </div>
     </div>
-
   );
 };
 

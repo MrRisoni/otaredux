@@ -21,8 +21,6 @@ body, input[type="text"], option, select
     margin-top: 25px;
 }
 
-
-
 .currency {
     margin-left: 5px;
 }
@@ -108,9 +106,6 @@ body, input[type="text"], option, select
     height: auto;
 }
 
-
-
-
 .textInputErr {
     color:red;
     display: inline-block;
@@ -145,7 +140,6 @@ body, input[type="text"], option, select
 
 
 
-
 .langDropDown {
     margin-left: 5px;
 }
@@ -159,20 +153,6 @@ body { padding: 40px; }
 .dropdown-header { background: #ccc; font-size: 14px; font-weight: 700; padding-top: 5px; padding-bottom: 5px; margin-top: 10px; margin-bottom: 5px }
 
 
-.cabinLegSelect {
-    margin-top: 5%;
-}
-
-
-
-.cabinSegment {
-    margin-top: 1%;
-}
-
-#brandedWidget {
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
 
 .cabinTrip {
     margin-top: 4%;

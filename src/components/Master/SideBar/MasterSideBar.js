@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
-import {DataContext} from "../../OtaContext";
+import React, { Component } from "react";
+import { DataContext } from "../../OtaContext";
 import SideBarUpsale from "./SideBarUpsale";
-import FareTaxes from './../Segments/FareTaxes';
-
+import FareTaxes from "./../Segments/FareTaxes";
 
 class MasterSideBar extends Component {
+  static contextType = DataContext;
+  constructor(props) {
+    super(props);
 
-    static contextType = DataContext;
-    constructor(props) {
-        super(props);
+    this.updateChosenLangLcl = this.updateChosenLangLcl.bind(this);
+  }
 
-        this.updateChosenLangLcl = this.updateChosenLangLcl.bind(this);
-
-    }
-
-    updateChosenLangLcl(ev) {
-        console.log(ev.target.value);
-        this.context.functions.updateChosenLang(ev.target.value);
-    }
-    render() {
-
-
+  updateChosenLangLcl(ev) {
+    console.log(ev.target.value);
+    this.context.functions.updateChosenLang(ev.target.value);
+  }
+  render() {
     const paxPrices = [];
     let activePaxCount = 0;
 
@@ -32,12 +27,11 @@ class MasterSideBar extends Component {
     let insuranceCount = 0;
     let mealsCount = 0;
     const otherUpsalesCount = 0;
-    let totalPreseatPrice =0;
+    let totalPreseatPrice = 0;
 
     let otherUpsalesDiv = [];
 
-
-    if (this.context.upsales.blueRibbonCost >0) {
+    if (this.context.upsales.blueRibbonCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Blue Ribbon"
@@ -47,7 +41,7 @@ class MasterSideBar extends Component {
       );
     }
 
-    if (this.context.upsales.flexTicketCost >0) {
+    if (this.context.upsales.flexTicketCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Flex Ticket"
@@ -57,8 +51,7 @@ class MasterSideBar extends Component {
       );
     }
 
-
-    if (this.context.upsales.webCheckinCost >0) {
+    if (this.context.upsales.webCheckinCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Web Checkin"
@@ -68,8 +61,7 @@ class MasterSideBar extends Component {
       );
     }
 
-
-    if (this.context.upsales.airHelpCost >0) {
+    if (this.context.upsales.airHelpCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Air Help"
@@ -79,7 +71,7 @@ class MasterSideBar extends Component {
       );
     }
 
-    if (this.context.upsales.insuranceCost >0) {
+    if (this.context.upsales.insuranceCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Insurance"
@@ -89,7 +81,7 @@ class MasterSideBar extends Component {
       );
     }
 
-   /* this.props.passengers.forEach(pax => {
+    /* this.props.passengers.forEach(pax => {
       if (pax.active) {
 
           const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
@@ -263,20 +255,14 @@ x
 
     */
 
-
-
     return (
-
       <div className="pricebox sticky-top ">
-
         <div className="card bg-info">
           <div className="card-header">
             <div className="row">
-
               <div className="col-8">
                 <h6>Price Analysis</h6>
               </div>
-
 
               <div className="col-3 offset-col-4">
                 <button
@@ -288,33 +274,39 @@ x
                   aria-controls="priceBoxCollapse"
                 >
                   ExpandTranltr
-                    {/* <Translate value="general.Expand" /> */}
+                  {/* <Translate value="general.Expand" /> */}
                 </button>
               </div>
-
-
             </div>
           </div>
 
           <div className="card-body show text-white" id="priceBoxCollapse">
+            <SideBarUpsale
+              title={"Total"}
+              price={this.context.totalCost}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
+            <SideBarUpsale
+              title={"Fare"}
+              price={this.context.totalFare}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
 
+            <SideBarUpsale
+              title={"Taxes"}
+              price={this.context.totalTax}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
 
+            <hr />
+            <hr />
+            <hr />
+            {otherUpsalesDiv}
 
-            <SideBarUpsale title={"Total"} price={this.context.totalCost} currency={this.context.currentCurrency}></SideBarUpsale>
-            <SideBarUpsale title={"Fare"} price={this.context.totalFare} currency={this.context.currentCurrency}></SideBarUpsale>
-
-            <SideBarUpsale title={"Taxes"} price={this.context.totalTax} currency={this.context.currentCurrency}></SideBarUpsale>
-
-            <hr/>
-              <hr/>
-                <hr/>
-                {otherUpsalesDiv}
-
-              {/*   {bagsDiv}
+            {/*   {bagsDiv}
             {insuranceDiv}
             {mealsDiv}
             {otherUpsalesDiv} */}
-
 
             {/*  <div className="row">
               <div className="col-12">
@@ -330,10 +322,6 @@ x
               </div>
             </div> */}
 
-
-
-
-
             <div className="row langSelector">
               <div className="col-8 offset-2">
                 <select
@@ -342,54 +330,47 @@ x
                   onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
-                      {this.context.translations['ru'].pricebox.ChangeLang}
+                    {this.context.translations["ru"].pricebox.ChangeLang}
                   </option>
-                  {this.context.languages.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                  {this.context.languages.map(lang => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.title}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
 
-
-             <div className="row">
+            <div className="row">
               <div className="col-12">
-
                 <div className="row selectLang">
                   <div className="col-8 offset-2">
                     <select
                       className="form-control"
-                      onChange={this.props.changeCurrencyHandler}>
+                      onChange={this.props.changeCurrencyHandler}
+                    >
                       <option value="">
-                            {this.context.translations['ru'].pricebox.ChangeCur}
-
-                          </option>
-                      {this.context.currencies.map(cur => (<option value={cur.code}>{cur.code}</option>))}
+                        {this.context.translations["ru"].pricebox.ChangeCur}
+                      </option>
+                      {this.context.currencies.map(cur => (
+                        <option value={cur.code}>{cur.code}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
-
               </div>
             </div>
 
-
-
-            
             <div className="row addOnePassenger  passengerListCollapse">
               <div className="col-12">
-
-                        <button className="btn btn-primary btn-success">
-                           Checkout
-                        </button>
-                    
+                <button className="btn btn-primary btn-success">
+                  Checkout
+                </button>
               </div>
             </div>
-
-
           </div>
-
         </div>
       </div>
-
-
     );
   }
 }
