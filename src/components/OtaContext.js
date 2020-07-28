@@ -123,7 +123,10 @@ class OtaContextProvider extends Component {
           preseating: {
             totalCost: 0,
             totalEur: 0,
-            choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 }]
+            choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 },
+            { segId: 1, choice: "", cost: 0, costEur: 0 },
+            { segId: 2, choice: "", cost: 0, costEur: 0 },
+            { segId: 3, choice: "", cost: 0, costEur: 0 }]
           }
         }
       }
