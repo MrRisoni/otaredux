@@ -57,6 +57,12 @@ class MasterPassenger extends Component {
       gender: fieldInput
     });
 
+    this.context.functions.editPassenger(
+      {paxId:this.props.passenger.id,
+        gender:fieldInput,
+        field:'gender'
+      }); 
+
     
   }
 
@@ -110,6 +116,7 @@ class MasterPassenger extends Component {
         surname:fieldInput,
         field:'surname'
       }); 
+
      }
 
   editName(ev) {

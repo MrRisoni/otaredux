@@ -21,8 +21,8 @@ export const DataContext = createContext();
 class OtaContextProvider extends Component {
   state = {
     contactData: {
-      surname: "FOOBAARR",
-      name: "BARBR",
+      surname: "",
+      name: "",
       gender: "",
       prefix: "",
       mobile: "",
@@ -209,11 +209,13 @@ class OtaContextProvider extends Component {
 
   editPassenger = data => {
     console.log(data);
+    let isFirstHuman = false;
 
     let newPaxes = this.state.passengers.map(px => {
       if (px.id != data.paxId) {
         return px;
       } else {
+        isFirstHuman = (px.humanId ==1);
         if (data.field === 'ptc') {
           return {
             ...px,
@@ -230,6 +232,12 @@ class OtaContextProvider extends Component {
           return {
             ...px,
             surname: data.surname
+          };
+        }
+        if (data.field === 'gender') {
+          return {
+            ...px,
+            gender: data.gender
           };
         }
       }
@@ -251,7 +259,7 @@ class OtaContextProvider extends Component {
         }
       }
     });
-
+    
     this.setState({
       passengers: newPaxes,
       numADT: adt,
@@ -391,6 +399,8 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.webCheckinCost);
     ttl += parseFloat(this.state.upsales.flexTicketCost);
     ttl += parseFloat(this.state.upsales.airHelpCost);
+    ttl += parseFloat(this.state.upsales.fastTrackCost);
+
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -503,6 +513,26 @@ class OtaContextProvider extends Component {
 
   updateTotalCost() {}
 
+  purchaseFastTrack = data => {
+    let new_upsales = this.state.upsales;
+    new_upsales.fastTrackCost = 0;
+    new_upsales.fastTrackCostEur =0;
+    console.log('fast track data');
+    console.log(data);
+    if (data.add ===1) {
+      new_upsales.fastTrackCost = this.state.upsalesPricing["fastTrack"][data.point];
+      new_upsales.fastTrackCostEur =  new_upsales.fastTrackCost * this.state.currentCurrency.rate;
+
+    }
+
+
+    this.setState({
+      upsales: new_upsales
+    });
+
+    this.firstLoad();
+  }
+
   actionBlueRibbon = yay => {
     let brbEur =
       this.state.upsalesPricing.blueRibbon *
@@ -516,12 +546,12 @@ class OtaContextProvider extends Component {
     brb = brb.toFixed(2);
 
     let new_upsales = this.state.upsales;
+    new_upsales.blueRibbonCost = 0;
+    new_upsales.blueRibbonCostEur = 0;
+
     if (yay == 1) {
       new_upsales.blueRibbonCost = brb;
       new_upsales.blueRibbonCostEur = brbEur;
-    } else {
-      new_upsales.blueRibbonCost = 0;
-      new_upsales.blueRibbonCostEur = 0;
     }
 
     this.setState({
@@ -530,6 +560,8 @@ class OtaContextProvider extends Component {
 
     this.firstLoad();
   };
+
+
 
   actionWebCheckin = yay => {
     let webCheckEur =
@@ -630,6 +662,7 @@ class OtaContextProvider extends Component {
             firstLoad: this.firstLoad,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
+            purchaseFastTrack: this.purchaseFastTrack,
             actionBlueRibbon: this.actionBlueRibbon,
             actionFlexTicket: this.actionFlexTicket,
             actionWebCheckin: this.actionWebCheckin,

@@ -80,6 +80,15 @@ class MasterSideBar extends Component {
         />
       );
     }
+    
+    if (this.context.upsales.fastTrackCost > 0) {
+      otherUpsalesDiv.push(<SideBarUpsale
+          title="Fast Track"
+          price={this.context.upsales.fastTrackCost}
+          currency={this.context.currentCurrency}
+      />);
+  }
+
 
     /* this.props.passengers.forEach(pax => {
       if (pax.active) {
@@ -227,15 +236,6 @@ x
       }
 
 
-      if (this.props.hasFastTrack === true) {
-
-        otherUpsalesDiv.push(<SideBarUpsale
-            title="Fast Track"
-            price={this.props.overallFastTrackCost}
-            currency={this.props.currency}
-        />);
-    }
-
 
     
 
@@ -298,15 +298,13 @@ x
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
 
-            <hr />
-            <hr />
-            <hr />
+    
             {otherUpsalesDiv}
 
             {/*   {bagsDiv}
             {insuranceDiv}
             {mealsDiv}
-            {otherUpsalesDiv} */}
+             */}
 
             {/*  <div className="row">
               <div className="col-12">
