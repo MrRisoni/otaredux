@@ -59,7 +59,7 @@ class PaxSelector extends Component {
                 <tr key={psg.key}
                   className={this.getPassengerClasName(pxId, activePax)}
                 >
-                  <td>{psg.name}</td>
+                  <td>{psg.name} {psg.surname}</td>
                   {psg['upsalesData']['preseating']['choices'].map(choice => (
                     <td key={choice.key}>{choice.chosen}</td>
                   ))}

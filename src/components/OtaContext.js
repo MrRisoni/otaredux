@@ -205,6 +205,8 @@ class OtaContextProvider extends Component {
     });
   };
 
+ 
+
   editPassenger = data => {
     console.log(data);
 
@@ -212,10 +214,24 @@ class OtaContextProvider extends Component {
       if (px.id != data.paxId) {
         return px;
       } else {
-        return {
-          ...px,
-          ptc: data.newPtc
-        };
+        if (data.field === 'ptc') {
+          return {
+            ...px,
+            ptc: data.newPtc
+          };
+        }
+        if (data.field === 'name') {
+          return {
+            ...px,
+            name: data.name
+          };
+        }
+        if (data.field === 'surname') {
+          return {
+            ...px,
+            surname: data.surname
+          };
+        }
       }
     });
     let adt = 0;
@@ -339,7 +355,10 @@ class OtaContextProvider extends Component {
         preseating: {
           totalCost: 0,
           totalEur: 0,
-          choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 }]
+          choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 },
+          { segId: 1, choice: "", cost: 0, costEur: 0 },
+          { segId: 2, choice: "", cost: 0, costEur: 0 },
+          { segId: 3, choice: "", cost: 0, costEur: 0 }]
         }
       }
     };

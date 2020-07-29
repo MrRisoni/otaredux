@@ -57,14 +57,15 @@ class MasterPassenger extends Component {
       gender: fieldInput
     });
 
-    // this.props.editNameHandler(this.props.passenger.id, this.state.surname, this.state.name, fieldInput);
+    
   }
 
   handleAgeGroupChange(ev) {
     const data = {
       paxId: this.props.passenger.id,
       newPtc: ev.target.value,
-      oldPtc: this.props.passenger.ptc
+      oldPtc: this.props.passenger.ptc,
+      field:'ptc',
     };
 
     this.context.functions.editPassenger(data);
@@ -104,8 +105,12 @@ class MasterPassenger extends Component {
       surname: fieldInput
     });
 
-    // this.props.editNameHandler(this.props.passenger.id, fieldInput, this.state.name, this.state.gender);
-  }
+    this.context.functions.editPassenger(
+      {paxId:this.props.passenger.id,
+        surname:fieldInput,
+        field:'surname'
+      }); 
+     }
 
   editName(ev) {
     const fieldInput = ev.target.value.toUpperCase();
@@ -119,7 +124,12 @@ class MasterPassenger extends Component {
       name: fieldInput
     });
 
-    //  this.props.editNameHandler(this.props.passenger.id, this.state.surname, fieldInput, this.state.gender);
+    this.context.functions.editPassenger(
+      {paxId:this.props.passenger.id,
+        name:fieldInput,
+        field:'name'
+      });
+
   }
 
   render() {

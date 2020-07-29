@@ -33,8 +33,8 @@ class BagSelection extends Component {
   }
 
   render() {
-    console.log("bag data");
-    console.log(this.props.bagData);
+  //  console.log("bag data");
+  //  console.log(this.props.bagData);
     let priceOneBags = 0;
     let priceTwoBags = 0;
 
