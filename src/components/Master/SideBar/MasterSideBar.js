@@ -359,7 +359,7 @@ x
               </div>
             </div>
 
-            <div className="row addOnePassenger  passengerListCollapse">
+            <div className="row addOnePassenger">
               <div className="col-12">
                 <button className="btn btn-primary btn-success">
                   Checkout

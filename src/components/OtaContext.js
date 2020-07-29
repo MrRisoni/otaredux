@@ -499,10 +499,10 @@ class OtaContextProvider extends Component {
       }
     });
 
-    upsalesNew.insuranceCostEur = newInsuranceCost;
-    upsalesNew.insuranceCost =
-      newInsuranceCost * this.state.currentCurrency.rate;
-
+    upsalesNew.insuranceCostEur = newInsuranceCost.toFixed(2);
+    upsalesNew.insuranceCost =  newInsuranceCost * this.state.currentCurrency.rate;
+    upsalesNew.insuranceCost = upsalesNew.insuranceCost.toFixed(2);
+    
     this.setState({
       passengers: paxsnew,
       upsales: upsalesNew
