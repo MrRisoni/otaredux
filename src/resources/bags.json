@@ -33,21 +33,21 @@
     "pricing": {
       "firstBag" :  [
         {
-          "costEur": 28,
+          "costEur": 30,
           "ptc": "ADT"
         },
         {
-          "costEur": 20,
+          "costEur": 25,
           "ptc": "CNN"
         }
       ],
       "secondBag" :  [
         {
-          "costEur": 38,
+          "costEur": 45,
           "ptc": "ADT"
         },
         {
-          "costEur": 29,
+          "costEur": 32,
           "ptc": "CNN"
         }
       ]

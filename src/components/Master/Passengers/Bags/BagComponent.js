@@ -41,10 +41,9 @@ class BagComponent extends Component {
 
         <div className="collapse" id={`bagCollapse${this.props.paxId}`}>
           {keys.map(kk => (
-            <div className="row bagLegDiv">
+            <div key={kk} className="row bagLegDiv">
               <div className="col-10 offset-1">
-                <BagLeg
-                  key={kk}
+                <BagLeg               
                   leg={kk}
                   bagList={this.context.BagsRsc}
                   paxId={this.props.paxId}

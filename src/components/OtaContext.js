@@ -621,6 +621,12 @@ class OtaContextProvider extends Component {
     this.firstLoad();
   };
 
+
+  actionBag = data => {
+    console.log('add bag');
+    console.log(data);
+  };
+
   actionAirHelp = yay => {
     let airHelpEur =
       this.state.upsalesPricing.airHelp *
@@ -660,6 +666,7 @@ class OtaContextProvider extends Component {
             removePassenger: this.removePassenger,
             editPassenger: this.editPassenger,
             firstLoad: this.firstLoad,
+            actionBag: this.actionBag,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
             purchaseFastTrack: this.purchaseFastTrack,

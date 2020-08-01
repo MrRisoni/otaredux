@@ -9,28 +9,14 @@ class BagSelection extends Component {
     this.state = {
       disabled: false
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
-  handleClick() {
-    const bgCount = this.getTotalBagCount();
-    if (bgCount + 1 <= this.props.limitBags) {
-      this.props.addBagHandler({
-        paxId: this.props.paxId,
-        bagId: this.props.bagData.id,
-        legId: this.props.legId
-      });
-    }
+  handleSelection(ev) {
+    this.context.functions.actionBag({paxId:this.props.paxId,
+      legId:this.props.legId,option:ev['target']['value']});
   }
 
-  handleRemove() {
-    this.props.removeBagHandler({
-      paxId: this.props.paxId,
-      bagId: this.props.bagData.id,
-      legId: this.props.legId
-    });
-  }
 
   render() {
   //  console.log("bag data");
@@ -56,7 +42,7 @@ class BagSelection extends Component {
     return (
       <div className="row">
         <div className="col-6">
-          <select defaultValue="0" className="form-control">
+          <select defaultValue="0" className="form-control" onChange={this.handleSelection}>
             <option value="0"></option>
             <option value="1">
               One Bag {priceOneBags} {this.context.currentCurrency.code}

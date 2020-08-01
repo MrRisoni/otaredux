@@ -15,7 +15,7 @@ class BagLeg extends Component {
           <div className="col-12">
             <div className="card">
               <div className="card-header">
-                {legTitle} (Max {this.props.limitBags})
+                {legTitle} 
               </div>
               <div className="card-body">
                 {this.props.bagList

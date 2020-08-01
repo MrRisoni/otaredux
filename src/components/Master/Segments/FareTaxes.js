@@ -20,19 +20,22 @@ class FareTaxes extends Component {
         }
 
         if (counter > 0) {
-          singleRow.push(<td>Leg</td>);
-          singleRow.push(<td>{prices.ptc}</td>);
-          singleRow.push(<td>{prices.fareEur}</td>);
-          singleRow.push(<td>{prices.taxesEur}</td>);
-
-          rows.push(singleRow);
+         let kleidi = 'frtx_' + prices.ptc + '_lg' + leg.legId;
+         rows.push(
+          <tr key={kleidi}>
+              <td>Leg</td>
+              <td>{prices.ptc}</td>
+              <td>{prices.fareEur}</td>
+              <td>{prices.taxesEur}</td>
+          </tr>
+         )
         }
       });
     });
 
     return (
       <section>
-        <table class="table table-striped table-bordered">
+        <table className="table table-striped table-bordered">
           <thead>
             <tr>
               <th>Route</th>
@@ -42,9 +45,7 @@ class FareTaxes extends Component {
             </tr>
           </thead>
           <tbody>
-            {rows.map(rw => (
-              <tr>{rw}</tr>
-            ))}
+            {rows}
           </tbody>
         </table>
       </section>
