@@ -14,30 +14,17 @@ class BagSelection extends Component {
 
   handleSelection(ev) {
     this.context.functions.actionBag({paxId:this.props.paxId,
+      ptc:this.props.ptc,
       legId:this.props.legId,option:ev['target']['value']});
   }
 
 
   render() {
-  //  console.log("bag data");
-  //  console.log(this.props.bagData);
-    let priceOneBags = 0;
-    let priceTwoBags = 0;
 
-    //  console.log('this.props.bagData');
-    // console.log(this.props.bagData);
+    const pricesOfBags =  this.context.functions.getBagPrices({legId:this.props.legId, ptc:this.props.ptc});
 
-    priceOneBags = this.props.bagData.pricing["firstBag"].filter(
-      bg => bg.ptc == this.props.ptc
-    )[0].costEur;
-    priceOneBags *= this.context.currentCurrency.rate;
-    priceOneBags = priceOneBags.toFixed(2);
-
-    priceTwoBags += this.props.bagData.pricing["secondBag"].filter(
-      bg => bg.ptc == this.props.ptc
-    )[0].costEur;
-    priceTwoBags *= this.context.currentCurrency.rate;
-    priceTwoBags = priceTwoBags.toFixed(2);
+  let priceOneBags =  pricesOfBags.priceOneBags;
+  let priceTwoBags =  pricesOfBags.priceTwoBags;
 
     return (
       <div className="row">

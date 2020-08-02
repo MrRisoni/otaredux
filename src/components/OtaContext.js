@@ -68,6 +68,8 @@ class OtaContextProvider extends Component {
       loungeCostEur: 0,
       flexTicketCost: 0,
       flexTicketCostEur: 0,
+      bagsCost:0,
+      bagsCostEur:0,
       parking: {
         cost: 0,
         costEur: 0,
@@ -119,6 +121,10 @@ class OtaContextProvider extends Component {
           meals: [
             { leg: 0, choice: "", cost: 0, costEur: 0 },
             { leg: 1, choice: "", cost: 0, costEur: 0 }
+          ],
+          bags: [
+            { leg: 0, num: 0, cost: 0, costEur: 0 },
+            { leg: 1, num: 0, cost: 0, costEur: 0 }
           ],
           preseating: {
             totalCost: 0,
@@ -360,6 +366,10 @@ class OtaContextProvider extends Component {
           { leg: 0, choice: "", cost: 0, costEur: 0 },
           { leg: 1, choice: "", cost: 0, costEur: 0 }
         ],
+        bags: [
+          { leg: 0, num: 0, cost: 0, costEur: 0 },
+          { leg: 1, num: 0, cost: 0, costEur: 0 }
+        ],
         preseating: {
           totalCost: 0,
           totalEur: 0,
@@ -400,6 +410,7 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.flexTicketCost);
     ttl += parseFloat(this.state.upsales.airHelpCost);
     ttl += parseFloat(this.state.upsales.fastTrackCost);
+    ttl += parseFloat(this.state.upsales.bagsCost);
 
 
     for (var p = 0; p < this.state.passengers.length; p++) {
@@ -625,6 +636,59 @@ class OtaContextProvider extends Component {
   actionBag = data => {
     console.log('add bag');
     console.log(data);
+    let new_paxes = this.state.passengers;
+
+    const prices = this.getBagPrices(data);
+    console.log(prices);
+    let new_upsales = this.state.upsales;
+
+    new_upsales.bagsCost = 0;
+    new_upsales.bagsCostEur = 0;
+   
+    let newPaxes = this.state.passengers.map(px => {
+      if (px.id != data.paxId) {
+        return px;
+      } else {
+
+        let newBagData = px.upsalesData.bags;
+        newBagData.forEach(bgleg => {
+           if (bgleg.leg == data.legId) {
+             console.log('REPLACE!!!!');
+             bgleg.cost  = (data.option ==1) ? prices.priceOneBags : prices.priceTwoBags;
+             bgleg.num = data.option
+           }
+        });
+
+        console.log(newBagData);
+      
+          return {
+            ...px,
+            upsalesData: {
+              ... px.upsalesData,
+              bags: newBagData
+            }
+          };
+        }
+       
+      
+    });
+
+    newPaxes.forEach(px => {
+      console.log('----------------------');
+      console.log(px.upsalesData);
+       px.upsalesData.bags.forEach(bg => {
+          new_upsales.bagsCost += bg.cost;
+          console.log('BG COST IS ' + bg.cost);
+       })
+    })
+
+    this.setState({
+      upsales: new_upsales,
+      passengers: newPaxes,
+    });
+    
+    this.firstLoad();
+
   };
 
   actionAirHelp = yay => {
@@ -655,6 +719,33 @@ class OtaContextProvider extends Component {
     this.firstLoad();
   };
 
+ 
+  getBagPrices= (data) => {
+
+    console.log('getBagPrices');
+    console.log(data);
+    console.log(this.state.BagsRsc);
+    let priceOneBags = 0;
+    let priceTwoBags =0;
+  
+    priceOneBags = this.state.BagsRsc[data.legId].pricing["firstBag"].filter(
+      bg => bg.ptc == data.ptc
+    )[0].costEur; 
+
+    priceTwoBags += this.state.BagsRsc[data.legId].pricing["secondBag"].filter(
+      bg => bg.ptc == data.ptc
+    )[0].costEur;
+
+    priceOneBags *= this.state.currentCurrency.rate;
+    priceOneBags = priceOneBags.toFixed(2);
+
+    priceTwoBags *= this.state.currentCurrency.rate;
+    priceTwoBags = priceTwoBags.toFixed(2); 
+
+    return {priceOneBags,priceTwoBags}
+
+  };
+
   render() {
     return (
       <DataContext.Provider
@@ -673,7 +764,8 @@ class OtaContextProvider extends Component {
             actionBlueRibbon: this.actionBlueRibbon,
             actionFlexTicket: this.actionFlexTicket,
             actionWebCheckin: this.actionWebCheckin,
-            actionAirHelp: this.actionAirHelp
+            actionAirHelp: this.actionAirHelp,
+            getBagPrices:this.getBagPrices
           }
         }}
       >

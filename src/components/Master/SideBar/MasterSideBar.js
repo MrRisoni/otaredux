@@ -16,20 +16,18 @@ class MasterSideBar extends Component {
     this.context.functions.updateChosenLang(ev.target.value);
   }
   render() {
-    const paxPrices = [];
-    let activePaxCount = 0;
-
-    const bagPrices = [];
-    const insurancePrices = [];
-    const mealsPrices = [];
-
-    let totalBagCount = 0;
-    let insuranceCount = 0;
-    let mealsCount = 0;
-    const otherUpsalesCount = 0;
-    let totalPreseatPrice = 0;
 
     let otherUpsalesDiv = [];
+
+    if (this.context.upsales.bagsCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Bags"
+          price={this.context.upsales.bagsCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
 
     if (this.context.upsales.blueRibbonCost > 0) {
       otherUpsalesDiv.push(
@@ -136,25 +134,7 @@ class MasterSideBar extends Component {
     
             {otherUpsalesDiv}
 
-            {/*   {bagsDiv}
-            {insuranceDiv}
-            {mealsDiv}
-             */}
-
-            {/*  <div className="row">
-              <div className="col-12">
-                <h4>
-                    <Translate value="pricebox.UpsalePrices" />
-                    {' '}
-
-                    {this.props.pricing.upsales}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-                </h4>
-              </div>
-            </div> */}
-
+       
             <div className="row langSelector">
               <div className="col-8 offset-2">
                 <select
