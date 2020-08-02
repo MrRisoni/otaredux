@@ -642,8 +642,7 @@ class OtaContextProvider extends Component {
     console.log(prices);
     let new_upsales = this.state.upsales;
 
-    new_upsales.bagsCost = 0;
-    new_upsales.bagsCostEur = 0;
+    let finalbagsCost = 0;
    
     let newPaxes = this.state.passengers.map(px => {
       if (px.id != data.paxId) {
@@ -654,7 +653,14 @@ class OtaContextProvider extends Component {
         newBagData.forEach(bgleg => {
            if (bgleg.leg == data.legId) {
              console.log('REPLACE!!!!');
-             bgleg.cost  = (data.option ==1) ? prices.priceOneBags : prices.priceTwoBags;
+             bgleg.cost  = 0;
+             if (data.option ==1)  {
+                bgleg.cost = prices.priceOneBags;
+             }
+             if (data.option ==2)  {
+              bgleg.cost = prices.priceTwoBags;
+           }
+           
              bgleg.num = data.option
            }
         });
@@ -669,19 +675,21 @@ class OtaContextProvider extends Component {
             }
           };
         }
-       
-      
     });
 
     newPaxes.forEach(px => {
       console.log('----------------------');
       console.log(px.upsalesData);
        px.upsalesData.bags.forEach(bg => {
-          new_upsales.bagsCost += bg.cost;
+        finalbagsCost += parseFloat(bg.cost);
           console.log('BG COST IS ' + bg.cost);
        })
     })
 
+    new_upsales.bagsCost = parseFloat(finalbagsCost);
+    new_upsales.bagsCost =  new_upsales.bagsCost.toFixed(2);
+    console.log('total FINAL bag cost ' + finalbagsCost );
+    console.log('total NEW bag cost ' + new_upsales.bagsCost );
     this.setState({
       upsales: new_upsales,
       passengers: newPaxes,
