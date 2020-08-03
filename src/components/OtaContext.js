@@ -89,8 +89,7 @@ class OtaContextProvider extends Component {
         surname: "",
         gender: "",
         dob: "",
-        meals: [],
-        pricing: [
+         pricing: [
           {
             legId: 0,
             class: "Y",
@@ -223,6 +222,7 @@ class OtaContextProvider extends Component {
       } else {
         isFirstHuman = (px.humanId ==1);
         if (data.field === 'ptc') {
+          console.log("CHANING PTC  to " + data.newPtc );
           return {
             ...px,
             ptc: data.newPtc
@@ -272,6 +272,7 @@ class OtaContextProvider extends Component {
       numCNN: cnn,
       numINF: inf
     });
+    this.firstLoad();
   };
 
   removePassenger = paxId => {
@@ -333,7 +334,6 @@ class OtaContextProvider extends Component {
       surname: "",
       gender: "",
       dob: "",
-      meals: [],
       pricing: [
         {
           legId: 0,
@@ -411,6 +411,7 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.airHelpCost);
     ttl += parseFloat(this.state.upsales.fastTrackCost);
     ttl += parseFloat(this.state.upsales.bagsCost);
+    ttl += parseFloat(this.state.upsales.mealsCost);
 
 
     for (var p = 0; p < this.state.passengers.length; p++) {
@@ -421,7 +422,7 @@ class OtaContextProvider extends Component {
           this.state.passengers[p].upsalesData["insurance"]["costEur"]
         );
         console.log("tttll " + ttl);
-        console.log("ptc is " + ptc);
+        console.log("ptc is " + ptc + ' of ' + p);
         var pricingNew = [];
 
         for (var legId = 0; legId < this.state.ItineraryRsc.length; legId++) {
@@ -634,6 +635,60 @@ class OtaContextProvider extends Component {
 
   actionMeal = data => {
     console.log(data);
+    let new_paxes = this.state.passengers;
+    let new_upsales = this.state.upsales;
+    let finalMealsCost = 0;
+
+    let newPaxes = this.state.passengers.map(px => {
+      if (px.id != data.paxId) {
+        return px;
+      } else {
+
+        let newMealData = px.upsalesData.meals;
+        newMealData.forEach(mlLeg => {
+           if (mlLeg.leg == data.legId) {
+             console.log('REPLACE!!!!');
+             mlLeg.cost  = 0;
+             const funden =this.state.MealsRsc.filter(mlItm => mlItm.ssr == data.option && mlItm.legId== data.legId);
+             if (funden.length == 1) {
+               mlLeg.cost = funden[0].price;
+             }
+             mlLeg.choice = data.option;
+            
+           }
+        });
+
+        console.log(newMealData);
+      
+          return {
+            ...px,
+            upsalesData: {
+              ... px.upsalesData,
+              meals: newMealData
+            }
+          };
+        }
+    });
+
+    newPaxes.forEach(px => {
+      console.log('----------------------');
+      console.log(px.upsalesData);
+       px.upsalesData.meals.forEach(ml => {
+        finalMealsCost += parseFloat(ml.cost);
+       })
+    })
+
+    new_upsales.mealsCost = parseFloat(finalMealsCost);
+    new_upsales.mealsCost =  new_upsales.mealsCost.toFixed(2);
+    console.log('total FINAL bag cost ' + finalMealsCost );
+    console.log('total NEW bag cost ' + new_upsales.mealsCost );
+    this.setState({
+      upsales: new_upsales,
+      passengers: newPaxes,
+    });
+    
+    this.firstLoad();
+
   };
 
   actionBag = data => {

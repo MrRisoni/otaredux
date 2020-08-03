@@ -31,8 +31,7 @@ class MasterApp extends Component {
             <MasterPassengerList />
           </div>
 
-          <div className="col-4">
-            <FareTaxes />
+          <div className="col-4 ">
             <MasterSideBar />
           </div>
         </div>

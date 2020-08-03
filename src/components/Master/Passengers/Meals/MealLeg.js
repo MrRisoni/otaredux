@@ -15,7 +15,7 @@ class MealLeg extends Component {
  {
    console.log(ev.target.value);
    this.context.functions.actionMeal({paxId:this.props.paxId,
-    legId:this.props.legId,option:ev['target']['value']});
+    legId:this.props.leg,option:ev['target']['value']});
  }
 
   render() {
@@ -37,9 +37,9 @@ class MealLeg extends Component {
       <div className="row">
         <div className="col-12">
           <select className="form-control" onChange={this.changeMeal}>
-            <option key="0" value="" />
+            <option key="" value="" />
             {mealsArray.filter(ml => ml.legId == this.props.leg).map(ml => (
-              <option key={ml.key} value={ml.id}>
+              <option key={ml.ssr} value={ml.ssr}>
                 {ml.title}  {ml.price} {this.context.currentCurrency.code}
               </option>
             ))}

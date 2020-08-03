@@ -290,7 +290,9 @@ class MasterPassenger extends Component {
                     />
                   )}
 
-                  {this.props.passenger.ptc !== "INF" && <MealsComponent ptc={this.props.passenger.ptc}/>}
+                  {this.props.passenger.ptc !== "INF" && <MealsComponent
+                   paxId={this.props.passenger.id}
+                   ptc={this.props.passenger.ptc}/>}
                 </div>
               </div>
 

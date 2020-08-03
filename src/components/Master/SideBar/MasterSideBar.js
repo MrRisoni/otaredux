@@ -29,6 +29,16 @@ class MasterSideBar extends Component {
       );
     }
 
+    if (this.context.upsales.mealsCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale key="meals"
+          title="Meals"
+          price={this.context.upsales.mealsCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
     if (this.context.upsales.blueRibbonCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
@@ -89,7 +99,9 @@ class MasterSideBar extends Component {
 
    
     return (
-      <div className="pricebox sticky-top ">
+      <div className="pricebox ">
+                    <FareTaxes />
+
         <div className="card bg-info">
           <div className="card-header">
             <div className="row">
