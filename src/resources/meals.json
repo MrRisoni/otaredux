@@ -1,56 +1,74 @@
 [
   {
     "id": 1,
-    "key": "ge534dhfg73567777==",
-    "price": 15.00,
-    "title": "Beef wellington"
+    "legId":0,
+    "ssr" : "CHML",
+    "key": "fu0NDHp3RU9N==",
+    "price": 5.00,
+    "title": "Children"
   },
   {
-    "id": 2,
-    "key": "e5636352ff66==",
-    "price": 12.00,
-    "title": "Spaghetti Bolognese"
-  },
-  {
-    "id": 3,
-    "key": "hdg733747353==",
-    "price": 20.00,
-    "title": "Risotto al frutti di mare"
-  },
-  {
-    "id": 4,
-    "key": "62gwreyu4467==",
-    "price": 20.00,
-    "title": "Beef Stroganov"
-  },
-  {
-    "id": 5,
-    "key": "35567==3434341d",
-    "price": 8.00,
-    "title": "Schwarzwälder Kirschtorte"
-  },
-  {
-    "id": 6,
-    "key": "85hrt35565htrtrg",
-    "price": 7.00,
-    "title": "Chocolate ice-cream"
-  },
-  {
-    "id": 7,
-    "key": "ge534dhfg7356ewewwewe7777==",
+    "id": 1,
+    "legId":0,
+    "ssr" : "VGML",
+    "key": "fu0NDHp3RU9N==",
     "price": 5.00,
     "title": "Vegeterian"
   },
   {
-    "id": 8,
-    "key": "ge534dhfg7356ewsdsdsdswewe7777==",
+    "id": 2,
+    "legId":0,
+    "ssr" : "VEML",
+    "key": "8hYxlMmufLXA",
     "price": 5.00,
     "title": "Vegan"
   },
   {
-    "id": 9,
-    "key": "ge534dhfg7356ffdfddfdewsdsdsdswewe7777==",
+    "id": 3,
+    "legId":0,
+    "ssr" : "MUML",
+    "key": "Zm8VH6o2p7T5",
     "price": 5.00,
     "title": "Muslim"
+  },
+  {
+    "id": 4,
+    "legId":1,
+    "ssr" : "VGML",
+    "key": "21TbKQV0IUHZ",
+    "price": 5.00,
+    "title": "Vegeterian"
+  },
+  {
+    "id": 5,
+    "legId":1,
+    "ssr" : "VEML",
+    "key": "Z0C2lLldC5is",
+    "price": 5.00,
+    "title": "Vegan"
+  },
+  {
+    "id": 6,
+    "legId":1,
+    "ssr" : "MUML",
+    "key": "swPTfHiafmyB",
+    "price": 5.00,
+    "title": "Muslim"
+  },
+  {
+    "id": 7,
+    "legId":1,
+    "ssr" : "KOML",
+    "key": "3yoa0f71U1sD",
+    "price": 5.00,
+    "title": "Kosher"
+  },
+  {
+    "id": 8,
+    "legId":1,
+    "ssr" : "CHML",
+    "key": "fu0NDHpfg4g3RU9N==",
+    "price": 5.00,
+    "title": "Children"
   }
 ]

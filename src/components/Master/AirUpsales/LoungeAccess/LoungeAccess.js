@@ -32,7 +32,7 @@ class LoungeAccess extends Component {
 
     return overall.map(ovrl => {
       return (
-        <div>
+        <div key={ovrl.airport}>
           {" "}
           <LoungeAirport point={ovrl.airport} price={ovrl.hourlyPrice} />{" "}
         </div>

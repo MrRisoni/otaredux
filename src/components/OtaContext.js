@@ -632,6 +632,9 @@ class OtaContextProvider extends Component {
     this.firstLoad();
   };
 
+  actionMeal = data => {
+    console.log(data);
+  };
 
   actionBag = data => {
     console.log('add bag');
@@ -766,6 +769,7 @@ class OtaContextProvider extends Component {
             editPassenger: this.editPassenger,
             firstLoad: this.firstLoad,
             actionBag: this.actionBag,
+            actionMeal: this.actionMeal,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
             purchaseFastTrack: this.purchaseFastTrack,

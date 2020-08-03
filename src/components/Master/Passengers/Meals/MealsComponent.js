@@ -38,12 +38,12 @@ class MealsComponent extends Component {
 
         <div className="collapse" id={`mealsCollapse${this.props.paxId}`}>
           {keys.map(kk => (
-            <div className="row">
+            <div  key={kk} className="row">
               <div className="col-12">
                 <MealLeg
                   key={kk}
                   leg={kk}
-                  paxData={this.props.paxData}
+                  ptc={this.props.ptc}
                   paxId={this.props.paxId}
                 />
               </div>

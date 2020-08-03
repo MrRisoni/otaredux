@@ -166,7 +166,7 @@ class MasterSideBar extends Component {
                         {this.context.translations["ru"].pricebox.ChangeCur}
                       </option>
                       {this.context.currencies.map(cur => (
-                        <option value={cur.code}>{cur.code}</option>
+                        <option key={cur.code} value={cur.code}>{cur.code}</option>
                       ))}
                     </select>
                   </div>

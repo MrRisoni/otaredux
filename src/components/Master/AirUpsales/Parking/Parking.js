@@ -62,7 +62,7 @@ class Parking extends Component {
                       <tbody>
                         {this.context.ParkingRsc[originAirport].map(prcd => {
                           return (
-                            <tr>
+                            <tr key={prcd.upToDays}>
                               <td>Up to days {prcd.upToDays}</td>
                               <td> {prcd.price} E</td>
                             </tr>

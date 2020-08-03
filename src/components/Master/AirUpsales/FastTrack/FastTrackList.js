@@ -13,7 +13,7 @@ class FastTrackList extends Component {
     });
     return fastTrackHere.map(fst => {
       return (
-        <div>
+        <div key={fst}>
           {" "}
           <FastTrack
             point={fst}
