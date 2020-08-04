@@ -39,14 +39,10 @@ class ReceiptOrInvoice extends Component {
                     <i className="fas fa-file-invoice-dollar" />
                   </div>
 
-
                   <ButtonToggle
                     target={`paymentDetailsCollapse`}
                     clsName={"offset-6"}
                   />
-
-
-                  
                 </div>
               </div>
 

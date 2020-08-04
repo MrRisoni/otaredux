@@ -3,7 +3,6 @@ import BagLeg from "./BagLeg";
 import { DataContext } from "../../../OtaContext";
 import ButtonToggle from "../../../Common/ButtonToggle";
 
-
 class BagComponent extends Component {
   static contextType = DataContext;
 
@@ -26,11 +25,9 @@ class BagComponent extends Component {
                 </div>
 
                 <ButtonToggle
-                    target={`bagCollapse${this.props.paxId}`}
-                    clsName={"offset-6"}
-                  />
-
-                
+                  target={`bagCollapse${this.props.paxId}`}
+                  clsName={"offset-6"}
+                />
               </div>
             </div>
           </div>
@@ -40,7 +37,7 @@ class BagComponent extends Component {
           {keys.map(kk => (
             <div key={kk} className="row bagLegDiv">
               <div className="col-10 offset-1">
-                <BagLeg               
+                <BagLeg
                   leg={kk}
                   bagList={this.context.BagsRsc}
                   paxId={this.props.paxId}

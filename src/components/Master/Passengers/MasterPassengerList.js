@@ -22,8 +22,10 @@ class MasterPassengerList extends Component {
             <div className="row">
               <div className="col-3">FillThePassengerData</div>
 
-              <ButtonToggle  target={`passengerListCollapse`} clsName={"offset-6"} />
-
+              <ButtonToggle
+                target={`passengerListCollapse`}
+                clsName={"offset-6"}
+              />
             </div>
           </div>
 
@@ -33,7 +35,7 @@ class MasterPassengerList extends Component {
               .map(pax => (
                 <MasterPassenger key={pax.id} passenger={pax} />
               ))}
-            </div>
+          </div>
 
           <div className="row addOnePassenger">
             <div className="col-4 offset-4">

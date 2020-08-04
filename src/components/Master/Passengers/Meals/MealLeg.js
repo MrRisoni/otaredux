@@ -11,38 +11,40 @@ class MealLeg extends Component {
     this.changeMeal = this.changeMeal.bind(this);
   }
 
- changeMeal(ev)
- {
-   console.log(ev.target.value);
-   this.context.functions.actionMeal({paxId:this.props.paxId,
-    legId:this.props.leg,option:ev['target']['value']});
- }
+  changeMeal(ev) {
+    console.log(ev.target.value);
+    this.context.functions.actionMeal({
+      paxId: this.props.paxId,
+      legId: this.props.leg,
+      option: ev["target"]["value"]
+    });
+  }
 
   render() {
-    let mealsArray =this.context.MealsRsc.filter(ml => {
-        if (this.props.ptc == 'CNN') {
-          if (ml.ssr == 'CHML') {
-            return ml;
-          }
+    let mealsArray = this.context.MealsRsc.filter(ml => {
+      if (this.props.ptc == "CNN") {
+        if (ml.ssr == "CHML") {
+          return ml;
         }
-        else {
-          if (ml.ssr != 'CHML') {
-            return ml;
-          }
+      } else {
+        if (ml.ssr != "CHML") {
+          return ml;
         }
+      }
     });
-
 
     return (
       <div className="row">
         <div className="col-12">
           <select className="form-control" onChange={this.changeMeal}>
             <option key="" value="" />
-            {mealsArray.filter(ml => ml.legId == this.props.leg).map(ml => (
-              <option key={ml.ssr} value={ml.ssr}>
-                {ml.title}  {ml.price} {this.context.currentCurrency.code}
-              </option>
-            ))}
+            {mealsArray
+              .filter(ml => ml.legId == this.props.leg)
+              .map(ml => (
+                <option key={ml.ssr} value={ml.ssr}>
+                  {ml.title} {ml.price} {this.context.currentCurrency.code}
+                </option>
+              ))}
           </select>
         </div>
       </div>

@@ -13,9 +13,15 @@ class FastTrack extends Component {
 
   handleClick(ev) {
     if (ev.target.value == 1) {
-      this.context.functions.purchaseFastTrack({point:this.props.point,add:1});
+      this.context.functions.purchaseFastTrack({
+        point: this.props.point,
+        add: 1
+      });
     } else {
-      this.context.functions.purchaseFastTrack({point:this.props.point,add:-1});
+      this.context.functions.purchaseFastTrack({
+        point: this.props.point,
+        add: -1
+      });
     }
   }
 

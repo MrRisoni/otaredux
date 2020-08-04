@@ -3,7 +3,6 @@ import InsuranceOption from "./InsuranceOption";
 import { DataContext } from "../../../OtaContext";
 import ButtonToggle from "../../../Common/ButtonToggle";
 
-
 class Insurance extends Component {
   static contextType = DataContext;
 
@@ -39,11 +38,9 @@ class Insurance extends Component {
               </div>
 
               <ButtonToggle
-                    target={`insuranceCollapse${this.props.paxId}`}
-                    clsName={"offset-6"}
-                  />
-
-
+                target={`insuranceCollapse${this.props.paxId}`}
+                clsName={"offset-6"}
+              />
             </div>
           </div>
 

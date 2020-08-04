@@ -14,9 +14,7 @@ class BagLeg extends Component {
         <div className="row">
           <div className="col-12">
             <div className="card">
-              <div className="card-header">
-                {legTitle} 
-              </div>
+              <div className="card-header">{legTitle}</div>
               <div className="card-body">
                 {this.props.bagList
                   .filter(bg => this.props.leg == bg.legId)

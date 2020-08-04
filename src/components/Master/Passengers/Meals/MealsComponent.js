@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MealLeg from "./MealLeg";
 import ButtonToggle from "../../../Common/ButtonToggle";
 
-
 class MealsComponent extends Component {
   constructor(props) {
     super(props);
@@ -23,18 +22,17 @@ class MealsComponent extends Component {
                 </div>
 
                 <ButtonToggle
-                    target={`mealsCollapse${this.props.paxId}`}
-                    clsName={"offset-6"}
-                  />
-
-                  </div>
+                  target={`mealsCollapse${this.props.paxId}`}
+                  clsName={"offset-6"}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="collapse" id={`mealsCollapse${this.props.paxId}`}>
           {keys.map(kk => (
-            <div  key={kk} className="row">
+            <div key={kk} className="row">
               <div className="col-12">
                 <MealLeg
                   key={kk}

@@ -57,13 +57,11 @@ class MasterPassenger extends Component {
       gender: fieldInput
     });
 
-    this.context.functions.editPassenger(
-      {paxId:this.props.passenger.id,
-        gender:fieldInput,
-        field:'gender'
-      }); 
-
-    
+    this.context.functions.editPassenger({
+      paxId: this.props.passenger.id,
+      gender: fieldInput,
+      field: "gender"
+    });
   }
 
   handleAgeGroupChange(ev) {
@@ -71,7 +69,7 @@ class MasterPassenger extends Component {
       paxId: this.props.passenger.id,
       newPtc: ev.target.value,
       oldPtc: this.props.passenger.ptc,
-      field:'ptc',
+      field: "ptc"
     };
 
     this.context.functions.editPassenger(data);
@@ -111,13 +109,12 @@ class MasterPassenger extends Component {
       surname: fieldInput
     });
 
-    this.context.functions.editPassenger(
-      {paxId:this.props.passenger.id,
-        surname:fieldInput,
-        field:'surname'
-      }); 
-
-     }
+    this.context.functions.editPassenger({
+      paxId: this.props.passenger.id,
+      surname: fieldInput,
+      field: "surname"
+    });
+  }
 
   editName(ev) {
     const fieldInput = ev.target.value.toUpperCase();
@@ -131,12 +128,11 @@ class MasterPassenger extends Component {
       name: fieldInput
     });
 
-    this.context.functions.editPassenger(
-      {paxId:this.props.passenger.id,
-        name:fieldInput,
-        field:'name'
-      });
-
+    this.context.functions.editPassenger({
+      paxId: this.props.passenger.id,
+      name: fieldInput,
+      field: "name"
+    });
   }
 
   render() {
@@ -290,9 +286,12 @@ class MasterPassenger extends Component {
                     />
                   )}
 
-                  {this.props.passenger.ptc !== "INF" && <MealsComponent
-                   paxId={this.props.passenger.id}
-                   ptc={this.props.passenger.ptc}/>}
+                  {this.props.passenger.ptc !== "INF" && (
+                    <MealsComponent
+                      paxId={this.props.passenger.id}
+                      ptc={this.props.passenger.ptc}
+                    />
+                  )}
                 </div>
               </div>
 

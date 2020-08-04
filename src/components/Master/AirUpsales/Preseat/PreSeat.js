@@ -7,16 +7,13 @@ import ButtonToggle from "../../../Common/ButtonToggle";
 
 const seatMaps = require("../../../../resources/seatMapLayout.json");
 
-
 class PreSeat extends Component {
   render() {
     return (
-     
       <section className="upsalesSection">
         <div className="row">
           <div className="col-8">
             <div className="card">
-             
               <div className="card-header bg-light">
                 <div className="row">
                   <div className="col-9">PreSeat</div>
@@ -25,8 +22,8 @@ class PreSeat extends Component {
                 </div>
               </div>
               <div className="card-body collapse" id="PreSeatCollapse">
-                  <PaxSelector/>
-                  <SegmentTabs seat_map_data={seatMaps} />
+                <PaxSelector />
+                <SegmentTabs seat_map_data={seatMaps} />
               </div>
             </div>
           </div>

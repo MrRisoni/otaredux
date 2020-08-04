@@ -68,8 +68,8 @@ class OtaContextProvider extends Component {
       loungeCostEur: 0,
       flexTicketCost: 0,
       flexTicketCostEur: 0,
-      bagsCost:0,
-      bagsCostEur:0,
+      bagsCost: 0,
+      bagsCostEur: 0,
       parking: {
         cost: 0,
         costEur: 0,
@@ -89,7 +89,7 @@ class OtaContextProvider extends Component {
         surname: "",
         gender: "",
         dob: "",
-         pricing: [
+        pricing: [
           {
             legId: 0,
             class: "Y",
@@ -128,10 +128,12 @@ class OtaContextProvider extends Component {
           preseating: {
             totalCost: 0,
             totalEur: 0,
-            choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 },
-            { segId: 1, choice: "", cost: 0, costEur: 0 },
-            { segId: 2, choice: "", cost: 0, costEur: 0 },
-            { segId: 3, choice: "", cost: 0, costEur: 0 }]
+            choices: [
+              { segId: 0, choice: "", cost: 0, costEur: 0 },
+              { segId: 1, choice: "", cost: 0, costEur: 0 },
+              { segId: 2, choice: "", cost: 0, costEur: 0 },
+              { segId: 3, choice: "", cost: 0, costEur: 0 }
+            ]
           }
         }
       }
@@ -210,8 +212,6 @@ class OtaContextProvider extends Component {
     });
   };
 
- 
-
   editPassenger = data => {
     console.log(data);
     let isFirstHuman = false;
@@ -220,27 +220,27 @@ class OtaContextProvider extends Component {
       if (px.id != data.paxId) {
         return px;
       } else {
-        isFirstHuman = (px.humanId ==1);
-        if (data.field === 'ptc') {
-          console.log("CHANING PTC  to " + data.newPtc );
+        isFirstHuman = px.humanId == 1;
+        if (data.field === "ptc") {
+          console.log("CHANING PTC  to " + data.newPtc);
           return {
             ...px,
             ptc: data.newPtc
           };
         }
-        if (data.field === 'name') {
+        if (data.field === "name") {
           return {
             ...px,
             name: data.name
           };
         }
-        if (data.field === 'surname') {
+        if (data.field === "surname") {
           return {
             ...px,
             surname: data.surname
           };
         }
-        if (data.field === 'gender') {
+        if (data.field === "gender") {
           return {
             ...px,
             gender: data.gender
@@ -265,7 +265,7 @@ class OtaContextProvider extends Component {
         }
       }
     });
-    
+
     this.setState({
       passengers: newPaxes,
       numADT: adt,
@@ -373,10 +373,12 @@ class OtaContextProvider extends Component {
         preseating: {
           totalCost: 0,
           totalEur: 0,
-          choices: [{ segId: 0, choice: "", cost: 0, costEur: 0 },
-          { segId: 1, choice: "", cost: 0, costEur: 0 },
-          { segId: 2, choice: "", cost: 0, costEur: 0 },
-          { segId: 3, choice: "", cost: 0, costEur: 0 }]
+          choices: [
+            { segId: 0, choice: "", cost: 0, costEur: 0 },
+            { segId: 1, choice: "", cost: 0, costEur: 0 },
+            { segId: 2, choice: "", cost: 0, costEur: 0 },
+            { segId: 3, choice: "", cost: 0, costEur: 0 }
+          ]
         }
       }
     };
@@ -413,7 +415,6 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.bagsCost);
     ttl += parseFloat(this.state.upsales.mealsCost);
 
-
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
         var ptc = this.state.passengers[p].ptc;
@@ -422,7 +423,7 @@ class OtaContextProvider extends Component {
           this.state.passengers[p].upsalesData["insurance"]["costEur"]
         );
         console.log("tttll " + ttl);
-        console.log("ptc is " + ptc + ' of ' + p);
+        console.log("ptc is " + ptc + " of " + p);
         var pricingNew = [];
 
         for (var legId = 0; legId < this.state.ItineraryRsc.length; legId++) {
@@ -512,9 +513,10 @@ class OtaContextProvider extends Component {
     });
 
     upsalesNew.insuranceCostEur = newInsuranceCost.toFixed(2);
-    upsalesNew.insuranceCost =  newInsuranceCost * this.state.currentCurrency.rate;
+    upsalesNew.insuranceCost =
+      newInsuranceCost * this.state.currentCurrency.rate;
     upsalesNew.insuranceCost = upsalesNew.insuranceCost.toFixed(2);
-    
+
     this.setState({
       passengers: paxsnew,
       upsales: upsalesNew
@@ -528,22 +530,23 @@ class OtaContextProvider extends Component {
   purchaseFastTrack = data => {
     let new_upsales = this.state.upsales;
     new_upsales.fastTrackCost = 0;
-    new_upsales.fastTrackCostEur =0;
-    console.log('fast track data');
+    new_upsales.fastTrackCostEur = 0;
+    console.log("fast track data");
     console.log(data);
-    if (data.add ===1) {
-      new_upsales.fastTrackCost = this.state.upsalesPricing["fastTrack"][data.point];
-      new_upsales.fastTrackCostEur =  new_upsales.fastTrackCost * this.state.currentCurrency.rate;
-
+    if (data.add === 1) {
+      new_upsales.fastTrackCost = this.state.upsalesPricing["fastTrack"][
+        data.point
+      ];
+      new_upsales.fastTrackCostEur =
+        new_upsales.fastTrackCost * this.state.currentCurrency.rate;
     }
-
 
     this.setState({
       upsales: new_upsales
     });
 
     this.firstLoad();
-  }
+  };
 
   actionBlueRibbon = yay => {
     let brbEur =
@@ -572,8 +575,6 @@ class OtaContextProvider extends Component {
 
     this.firstLoad();
   };
-
-
 
   actionWebCheckin = yay => {
     let webCheckEur =
@@ -643,56 +644,55 @@ class OtaContextProvider extends Component {
       if (px.id != data.paxId) {
         return px;
       } else {
-
         let newMealData = px.upsalesData.meals;
         newMealData.forEach(mlLeg => {
-           if (mlLeg.leg == data.legId) {
-             console.log('REPLACE!!!!');
-             mlLeg.cost  = 0;
-             const funden =this.state.MealsRsc.filter(mlItm => mlItm.ssr == data.option && mlItm.legId== data.legId);
-             if (funden.length == 1) {
-               mlLeg.cost = funden[0].price;
-             }
-             mlLeg.choice = data.option;
-            
-           }
+          if (mlLeg.leg == data.legId) {
+            console.log("REPLACE!!!!");
+            mlLeg.cost = 0;
+            const funden = this.state.MealsRsc.filter(
+              mlItm => mlItm.ssr == data.option && mlItm.legId == data.legId
+            );
+            if (funden.length == 1) {
+              mlLeg.cost = funden[0].price;
+            }
+            mlLeg.choice = data.option;
+          }
         });
 
         console.log(newMealData);
-      
-          return {
-            ...px,
-            upsalesData: {
-              ... px.upsalesData,
-              meals: newMealData
-            }
-          };
-        }
+
+        return {
+          ...px,
+          upsalesData: {
+            ...px.upsalesData,
+            meals: newMealData
+          }
+        };
+      }
     });
 
     newPaxes.forEach(px => {
-      console.log('----------------------');
+      console.log("----------------------");
       console.log(px.upsalesData);
-       px.upsalesData.meals.forEach(ml => {
+      px.upsalesData.meals.forEach(ml => {
         finalMealsCost += parseFloat(ml.cost);
-       })
-    })
+      });
+    });
 
     new_upsales.mealsCost = parseFloat(finalMealsCost);
-    new_upsales.mealsCost =  new_upsales.mealsCost.toFixed(2);
-    console.log('total FINAL bag cost ' + finalMealsCost );
-    console.log('total NEW bag cost ' + new_upsales.mealsCost );
+    new_upsales.mealsCost = new_upsales.mealsCost.toFixed(2);
+    console.log("total FINAL bag cost " + finalMealsCost);
+    console.log("total NEW bag cost " + new_upsales.mealsCost);
     this.setState({
       upsales: new_upsales,
-      passengers: newPaxes,
+      passengers: newPaxes
     });
-    
-    this.firstLoad();
 
+    this.firstLoad();
   };
 
   actionBag = data => {
-    console.log('add bag');
+    console.log("add bag");
     console.log(data);
     let new_paxes = this.state.passengers;
 
@@ -701,60 +701,58 @@ class OtaContextProvider extends Component {
     let new_upsales = this.state.upsales;
 
     let finalbagsCost = 0;
-   
+
     let newPaxes = this.state.passengers.map(px => {
       if (px.id != data.paxId) {
         return px;
       } else {
-
         let newBagData = px.upsalesData.bags;
         newBagData.forEach(bgleg => {
-           if (bgleg.leg == data.legId) {
-             console.log('REPLACE!!!!');
-             bgleg.cost  = 0;
-             if (data.option ==1)  {
-                bgleg.cost = prices.priceOneBags;
-             }
-             if (data.option ==2)  {
+          if (bgleg.leg == data.legId) {
+            console.log("REPLACE!!!!");
+            bgleg.cost = 0;
+            if (data.option == 1) {
+              bgleg.cost = prices.priceOneBags;
+            }
+            if (data.option == 2) {
               bgleg.cost = prices.priceTwoBags;
-           }
-           
-             bgleg.num = data.option
-           }
+            }
+
+            bgleg.num = data.option;
+          }
         });
 
         console.log(newBagData);
-      
-          return {
-            ...px,
-            upsalesData: {
-              ... px.upsalesData,
-              bags: newBagData
-            }
-          };
-        }
+
+        return {
+          ...px,
+          upsalesData: {
+            ...px.upsalesData,
+            bags: newBagData
+          }
+        };
+      }
     });
 
     newPaxes.forEach(px => {
-      console.log('----------------------');
+      console.log("----------------------");
       console.log(px.upsalesData);
-       px.upsalesData.bags.forEach(bg => {
+      px.upsalesData.bags.forEach(bg => {
         finalbagsCost += parseFloat(bg.cost);
-          console.log('BG COST IS ' + bg.cost);
-       })
-    })
+        console.log("BG COST IS " + bg.cost);
+      });
+    });
 
     new_upsales.bagsCost = parseFloat(finalbagsCost);
-    new_upsales.bagsCost =  new_upsales.bagsCost.toFixed(2);
-    console.log('total FINAL bag cost ' + finalbagsCost );
-    console.log('total NEW bag cost ' + new_upsales.bagsCost );
+    new_upsales.bagsCost = new_upsales.bagsCost.toFixed(2);
+    console.log("total FINAL bag cost " + finalbagsCost);
+    console.log("total NEW bag cost " + new_upsales.bagsCost);
     this.setState({
       upsales: new_upsales,
-      passengers: newPaxes,
+      passengers: newPaxes
     });
-    
-    this.firstLoad();
 
+    this.firstLoad();
   };
 
   actionAirHelp = yay => {
@@ -785,18 +783,16 @@ class OtaContextProvider extends Component {
     this.firstLoad();
   };
 
- 
-  getBagPrices= (data) => {
-
-    console.log('getBagPrices');
+  getBagPrices = data => {
+    console.log("getBagPrices");
     console.log(data);
     console.log(this.state.BagsRsc);
     let priceOneBags = 0;
-    let priceTwoBags =0;
-  
+    let priceTwoBags = 0;
+
     priceOneBags = this.state.BagsRsc[data.legId].pricing["firstBag"].filter(
       bg => bg.ptc == data.ptc
-    )[0].costEur; 
+    )[0].costEur;
 
     priceTwoBags += this.state.BagsRsc[data.legId].pricing["secondBag"].filter(
       bg => bg.ptc == data.ptc
@@ -806,10 +802,9 @@ class OtaContextProvider extends Component {
     priceOneBags = priceOneBags.toFixed(2);
 
     priceTwoBags *= this.state.currentCurrency.rate;
-    priceTwoBags = priceTwoBags.toFixed(2); 
+    priceTwoBags = priceTwoBags.toFixed(2);
 
-    return {priceOneBags,priceTwoBags}
-
+    return { priceOneBags, priceTwoBags };
   };
 
   render() {
@@ -832,7 +827,7 @@ class OtaContextProvider extends Component {
             actionFlexTicket: this.actionFlexTicket,
             actionWebCheckin: this.actionWebCheckin,
             actionAirHelp: this.actionAirHelp,
-            getBagPrices:this.getBagPrices
+            getBagPrices: this.getBagPrices
           }
         }}
       >

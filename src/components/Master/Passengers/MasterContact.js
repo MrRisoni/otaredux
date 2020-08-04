@@ -32,11 +32,9 @@ class MasterContact extends Component {
                       </div>
 
                       <ButtonToggle
-                    target={`busContactCollapse`}
-                    clsName={"offset-6"}
-                  />
-
-                      
+                        target={`busContactCollapse`}
+                        clsName={"offset-6"}
+                      />
                     </div>
                   </div>
 

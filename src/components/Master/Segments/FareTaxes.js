@@ -20,15 +20,15 @@ class FareTaxes extends Component {
         }
 
         if (counter > 0) {
-         let kleidi = 'frtx_' + prices.ptc + '_lg' + leg.legId;
-         rows.push(
-          <tr key={kleidi}>
+          let kleidi = "frtx_" + prices.ptc + "_lg" + leg.legId;
+          rows.push(
+            <tr key={kleidi}>
               <td>Leg</td>
               <td>{prices.ptc}</td>
               <td>{prices.fareEur}</td>
               <td>{prices.taxesEur}</td>
-          </tr>
-         )
+            </tr>
+          );
         }
       });
     });
@@ -44,9 +44,7 @@ class FareTaxes extends Component {
               <th>Tax</th>
             </tr>
           </thead>
-          <tbody>
-            {rows}
-          </tbody>
+          <tbody>{rows}</tbody>
         </table>
       </section>
     );

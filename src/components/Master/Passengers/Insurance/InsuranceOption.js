@@ -45,5 +45,4 @@ class InsuranceOption extends Component {
     );
   }
 }
-
 export default InsuranceOption;

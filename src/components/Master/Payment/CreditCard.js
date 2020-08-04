@@ -15,14 +15,10 @@ const CreditCard = props => {
                   <i className="far fa-credit-card" />
                 </div>
 
-
                 <ButtonToggle
-                    target={`creditCardCollapse`}
-                    clsName={"offset-6"}
-                  />
-
-
-                
+                  target={`creditCardCollapse`}
+                  clsName={"offset-6"}
+                />
               </div>
             </div>
 

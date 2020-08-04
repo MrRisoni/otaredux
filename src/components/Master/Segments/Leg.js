@@ -22,15 +22,10 @@ const Leg = props => {
           <div className="row">
             <div className="col-4">{legTitle}</div>
 
-        
-
-              <ButtonToggle
-                    target={`legCollapse${props.data.legId}`}
-                    clsName={"offset-6"}
-                  />
-
-             
-          
+            <ButtonToggle
+              target={`legCollapse${props.data.legId}`}
+              clsName={"offset-6"}
+            />
           </div>
         </div>
 

@@ -16,7 +16,6 @@ class MasterSideBar extends Component {
     this.context.functions.updateChosenLang(ev.target.value);
   }
   render() {
-
     let otherUpsalesDiv = [];
 
     if (this.context.upsales.bagsCost > 0) {
@@ -31,7 +30,8 @@ class MasterSideBar extends Component {
 
     if (this.context.upsales.mealsCost > 0) {
       otherUpsalesDiv.push(
-        <SideBarUpsale key="meals"
+        <SideBarUpsale
+          key="meals"
           title="Meals"
           price={this.context.upsales.mealsCost}
           currency={this.context.currentCurrency}
@@ -88,19 +88,20 @@ class MasterSideBar extends Component {
         />
       );
     }
-    
+
     if (this.context.upsales.fastTrackCost > 0) {
-      otherUpsalesDiv.push(<SideBarUpsale
+      otherUpsalesDiv.push(
+        <SideBarUpsale
           title="Fast Track"
           price={this.context.upsales.fastTrackCost}
           currency={this.context.currentCurrency}
-      />);
-  }
+        />
+      );
+    }
 
-   
     return (
       <div className="pricebox ">
-                    <FareTaxes />
+        <FareTaxes />
 
         <div className="card bg-info">
           <div className="card-header">
@@ -143,10 +144,8 @@ class MasterSideBar extends Component {
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
 
-    
             {otherUpsalesDiv}
 
-       
             <div className="row langSelector">
               <div className="col-8 offset-2">
                 <select
@@ -178,7 +177,9 @@ class MasterSideBar extends Component {
                         {this.context.translations["ru"].pricebox.ChangeCur}
                       </option>
                       {this.context.currencies.map(cur => (
-                        <option key={cur.code} value={cur.code}>{cur.code}</option>
+                        <option key={cur.code} value={cur.code}>
+                          {cur.code}
+                        </option>
                       ))}
                     </select>
                   </div>

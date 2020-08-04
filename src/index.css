@@ -127,7 +127,6 @@ body, input[type="text"], option, select
     height: auto;
 }
 @media screen and (max-width: 250px) {
-
     .busCity {
         margin-top: 5px;
     }
@@ -137,7 +136,6 @@ body, input[type="text"], option, select
 .singleMilesCard {
     margin-bottom: 5px;
 }
-
 
 
 .langDropDown {
@@ -151,7 +149,6 @@ body { padding: 40px; }
 .dropdown-toggle .glyphicon { margin-left: 20px; margin-right: -40px }
 .dropdown-menu>li>a:hover { background: #f1f9fd } /* $search-blue */
 .dropdown-header { background: #ccc; font-size: 14px; font-weight: 700; padding-top: 5px; padding-bottom: 5px; margin-top: 10px; margin-bottom: 5px }
-
 
 
 .cabinTrip {
@@ -174,8 +171,6 @@ body { padding: 40px; }
 }
 
 
-
-
 .exampleRadios {
     margin-left: 12px;
 }
@@ -183,7 +178,6 @@ body { padding: 40px; }
 .btnToggle:hover {
     transform: scale(1.2);
 }
-
 
 .airlineLogos {
     width: 100px;
