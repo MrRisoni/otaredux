@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import InsuranceOption from "./InsuranceOption";
 import { DataContext } from "../../../OtaContext";
+import ButtonToggle from "../../../Common/ButtonToggle";
+
 
 class Insurance extends Component {
   static contextType = DataContext;
@@ -36,17 +38,12 @@ class Insurance extends Component {
                 <i className="fas fa-ambulance" />
               </div>
 
-              <div className="col-2">
-                <button
-                  className="btn btn-sm btn-dark btn-block btnToggle"
-                  data-toggle="collapse"
-                  data-target={`#insuranceCollapse${this.props.paxId}`}
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  general.Toggle
-                </button>
-              </div>
+              <ButtonToggle
+                    target={`insuranceCollapse${this.props.paxId}`}
+                    clsName={"offset-6"}
+                  />
+
+
             </div>
           </div>
 

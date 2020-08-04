@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import MealLeg from "./MealLeg";
+import ButtonToggle from "../../../Common/ButtonToggle";
+
 
 class MealsComponent extends Component {
   constructor(props) {
@@ -20,18 +22,12 @@ class MealsComponent extends Component {
                   <i className="fas fa-utensils" />
                 </div>
 
-                <div className="col-2">
-                  <button
-                    className="btn btn-sm btn-dark btn-block btnToggle"
-                    data-toggle="collapse"
-                    data-target={`#mealsCollapse${this.props.paxId}`}
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    general.Toggle
-                  </button>
-                </div>
-              </div>
+                <ButtonToggle
+                    target={`mealsCollapse${this.props.paxId}`}
+                    clsName={"offset-6"}
+                  />
+
+                  </div>
             </div>
           </div>
         </div>

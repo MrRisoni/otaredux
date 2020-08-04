@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Invoice from "./Invoice";
 import Receipt from "./Receipt";
 import { DataContext } from "../../OtaContext";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 class ReceiptOrInvoice extends Component {
   static contextType = DataContext;
@@ -38,17 +39,14 @@ class ReceiptOrInvoice extends Component {
                     <i className="fas fa-file-invoice-dollar" />
                   </div>
 
-                  <div className="col-2 offset-3">
-                    <button
-                      className="btn btn-sm btn-dark btn-block btnToggle"
-                      data-toggle="collapse"
-                      data-target="#paymentDetailsCollapse"
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-                      general.Toggle
-                    </button>
-                  </div>
+
+                  <ButtonToggle
+                    target={`paymentDetailsCollapse`}
+                    clsName={"offset-6"}
+                  />
+
+
+                  
                 </div>
               </div>
 

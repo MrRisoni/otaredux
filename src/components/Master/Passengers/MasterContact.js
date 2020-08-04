@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { DataContext } from "../../OtaContext";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 class MasterContact extends Component {
   static contextType = DataContext;
@@ -30,17 +31,12 @@ class MasterContact extends Component {
                         <i className="fas fa-phone" />
                       </div>
 
-                      <div className="col-2 offset-3">
-                        <button
-                          className="btn btn-sm btn-dark btn-block btnToggle"
-                          data-toggle="collapse"
-                          data-target="#busContactCollapse"
-                          aria-expanded="false"
-                          aria-controls="collapseExample"
-                        >
-                          general.Toggle"
-                        </button>
-                      </div>
+                      <ButtonToggle
+                    target={`busContactCollapse`}
+                    clsName={"offset-6"}
+                  />
+
+                      
                     </div>
                   </div>
 

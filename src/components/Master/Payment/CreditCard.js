@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 const CreditCard = props => {
   return (
@@ -14,17 +15,14 @@ const CreditCard = props => {
                   <i className="far fa-credit-card" />
                 </div>
 
-                <div className="col-2 offset-3">
-                  <button
-                    className="btn btn-sm btn-dark btn-block btnToggle"
-                    data-toggle="collapse"
-                    data-target="#creditCardCollapse"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    general.Toggle
-                  </button>
-                </div>
+
+                <ButtonToggle
+                    target={`creditCardCollapse`}
+                    clsName={"offset-6"}
+                  />
+
+
+                
               </div>
             </div>
 

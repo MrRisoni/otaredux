@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import BagLeg from "./BagLeg";
 import { DataContext } from "../../../OtaContext";
+import ButtonToggle from "../../../Common/ButtonToggle";
+
 
 class BagComponent extends Component {
   static contextType = DataContext;
@@ -23,17 +25,12 @@ class BagComponent extends Component {
                   <i className="fas fa-suitcase" />
                 </div>
 
-                <div className="col-2">
-                  <button
-                    className="btn btn-sm btn-dark btn-block btnToggle"
-                    data-toggle="collapse"
-                    data-target={`#bagCollapse${this.props.paxId}`}
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    general.Toggle
-                  </button>
-                </div>
+                <ButtonToggle
+                    target={`bagCollapse${this.props.paxId}`}
+                    clsName={"offset-6"}
+                  />
+
+                
               </div>
             </div>
           </div>
