@@ -27,8 +27,8 @@ class Parking extends Component {
     console.log(originAirport);
 
     return (
-      <section>
-        <div className="row contactDetails">
+      <section className="upsalesSection">
+        <div className="row ">
           <div className="col-8">
             <div className="card">
               <div className="card-header bg-light">

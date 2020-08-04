@@ -1,5 +1,6 @@
 import React from "react";
 import Leg from "./Leg";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 const ItineraryData = props => {
   const legsDiv = [<Leg key="dep" legId={0} data={props.tripData[0]} />];
@@ -14,21 +15,18 @@ const ItineraryData = props => {
         <div className="row">
           <div className="col-3">flight.YourTrip</div>
 
-          <div className="col-2 offset-7">
-            <button
-              className="btn btn-sm btn-dark btn-block btnToggle"
-              data-toggle="collapse"
-              data-target=".legsCollapse"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              general.Toggle"
-            </button>
-          </div>
+          <ButtonToggle
+                    target={`TripCollapse`}
+                    clsName={"offset-7"}
+                  />
+
+          
         </div>
       </div>
 
-      {legsDiv}
+      <div className="show" id="TripCollapse">
+        {legsDiv}
+      </div>
     </div>
   );
 };

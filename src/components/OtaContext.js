@@ -252,7 +252,7 @@ class OtaContextProvider extends Component {
     let cnn = 0;
     let inf = 0;
 
-    this.state.passengers.forEach(px => {
+    newPaxes.forEach(px => {
       if (px.active) {
         if (px.ptc == "ADT") {
           adt++;

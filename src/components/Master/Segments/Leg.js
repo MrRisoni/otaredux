@@ -1,6 +1,7 @@
 import React from "react";
 import Airport from "./Airport";
 import Segment from "./Segment";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 const Leg = props => {
   const waitDiv =
@@ -12,7 +13,7 @@ const Leg = props => {
       <div />
     );
 
-  const legTitle = "flight.Departurepe";
+  const legTitle = "flight.Departure";
 
   return (
     <div className="Leg legsCollapse show">
@@ -21,17 +22,15 @@ const Leg = props => {
           <div className="row">
             <div className="col-4">{legTitle}</div>
 
-            <div className="col-2 offset-6">
-              <button
-                className="btn btn-sm btn-dark btn-block btnToggle"
-                data-toggle="collapse"
-                data-target={`#legCollapse${props.data.legId}`}
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                general.Toggle />
-              </button>
-            </div>
+        
+
+              <ButtonToggle
+                    target={`legCollapse${props.data.legId}`}
+                    clsName={"offset-6"}
+                  />
+
+             
+          
           </div>
         </div>
 
