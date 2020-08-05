@@ -66,6 +66,9 @@ class OtaContextProvider extends Component {
       insuranceCostEur: 0,
       loungeCost: 0,
       loungeCostEur: 0,
+      loungeHours: {
+        "TRF" :0,
+      },
       flexTicketCost: 0,
       flexTicketCostEur: 0,
       bagsCost: 0,
@@ -414,6 +417,7 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.fastTrackCost);
     ttl += parseFloat(this.state.upsales.bagsCost);
     ttl += parseFloat(this.state.upsales.mealsCost);
+    ttl += parseFloat(this.state.upsales.loungeCost);
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -783,6 +787,34 @@ class OtaContextProvider extends Component {
     this.firstLoad();
   };
 
+
+  actionLounge = data => {
+     console.log(data);
+     let new_upsales = this.state.upsales;
+     if (data.num >0) {
+      new_upsales.loungeHours[data.point]++;
+     }
+     else {
+      new_upsales.loungeHours[data.point]--;
+      if (new_upsales.loungeHours[data.point] <0) {
+        new_upsales.loungeHours[data.point] = 0;
+      }
+     }
+     console.log('pricing');
+     console.log(this.state.upsalesPricing.Lounge);
+     const adt = this.state.upsalesPricing.Lounge[data.point].pricing['ADT'];
+     const cnn = this.state.upsalesPricing.Lounge[data.point].pricing['CNN'];
+
+     new_upsales.loungeCost = new_upsales.loungeHours[data.point] * adt +
+     new_upsales.loungeHours[data.point] * cnn;
+
+     this.setState({
+      upsales: new_upsales
+    });
+
+    this.firstLoad();
+  };
+
   getBagPrices = data => {
     console.log("getBagPrices");
     console.log(data);
@@ -820,6 +852,7 @@ class OtaContextProvider extends Component {
             firstLoad: this.firstLoad,
             actionBag: this.actionBag,
             actionMeal: this.actionMeal,
+            actionLounge:this.actionLounge,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
             purchaseFastTrack: this.purchaseFastTrack,

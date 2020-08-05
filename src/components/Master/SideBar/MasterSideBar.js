@@ -69,6 +69,16 @@ class MasterSideBar extends Component {
       );
     }
 
+    if (this.context.upsales.loungeCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Lounge"
+          price={this.context.upsales.loungeCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
     if (this.context.upsales.airHelpCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale

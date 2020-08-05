@@ -8,10 +8,18 @@ class LoungeAirport extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleAddDays = this.handleAddDays.bind(this);
+    this.handleSubtractDays = this.handleSubtractDays.bind(this);
+
   }
 
-  handleClick(ev) {}
+  handleAddDays(ev) {
+    this.context.functions.actionLounge({num:1,point:this.props.point});
+  }
+
+  handleSubtractDays(ev) {
+    this.context.functions.actionLounge({num:-1,point:this.props.point});
+  }
 
   render() {
     let price = this.props.price.toFixed(2) * this.context.currentCurrency.rate;
