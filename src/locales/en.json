@@ -6,7 +6,8 @@
     "Stops": "Stops",
     "Duration": "Duration",
     "WaitTime": "Waiting time",
-    "Segment": "Segment"
+    "Segment": "Segment",
+    "OperatedBy" : "Operated by"
   },
   "pay" : {
     "CreditCard" : "Credit Card",

@@ -20,11 +20,7 @@ class MasterContact extends Component {
                   <div className="card-header bg-light">
                     <div className="row">
                       <div className="col-4">
-                        {
-                          this.context.translations[this.context.lang].passport
-                            .nationality
-                        }
-                        general.Contact"
+                      {this.context.translations[this.context.lang].general.Contact}
                       </div>
 
                       <div className="col-2">
@@ -46,8 +42,10 @@ class MasterContact extends Component {
                       <div className="col-2">
                         <select className="form-control">
                           <option />
-                          <option value="MR">Male</option>
-                          <option value="MS">Female</option>
+                          <option value="MR">{this.context.translations[this.context.lang].passengers.Male}
+</option>
+                          <option value="MS">{this.context.translations[this.context.lang].passengers.Female}
+</option>
                         </select>
                       </div>
 

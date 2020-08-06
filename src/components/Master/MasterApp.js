@@ -27,7 +27,9 @@ class MasterApp extends Component {
       <div className="busApp">
         <div className="row">
           <div className="col-8">
-            <ItineraryData tripData={this.context.ItineraryRsc} />
+            <ItineraryData 
+              translations={this.context.translations[this.context.lang].flight}
+            tripData={this.context.ItineraryRsc} />
             <MasterPassengerList />
           </div>
 

@@ -13,7 +13,7 @@ const Leg = props => {
       <div />
     );
 
-  const legTitle = "flight.Departure";
+  const legTitle = props.legId ==0 ? props.translations.Departure : props.translations.Return;
 
   return (
     <div className="Leg legsCollapse show">
@@ -67,10 +67,10 @@ const Leg = props => {
           <br />
 
           <div className="row">
-            <div className="col-4">flight.Stops :{props.data.stops}</div>
+            <div className="col-4"> {props.translations.Stops} :{props.data.stops}</div>
 
             <div className="col-4">
-              flight.Duration :{props.data.duration.h}h{props.data.duration.m}m
+              {props.translations.Duration} :{props.data.duration.h}h{props.data.duration.m}m
             </div>
 
             {waitDiv}
@@ -78,7 +78,7 @@ const Leg = props => {
 
           <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
             {props.data.segments.map((sg, idx) => (
-              <Segment key={idx} data={sg} />
+              <Segment key={idx} data={sg} translations={props.translations} />
             ))}
           </div>
         </div>

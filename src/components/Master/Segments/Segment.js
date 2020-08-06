@@ -5,7 +5,7 @@ const Segment = props => (
   <div className="segments">
     <div className="card">
       <div className="card-header bg-info">
-        flight.Segment #{props.data.segId}
+      {props.translations.Segment} #{props.data.segId}
       </div>
 
       <div className="card-body">
@@ -41,7 +41,7 @@ const Segment = props => (
 
         {props.data.codeShare !== "" ? (
           <div className="row">
-            <div className="col-8">Operated by {props.data.codeShare}</div>
+            <div className="col-8">{props.translations.OperatedBy}  {props.data.codeShare}</div>
           </div>
         ) : (
           <section></section>
@@ -51,7 +51,7 @@ const Segment = props => (
       <div className="card-footer">
         <div className="row">
           <div className="col-5 offset-4">
-            flight.Duration {props.data.durationTime.hours}h{" "}
+          {props.translations.Duration} {props.data.durationTime.hours}h{" "}
             {props.data.durationTime.minutes}m
           </div>
         </div>
@@ -61,7 +61,7 @@ const Segment = props => (
     {props.data.waitTime.total > 0 ? (
       <div className="card text-white bg-dark waitSeg">
         <div className="card-header">
-          Waiting time {props.data.waitTime.hours}h{" "}
+        {props.translations.WaitTime}  {props.data.waitTime.hours}h{" "}
           {props.data.waitTime.minutes}m
         </div>
       </div>
