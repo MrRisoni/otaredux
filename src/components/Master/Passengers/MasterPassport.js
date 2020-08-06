@@ -40,22 +40,15 @@ class MasterPassport extends Component {
         <div className="passportDiv">
           <div className="row">
             <div className="col-6">
-              <label htmlFor="birthday"> passport.nationality</label>
               <select className="form-control">
-                <option key="" value="">
-                  {" "}
-                  passport.nationality
-                </option>
+                <option key="" value="">{this.context.translations[this.context.lang].passport.nationality}</option>
                 {listDiv}
               </select>
             </div>
 
             <div className="col-6">
-              <label htmlFor="birthday">passport.issue</label>
               <select className="form-control">
-                <option key="" value="">
-                  Issue Country
-                </option>
+                <option key="" value="">{this.context.translations[this.context.lang].passport.issue}</option>
                 {listDiv}
               </select>
             </div>
@@ -63,17 +56,17 @@ class MasterPassport extends Component {
 
           <div className="row">
             <div className="col-6">
-              <label htmlFor="birthday">passport.passportNo</label>
+              <label htmlFor="passportNo">{this.context.translations[this.context.lang].passport.passportNo}</label>
               <input
                 type="text"
-                placeholder="Passport No"
+                placeholder={this.context.translations[this.context.lang].passport.passportNo}
                 className="form-control"
               />
             </div>
 
             {/* min date should be fly date */}
             <div className="col-6">
-              <label htmlFor="birthday">passport.expireDate</label>
+              <label htmlFor="passExpDate">{this.context.translations[this.context.lang].passport.expireDate}</label>
               <DatePicker
                 className="form-control"
                 dateFormat="DD/MM/YYYY"

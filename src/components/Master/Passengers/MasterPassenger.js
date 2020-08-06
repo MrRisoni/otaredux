@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
+import ButtonToggle from "../../Common/ButtonToggle";
 
 import Error from "../../Common/Error";
 import Insurance from "./Insurance/Insurance";
@@ -139,18 +140,18 @@ class MasterPassenger extends Component {
     let ptcOptions = [];
     ptcOptions.push(
       <option key="ADT" value="ADT">
-        Adult
+      {this.context.translations[this.context.lang].passengers.Adult}
       </option>
     );
     if (this.context.functions.getActivePaxesLen() > 1) {
       ptcOptions.push(
         <option key="CNN" value="CNN">
-          Child
+       {this.context.translations[this.context.lang].passengers.Child}
         </option>
       );
       ptcOptions.push(
         <option key="INF" value="INF">
-          Infant
+           {this.context.translations[this.context.lang].passengers.Infant}
         </option>
       );
     }
@@ -175,7 +176,7 @@ class MasterPassenger extends Component {
                       onChange={this.handleAgeGroupChange}
                     >
                       <option key="" value="">
-                        Select Type
+                      {this.context.translations[this.context.lang].passengers.SelectAge}
                       </option>
                       {ptcOptions}
                     </select>
@@ -187,28 +188,19 @@ class MasterPassenger extends Component {
                       onChange={this.handleGenderChange}
                     >
                       <option key="" value="">
-                        Select Gender
+                      {this.context.translations[this.context.lang].passengers.SelectGender}
                       </option>
                       <option key="M" value="M">
-                        Male
+                      {this.context.translations[this.context.lang].passengers.Male}
                       </option>
                       <option key="F" value="F">
-                        Female
+                      {this.context.translations[this.context.lang].passengers.Female}
                       </option>
                     </select>
                   </div>
 
-                  <div className="col-2 offset-1">
-                    <button
-                      className="btn btn btn-dark btn-block btnToggle"
-                      data-toggle="collapse"
-                      data-target={`#passengerCollapse${this.props.passenger.id}`}
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-                      Toggle
-                    </button>
-                  </div>
+
+                  <ButtonToggle  target={`passengerCollapse${this.props.passenger.id}`} clsName={"offset-6"}  />
                 </div>
               </div>
 
@@ -222,7 +214,7 @@ class MasterPassenger extends Component {
                   <div className="col-5">
                     <input
                       type="text"
-                      placeholder="Name"
+                      placeholder={this.context.translations[this.context.lang].passengers.Name}
                       id={`#paxName${this.props.passenger.id}`}
                       value={this.state.name}
                       onChange={this.editName}
@@ -238,7 +230,7 @@ class MasterPassenger extends Component {
                   <div className="col-6">
                     <input
                       type="text"
-                      placeholder="Surname"
+                      placeholder={this.context.translations[this.context.lang].passengers.Surname}
                       id={`#paxSurname${this.props.passenger.id}`}
                       value={this.state.surname}
                       onChange={this.editSurname}
@@ -266,11 +258,6 @@ class MasterPassenger extends Component {
 
                 <MasterPassport paxId={this.props.passenger.id} />
 
-                {/*
-                {(this.state.ageGroup !== 'INF')
-                                && <MilesCards />
-                                }
-*/}
 
                 <div>
                   <div className="alert alert-info" role="alert">
@@ -305,7 +292,7 @@ class MasterPassenger extends Component {
                         className="btn btn-primary btn btn-danger"
                         onClick={this.removeMe}
                       >
-                        Remove Passenger
+                        {this.context.translations[this.context.lang].passengers.RemovePassenger}
                       </button>
                     </div>
                   </div>

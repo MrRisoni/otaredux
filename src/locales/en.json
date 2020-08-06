@@ -29,8 +29,11 @@
     "Child": "Child",
     "Infant": "Infant",
     "SelectGender": "Select Gender",
+    "SelectAge": "Select Age",
     "Name": "Name",
-    "Surname": "Surname"
+    "Surname": "Surname",
+    "Male" : "Male",
+    "Female" : "Female"
   },
   "upsales": {
     "PurchaseBags": "Purchase bags",
