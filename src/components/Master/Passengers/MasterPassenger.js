@@ -163,7 +163,9 @@ class MasterPassenger extends Component {
               <div className="card-header">
                 <div className="row">
                   <div className="col-2">
-                    Passenger #{this.props.passenger.humanId}
+                  {this.context.translations[this.context.lang].passengers.Passenger}
+                    
+                     #{this.props.passenger.humanId}
                   </div>
 
                   <div className="col-4">

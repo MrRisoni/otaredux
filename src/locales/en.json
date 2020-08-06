@@ -66,11 +66,14 @@
     "PickSeat": "Pick a seat"
   },
   "pricebox": {
-    "PriceAnalysis": "",
+    "PriceAnalysis": "Price Analysis",
     "TicketPrice": "Tickets price",
     "UpsalePrices": "Upsale prices",
-    "Total": "Total price",
+    "Total": "Total",
+    "Fare": "Fare",
+    "Tax": "Tax",
     "ChangeLang": "Change Language",
-    "ChangeCur": "Change Currency"
+    "ChangeCur": "Change Currency",
+    "Checkout" : "Checkout"
   }
 }

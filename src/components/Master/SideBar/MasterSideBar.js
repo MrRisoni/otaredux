@@ -127,7 +127,7 @@ class MasterSideBar extends Component {
           <div className="card-header">
             <div className="row">
               <div className="col-8">
-                <h6>Price Analysis</h6>
+                <h6>{this.context.translations[this.context.lang].pricebox.PriceAnalysis}</h6>
               </div>
 
               <div className="col-3 offset-col-4">
@@ -139,8 +139,7 @@ class MasterSideBar extends Component {
                   aria-expanded="false"
                   aria-controls="priceBoxCollapse"
                 >
-                  ExpandTranltr
-                  {/* <Translate value="general.Expand" /> */}
+                  {this.context.translations[this.context.lang].general.Expand}
                 </button>
               </div>
             </div>
@@ -148,18 +147,18 @@ class MasterSideBar extends Component {
 
           <div className="card-body show text-white" id="priceBoxCollapse">
             <SideBarUpsale
-              title={"Total"}
+              title={this.context.translations[this.context.lang].pricebox.Total}
               price={this.context.totalCost}
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
             <SideBarUpsale
-              title={"Fare"}
+              title={this.context.translations[this.context.lang].pricebox.Fare}
               price={this.context.totalFare}
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
 
             <SideBarUpsale
-              title={"Taxes"}
+              title={this.context.translations[this.context.lang].pricebox.Taxes}
               price={this.context.totalTax}
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
@@ -174,7 +173,7 @@ class MasterSideBar extends Component {
                   onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
-                    {this.context.translations["ru"].pricebox.ChangeLang}
+                    {this.context.translations[this.context.lang].pricebox.ChangeLang}
                   </option>
                   {this.context.languages.map(lang => (
                     <option key={lang.code} value={lang.code}>
@@ -194,7 +193,7 @@ class MasterSideBar extends Component {
                       onChange={this.props.changeCurrencyHandler}
                     >
                       <option value="">
-                        {this.context.translations["ru"].pricebox.ChangeCur}
+                        {this.context.translations[this.context.lang].pricebox.ChangeCur}
                       </option>
                       {this.context.currencies.map(cur => (
                         <option key={cur.code} value={cur.code}>
@@ -210,7 +209,7 @@ class MasterSideBar extends Component {
             <div className="row addOnePassenger">
               <div className="col-12">
                 <button className="btn btn-primary btn-success">
-                  Checkout
+                {this.context.translations[this.context.lang].pricebox.Checkout}
                 </button>
               </div>
             </div>

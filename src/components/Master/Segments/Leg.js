@@ -59,7 +59,7 @@ const Leg = props => {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                general.Expand
+               EXPAND
               </button>
             </div>
           </div>

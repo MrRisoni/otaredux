@@ -5,6 +5,7 @@ class ButtonToggle extends Component {
   static contextType = DataContext;
 
   render() {
+    console.log("LANG " + this.context.lang);
     return (
       <div className={`col-2 ${this.props.clsName}`}>
         <button
@@ -14,7 +15,7 @@ class ButtonToggle extends Component {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          general.Toggle
+       {this.context.translations[this.context.lang].general.Toggle}
         </button>
       </div>
     );
