@@ -13,12 +13,12 @@ class Parking extends Component {
 
   handleAddDays() {
     console.log("add park days");
-    this.props.addParkingDayHandler();
+    this.context.functions.actionParking({sign:1})
   }
 
   handleSubtractDays() {
     console.log("remove park days");
-    this.props.subParkingDayHandler();
+    this.context.functions.actionParking({sign:-1})
   }
 
   render() {
@@ -33,23 +33,13 @@ class Parking extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-3">Parking up to 22 days</div>
+                  <div className="col-9">Parking </div>
+                  <ButtonToggle target={"parkingCollaprse"} />
 
-                  <div className="col-2 offset-6">
-                    <button
-                      className="btn btn-sm btn-dark btn-block btnToggle"
-                      data-toggle="collapse"
-                      data-target="#flexibleTicketCollapse"
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-                      general.Toggle
-                    </button>
-                  </div>
-                </div>
+               </div>
               </div>
 
-              <div className="card-body collapse" id="flexibleTicketCollapse">
+              <div className="card-body collapse" id="parkingCollaprse">
                 <div className="row">
                   <div className="col-12">
                     <table className="table table-bordered table-stripped">
@@ -64,7 +54,7 @@ class Parking extends Component {
                           return (
                             <tr key={prcd.upToDays}>
                               <td>Up to days {prcd.upToDays}</td>
-                              <td> {prcd.price} E</td>
+                              <td> {prcd.costEuro} {this.context.currentCurrency.code}</td>
                             </tr>
                           );
                         })}

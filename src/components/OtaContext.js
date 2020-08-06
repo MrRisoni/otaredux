@@ -418,6 +418,7 @@ class OtaContextProvider extends Component {
     ttl += parseFloat(this.state.upsales.bagsCost);
     ttl += parseFloat(this.state.upsales.mealsCost);
     ttl += parseFloat(this.state.upsales.loungeCost);
+    ttl += parseFloat(this.state.upsales.parking.cost);
 
     for (var p = 0; p < this.state.passengers.length; p++) {
       if (this.state.passengers[p].active) {
@@ -839,6 +840,59 @@ class OtaContextProvider extends Component {
     return { priceOneBags, priceTwoBags };
   };
 
+  actionParking = data => {
+    const originAirport = this.state.ItineraryRsc[0].from.iata;
+
+    let totalParkDaysPriced = 0;
+
+    let priceTheseDays =0;
+
+    let remainingDays  = this.state.upsales.parking.days;
+
+    if (data.sign>0) {
+      remainingDays++;
+    }
+    else {
+      remainingDays--;
+      if (remainingDays <0) {
+        remainingDays =0;
+      }
+    }
+    let parkingDays  = remainingDays;
+
+    let total = 0;
+    this.state.ParkingRsc[originAirport].forEach( prkprc => {
+      console.log('remaining days '+ remainingDays);
+        if (remainingDays >0) {
+            if (remainingDays > prkprc.upToDays) {
+                priceTheseDays = prkprc.upToDays;
+
+                totalParkDaysPriced += priceTheseDays;
+            } else {
+                priceTheseDays = remainingDays - totalParkDaysPriced;
+            }
+
+            remainingDays -= priceTheseDays;
+            total += priceTheseDays * prkprc.costEuro * this.state.currentCurrency.rate;
+        }
+    });
+    console.log('total prking ' + total);
+    let new_upsales = this.state.upsales;
+    new_upsales.parking = {
+      cost: total,
+      costEur : 0,
+      days: parkingDays,
+    }
+
+
+  this.setState({
+      upsales: new_upsales
+    });
+
+
+    this.firstLoad();
+  };
+
   render() {
     return (
       <DataContext.Provider
@@ -853,6 +907,7 @@ class OtaContextProvider extends Component {
             actionBag: this.actionBag,
             actionMeal: this.actionMeal,
             actionLounge:this.actionLounge,
+            actionParking: this.actionParking,
             getActivePaxesLen: this.getActivePaxesLen,
             purchaseInsurance: this.purchaseInsurance,
             purchaseFastTrack: this.purchaseFastTrack,

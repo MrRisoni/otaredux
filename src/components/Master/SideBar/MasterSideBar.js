@@ -109,6 +109,16 @@ class MasterSideBar extends Component {
       );
     }
 
+    if (this.context.upsales.parking.cost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Parking"
+          price={this.context.upsales.parking.cost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
     return (
       <div className="pricebox ">
         <FareTaxes />
