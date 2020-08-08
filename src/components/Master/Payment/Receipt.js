@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { DataContext } from "../../OtaContext";
 
 class Receipt extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
   }
@@ -8,7 +11,9 @@ class Receipt extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card-header">Receipt Details</div>
+        <div className="card-header">        
+        {this.context.translations[this.context.lang].pay.Receipt}
+        </div>
         <div className="card-body">
           <div className="row">
             <div className="col-6">

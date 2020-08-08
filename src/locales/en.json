@@ -42,7 +42,13 @@
     "SelectInsurance": "Select an insurance",
     "Hungry": "Are you hungry?",
     "Main": "Main",
-    "Dessert": "Dessert"
+    "Dessert": "Dessert",
+    "BRB":"Blue Ribbon Bag Insurance!",
+    "Flex" :"Flexible Ticket",
+    "AirHelp" :"Flight Delay Compensation",
+    "FastTrack" : "Fast Track Priority Queue in Security Check",
+    "Parking" : "Parking",
+    "Lounge":"Lounge Access"
   },
   "cabins": {
     "SelectCabinPerSegment": "Select your cabin",

@@ -32,7 +32,9 @@ class Insurance extends Component {
         <div className="insuranceCard">
           <div className="alert alert-success" role="alert">
             <div className="row">
-              <div className="col-6">Select an Insurance</div>
+              <div className="col-6">
+               {this.context.translations[this.context.lang].upsales.SelectInsurance}
+</div>
               <div className="col-2">
                 <i className="fas fa-ambulance" />
               </div>

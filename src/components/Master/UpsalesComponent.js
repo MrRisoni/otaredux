@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PreSeat from "./AirUpsales/Preseat/PreSeat";
 import YesNoUpsale from "./AirUpsales/YesNoUpsale";
 
 import FastTrackList from "./AirUpsales/FastTrack/FastTrackList";
@@ -66,14 +65,14 @@ class UpsalesComponent extends Component {
         <div className="row">
           <div className="col-12">
             <YesNoUpsale
-              title="Buy Blue Ribbon Bag Insurance!"
+              title= {this.context.translations[this.context.lang].upsales.BRB}
               code="brb"
               upsaleHandler={this.context.functions.actionBlueRibbon}
               description={brbDescr}
             />
 
             <YesNoUpsale
-              title="Flexible Ticket"
+              title= {this.context.translations[this.context.lang].upsales.Flex}
               code="flxtkt"
               upsaleHandler={this.context.functions.actionFlexTicket}
               description={flexDescr}
@@ -87,7 +86,7 @@ class UpsalesComponent extends Component {
             />
 
             <YesNoUpsale
-              title="Flight Delays recompansation"
+              title= {this.context.translations[this.context.lang].upsales.AirHelp}
               code="airhlp"
               upsaleHandler={this.context.functions.actionAirHelp}
               description={airHelpDescr}
@@ -96,16 +95,6 @@ class UpsalesComponent extends Component {
             <FastTrackList />
             <Parking />
             <LoungeAccess />
-
-            {/*  <PreSeat/>
-
-             
-             
-              
-               
-
-              
-              */}
           </div>
         </div>
       </div>

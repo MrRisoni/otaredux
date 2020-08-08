@@ -261,7 +261,7 @@ class MasterPassenger extends Component {
 
                 <div>
                   <div className="alert alert-info" role="alert">
-                    Pick extra upsales your trip!
+                  {this.context.translations[this.context.lang].upsales.upsales}
                   </div>
 
                   {this.props.passenger.ptc !== "INF" && (

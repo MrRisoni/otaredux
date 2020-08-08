@@ -3,10 +3,16 @@ import Leg from "./Leg";
 import ButtonToggle from "../../Common/ButtonToggle";
 
 const ItineraryData = props => {
-  const legsDiv = [<Leg key="dep" legId={0} data={props.tripData[0]}  translations={props.translations} />];
-
+  const legsDiv = [<Leg key="dep" 
+  legId={0} 
+  data={props.tripData[0]} 
+  translations={props.translations}
+  translGeneral={props.translGeneral} />];
+  
   if (props.tripData.length > 1) {
-    legsDiv.push(<Leg key="ret" legId={1} data={props.tripData[1]} translations={props.translations} />);
+    legsDiv.push(<Leg key="ret" legId={1} data={props.tripData[1]} 
+    translGeneral={props.translGeneral}
+    translations={props.translations} />);
   }
 
   return (

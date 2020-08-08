@@ -32,7 +32,10 @@ class LoungeAirport extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-9">Lounge Access</div>
+                  <div className="col-9">
+                  {this.context.translations[this.context.lang].upsales.Lounge}
+
+                  </div>
 
                   <ButtonToggle target={"LoungeCollapse"} />
                 </div>

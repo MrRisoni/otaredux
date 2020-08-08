@@ -37,7 +37,8 @@ class FastTrack extends Component {
               <div className="card-header bg-light">
                 <div className="row">
                   <div className="col-9">
-                    Fast Track Priority Queue in Security Check
+                  {this.context.translations[this.context.lang].upsales.FastTrack}
+
                   </div>
 
                   <ButtonToggle target={"fastTrackCollapse"} />

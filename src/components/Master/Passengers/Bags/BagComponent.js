@@ -19,7 +19,9 @@ class BagComponent extends Component {
           <div className="col-12">
             <div className="alert alert-success" role="alert">
               <div className="row">
-                <div className="col-6">upsales.PurchaseBags</div>
+                <div className="col-6">
+                {this.context.translations[this.context.lang].upsales.PurchaseBags}
+                </div>
                 <div className="col-2">
                   <i className="fas fa-suitcase" />
                 </div>

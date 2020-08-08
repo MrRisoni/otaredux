@@ -29,6 +29,7 @@ class MasterApp extends Component {
           <div className="col-8">
             <ItineraryData 
               translations={this.context.translations[this.context.lang].flight}
+              translGeneral={this.context.translations[this.context.lang].general}
             tripData={this.context.ItineraryRsc} />
             <MasterPassengerList />
           </div>
@@ -45,7 +46,7 @@ class MasterApp extends Component {
         />
 
         <ReceiptOrInvoice />
-        <CreditCard />
+        <CreditCard translPay={this.context.translations[this.context.lang].pay} />
         <UpsalesComponent product="air" />
 
         <PreSeat />

@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import { DataContext } from "../../OtaContext";
 
 class Invoice extends Component {
+  static contextType = DataContext;
+
   render() {
     return (
       <div className="card">
-        <div className="card-header">Invoice Details</div>
+        <div className="card-header">        
+        {this.context.translations[this.context.lang].pay.Invoice}
+</div>
         <div className="card-body">
           <div className="row">
             <div className="col-6">

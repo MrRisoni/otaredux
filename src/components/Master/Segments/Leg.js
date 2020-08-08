@@ -7,7 +7,7 @@ const Leg = props => {
   const waitDiv =
     props.data.waiting.total > 0 ? (
       <div className="col-4">
-        flight.WaitTime :{props.data.waiting.h}h{props.data.waiting.m}m
+        { props.translations.WaitTime} :{props.data.waiting.h}h{props.data.waiting.m}m
       </div>
     ) : (
       <div />
@@ -59,7 +59,7 @@ const Leg = props => {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-               EXPAND
+              { props.translGeneral.Expand}
               </button>
             </div>
           </div>
@@ -78,7 +78,7 @@ const Leg = props => {
 
           <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
             {props.data.segments.map((sg, idx) => (
-              <Segment key={idx} data={sg} translations={props.translations} />
+              <Segment key={idx} data={sg} translGeneral={props.translGeneral} translations={props.translations} />
             ))}
           </div>
         </div>

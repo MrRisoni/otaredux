@@ -33,7 +33,9 @@ class ReceiptOrInvoice extends Component {
             <div className="card paymentDetails">
               <div className="card-header">
                 <div className="row">
-                  <div className="col-4">pay.Details</div>
+                  <div className="col-4">                  
+                  {this.context.translations[this.context.lang].pay.Details}
+                  </div>
 
                   <div className="col-2">
                     <i className="fas fa-file-invoice-dollar" />

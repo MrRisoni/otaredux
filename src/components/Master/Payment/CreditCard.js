@@ -9,7 +9,10 @@ const CreditCard = props => {
           <div className="card paymentDetails">
             <div className="card-header bg-light">
               <div className="row">
-                <div className="col-4">pay.CreditCard</div>
+                <div className="col-6">                
+                {props.translPay.CreditCard}
+
+                </div>
 
                 <div className="col-2">
                   <i className="far fa-credit-card" />
@@ -17,7 +20,7 @@ const CreditCard = props => {
 
                 <ButtonToggle
                   target={`creditCardCollapse`}
-                  clsName={"offset-6"}
+                  clsName={""}
                 />
               </div>
             </div>
