@@ -12,19 +12,15 @@ class Parking extends Component {
   }
 
   handleAddDays() {
-    console.log("add park days");
     this.context.functions.actionParking({sign:1})
   }
 
   handleSubtractDays() {
-    console.log("remove park days");
     this.context.functions.actionParking({sign:-1})
   }
 
   render() {
     const originAirport = this.context.ItineraryRsc[0].from.iata;
-    console.log("origin airport " + originAirport);
-    console.log(originAirport);
 
     return (
       <section className="upsalesSection">

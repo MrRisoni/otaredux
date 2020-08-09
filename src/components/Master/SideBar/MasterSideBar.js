@@ -12,7 +12,6 @@ class MasterSideBar extends Component {
   }
 
   updateChosenLangLcl(ev) {
-    console.log(ev.target.value);
     this.context.functions.updateChosenLang(ev.target.value);
   }
   render() {

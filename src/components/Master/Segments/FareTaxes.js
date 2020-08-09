@@ -5,7 +5,6 @@ class FareTaxes extends Component {
   static contextType = DataContext;
 
   render() {
-    console.log(this.context.ItineraryRsc);
     let rows = [];
     this.context.ItineraryRsc.forEach(leg => {
       leg.pricing.forEach(prices => {

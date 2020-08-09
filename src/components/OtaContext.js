@@ -209,14 +209,12 @@ class OtaContextProvider extends Component {
   };
 
   updateChosenLang = newLang => {
-    console.log("new lan is " + newLang);
     this.setState({
       lang: newLang
     });
   };
 
   editPassenger = data => {
-    console.log(data);
     let isFirstHuman = false;
 
     let newPaxes = this.state.passengers.map(px => {
@@ -225,7 +223,6 @@ class OtaContextProvider extends Component {
       } else {
         isFirstHuman = px.humanId == 1;
         if (data.field === "ptc") {
-          console.log("CHANING PTC  to " + data.newPtc);
           return {
             ...px,
             ptc: data.newPtc
@@ -280,10 +277,8 @@ class OtaContextProvider extends Component {
 
   removePassenger = paxId => {
     const self = this;
-    console.log(paxId);
     let newPaxes = this.state.passengers.filter(pax => {
       if (pax.id != paxId) {
-        console.log(pax.id + " " + paxId);
         return pax;
       }
     });
@@ -325,7 +320,6 @@ class OtaContextProvider extends Component {
   addPassenger = () => {
     const self = this;
 
-    console.log(this.state);
     let newHumanId = this.state.passengers.filter(pax => pax.active).length + 1;
 
     let newPaxObj = {
@@ -427,18 +421,15 @@ class OtaContextProvider extends Component {
         ttl += parseFloat(
           this.state.passengers[p].upsalesData["insurance"]["costEur"]
         );
-        console.log("tttll " + ttl);
-        console.log("ptc is " + ptc + " of " + p);
+   
         var pricingNew = [];
 
         for (var legId = 0; legId < this.state.ItineraryRsc.length; legId++) {
-          console.log("legid is " + legId);
           for (
             var pr = 0;
             pr < this.state.ItineraryRsc[legId].pricing.length;
             pr++
           ) {
-            console.log("pricingid is " + pr);
 
             if (this.state.ItineraryRsc[legId].pricing[pr].ptc == ptc) {
               fareEur = parseFloat(
@@ -459,7 +450,6 @@ class OtaContextProvider extends Component {
               ttlFare += fareEur;
               ttlTax += taxesEur;
 
-              console.log("fareur" + fareEur + "  taxeur  " + taxesEur);
               ttl += fareEur;
               ttl += taxesEur;
             }
@@ -480,16 +470,13 @@ class OtaContextProvider extends Component {
   };
 
   purchaseInsurance = data => {
-    console.log(data);
     let paxsnew = this.state.passengers;
     let insuranceOpt = this.state.upsalesPricing.Insurance.filter(insItm => {
       return insItm.id == data.insuranceId;
     })[0];
-    console.log(insuranceOpt);
 
     for (var p = 0; p < paxsnew.length; p++) {
       if (paxsnew[p].id === data.pax.id) {
-        console.log("found pax");
         paxsnew[p].upsalesData["insurance"]["code"] = insuranceOpt.code;
         let euroCost =
           data.pax["ptc"] === "ADT"
@@ -536,8 +523,6 @@ class OtaContextProvider extends Component {
     let new_upsales = this.state.upsales;
     new_upsales.fastTrackCost = 0;
     new_upsales.fastTrackCostEur = 0;
-    console.log("fast track data");
-    console.log(data);
     if (data.add === 1) {
       new_upsales.fastTrackCost = this.state.upsalesPricing["fastTrack"][
         data.point
@@ -640,7 +625,6 @@ class OtaContextProvider extends Component {
   };
 
   actionMeal = data => {
-    console.log(data);
     let new_paxes = this.state.passengers;
     let new_upsales = this.state.upsales;
     let finalMealsCost = 0;
@@ -652,7 +636,6 @@ class OtaContextProvider extends Component {
         let newMealData = px.upsalesData.meals;
         newMealData.forEach(mlLeg => {
           if (mlLeg.leg == data.legId) {
-            console.log("REPLACE!!!!");
             mlLeg.cost = 0;
             const funden = this.state.MealsRsc.filter(
               mlItm => mlItm.ssr == data.option && mlItm.legId == data.legId
@@ -663,8 +646,6 @@ class OtaContextProvider extends Component {
             mlLeg.choice = data.option;
           }
         });
-
-        console.log(newMealData);
 
         return {
           ...px,
@@ -677,8 +658,6 @@ class OtaContextProvider extends Component {
     });
 
     newPaxes.forEach(px => {
-      console.log("----------------------");
-      console.log(px.upsalesData);
       px.upsalesData.meals.forEach(ml => {
         finalMealsCost += parseFloat(ml.cost);
       });
@@ -686,9 +665,7 @@ class OtaContextProvider extends Component {
 
     new_upsales.mealsCost = parseFloat(finalMealsCost);
     new_upsales.mealsCost = new_upsales.mealsCost.toFixed(2);
-    console.log("total FINAL bag cost " + finalMealsCost);
-    console.log("total NEW bag cost " + new_upsales.mealsCost);
-    this.setState({
+      this.setState({
       upsales: new_upsales,
       passengers: newPaxes
     });
@@ -697,12 +674,9 @@ class OtaContextProvider extends Component {
   };
 
   actionBag = data => {
-    console.log("add bag");
-    console.log(data);
     let new_paxes = this.state.passengers;
 
     const prices = this.getBagPrices(data);
-    console.log(prices);
     let new_upsales = this.state.upsales;
 
     let finalbagsCost = 0;
@@ -714,7 +688,6 @@ class OtaContextProvider extends Component {
         let newBagData = px.upsalesData.bags;
         newBagData.forEach(bgleg => {
           if (bgleg.leg == data.legId) {
-            console.log("REPLACE!!!!");
             bgleg.cost = 0;
             if (data.option == 1) {
               bgleg.cost = prices.priceOneBags;
@@ -727,7 +700,6 @@ class OtaContextProvider extends Component {
           }
         });
 
-        console.log(newBagData);
 
         return {
           ...px,
@@ -740,18 +712,14 @@ class OtaContextProvider extends Component {
     });
 
     newPaxes.forEach(px => {
-      console.log("----------------------");
-      console.log(px.upsalesData);
       px.upsalesData.bags.forEach(bg => {
         finalbagsCost += parseFloat(bg.cost);
-        console.log("BG COST IS " + bg.cost);
       });
     });
 
     new_upsales.bagsCost = parseFloat(finalbagsCost);
     new_upsales.bagsCost = new_upsales.bagsCost.toFixed(2);
-    console.log("total FINAL bag cost " + finalbagsCost);
-    console.log("total NEW bag cost " + new_upsales.bagsCost);
+   
     this.setState({
       upsales: new_upsales,
       passengers: newPaxes
@@ -790,7 +758,6 @@ class OtaContextProvider extends Component {
 
 
   actionLounge = data => {
-     console.log(data);
      let new_upsales = this.state.upsales;
      if (data.num >0) {
       new_upsales.loungeHours[data.point]++;
@@ -801,8 +768,6 @@ class OtaContextProvider extends Component {
         new_upsales.loungeHours[data.point] = 0;
       }
      }
-     console.log('pricing');
-     console.log(this.state.upsalesPricing.Lounge);
      const adt = this.state.upsalesPricing.Lounge[data.point].pricing['ADT'];
      const cnn = this.state.upsalesPricing.Lounge[data.point].pricing['CNN'];
 
@@ -817,9 +782,6 @@ class OtaContextProvider extends Component {
   };
 
   getBagPrices = data => {
-    console.log("getBagPrices");
-    console.log(data);
-    console.log(this.state.BagsRsc);
     let priceOneBags = 0;
     let priceTwoBags = 0;
 
@@ -862,7 +824,6 @@ class OtaContextProvider extends Component {
 
     let total = 0;
     this.state.ParkingRsc[originAirport].forEach( prkprc => {
-      console.log('remaining days '+ remainingDays);
         if (remainingDays >0) {
             if (remainingDays > prkprc.upToDays) {
                 priceTheseDays = prkprc.upToDays;
@@ -876,7 +837,6 @@ class OtaContextProvider extends Component {
             total += priceTheseDays * prkprc.costEuro * this.state.currentCurrency.rate;
         }
     });
-    console.log('total prking ' + total);
     let new_upsales = this.state.upsales;
     new_upsales.parking = {
       cost: total,

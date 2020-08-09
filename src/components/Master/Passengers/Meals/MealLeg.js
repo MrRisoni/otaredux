@@ -12,7 +12,6 @@ class MealLeg extends Component {
   }
 
   changeMeal(ev) {
-    console.log(ev.target.value);
     this.context.functions.actionMeal({
       paxId: this.props.paxId,
       legId: this.props.leg,
