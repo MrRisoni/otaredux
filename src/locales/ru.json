@@ -6,19 +6,25 @@
     "Stops": "Остановки",
     "Duration": "продолжительность",
     "WaitTime": "Время ожидания",
-    "Segment": "сегмент"
+    "Segment": "сегмент",    
+    "OperatedBy" : "Operated by"
   },
   "pay" : {
     "CreditCard" : "Кредитная карта",
     "Details": "Детали платежа",
     "Receipt" : "Чек",
-    "Invoice" : "Счет-фактура"
+    "Invoice" : "Счет-фактура",
+    "Bank" :"Bank",
+    "CardHolder" :"Card holder",
+    "CardNumber": "Card number"
   },
   "general": {
     "Toggle": "тумблер",
     "Cost": "Стоимость",
     "Expand": "расширять",
-    "Contact" : "Контактная информация"
+    "Contact" : "Контактная информация",
+    "Select" :"Select",
+    "Clear" : "Clear"
   },
   "passengers": {
     "AddPassenger": "Добавить пассажира",
@@ -29,8 +35,22 @@
     "Child": "ребенок",
     "Infant": "младенец",
     "SelectGender": "Выберите пол",
+    "SelectAge": "Select Age",
     "Name": "название",
-    "Surname": "Фамилия"
+    "Surname": "Фамилия",
+    "Male" : "Male",
+    "Female" : "Female",
+    "Mobile" :"Mobile",
+    "Address": "Address",
+    "ZIP" :"Post code",
+    "City" :"City"
+  },  
+  "invoice" :{
+      "Company" :"Company",
+      "Profession" : "Profession",
+      "VAT" : "VAT",
+      "Country":"Country",
+      "Phone" :"Phone"
   },
   "upsales": {
     "PurchaseBags": "Купить сумки",
@@ -38,15 +58,13 @@
     "SelectInsurance": "Страхование Selecy",
     "Hungry": "Вы голодны ?",
     "Main": "Главный",
-    "Dessert": "Десерт"
-  },
-  "cabins": {
-    "SelectCabinPerSegment": "Выберите домик на сегмент",
-    "OneType": "Для этого сегмента доступна только одна кабина"
-  },
-  "miles": {
-    "HaveMilesCard": "У вас есть карта миль для вашей поездки?",
-    "MilesCard": "Мили карта"
+    "Dessert": "Десерт",
+    "BRB":"Blue Ribbon Bag Insurance!",
+    "Flex" :"Flexible Ticket",
+    "AirHelp" :"Flight Delay Compensation",
+    "FastTrack" : "Fast Track Priority Queue in Security Check",
+    "Parking" : "Parking",
+    "Lounge":"Lounge Access"
   },
   "passport": {
     "nationality": "Национальность",
@@ -59,18 +77,18 @@
     "Yes": "да",
     "No": "нет"
   },
-  "preseat": {
-    "SelectYourSeats": "Выберите ваши места",
-    "Reset": "Сброс",
-    "Seat": "сиденье",
-    "PickSeat": "Выбрать место"
-  },
   "pricebox": {
     "PriceAnalysis": "",
     "TicketPrice": "Стоимость билетов",
     "UpsalePrices": "Оптовые цены",
     "Total": "Итоговая цена",
+    "Fare": "Fare",
+    "Tax": "Tax",
+    "Type": "Type",
+    "Route": "Route",
     "ChangeLang": "Изменить язык",
-    "ChangeCur": "Изменить валюту"
+    "ChangeCur": "Изменить валюту",
+    "Checkout" : "Checkout"
+    
   }
 }

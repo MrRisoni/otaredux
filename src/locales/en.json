@@ -17,7 +17,6 @@
     "Bank" :"Bank",
     "CardHolder" :"Card holder",
     "CardNumber": "Card number"
-
   },
   "general": {
     "Toggle": "Toggle",
@@ -67,14 +66,6 @@
     "Parking" : "Parking",
     "Lounge":"Lounge Access"
   },
-  "cabins": {
-    "SelectCabinPerSegment": "Select your cabin",
-    "OneType": "Only one cabin is available for this segment."
-  },
-  "miles": {
-    "HaveMilesCard": "Have you got miles card?",
-    "MilesCard": "Miles Card"
-  },
   "passport": {
     "nationality": "Nationality",
     "issue": "Issue Country",
@@ -85,12 +76,6 @@
   "branded": {
     "Yes": "Yes",
     "No": "No"
-  },
-  "preseat": {
-    "SelectYourSeats": "Select your seats",
-    "Reset": "Clear all",
-    "Seat": "Seat",
-    "PickSeat": "Pick a seat"
   },
   "pricebox": {
     "PriceAnalysis": "Price Analysis",
