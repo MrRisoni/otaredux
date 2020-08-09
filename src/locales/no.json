@@ -1,92 +1,91 @@
 {
-    "flight": {
-      "Departure": "Departure",
-      "Return": "Return",
-      "YourTrip": "Your trip",
-      "Stops": "Stops",
-      "Duration": "Duration",
-      "WaitTime": "Waiting time",
-      "Segment": "Segment",
-      "OperatedBy" : "Operated by"
-    },
-    "pay" : {
-      "CreditCard" : "Credit Card",
-      "Details": "Payment Details",
-      "Receipt" : "Receipt",
-      "Invoice" : "Invoice",
-      "Bank" :"Bank",
-      "CardHolder" :"Card holder",
-      "CardNumber": "Card number"
-    },
-    "general": {
-      "Toggle": "Toggle",
-      "Cost": "Cost",
-      "Expand": "Expand",
-      "Contact" : "Contact Details",
-      "Select" :"Select",
-      "Clear" : "Clear"
-    },
-    "passengers": {
-      "AddPassenger": "Add Passenger",
-      "RemovePassenger": "Remove this passenger",
-      "FillThePassengerData": "Fyll ut passasjerdataene",
-      "Passenger": "Passenger",
-      "Adult": "Adult",
-      "Child": "Child",
-      "Infant": "Infant",
-      "SelectGender": "Select Gender",
-    "SelectAge": "Select Age",
-      "Name": "Name",
-      "Surname": "Surname",
-      "Male" : "Male",
-      "Female" : "Female",
-      "Mobile" :"Mobile",
-      "Address": "Address",
-      "ZIP" :"Post code",
-      "City" :"City"
-    },
-  "invoice" :{
-      "Company" :"Company",
-      "Profession" : "Profession",
-      "VAT" : "VAT",
-      "Country":"Country",
-      "Phone" :"Phone"
+  "flight": {
+    "Departure": "Avgang",
+    "Return": "Retur",
+    "YourTrip": "Din tur",
+    "Stops": "Stop",
+    "Duration": "Varighet",
+    "WaitTime": "Ventetid",
+    "Segment": "Segmentet",
+    "OperatedBy" : "Styrt av "
   },
-    "upsales": {
-      "PurchaseBags": "Kjøp poser",
-      "SelectInsurance": "Select an insurance",
-      "Hungry": "Are you hungry?",
-      "Main": "Main",
-      "Dessert": "Dessert",
-      "BRB":"Blue Ribbon Bag Insurance!",
-      "Flex" :"Flexible Ticket",
-      "AirHelp" :"Flight Delay Compensation",
-      "FastTrack" : "Fast Track Priority Queue in Security Check",
-      "Parking" : "Parking",
-      "Lounge":"Lounge Access"
-    },
-    "passport": {
-      "nationality": "Nationality",
-      "issue": "Issue Country",
-      "passportNo": "Passport No",
-      "expireDate": "Expiration date",
-      "dob": "Date of birth"
-    },
-  "branded": {
-    "Yes": "Ja",
-    "No": "Nej"
+  "pay" : {
+    "CreditCard" : "Kredittkort",
+    "Details": "Betalingsinformasjon",
+    "Receipt" : "Kvittering",
+    "Invoice" : "Faktura",
+    "Bank" :"Bank",
+    "CardHolder" :"Kortholder",
+    "CardNumber": "Kortnummer"
   },
-  "pricebox": {
-    "PriceAnalysis": "Price Analysis",
-    "TicketPrice": "Tickets price",
-    "UpsalePrices": "Upsale prices",
-    "Total": "Total",
-    "Fare": "Fare",
-    "Tax": "Tax",
-    "Type": "Type",
-    "Route": "Route",
-    "ChangeLang": "Change Language",
-    "ChangeCur": "Change Currency",
-    "Checkout" : "Checkout"
-  }
+  "general": {
+    "Toggle": "Veksle",
+    "Cost": "Koste",
+    "Expand": "Utvide",
+    "Contact" : "Kontaktinformasjon",
+    "Select" :"Velge",
+    "Clear" : "Slette"
+  },
+  "passengers": {
+    "AddPassenger": "Legg till passasjer",
+    "RemovePassenger": "Fjern  passasjer",
+    "FillThePassengerData": "Fyll passasjerinformasjonen",
+    "Passenger": "Passasjer",
+    "Adult": "Voksen",
+    "Child": "Barn",
+    "Infant": "Infant",
+    "SelectGender": "Kjønn",
+  "SelectAge": "Alder",
+    "Name": "Navn",
+    "Surname": "Etternavn",
+    "Male" : "Mann",
+    "Female" : "Hunn",
+    "Mobile" :"Mobil",
+    "Address": "Address",
+    "ZIP" :"Postnummer",
+    "City" :"By"
+  },
+"invoice" :{
+    "Company" :"Selskap",
+    "Profession" : "Yrke",
+    "VAT" : "MOMS",
+    "Country":"Land",
+    "Phone" :"Telefon"
+},
+  "upsales": {
+    "PurchaseBags": "Kjøp poser",
+    "SelectInsurance": "Velg Forsikring",
+    "Hungry": "Är Du hungrig?",
+    "Main": "Hovedrett",
+    "Dessert": "Dessert",
+    "BRB":"Blue Ribbon Bagageforsikring",
+    "Flex" :"Fleksibillett",
+    "AirHelp" :"Flyforsinkelseskompensasjon",
+    "FastTrack" : "Rask sporkvalitet i sikkerhetskontroll",
+    "Parking" : "Parking",
+    "Lounge":"Tilgang til salong"
+  },
+  "passport": {
+    "nationality": "Nasjonalitet",
+    "issue": "Utgiverland",
+    "passportNo": "Pass nr",
+    "expireDate": "Utløpsdato",
+    "dob": "Fødselsdato"
+  },
+"branded": {
+  "Yes": "Ja",
+  "No": "Nei"
+},
+"pricebox": {
+  "PriceAnalysis": "Prisanalyse",
+  "TicketPrice": "Billettpris",
+  "UpsalePrices": "Uppsala priser",
+  "Total": "Total",
+  "Fare": "Billettpris",
+  "Tax": "Avgift",
+  "Type": "Type",
+  "Route": "Rute",
+  "ChangeLang": "Endre språk",
+  "ChangeCur": "Endre valuta",
+  "Checkout" : "Kassa"
 }
