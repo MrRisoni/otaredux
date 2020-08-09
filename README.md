@@ -7,7 +7,7 @@ https://lit-sierra-41000.herokuapp.com/
 
 TODO
 Translations
-preseating
+
 general debuging
 
 SSR???

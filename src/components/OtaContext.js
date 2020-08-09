@@ -50,8 +50,6 @@ class OtaContextProvider extends Component {
     totalFare: 0,
     totalTax: 0,
     upsales: {
-      preseatingCost: 0,
-      preseatingCostEur: 0,
       webCheckinCost: 0,
       webCheckinCostEur: 0,
       mealsCost: 0,
@@ -127,17 +125,7 @@ class OtaContextProvider extends Component {
           bags: [
             { leg: 0, num: 0, cost: 0, costEur: 0 },
             { leg: 1, num: 0, cost: 0, costEur: 0 }
-          ],
-          preseating: {
-            totalCost: 0,
-            totalEur: 0,
-            choices: [
-              { segId: 0, choice: "", cost: 0, costEur: 0 },
-              { segId: 1, choice: "", cost: 0, costEur: 0 },
-              { segId: 2, choice: "", cost: 0, costEur: 0 },
-              { segId: 3, choice: "", cost: 0, costEur: 0 }
-            ]
-          }
+          ]
         }
       }
     ],
@@ -366,17 +354,7 @@ class OtaContextProvider extends Component {
         bags: [
           { leg: 0, num: 0, cost: 0, costEur: 0 },
           { leg: 1, num: 0, cost: 0, costEur: 0 }
-        ],
-        preseating: {
-          totalCost: 0,
-          totalEur: 0,
-          choices: [
-            { segId: 0, choice: "", cost: 0, costEur: 0 },
-            { segId: 1, choice: "", cost: 0, costEur: 0 },
-            { segId: 2, choice: "", cost: 0, costEur: 0 },
-            { segId: 3, choice: "", cost: 0, costEur: 0 }
-          ]
-        }
+        ]       
       }
     };
 
