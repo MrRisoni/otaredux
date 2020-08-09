@@ -7,24 +7,24 @@
     "Duration": "продолжительность",
     "WaitTime": "Время ожидания",
     "Segment": "сегмент",    
-    "OperatedBy" : "Operated by"
+    "OperatedBy" : "Управляется"
   },
   "pay" : {
     "CreditCard" : "Кредитная карта",
     "Details": "Детали платежа",
     "Receipt" : "Чек",
     "Invoice" : "Счет-фактура",
-    "Bank" :"Bank",
-    "CardHolder" :"Card holder",
-    "CardNumber": "Card number"
+    "Bank" :"Банка",
+    "CardHolder" :"держатель карты",
+    "CardNumber": "Номер карты"
   },
   "general": {
     "Toggle": "тумблер",
     "Cost": "Стоимость",
     "Expand": "расширять",
     "Contact" : "Контактная информация",
-    "Select" :"Select",
-    "Clear" : "Clear"
+    "Select" :"Выбрать",
+    "Clear" : "стира́ть"
   },
   "passengers": {
     "AddPassenger": "Добавить пассажира",
@@ -34,23 +34,23 @@
     "Adult": "для взрослых",
     "Child": "ребенок",
     "Infant": "младенец",
-    "SelectGender": "Выберите пол",
-    "SelectAge": "Select Age",
+    "SelectGender": "пол",
+    "SelectAge": "Возраст",
     "Name": "название",
     "Surname": "Фамилия",
-    "Male" : "Male",
-    "Female" : "Female",
-    "Mobile" :"Mobile",
-    "Address": "Address",
-    "ZIP" :"Post code",
-    "City" :"City"
+    "Male" : "мужчина",
+    "Female" : "женский",
+    "Mobile" :"мобильный",
+    "Address": "Адрес",
+    "ZIP" :"Почтовый индекс",
+    "City" :"город"
   },  
   "invoice" :{
-      "Company" :"Company",
-      "Profession" : "Profession",
-      "VAT" : "VAT",
-      "Country":"Country",
-      "Phone" :"Phone"
+      "Company" :"фирма",
+      "Profession" : "профессия",
+      "VAT" : "НДС",
+      "Country":"Страна",
+      "Phone" :"Телефон"
   },
   "upsales": {
     "PurchaseBags": "Купить сумки",
@@ -59,12 +59,12 @@
     "Hungry": "Вы голодны ?",
     "Main": "Главный",
     "Dessert": "Десерт",
-    "BRB":"Blue Ribbon Bag Insurance!",
-    "Flex" :"Flexible Ticket",
-    "AirHelp" :"Flight Delay Compensation",
-    "FastTrack" : "Fast Track Priority Queue in Security Check",
-    "Parking" : "Parking",
-    "Lounge":"Lounge Access"
+    "BRB":"Blue Ribbon Страхование багажа",
+    "Flex" :"Гибкий билет",
+    "AirHelp" :"Компенсация за задержку рейса",
+    "FastTrack" : "Приоритетная очередь при проверке безопасности",
+    "Parking" : "Стоянка",
+    "Lounge":"Доступ в зал ожидания"
   },
   "passport": {
     "nationality": "Национальность",
@@ -78,17 +78,17 @@
     "No": "нет"
   },
   "pricebox": {
-    "PriceAnalysis": "",
+    "PriceAnalysis": "Анализ цен",
     "TicketPrice": "Стоимость билетов",
     "UpsalePrices": "Оптовые цены",
     "Total": "Итоговая цена",
-    "Fare": "Fare",
-    "Tax": "Tax",
+    "Fare": "сто́имость прое́зда",
+    "Tax": "налог",
     "Type": "Type",
-    "Route": "Route",
+    "Route": "маршрут",
     "ChangeLang": "Изменить язык",
     "ChangeCur": "Изменить валюту",
-    "Checkout" : "Checkout"
+    "Checkout" : "Оплатить"
     
   }
 }

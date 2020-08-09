@@ -7,7 +7,7 @@
     "Duration": "Dauer",
     "WaitTime": "Wartezeit",
     "Segment": "Segment",    
-    "OperatedBy" : "Operated by"
+    "OperatedBy" : "Betrieben von"
   },
   "pay" : {
     "CreditCard" : "Kreditkarte",
@@ -15,16 +15,16 @@
     "Receipt" : "Quittung",
     "Invoice" : "Rechnung",
     "Bank" :"Bank",
-    "CardHolder" :"Card holder",
-    "CardNumber": "Card number"
+    "CardHolder" :"Kartenhalter",
+    "CardNumber": "Kart Nummer"
   },
   "general": {
     "Toggle": "Umschalten",
     "Cost": "Kosten",
     "Expand": "Erweitern",
     "Contact" : "Kontaktdaten",
-    "Select" :"Select",
-    "Clear" : "Clear"
+    "Select" :"Wählen",
+    "Clear" : "Löschen"
   },
   "passengers": {
     "AddPassenger": "Passagier hinzufügen",
@@ -34,23 +34,23 @@
     "Adult": "Erwachsener",
     "Child": "Kind",
     "Infant": "Baby",
-    "SelectGender": "Wählen Sie das Geschlecht aus",
-    "SelectAge": "Select Age",
+    "SelectGender":  "Geschlecht",
+    "SelectAge": "Alter",
     "Name": "Name",
     "Surname": "Nachname",
-    "Male" : "Male",
-    "Female" : "Female",
+    "Male" : "männlich",
+    "Female" : "weiblich",
     "Mobile" :"Mobile",
-    "Address": "Address",
-    "ZIP" :"Post code",
-    "City" :"City"
+    "Address": "Addresse",
+    "ZIP" :"Postleitzahl",
+    "City" :"Stadt"
   },
   "invoice" :{
-    "Company" :"Company",
-    "Profession" : "Profession",
+    "Company" :"Firma",
+    "Profession" : "Beruf",
     "VAT" : "VAT",
-    "Country":"Country",
-    "Phone" :"Phone"
+    "Country":"Land",
+    "Phone" :"Telefon"
 },
   "upsales": {
     "PurchaseBags": "Taschen kaufen",
@@ -59,12 +59,12 @@
     "Hungry": "Haben Sie Hunger?",
     "Main": "Hauptgericht",
     "Dessert": "Dessert",    
-    "BRB":"Blue Ribbon Bag Insurance!",
+    "BRB":"Blue Ribbon Gepäck Sicherheit!",
     "Flex" :"Flexible Ticket",
-    "AirHelp" :"Flight Delay Compensation",
-    "FastTrack" : "Fast Track Priority Queue in Security Check",
+    "AirHelp" :"Flugverspätungskompensation",
+    "FastTrack" : "Prioritätswarteschlange in Sicherheitkontrol",
     "Parking" : "Parking",
-    "Lounge":"Lounge Access"
+    "Lounge":"Zugang zur Lounge"
   },
    "passport": {
     "nationality": "Staatsangehörigkeit",
@@ -82,12 +82,12 @@
     "TicketPrice": "Fahrkartenpreis",
     "UpsalePrices": "Upsale Preises",
     "Total": "Gesamtpreis",
-    "Fare": "Fare",
-    "Tax": "Tax",
+    "Fare": "Fahrpreis",
+    "Tax": "Steuer",
     "Type": "Type",
     "Route": "Route",
     "ChangeLang": "Sprache ändern",
     "ChangeCur": "Währung ändern",
-    "Checkout" : "Checkout"
+    "Checkout" : "Auschecken"
   }
 }
