@@ -200,7 +200,7 @@ class MasterPassenger extends Component {
                   </div>
 
 
-                  <ButtonToggle  target={`passengerCollapse${this.props.passenger.id}`} clsName={"offset-6"}  />
+                  <ButtonToggle  target={`passengerCollapse${this.props.passenger.id}`} clsName={"offset-1"}  />
                 </div>
               </div>
 

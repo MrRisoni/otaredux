@@ -33,7 +33,7 @@ class ReceiptOrInvoice extends Component {
             <div className="card paymentDetails">
               <div className="card-header">
                 <div className="row">
-                  <div className="col-4">                  
+                  <div className="col-6">                  
                   {this.context.translations[this.context.lang].pay.Details}
                   </div>
 
@@ -43,7 +43,7 @@ class ReceiptOrInvoice extends Component {
 
                   <ButtonToggle
                     target={`paymentDetailsCollapse`}
-                    clsName={"offset-6"}
+                    clsName={"offset-2"}
                   />
                 </div>
               </div>

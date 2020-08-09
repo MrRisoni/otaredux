@@ -36,12 +36,13 @@ class FastTrack extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-9">
+                  <div className="col-8">
                   {this.context.translations[this.context.lang].upsales.FastTrack}
 
                   </div>
 
-                  <ButtonToggle target={"fastTrackCollapse"} />
+                  <ButtonToggle target={"fastTrackCollapse"} 
+                   clsName={"offset-2"}/>
                 </div>
               </div>
 

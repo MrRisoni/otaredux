@@ -41,7 +41,7 @@ class Insurance extends Component {
 
               <ButtonToggle
                 target={`insuranceCollapse${this.props.paxId}`}
-                clsName={"offset-6"}
+                clsName={"offset-2"}
               />
             </div>
           </div>

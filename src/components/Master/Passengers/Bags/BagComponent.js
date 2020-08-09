@@ -28,7 +28,7 @@ class BagComponent extends Component {
 
                 <ButtonToggle
                   target={`bagCollapse${this.props.paxId}`}
-                  clsName={"offset-6"}
+                  clsName={"offset-2"}
                 />
               </div>
             </div>

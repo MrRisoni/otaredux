@@ -16,9 +16,10 @@ class PreSeat extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-9">PreSeat</div>
+                  <div className="col-8">PreSeat</div>
 
-                  <ButtonToggle target={"PreSeatCollapse"} />
+                  <ButtonToggle target={"PreSeatCollapse"} 
+                      clsName={"offset-2"} />
                 </div>
               </div>
               <div className="card-body collapse" id="PreSeatCollapse">

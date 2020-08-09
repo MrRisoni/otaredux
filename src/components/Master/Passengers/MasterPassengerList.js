@@ -20,12 +20,12 @@ class MasterPassengerList extends Component {
         <div className="busPassengerList">
           <div className="alert alert-primary" role="alert">
             <div className="row">
-              <div className="col-3"> {this.context.translations[this.context.lang].passengers.FillThePassengerData}
+              <div className="col-8"> {this.context.translations[this.context.lang].passengers.FillThePassengerData}
 </div>
 
               <ButtonToggle
                 target={`passengerListCollapse`}
-                clsName={"offset-6"}
+                clsName={"offset-2"}
               />
             </div>
           </div>

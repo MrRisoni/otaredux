@@ -19,7 +19,7 @@ class MasterContact extends Component {
                 <div className="card">
                   <div className="card-header bg-light">
                     <div className="row">
-                      <div className="col-4">
+                      <div className="col-6">
                       {this.context.translations[this.context.lang].general.Contact}
                       </div>
 
@@ -29,7 +29,7 @@ class MasterContact extends Component {
 
                       <ButtonToggle
                         target={`busContactCollapse`}
-                        clsName={"offset-6"}
+                        clsName={"offset-2"}
                       />
                     </div>
                   </div>
@@ -50,9 +50,10 @@ class MasterContact extends Component {
                       </div>
 
                       <div className="col-5">
+                      <label htmlFor="contactSurName">{this.context.translations[this.context.lang].passengers.Surname}</label>
                         <input
-                          type="text"
-                          placeholder="Surname"
+                          type="text"  id="contactSurName"
+                          placeholder={this.context.translations[this.context.lang].passengers.Surname}
                           value={this.context.contactData.surname}
                           onChange={this.handleSurname}
                           className="form-control"
@@ -60,9 +61,10 @@ class MasterContact extends Component {
                       </div>
 
                       <div className="col-5">
+                      <label htmlFor="contactName">{this.context.translations[this.context.lang].passengers.Name}</label>
                         <input
-                          type="text"
-                          placeholder="Name"
+                          type="text" id="contactName"
+                          placeholder={this.context.translations[this.context.lang].passengers.Name}
                           value={this.context.contactData.name}
                           className="form-control"
                         />
@@ -81,16 +83,18 @@ class MasterContact extends Component {
                       </div>
 
                       <div className="col-5">
+                      <label htmlFor="contactMobile">{this.context.translations[this.context.lang].passengers.Mobile}</label>
                         <input
-                          type="text"
-                          placeholder="Mobile"
+                          type="text"  id="contactMobile"
+                          placeholder={this.context.translations[this.context.lang].passengers.Mobile}
                           className="form-control"
                         />
                       </div>
 
                       <div className="col-5">
+                      <label htmlFor="contactEmail">Email</label>
                         <input
-                          type="text"
+                          type="text"  id="contactEmail"
                           placeholder="Email"
                           className="form-control"
                         />
@@ -112,9 +116,10 @@ class MasterContact extends Component {
                       </div>
 
                       <div className="col-5">
+                      <label htmlFor="contactCity">{this.context.translations[this.context.lang].passengers.City}</label>
                         <input
-                          type="text"
-                          placeholder="City"
+                          type="text"  id="contactCity"
+                          placeholder={this.context.translations[this.context.lang].passengers.City}
                           className="form-control"
                         />
                       </div>
@@ -124,16 +129,18 @@ class MasterContact extends Component {
 
                     <div className="row">
                       <div className="col-5">
+                      <label htmlFor="contactAddress">{this.context.translations[this.context.lang].passengers.Address}</label>
                         <input
-                          type="text"
-                          placeholder="Address"
+                          type="text" id="contactAddress"
+                          placeholder={this.context.translations[this.context.lang].passengers.Address}
                           className="form-control"
                         />
                       </div>
                       <div className="col-4">
+                      <label htmlFor="contactPostCode">{this.context.translations[this.context.lang].passengers.ZIP}</label>
                         <input
-                          type="text"
-                          placeholder="Post code"
+                          type="text"   id="contactPostCode"
+                          placeholder={this.context.translations[this.context.lang].passengers.ZIP}
                           className="form-control"
                         />
                       </div>

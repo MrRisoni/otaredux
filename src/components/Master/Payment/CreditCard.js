@@ -20,7 +20,7 @@ const CreditCard = props => {
 
                 <ButtonToggle
                   target={`creditCardCollapse`}
-                  clsName={""}
+                  clsName={"offset-2"}
                 />
               </div>
             </div>

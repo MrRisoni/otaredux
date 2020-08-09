@@ -38,10 +38,10 @@ class FareTaxes extends Component {
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Route</th>
-              <th>Type</th>
-              <th>Fare</th>
-              <th>Tax</th>
+              <th>{this.context.translations[this.context.lang].pricebox.Route}</th>
+              <th>{this.context.translations[this.context.lang].pricebox.Type}</th>
+              <th>{this.context.translations[this.context.lang].pricebox.Fare}</th>
+              <th>{this.context.translations[this.context.lang].pricebox.Tax}</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

@@ -32,12 +32,13 @@ class LoungeAirport extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-9">
+                  <div className="col-8">
                   {this.context.translations[this.context.lang].upsales.Lounge}
 
                   </div>
 
-                  <ButtonToggle target={"LoungeCollapse"} />
+                  <ButtonToggle target={"LoungeCollapse"}
+                      clsName={"offset-2"}  />
                 </div>
               </div>
 

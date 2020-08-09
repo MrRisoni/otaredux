@@ -13,13 +13,19 @@
     "CreditCard" : "Credit Card",
     "Details": "Payment Details",
     "Receipt" : "Receipt",
-    "Invoice" : "Invoice"
+    "Invoice" : "Invoice",
+    "Bank" :"Bank",
+    "CardHolder" :"Card holder",
+    "CardNumber": "Card number"
+
   },
   "general": {
     "Toggle": "Toggle",
     "Cost": "Cost",
     "Expand": "Expand",
-    "Contact" : "Contact Details"
+    "Contact" : "Contact Details",
+    "Select" :"Select",
+    "Clear" : "Clear"
   },
   "passengers": {
     "AddPassenger": "Add Passenger",
@@ -34,7 +40,18 @@
     "Name": "Name",
     "Surname": "Surname",
     "Male" : "Male",
-    "Female" : "Female"
+    "Female" : "Female",
+    "Mobile" :"Mobile",
+    "Address": "Address",
+    "ZIP" :"Post code",
+    "City" :"City"
+  },
+  "invoice" :{
+      "Company" :"Company",
+      "Profession" : "Profession",
+      "VAT" : "VAT",
+      "Country":"Country",
+      "Phone" :"Phone"
   },
   "upsales": {
     "PurchaseBags": "Purchase bags",
@@ -82,6 +99,8 @@
     "Total": "Total",
     "Fare": "Fare",
     "Tax": "Tax",
+    "Type": "Type",
+    "Route": "Route",
     "ChangeLang": "Change Language",
     "ChangeCur": "Change Currency",
     "Checkout" : "Checkout"

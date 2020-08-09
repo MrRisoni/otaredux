@@ -24,11 +24,11 @@ class YesNoUpsale extends Component {
             <div className="card">
               <div className="card-header bg-light">
                 <div className="row">
-                  <div className="col-3">{this.props.title}</div>
+                  <div className="col-8">{this.props.title}</div>
 
                   <ButtonToggle
                     target={`${this.props.code}Collapse`}
-                    clsName={"offset-6"}
+                    clsName={"offset-2"}
                   />
                 </div>
               </div>
