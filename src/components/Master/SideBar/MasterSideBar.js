@@ -111,7 +111,7 @@ class MasterSideBar extends Component {
     if (this.context.upsales.parking.cost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
-          title="Parking"
+          title={`Parking ${this.context.upsales.parking.days} days`}
           price={this.context.upsales.parking.cost}
           currency={this.context.currentCurrency}
         />

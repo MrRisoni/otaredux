@@ -801,20 +801,34 @@ class OtaContextProvider extends Component {
     let parkingDays  = remainingDays;
 
     let total = 0;
+    console.log('total parking days');
+    console.log(parkingDays);
+    let lastScaledPrice =0;
     this.state.ParkingRsc[originAirport].forEach( prkprc => {
-        if (remainingDays >0) {
-            if (remainingDays > prkprc.upToDays) {
+      console.log(prkprc);
+      if (remainingDays >0 ) {
+            if (remainingDays >= prkprc.upToDays) {
                 priceTheseDays = prkprc.upToDays;
-
-                totalParkDaysPriced += priceTheseDays;
+                remainingDays -= prkprc.upToDays;
             } else {
-                priceTheseDays = remainingDays - totalParkDaysPriced;
+                priceTheseDays = remainingDays;
+                remainingDays =-priceTheseDays;
             }
-
-            remainingDays -= priceTheseDays;
+            console.log('Priced ' + priceTheseDays + ' for ' +prkprc.costEuro  );
             total += priceTheseDays * prkprc.costEuro * this.state.currentCurrency.rate;
-        }
+            lastScaledPrice =prkprc.costEuro * this.state.currentCurrency.rate;
+          }
     });
+
+    if (remainingDays >0) {
+      
+      console.log('remaining days');
+      console.log(remainingDays);
+      console.log(lastScaledPrice)
+      total += remainingDays * lastScaledPrice;
+    }
+
+    total = total.toFixed(2);
     let new_upsales = this.state.upsales;
     new_upsales.parking = {
       cost: total,
