@@ -157,7 +157,7 @@ class MasterSideBar extends Component {
             ></SideBarUpsale>
 
             <SideBarUpsale
-              title={this.context.translations[this.context.lang].pricebox.Taxes}
+              title={this.context.translations[this.context.lang].pricebox.Tax}
               price={this.context.totalTax}
               currency={this.context.currentCurrency}
             ></SideBarUpsale>
@@ -168,7 +168,7 @@ class MasterSideBar extends Component {
               <div className="col-8 offset-2">
                 <select
                   className="form-control"
-                  id="exampleFormControlSelect2"
+                  id="langSelect"
                   onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
@@ -187,7 +187,7 @@ class MasterSideBar extends Component {
               <div className="col-12">
                 <div className="row selectLang">
                   <div className="col-8 offset-2">
-                    <select
+                    <select 
                       className="form-control"
                       onChange={this.props.changeCurrencyHandler}
                     >
