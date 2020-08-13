@@ -40,14 +40,16 @@ class MasterPassport extends Component {
         <div className="passportDiv">
           <div className="row">
             <div className="col-6">
-              <select className="form-control">
+            <label htmlFor={`#paxPassPortNation${this.props.paxId}`}>{this.context.translations[this.context.lang].passport.nationality}</label>
+              <select className="form-control"  id={`#paxPassPortNation${this.props.paxId}`} >
                 <option key="" value="">{this.context.translations[this.context.lang].passport.nationality}</option>
                 {listDiv}
               </select>
             </div>
 
             <div className="col-6">
-              <select className="form-control">
+            <label htmlFor={`#paxPassPortIssueCo${this.props.paxId}`}>{this.context.translations[this.context.lang].passport.nationality}</label>
+              <select className="form-control" id={`#paxPassPortIssueCo${this.props.paxId}`} >
                 <option key="" value="">{this.context.translations[this.context.lang].passport.issue}</option>
                 {listDiv}
               </select>
@@ -56,8 +58,9 @@ class MasterPassport extends Component {
 
           <div className="row">
             <div className="col-6">
-              <label htmlFor="passportNo">{this.context.translations[this.context.lang].passport.passportNo}</label>
+              <label htmlFor={`#paxPassPortNo${this.props.paxId}`}>{this.context.translations[this.context.lang].passport.passportNo}</label>
               <input
+               id={`#paxPassPortNo${this.props.paxId}`} 
                 type="text"
                 placeholder={this.context.translations[this.context.lang].passport.passportNo}
                 className="form-control"
@@ -66,8 +69,9 @@ class MasterPassport extends Component {
 
             {/* min date should be fly date */}
             <div className="col-6">
-              <label htmlFor="passExpDate">{this.context.translations[this.context.lang].passport.expireDate}</label>
+              <label  htmlFor={`#paxPassPortExpDate${this.props.paxId}`}>{this.context.translations[this.context.lang].passport.expireDate}</label>
               <DatePicker
+                id={`#paxPassPortExpDate${this.props.paxId}`} 
                 className="form-control"
                 dateFormat="DD/MM/YYYY"
                 minDate={this.state.minExpiryDate}
