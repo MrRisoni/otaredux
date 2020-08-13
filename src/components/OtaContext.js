@@ -191,8 +191,8 @@ class OtaContextProvider extends Component {
       }
     ],
     currentCurrency: {
-      code: "CHF",
-      rate: 1.13
+      code: "EUR",
+      rate: 1.00
     }
   };
 
@@ -201,6 +201,17 @@ class OtaContextProvider extends Component {
       lang: newLang
     });
   };
+
+  updateChosenCur = newCur => {
+    let rateNew = this.state.currencies.filter(cur => cur.code == newCur)[0].rate;
+
+    this.setState({
+      currentCurrency: {code : newCur, rate:rateNew}
+    });
+
+    this.firstLoad();
+  };
+
 
   editPassenger = data => {
     let isFirstHuman = false;
@@ -439,6 +450,7 @@ class OtaContextProvider extends Component {
     ttl = (ttl * this.state.currentCurrency.rate).toFixed(2);
     ttlFare = (ttlFare * this.state.currentCurrency.rate).toFixed(2);
     ttlTax = (ttlTax * this.state.currentCurrency.rate).toFixed(2);
+    console.log('Rate '+ this.state.currentCurrency.rate );
 
     this.setState({
       totalCost: ttl,
@@ -852,6 +864,7 @@ class OtaContextProvider extends Component {
           ...this.state,
           functions: {
             updateChosenLang: this.updateChosenLang,
+            updateChosenCur:this.updateChosenCur,
             addPassenger: this.addPassenger,
             removePassenger: this.removePassenger,
             editPassenger: this.editPassenger,

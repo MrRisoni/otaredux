@@ -9,6 +9,12 @@ class MasterSideBar extends Component {
     super(props);
 
     this.updateChosenLangLcl = this.updateChosenLangLcl.bind(this);
+    this.changeCurrencyHandler = this.changeCurrencyHandler.bind(this);
+
+  }
+
+  changeCurrencyHandler(ev) {
+    this.context.functions.updateChosenCur(ev.target.value);
   }
 
   updateChosenLangLcl(ev) {
@@ -189,7 +195,7 @@ class MasterSideBar extends Component {
                   <div className="col-8 offset-2">
                     <select 
                       className="form-control"
-                      onChange={this.props.changeCurrencyHandler}
+                      onChange={this.changeCurrencyHandler}
                     >
                       <option value="">
                         {this.context.translations[this.context.lang].pricebox.ChangeCur}
