@@ -9,7 +9,6 @@ import Insurance from "./Insurance/Insurance";
 
 import ValidatePassengers from "../../../ValidatePassengers";
 import MasterPassport from "./MasterPassport";
-//import MilesCards from './Miles/MilesCards';
 import { DataContext } from "../../OtaContext";
 import BagComponent from "./Bags/BagComponent";
 import MealsComponent from "./Meals/MealsComponent";

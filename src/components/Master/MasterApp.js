@@ -45,7 +45,7 @@ class MasterApp extends Component {
         />
 
         <ReceiptOrInvoice />
-        <CreditCard translPay={this.context.translations[this.context.lang].pay} />
+        <CreditCard/>
         <UpsalesComponent product="air" />
 
       
