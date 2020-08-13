@@ -65,12 +65,12 @@ class ReceiptOrInvoice extends Component {
                           onChange={this.handlePickReceipt}
                         />
                         <label className="form-check-label" htmlFor="payReceipt" />
-                        pay.Receipt
+                        {this.context.translations[this.context.lang].pay.Receipt}
                       </div>
                     </div>
 
                     <div className="col-4">
-                        <div className="form-check">
+                        <div className="form-check radioInvoiceOption">
                           <input
                             className="form-check-input"
                             type="radio"
@@ -81,7 +81,7 @@ class ReceiptOrInvoice extends Component {
                             onChange={this.handlePickInvoice}
                           />
                           <label className="form-check-label" htmlFor="payInvoice" />
-                          pay.Invoice
+                          {this.context.translations[this.context.lang].pay.Invoice}
                         </div>
                       </div>
 
