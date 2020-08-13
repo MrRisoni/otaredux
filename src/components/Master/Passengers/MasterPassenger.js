@@ -212,7 +212,7 @@ class MasterPassenger extends Component {
                   <br />
 
                   <div className="col-5">
-                    <label htmlFor={`#paxName${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passengers.Name}</label>
+                    <label htmlFor={`paxName${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passengers.Name}</label>
                     <input
                       type="text"
                       placeholder={this.context.translations[this.context.lang].passengers.Name}
@@ -229,7 +229,7 @@ class MasterPassenger extends Component {
                   </div>
 
                   <div className="col-6">
-                  <label htmlFor={`#paxSurname${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passengers.Surname}</label>
+                  <label htmlFor={`paxSurname${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passengers.Surname}</label>
                     <input
                       type="text"
                       placeholder={this.context.translations[this.context.lang].passengers.Surname}
@@ -248,7 +248,7 @@ class MasterPassenger extends Component {
 
                 <div className="row">
                   <div className="col-6">
-                  <label htmlFor={`#paxDOB${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passport.dob}</label>
+                  <label htmlFor={`paxDOB${this.props.passenger.id}`}>{this.context.translations[this.context.lang].passport.dob}</label>
                     <DatePicker
                       id={`#paxDOB${this.props.passenger.id}`}
                       className="form-control"

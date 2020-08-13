@@ -40,7 +40,8 @@ class MasterContact extends Component {
                   >
                     <div className="row">
                       <div className="col-2">
-                        <select className="form-control">
+                      <label htmlFor={`paxContactGender`}>{this.context.translations[this.context.lang].passport.dob}</label>
+                        <select className="form-control" id="paxContactGender">
                           <option />
                           <option value="MR">{this.context.translations[this.context.lang].passengers.Male}
 </option>
@@ -75,7 +76,9 @@ class MasterContact extends Component {
 
                     <div className="row">
                       <div className="col-2">
+                      <label htmlFor="contactPrefix">{this.context.translations[this.context.lang].passengers.Surname}</label>
                         <input
+                         id="contactPrefix"
                           type="text"
                           placeholder="Prefix"
                           className="form-control"
@@ -105,7 +108,8 @@ class MasterContact extends Component {
 
                     <div className="row">
                       <div className="col-5">
-                        <select className="form-control">
+                      <label htmlFor="contactCountry">{this.context.translations[this.context.lang].passengers.City}</label>
+                        <select className="form-control" id="contactCountry">
                           <option>Select Country</option>
                           {this.props.countryList.map((val, idx) => (
                             <option key={val.Code} value={val.Code}>

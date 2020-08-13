@@ -50,35 +50,43 @@ class ReceiptOrInvoice extends Component {
 
               <div
                 className="card-body collapse show"
-                id="paymentDetailsCollapse"
-              >
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="payReceipt"
-                    id="payReceipt"
-                    value="payReceipt"
-                    checked={this.state.receipt}
-                    onChange={this.handlePickReceipt}
-                  />
-                  <label className="form-check-label" htmlFor="payReceipt" />
-                  pay.Receipt
-                </div>
+                id="paymentDetailsCollapse" >
+              
+               <div className="row">
+                 <div className="col-4 offset-2">
+                    <div className="form-check radioInvoiceOption">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="payReceipt"
+                          id="payReceipt"
+                          value="payReceipt"
+                          checked={this.state.receipt}
+                          onChange={this.handlePickReceipt}
+                        />
+                        <label className="form-check-label" htmlFor="payReceipt" />
+                        pay.Receipt
+                      </div>
+                    </div>
 
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="payInvoice"
-                    id="payInvoice"
-                    value="payInvoice"
-                    checked={this.state.invoice}
-                    onChange={this.handlePickInvoice}
-                  />
-                  <label className="form-check-label" htmlFor="payInvoice" />
-                  pay.Invoice
-                </div>
+                    <div className="col-4">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="payInvoice"
+                            id="payInvoice"
+                            value="payInvoice"
+                            checked={this.state.invoice}
+                            onChange={this.handlePickInvoice}
+                          />
+                          <label className="form-check-label" htmlFor="payInvoice" />
+                          pay.Invoice
+                        </div>
+                      </div>
+
+               </div>
+             
 
                 {this.state.receipt && (
                   <Receipt countryList={this.context.CountriesRsc} />
