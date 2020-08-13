@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { DataContext } from "../../../OtaContext";
-import { pitch } from "file-loader";
 
 class MealLeg extends Component {
   static contextType = DataContext;
@@ -32,19 +31,31 @@ class MealLeg extends Component {
       }
     });
 
+    let legTitle =  this.context.translations[this.context.lang].flight.Departure;
+
+    if (this.props.leg >0) {
+      legTitle = this.context.translations[this.context.lang].flight.Return;
+    }
+
     return (
       <div className="row">
-        <div className="col-12">
-          <select className="form-control" onChange={this.changeMeal}>
-            <option key="" value="" />
-            {mealsArray
-              .filter(ml => ml.legId == this.props.leg)
-              .map(ml => (
-                <option key={ml.ssr} value={ml.ssr}>
-                  {ml.title} {ml.price} {this.context.currentCurrency.code}
-                </option>
-              ))}
-          </select>
+      <div className="col-5">
+        <div className="card">
+          <div className="card-header">{legTitle}</div>
+          <div className="card-body">
+          
+            <select className="form-control" onChange={this.changeMeal}>
+              <option key="" value="" />
+              {mealsArray
+                .filter(ml => ml.legId == this.props.leg)
+                .map(ml => (
+                  <option key={ml.ssr} value={ml.ssr}>
+                    {ml.title} {ml.price} {this.context.currentCurrency.code}
+                  </option>
+                ))}
+            </select>
+          </div>
+      </div>
         </div>
       </div>
     );
