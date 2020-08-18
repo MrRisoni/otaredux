@@ -6,19 +6,25 @@
     "Stops": "Stops",
     "Duration": "Duration",
     "WaitTime": "Waiting time",
-    "Segment": "Segment"
+    "Segment": "Segment",
+    "OperatedBy" : "Operated by"
   },
   "pay" : {
     "CreditCard" : "Credit Card",
     "Details": "Payment Details",
     "Receipt" : "Receipt",
-    "Invoice" : "Invoice"
+    "Invoice" : "Invoice",
+    "Bank" :"Bank",
+    "CardHolder" :"Card holder",
+    "CardNumber": "Card number"
   },
   "general": {
     "Toggle": "Toggle",
     "Cost": "Cost",
     "Expand": "Expand",
-    "Contact" : "Contact Details"
+    "Contact" : "Contact Details",
+    "Select" :"Select",
+    "Clear" : "Clear"
   },
   "passengers": {
     "AddPassenger": "Add Passenger",
@@ -29,8 +35,22 @@
     "Child": "Child",
     "Infant": "Infant",
     "SelectGender": "Select Gender",
+    "SelectAge": "Select Age",
     "Name": "Name",
-    "Surname": "Surname"
+    "Surname": "Surname",
+    "Male" : "Male",
+    "Female" : "Female",
+    "Mobile" :"Mobile",
+    "Address": "Address",
+    "ZIP" :"Post code",
+    "City" :"City"
+  },
+  "invoice" :{
+      "Company" :"Company",
+      "Profession" : "Profession",
+      "VAT" : "VAT",
+      "Country":"Country",
+      "Phone" :"Phone"
   },
   "upsales": {
     "PurchaseBags": "Purchase bags",
@@ -38,15 +58,13 @@
     "SelectInsurance": "Select an insurance",
     "Hungry": "Are you hungry?",
     "Main": "Main",
-    "Dessert": "Dessert"
-  },
-  "cabins": {
-    "SelectCabinPerSegment": "Select your cabin",
-    "OneType": "Only one cabin is available for this segment."
-  },
-  "miles": {
-    "HaveMilesCard": "Have you got miles card?",
-    "MilesCard": "Miles Card"
+    "Dessert": "Dessert",
+    "BRB":"Blue Ribbon Bag Insurance!",
+    "Flex" :"Flexible Ticket",
+    "AirHelp" :"Flight Delay Compensation",
+    "FastTrack" : "Fast Track Priority Queue in Security Check",
+    "Parking" : "Parking",
+    "Lounge":"Lounge Access"
   },
   "passport": {
     "nationality": "Nationality",
@@ -59,18 +77,17 @@
     "Yes": "Yes",
     "No": "No"
   },
-  "preseat": {
-    "SelectYourSeats": "Select your seats",
-    "Reset": "Clear all",
-    "Seat": "Seat",
-    "PickSeat": "Pick a seat"
-  },
   "pricebox": {
-    "PriceAnalysis": "",
+    "PriceAnalysis": "Price Analysis",
     "TicketPrice": "Tickets price",
     "UpsalePrices": "Upsale prices",
-    "Total": "Total price",
+    "Total": "Total",
+    "Fare": "Fare",
+    "Tax": "Tax",
+    "Type": "Type",
+    "Route": "Route",
     "ChangeLang": "Change Language",
-    "ChangeCur": "Change Currency"
+    "ChangeCur": "Change Currency",
+    "Checkout" : "Checkout"
   }
 }

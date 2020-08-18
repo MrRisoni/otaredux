@@ -1,58 +1,60 @@
-import React from 'react';
-import MasterPassenger from './MasterPassenger';
-import { Translate } from 'react-redux-i18n';
+import React, { Component } from "react";
+import MasterPassenger from "./MasterPassenger";
+import { DataContext } from "../../OtaContext";
+import ButtonToggle from "../../Common/ButtonToggle";
 
+class MasterPassengerList extends Component {
+  static contextType = DataContext;
 
-const MasterPassengerList = props => (
-    <section>
+  constructor(props) {
+    super(props);
+    this.addPaxHandler = this.addPaxHandler.bind(this);
+  }
 
-    <div className="busPassengerList">
+  addPaxHandler() {
+    this.context.functions.addPassenger();
+  }
+  render() {
+    return (
+      <section>
+        <div className="busPassengerList">
+          <div className="alert alert-primary" role="alert">
+            <div className="row">
+              <div className="col-8"> {this.context.translations[this.context.lang].passengers.FillThePassengerData}
+</div>
 
-    <div className="alert alert-primary" role="alert">
-      <div className="row">
-        <div className="col-3">
+              <ButtonToggle
+                target={`passengerListCollapse`}
+                clsName={"offset-2"}
+              />
+            </div>
+          </div>
 
-            <Translate value="passengers.FillThePassengerData"/>
+          <div className="show" id="passengerListCollapse">
+            {this.context.passengers
+              .filter(pxItem => pxItem.active == true)
+              .map(pax => (
+                <MasterPassenger key={pax.id} passenger={pax} />
+              ))}
+          </div>
+
+          <div className="row addOnePassenger">
+            <div className="col-4 offset-4">
+              <button
+                className="btn btn-primary btn-success"
+                onClick={this.addPaxHandler}
+              >
+                {
+                  this.context.translations[this.context.lang].passengers
+                    .AddPassenger
+                }
+              </button>
+            </div>
+          </div>
         </div>
-
-        <div className="col-2 offset-7">
-          <button
-            className="btn btn-sm btn-dark btn-block btnToggle"
-            data-toggle="collapse"
-            data-target=".passengerListCollapse"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-
-                       <Translate value="general.Toggle"/>
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-
-    {props.passengers.filter(pxItem => (pxItem.active == true)).map(pax => (
-      <MasterPassenger
-        key={pax.id}
-        passenger={pax}
-        editPaxHandler={props.editPaxHandler}
-        editNameHandler={props.editNameHandler}
-        removePaxHandler={props.removePaxHandler}
-      />))}
-
-
-    <div className="row addOnePassenger show passengerListCollapse">
-      <div className="col-4 offset-4">
-        <button className="btn btn-primary btn-success" onClick={props.addPaxHandler}>
-            <Translate value="passengers.AddPassenger"/>
-        </button>
-      </div>
-    </div>
-
-
-  </div>
-    </section>
-);
+      </section>
+    );
+  }
+}
 
 export default MasterPassengerList;

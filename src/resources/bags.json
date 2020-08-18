@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "legId": 0,
+    "key": "xfsfgrdtrtXFSCFGnotY",
+    "pricing": {
+      "firstBag" :  [
+        {
+          "costEur": 28,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 20,
+          "ptc": "CNN"
+        }
+      ],
+      "secondBag" :  [
+        {
+          "costEur": 38,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 29,
+          "ptc": "CNN"
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "legId": 1,
+    "key": "xfsfgrdtrtWCFXFS",
+    "pricing": {
+      "firstBag" :  [
+        {
+          "costEur": 30,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 25,
+          "ptc": "CNN"
+        }
+      ],
+      "secondBag" :  [
+        {
+          "costEur": 45,
+          "ptc": "ADT"
+        },
+        {
+          "costEur": 32,
+          "ptc": "CNN"
+        }
+      ]
+    }
+  }
+]

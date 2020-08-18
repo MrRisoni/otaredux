@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import InsuranceOption from './InsuranceOption';
-import { Translate } from 'react-redux-i18n';
-
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as actsInsurance from '../../../../actions/master/actionsInsurance';
-
+import React, { Component } from "react";
+import InsuranceOption from "./InsuranceOption";
+import { DataContext } from "../../../OtaContext";
+import ButtonToggle from "../../../Common/ButtonToggle";
 
 class Insurance extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
 
     this.state = {
-      checkedInsurance: 0,
+      checkedInsurance: 0
     };
 
     this.handleOptionsChange = this.handleOptionsChange.bind(this);
@@ -23,9 +20,9 @@ class Insurance extends Component {
     const self = this;
     self.setState({ checkedInsurance: optionId });
 
-    this.props.selectInsuranceHandler({
-      paxId: this.props.paxId,
-      insuranceId: optionId,
+    this.context.functions.purchaseInsurance({
+      pax: this.props.pax,
+      insuranceId: optionId
     });
   }
 
@@ -33,47 +30,31 @@ class Insurance extends Component {
     return (
       <section>
         <div className="insuranceCard">
-
           <div className="alert alert-success" role="alert">
             <div className="row">
-
-
               <div className="col-6">
-
-                            Select an Insurance
-              </div>
+               {this.context.translations[this.context.lang].upsales.SelectInsurance}
+</div>
               <div className="col-2">
                 <i className="fas fa-ambulance" />
               </div>
 
-
-              <div className="col-2">
-                <button
-                  className="btn btn-sm btn-dark btn-block btnToggle"
-                  data-toggle="collapse"
-                  data-target={`#insuranceCollapse${this.props.paxId}`}
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-
-                               <Translate value="general.Toggle"/>
-                </button>
-              </div>
-
+              <ButtonToggle
+                target={`insuranceCollapse${this.props.paxId}`}
+                clsName={"offset-2"}
+              />
             </div>
           </div>
 
-
           <div className="collapse" id={`insuranceCollapse${this.props.paxId}`}>
-
             <div className="row">
-              {this.props.insurances.map(ins => (
+              {this.context.upsalesPricing.Insurance.map(ins => (
                 <InsuranceOption
                   key={ins.id}
                   insData={ins}
+                  paxData={this.props.pax}
                   updateOptions={this.handleOptionsChange}
                   selectedOption={this.state.checkedInsurance}
-                  currency={this.props.currency}
                 />
               ))}
             </div>
@@ -84,20 +65,4 @@ class Insurance extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-        insurances: state.airInsuranceReducer,
-        currency: state.currentCurrencyReducer,
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        selectInsuranceHandler: actsInsurance.changeAirInsuranceAction,
-
-    }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(Insurance);
-
+export default Insurance;

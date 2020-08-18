@@ -1,76 +1,65 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import MealSegment from './MealSegment';
-
+import React, { Component } from "react";
+import { DataContext } from "../../../OtaContext";
 
 class MealLeg extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
+
+    this.changeMeal = this.changeMeal.bind(this);
   }
 
+  changeMeal(ev) {
+    this.context.functions.actionMeal({
+      paxId: this.props.paxId,
+      legId: this.props.leg,
+      option: ev["target"]["value"]
+    });
+  }
 
   render() {
-    const mealSegments = [];
-
-    const cabinsForThisPax = this.props.cabinSelection.filter(cb => cb.paxId == this.props.paxData.id);
-
-
-    this.props.segments.forEach((seg) => {
-      if (this.props.leg == seg.legId) {
-        const mainCourses = [];
-        const desserts = [];
-        const segRoute = `${seg.from}-${seg.to}`;
-
-
-        this.props.mealOptions.forEach((meal) => {
-          cabinsForThisPax.forEach((cb) => {
-            if ((seg.id == meal.segId) && (meal.segId == cb.segId) && (meal.classes.indexOf(cb.cabin) > -1)) {
-              if (meal.type == 'Main') {
-                mainCourses.push(meal);
-              }
-              if (meal.type == 'Dessert') {
-                desserts.push(meal);
-              }
-            }
-          });
-        });
-
-
-        if ((mainCourses.length + desserts.length) > 0) {
-          const key = `mleg${this.props.paxId}${this.props.leg}`;
-          mealSegments.push(<MealSegment
-            mainCourses={mainCourses}
-            desserts={desserts}
-            segData={segRoute}
-            paxData={this.props.paxData}
-            key={key}
-            segId={seg.id}
-            legId={this.props.leg}
-            paxId={this.props.paxId}
-          />);
+    let mealsArray = this.context.MealsRsc.filter(ml => {
+      if (this.props.ptc == "CNN") {
+        if (ml.ssr == "CHML") {
+          return ml;
+        }
+      } else {
+        if (ml.ssr != "CHML") {
+          return ml;
         }
       }
     });
 
+    let legTitle =  this.context.translations[this.context.lang].flight.Departure;
+
+    if (this.props.leg >0) {
+      legTitle = this.context.translations[this.context.lang].flight.Return;
+    }
 
     return (
       <div className="row">
-        <div className="col-12">
-          {mealSegments}
+      <div className="col-5">
+        <div className="card">
+          <div className="card-header">{legTitle}</div>
+          <div className="card-body">
+          
+            <select className="form-control" onChange={this.changeMeal}>
+              <option key="" value="" />
+              {mealsArray
+                .filter(ml => ml.legId == this.props.leg)
+                .map(ml => (
+                  <option key={ml.ssr} value={ml.ssr}>
+                    {ml.title} {ml.price} {this.context.currentCurrency.code}
+                  </option>
+                ))}
+            </select>
+          </div>
+      </div>
         </div>
       </div>
-
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-    mealOptions: state.getMealsReducer,
-    segments: state.getLegsReducer,
-  };
-}
-
-
-export default connect(mapStateToProps)(MealLeg);
+export default MealLeg;

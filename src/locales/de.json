@@ -6,19 +6,25 @@
     "Stops": "Stops",
     "Duration": "Dauer",
     "WaitTime": "Wartezeit",
-    "Segment": "Segment"
+    "Segment": "Segment",    
+    "OperatedBy" : "Betrieben von"
   },
   "pay" : {
     "CreditCard" : "Kreditkarte",
     "Details": "Zahlungsdaten",
     "Receipt" : "Quittung",
-    "Invoice" : "Rechnung"
+    "Invoice" : "Rechnung",
+    "Bank" :"Bank",
+    "CardHolder" :"Kartenhalter",
+    "CardNumber": "Kart Nummer"
   },
   "general": {
     "Toggle": "Umschalten",
     "Cost": "Kosten",
     "Expand": "Erweitern",
-    "Contact" : "Kontaktdaten"
+    "Contact" : "Kontaktdaten",
+    "Select" :"Wählen",
+    "Clear" : "Löschen"
   },
   "passengers": {
     "AddPassenger": "Passagier hinzufügen",
@@ -28,27 +34,39 @@
     "Adult": "Erwachsener",
     "Child": "Kind",
     "Infant": "Baby",
-    "SelectGender": "Wählen Sie das Geschlecht aus",
+    "SelectGender":  "Geschlecht",
+    "SelectAge": "Alter",
     "Name": "Name",
-    "Surname": "Nachname"
+    "Surname": "Nachname",
+    "Male" : "männlich",
+    "Female" : "weiblich",
+    "Mobile" :"Mobile",
+    "Address": "Addresse",
+    "ZIP" :"Postleitzahl",
+    "City" :"Stadt"
   },
+  "invoice" :{
+    "Company" :"Firma",
+    "Profession" : "Beruf",
+    "VAT" : "VAT",
+    "Country":"Land",
+    "Phone" :"Telefon"
+},
   "upsales": {
     "PurchaseBags": "Taschen kaufen",
     "upsales": "Kauf Upsales für deine Reise!",
     "SelectInsurance": "Wählen Sie eine Versicherung aus",
     "Hungry": "Haben Sie Hunger?",
     "Main": "Hauptgericht",
-    "Dessert": "Dessert"
+    "Dessert": "Dessert",    
+    "BRB":"Blue Ribbon Gepäck Sicherheit!",
+    "Flex" :"Flexible Ticket",
+    "AirHelp" :"Flugverspätungskompensation",
+    "FastTrack" : "Prioritätswarteschlange in Sicherheitkontrol",
+    "Parking" : "Parking",
+    "Lounge":"Zugang zur Lounge"
   },
-  "cabins": {
-    "SelectCabinPerSegment": "Wählen Sie Ihre Kabine aus",
-    "OneType": "Es steht nur eine Kabine zur Verfügung."
-  },
-  "miles": {
-    "HaveMilesCard": "Haben Sie eine Meilenkarte?",
-    "MilesCard": "Meilenkarte"
-  },
-  "passport": {
+   "passport": {
     "nationality": "Staatsangehörigkeit",
     "issue": "Ausstellungsland",
     "passportNo": "Reisepass No",
@@ -59,18 +77,17 @@
     "Yes": "Ja",
     "No": "Nein"
   },
-  "preseat": {
-    "SelectYourSeats": "Wählen Sie Ihre Plätze aus",
-    "Reset": "Löschen",
-    "Seat": "Platz",
-    "PickSeat": "Wählen Sie einen Platz"
-  },
   "pricebox": {
     "PriceAnalysis": "",
     "TicketPrice": "Fahrkartenpreis",
     "UpsalePrices": "Upsale Preises",
     "Total": "Gesamtpreis",
+    "Fare": "Fahrpreis",
+    "Tax": "Steuer",
+    "Type": "Type",
+    "Route": "Route",
     "ChangeLang": "Sprache ändern",
-    "ChangeCur": "Währung ändern"
+    "ChangeCur": "Währung ändern",
+    "Checkout" : "Auschecken"
   }
 }

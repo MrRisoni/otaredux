@@ -1,0 +1,93 @@
+{
+  "flight": {
+    "Departure": "Avresa",
+    "Return": "Retur",
+    "YourTrip": "Din resa",
+    "Stops": "Stoppar",
+    "Duration": "Varaktighet",
+    "WaitTime": "Väntetid",
+    "Segment": "Segmentet",
+    "OperatedBy" : "Drivs av "
+  },
+  "pay" : {
+    "CreditCard" : "Kreditkort",
+    "Details": "Betalningsinformation",
+    "Receipt" : "Mottagande",
+    "Invoice" : "Fakturera",
+    "Bank" :"Bank",
+    "CardHolder" :"Korthållare",
+    "CardNumber": "Kortnummer"
+  },
+  "general": {
+    "Toggle": "Växla",
+    "Cost": "Kosta",
+    "Expand": "Bygga ut",
+    "Contact" : "Kontaktuppgifter",
+    "Select" :"Välj",
+    "Clear" : "Radera"
+  },
+  "passengers": {
+    "AddPassenger": "Lägg till passagerare",
+    "RemovePassenger": "Ta bort passageraren",
+    "FillThePassengerData": "Fyll ut passasjerdataene",
+    "Passenger": "Passagerare",
+    "Adult": "Vuxen",
+    "Child": "Barn",
+    "Infant": "Spädbarn",
+    "SelectGender": "Kön",
+  "SelectAge": "Ålder",
+    "Name": "Namn",
+    "Surname": "Efternamn",
+    "Male" : "Manlig",
+    "Female" : "Kvinna",
+    "Mobile" :"Mobil",
+    "Address": "Address",
+    "ZIP" :"Postnummer",
+    "City" :"Stad"
+  },
+"invoice" :{
+    "Company" :"Företag",
+    "Profession" : "Yrke",
+    "VAT" : "MOMS",
+    "Country":"Land",
+    "Phone" :"Telefon"
+},
+  "upsales": {
+    "PurchaseBags": "Kjøp poser",
+    "upsales": "Köp försäljningsuppsättningar för din resa!",
+    "SelectInsurance": "Välj en försäkring",
+    "Hungry": "Är Du hungrig?",
+    "Main": "Huvudrätt",
+    "Dessert": "Efterrätt",
+    "BRB":"Blue Ribbon Bagageförsäkring",
+    "Flex" :"Flexibel biljett",
+    "AirHelp" :"Flygfördröjningskompensation",
+    "FastTrack" : "Snabbspårskvalitet i säkerhetskontroll",
+    "Parking" : "Parking",
+    "Lounge":"Tillgång till lounge"
+  },
+  "passport": {
+    "nationality": "Nationalitet",
+    "issue": "Utgivningsland",
+    "passportNo": "Pass nr",
+    "expireDate": "Utgångsdatum",
+    "dob": "Födelsedatum"
+  },
+"branded": {
+  "Yes": "Ja",
+  "No": "Nej"
+},
+"pricebox": {
+  "PriceAnalysis": "Prisanalys",
+  "TicketPrice": "Biljettpris",
+  "UpsalePrices": "Uppsala priser",
+  "Total": "Total",
+  "Fare": "Biljettpris",
+  "Tax": "Beskatta",
+  "Type": "Type",
+  "Route": "Rutt",
+  "ChangeLang": "Ändra språk",
+  "ChangeCur": "Ändra valuta",
+  "Checkout" : "Kassa"
+}
+}

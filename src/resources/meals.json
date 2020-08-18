@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "legId":0,
+    "ssr" : "CHML",
+    "key": "fu0NDHp3RU9N==",
+    "price": 5.00,
+    "title": "Children"
+  },
+  {
+    "id": 1,
+    "legId":0,
+    "ssr" : "VGML",
+    "key": "fu0NDHp3RU9N==",
+    "price": 5.00,
+    "title": "Vegeterian"
+  },
+  {
+    "id": 2,
+    "legId":0,
+    "ssr" : "VEML",
+    "key": "8hYxlMmufLXA",
+    "price": 5.00,
+    "title": "Vegan"
+  },
+  {
+    "id": 3,
+    "legId":0,
+    "ssr" : "MUML",
+    "key": "Zm8VH6o2p7T5",
+    "price": 5.00,
+    "title": "Muslim"
+  },
+  {
+    "id": 4,
+    "legId":1,
+    "ssr" : "VGML",
+    "key": "21TbKQV0IUHZ",
+    "price": 5.00,
+    "title": "Vegeterian"
+  },
+  {
+    "id": 5,
+    "legId":1,
+    "ssr" : "VEML",
+    "key": "Z0C2lLldC5is",
+    "price": 5.00,
+    "title": "Vegan"
+  },
+  {
+    "id": 6,
+    "legId":1,
+    "ssr" : "MUML",
+    "key": "swPTfHiafmyB",
+    "price": 5.00,
+    "title": "Muslim"
+  },
+  {
+    "id": 7,
+    "legId":1,
+    "ssr" : "KOML",
+    "key": "3yoa0f71U1sD",
+    "price": 5.00,
+    "title": "Kosher"
+  },
+  {
+    "id": 8,
+    "legId":1,
+    "ssr" : "CHML",
+    "key": "fu0NDHpfg4g3RU9N==",
+    "price": 5.00,
+    "title": "Children"
+  }
+]

@@ -1,63 +1,46 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import BagSelection from './BagSelection';
-
+import React, { Component } from "react";
+import BagSelection from "./BagSelection";
+import { DataContext } from "../../../OtaContext";
 
 class BagLeg extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
   }
 
   render() {
-    const legTitle = (this.props.leg == 0) ? 'Departure' : 'Return';
+    let legTitle =  this.context.translations[this.context.lang].flight.Departure;
 
+    if (this.props.leg >0) {
+      legTitle = this.context.translations[this.context.lang].flight.Return;
+    }
 
     return (
       <section>
         <div className="row">
-          <div className="col-12">
-
+          <div className="col-5">
             <div className="card">
-              <div className="card-header">
-                {legTitle}
-                {' '}
-
-
-                            (Max
-                {this.props.limitBags}
-
-
-                            )
-              </div>
+              <div className="card-header">{legTitle}</div>
               <div className="card-body">
-                {this.props.bagsAir.filter(bg => this.props.allowedBags.indexOf(bg.key) > -1).map(
-                  bgItem => (
+                {this.props.bagList
+                  .filter(bg => this.props.leg == bg.legId)
+                  .map(bgItem => (
                     <BagSelection
                       bagData={bgItem}
                       key={bgItem.key}
-                      limitBags={this.props.limitBags}
+                      ptc={this.props.ptc}
                       legId={this.props.leg}
                       paxId={this.props.paxId}
                     />
-                  ),
-                )}
-
+                  ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    bagsAir: state.getBagsReducer,
-
-  };
-}
-
-
-export default connect(mapStateToProps)(BagLeg);
+export default BagLeg;

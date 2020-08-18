@@ -1,0 +1,19 @@
+{
+  "RHO": [
+    {
+      "upToDays": 3,
+      "key": "bvywyhitljytikisba",
+      "costEuro": 3
+    },
+    {
+      "upToDays": 7,
+      "key": "hwqixpgqsybor",
+      "costEuro": 7
+    },
+    {
+      "upToDays": 15,
+      "key": "ndbysqemvbctcmxl",
+      "costEuro": 12
+    }
+  ]
+}

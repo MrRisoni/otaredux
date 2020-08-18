@@ -1,56 +1,36 @@
-import React from 'react';
-import { Translate } from 'react-redux-i18n';
-import Airport from './Airport';
-import Segment from './Segment';
+import React from "react";
+import Airport from "./Airport";
+import Segment from "./Segment";
+import ButtonToggle from "../../Common/ButtonToggle";
 
+const Leg = props => {
+  const waitDiv =
+    props.data.waiting.total > 0 ? (
+      <div className="col-4">
+        { props.translations.WaitTime} :{props.data.waiting.h}h{props.data.waiting.m}m
+      </div>
+    ) : (
+      <div />
+    );
 
-const Leg = (props) => {
-  const waitDiv = props.data.waiting.total > 0 ? (
-    <div className="col-4">
-      <Translate value="flight.WaitTime" />
-      {' '}
-:
-      {props.data.waiting.h}
-h
-      {props.data.waiting.m}
-m
-    </div>
-  ) : (<div />);
-
-
-  const legTitle = (props.legId == 0) ? <p><Translate value="flight.Departure" /></p> : <p><Translate value="flight.Return" /></p>;
+  const legTitle = props.legId ==0 ? props.translations.Departure : props.translations.Return;
 
   return (
     <div className="Leg legsCollapse show">
       <div className="card  bg-light mb-3 border-primary mb-3">
-
         <div className="card-header">
           <div className="row">
-
             <div className="col-4">{legTitle}</div>
 
-
-            <div className="col-2 offset-5">
-              <button
-                className="btn btn-sm btn-dark btn-block btnToggle"
-                data-toggle="collapse"
-                data-target={`#legCollapse${props.data.legId}`}
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <Translate value="general.Toggle" />
-              </button>
-            </div>
+            <ButtonToggle
+              target={`legCollapse${props.data.legId}`}
+              clsName={"offset-6"}
+            />
           </div>
-
         </div>
 
-
         <div className="card-body show" id={`legCollapse${props.data.legId}`}>
-
           <div className="row">
-
-
             <Airport
               iata={props.data.from.iata}
               city={props.data.from.city}
@@ -79,51 +59,31 @@ m
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <Translate value="general.Expand" />
-
+              { props.translGeneral.Expand}
               </button>
             </div>
-
           </div>
-
 
           <br />
 
-
           <div className="row">
+            <div className="col-4"> {props.translations.Stops} :{props.data.stops}</div>
 
             <div className="col-4">
-              <Translate value="flight.Stops" />
-
-                            :
-              {props.data.stops}
+              {props.translations.Duration} :{props.data.duration.h}h{props.data.duration.m}m
             </div>
-
-            <div className="col-4">
-              <Translate value="flight.Duration" />
-              {' '}
-:
-              {props.data.duration.h}
-h
-              {props.data.duration.m}
-m
-            </div>
-
 
             {waitDiv}
           </div>
 
-  
-
           <div className="collapse" id={`segmentsCollapse${props.data.legId}`}>
-            {props.data.segments.map((sg, idx) => (<Segment key={idx} data={sg} />))}
+            {props.data.segments.map((sg, idx) => (
+              <Segment key={idx} data={sg} translGeneral={props.translGeneral} translations={props.translations} />
+            ))}
           </div>
-
         </div>
-
       </div>
     </div>
-
   );
 };
 

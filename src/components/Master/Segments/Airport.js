@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // for air itinerary
 const Airport = props => (
@@ -12,19 +12,9 @@ const Airport = props => (
         {props.city}
       </div>
       <div className="col-8">
-        <b
-          className="flightTime"
-        >
-          {props.flyTime}
-        </b>
-        {' '}
-        <br />
-        {props.day}
-        {' '}
-        <br />
-        {props.date}
-        {' '}
-        <br />
+        <b className="flightTime">{props.flyTime}</b> <br />
+        {props.day} <br />
+        {props.date} <br />
         <p className="gmtDate">{props.flyTimeGMT}</p>
       </div>
     </div>

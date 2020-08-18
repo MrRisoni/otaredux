@@ -1,252 +1,139 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import SideBarUpsale from './SideBarUpsale';
-import SideBarPersonUpsale from './SideBarPersonUpsale';
-import * as actsMaster from '../../../actions/master/actionsMaster';
-import { Translate } from 'react-redux-i18n';
-
-import { preSeatPrice } from '../../../helpers';
+import React, { Component } from "react";
+import { DataContext } from "../../OtaContext";
+import SideBarUpsale from "./SideBarUpsale";
+import FareTaxes from "./../Segments/FareTaxes";
 
 class MasterSideBar extends Component {
+  static contextType = DataContext;
   constructor(props) {
     super(props);
+
+    this.updateChosenLangLcl = this.updateChosenLangLcl.bind(this);
+    this.changeCurrencyHandler = this.changeCurrencyHandler.bind(this);
+
   }
 
+  changeCurrencyHandler(ev) {
+    this.context.functions.updateChosenCur(ev.target.value);
+  }
+
+  updateChosenLangLcl(ev) {
+    this.context.functions.updateChosenLang(ev.target.value);
+  }
   render() {
-    const paxPrices = [];
-    let activePaxCount = 0;
+    let otherUpsalesDiv = [];
 
-    const bagPrices = [];
-    const insurancePrices = [];
-    const mealsPrices = [];
-
-    let totalBagCount = 0;
-    let insuranceCount = 0;
-    let mealsCount = 0;
-    const otherUpsalesCount = 0;
-    let totalPreseatPrice =0;
-
-
-    this.props.passengers.forEach(pax => {
-      if (pax.active) {
-
-          const cabins = this.props.cabinSelection.filter(cab => cab.paxId == pax.id);
-
-          totalPreseatPrice += preSeatPrice(this.props.selectedSeats, pax, cabins, this.props.seatMapInfo);
-
-
-
-        activePaxCount++;
-        this.props.bagAllowance.forEach(bag => {
-          let bagCountId = 0;
-          this.props.purchasedBags.forEach(boughtBag => {
-            if (bag.id === boughtBag.bagId) {
-              if (boughtBag.paxId === pax.id) {
-                bagCountId++;
-              }
-            }
-          });
-          if (bagCountId > 0) {
-            totalBagCount++;
-            const bagDescr = (
-              <div>
-                {bagCountId}
-                {' '}
-x
-                {' '}
-                {bag.weight}
-                {' '}
-                {(bag.price * this.props.currency.rate).toFixed(2)}
-                {' '}
-              </div>);
-
-            bagPrices.push(<SideBarPersonUpsale
-              pax={pax}
-              description={bagDescr}
-            />);
-          }
-        });
-
-
-        this.props.boughtInsurances.forEach(boughtIns => {
-          this.props.insuranceOptions.forEach(insOption => {
-            if ((pax.id === boughtIns.paxId) && (insOption.id === boughtIns.insuranceId) && (insOption.id > 0)) {
-              insuranceCount++;
-
-              const insuranceDescr = (
-                <div>
-                  {' '}
-                  {insOption.title}
-                  {' '}
-                  {insOption.price.toFixed(2)}
-
-                </div>);
-
-              insurancePrices.push(<SideBarPersonUpsale
-                pax={pax}
-                description={insuranceDescr}
-              />);
-            }
-          });
-        });
-
-        this.props.boughtMeals.forEach(boughtMl => {
-          this.props.mealOptions.forEach(availbMeal => {
-            if ((pax.id == boughtMl.paxId) && (availbMeal.id == boughtMl.mealId)) {
-              mealsCount++;
-
-              mealsPrices.push(
-                <div key={pax.id}>
-                  <div className="row">
-                    <div className="col-12">
-                      {pax.surname}
-                      {' '}
-                      {pax.name}
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-12">
-                      {availbMeal.title}
-                      {' '}
-                      {(availbMeal.price * this.props.currency.rate).toFixed(2)}
-
-                    </div>
-                  </div>
-                </div>,
-              );
-            }
-          });
-        });
-      }
-    });
-
-    let bagsDiv = (<div />);
-
-    if (totalBagCount > 0) {
-      bagsDiv = (
+    if (this.context.upsales.bagsCost > 0) {
+      otherUpsalesDiv.push(
         <SideBarUpsale
           title="Bags"
-          price={bagPrices}
-          currency={this.props.currency}
+          price={this.context.upsales.bagsCost}
+          currency={this.context.currentCurrency}
         />
       );
     }
 
-
-    let insuranceDiv = (<div />);
-
-    if (insuranceCount > 0) {
-      insuranceDiv = (
+    if (this.context.upsales.mealsCost > 0) {
+      otherUpsalesDiv.push(
         <SideBarUpsale
-          title="Insurance"
-          price={insurancePrices}
-          currency={this.props.currency}
-        />
-      );
-    }
-
-
-    let mealsDiv = (<div />);
-
-
-    if (mealsCount > 0) {
-      mealsDiv = (
-        <SideBarUpsale
+          key="meals"
           title="Meals"
-          price={mealsPrices}
-          currency={this.props.currency}
+          price={this.context.upsales.mealsCost}
+          currency={this.context.currentCurrency}
         />
       );
     }
 
-
-    const otherUpsalesDiv = [];
-
-
-      if (this.props.parkingPrice >0 ) {
-
-          otherUpsalesDiv.push(<SideBarUpsale
-              title="Parking"
-              price={this.props.overallParkingPrice}
-              currency={this.props.currency}
-          />);
-      }
-
-
-      if (this.props.hasFastTrack === true) {
-
-        otherUpsalesDiv.push(<SideBarUpsale
-            title="Fast Track"
-            price={this.props.overallFastTrackCost}
-            currency={this.props.currency}
-        />);
-    }
-
-
-      if (this.props.hasFlexibleTicket === true) {
-      otherUpsalesDiv.push(<SideBarUpsale
-        title="Flexible Ticket"
-        price={this.overallFlexTicketCost}
-        currency={this.props.currency}
-      />);
-    }
-
-      if (this.props.hasWebCheckin === true) {
-
-          otherUpsalesDiv.push(<SideBarUpsale
-              title="Web Checkin"
-              price={this.props.overallWebCheckinCost}
-              currency={this.props.currency}
-          />);
-      }
-
-
-      if (this.props.hasAirHelp === true) {
-        otherUpsalesDiv.push(
-          <SideBarUpsale
-            title="AirHelp"
-            price={this.props.overallAirHelpCost}
-            currency={this.props.currency}
-          />,
-        );
-      }
-
-
-    if (this.props.hasBlueRibbon === true) {
+    if (this.context.upsales.blueRibbonCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
           title="Blue Ribbon"
-          price={this.props.overallBlueRibbonCost}
-          currency={this.props.currency}
-        />,
+          price={this.context.upsales.blueRibbonCost}
+          currency={this.context.currentCurrency}
+        />
       );
     }
 
-      totalPreseatPrice *= (this.props.currency.rate).toFixed(2);
-    if (totalPreseatPrice >0) {
+    if (this.context.upsales.flexTicketCost > 0) {
       otherUpsalesDiv.push(
         <SideBarUpsale
-          title="Preaseating"
-          price={totalPreseatPrice}
-          currency={this.props.currency}
-        />,
+          title="Flex Ticket"
+          price={this.context.upsales.flexTicketCost}
+          currency={this.context.currentCurrency}
+        />
       );
     }
 
+    if (this.context.upsales.webCheckinCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Web Checkin"
+          price={this.context.upsales.webCheckinCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
+    if (this.context.upsales.loungeCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Lounge"
+          price={this.context.upsales.loungeCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
+    if (this.context.upsales.airHelpCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Air Help"
+          price={this.context.upsales.airHelpCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
+    if (this.context.upsales.insuranceCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Insurance"
+          price={this.context.upsales.insuranceCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
+    if (this.context.upsales.fastTrackCost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title="Fast Track"
+          price={this.context.upsales.fastTrackCost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
+
+    if (this.context.upsales.parking.cost > 0) {
+      otherUpsalesDiv.push(
+        <SideBarUpsale
+          title={`Parking ${this.context.upsales.parking.days} days`}
+          price={this.context.upsales.parking.cost}
+          currency={this.context.currentCurrency}
+        />
+      );
+    }
 
     return (
-
-      <div className="pricebox sticky-top ">
+      <div className="pricebox ">
+        <FareTaxes />
 
         <div className="card bg-info">
           <div className="card-header">
             <div className="row">
-
               <div className="col-8">
-                <h6>Price Analysis</h6>
+                <h6>{this.context.translations[this.context.lang].pricebox.PriceAnalysis}</h6>
               </div>
-
 
               <div className="col-3 offset-col-4">
                 <button
@@ -257,163 +144,85 @@ x
                   aria-expanded="false"
                   aria-controls="priceBoxCollapse"
                 >
-
-                    <Translate value="general.Expand" />
+                  {this.context.translations[this.context.lang].general.Expand}
                 </button>
               </div>
-
-
             </div>
           </div>
 
           <div className="card-body show text-white" id="priceBoxCollapse">
+            <SideBarUpsale
+              title={this.context.translations[this.context.lang].pricebox.Total}
+              price={this.context.totalCost}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
+            <SideBarUpsale
+              title={this.context.translations[this.context.lang].pricebox.Fare}
+              price={this.context.totalFare}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
 
-            <div className="row">
-              <div className="col-12">
-                <h4>
-                    <Translate value="pricebox.TicketPrice" />
-                    {' '}
-                  {this.props.ticketPrices}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-                </h4>
-              </div>
-            </div>
+            <SideBarUpsale
+              title={this.context.translations[this.context.lang].pricebox.Tax}
+              price={this.context.totalTax}
+              currency={this.context.currentCurrency}
+            ></SideBarUpsale>
 
-            {bagsDiv}
-            {insuranceDiv}
-            {mealsDiv}
             {otherUpsalesDiv}
-
-
-            <div className="row">
-              <div className="col-12">
-                <h4>
-                    <Translate value="pricebox.UpsalePrices" />
-                    {' '}
-
-                    {this.props.pricing.upsales}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-                </h4>
-              </div>
-            </div>
-
-
-          </div>
-
-
-          <div className="card-footer">
-            <div className="row">
-              <div className="col-12">
-
-                <h4>
-                  <Translate value="pricebox.Total" /> :
-                  {' '}
-                  {this.props.pricing.total.toFixed(2)}
-                  {' '}
-                  {this.props.currency.code}
-                  {' '}
-
-                </h4>
-
-              </div>
-            </div>
-
 
             <div className="row langSelector">
               <div className="col-8 offset-2">
                 <select
                   className="form-control"
-                  id="exampleFormControlSelect2"
-                  onChange={this.props.changeLanguageHandler}
+                  id="langSelect"
+                  onChange={this.updateChosenLangLcl}
                 >
                   <option value="en">
-
-                   <Translate value="pricebox.ChangeLang" />
+                    {this.context.translations[this.context.lang].pricebox.ChangeLang}
                   </option>
-                  {this.props.langs.map(lang => (<option key={lang.code} value={lang.code}>{lang.title}</option>))}
+                  {this.context.languages.map(lang => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.title}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
 
-
             <div className="row">
               <div className="col-12">
-
                 <div className="row selectLang">
                   <div className="col-8 offset-2">
-                    <select
+                    <select 
                       className="form-control"
-                      onChange={this.props.changeCurrencyHandler}>
+                      onChange={this.changeCurrencyHandler}
+                    >
                       <option value="">
-                          <Translate value="pricebox.ChangeCur" />
-
-                          </option>
-                      {this.props.currencyList.map(cur => (<option value={cur.code}>{cur.code}</option>))}
+                        {this.context.translations[this.context.lang].pricebox.ChangeCur}
+                      </option>
+                      {this.context.currencies.map(cur => (
+                        <option key={cur.code} value={cur.code}>
+                          {cur.code}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
-
               </div>
             </div>
 
-
+            <div className="row addOnePassenger">
+              <div className="col-12">
+                <button className="btn btn-primary btn-success">
+                {this.context.translations[this.context.lang].pricebox.Checkout}
+                </button>
+              </div>
+            </div>
           </div>
-
         </div>
       </div>
-
-
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    passengers: state.passengersMasterReducer,
-    currency: state.currentCurrencyReducer,
-    currencyList: state.getCurrenciesReducer,
-    pricing: {
-      total: state.pricingMasterReducer,
-      upsales: state.pricingUpsalesMasterReducer,
-    },
-    insuranceAir: state.airInsuranceReducer,
-    bagAllowance: state.getBagsReducer,
-    purchasedBags: state.purchasedBagsReducer,
-    boughtInsurances: state.purchasedInsuranceReducer,
-    insuranceOptions: state.airInsuranceReducer,
-    mealOptions: state.getMealsReducer,
-    boughtMeals: state.purchasedMealsReducer,
-    hasFlexibleTicket: state.hasFlexibleTicketReducer,
-    flexibleTicket: state.flexibleTicketReducer,
-    hasWebCheckin: state.hasWebCheckinReducer,
-    webCheckinPrice: state.webCheckinPriceReducer,
-    hasBlueRibbon: state.hasBlueRibbonReducer,  
-    overallBlueRibbonCost: state.getBlueRibbonFinalCostReducer,
-    overallFastTrackCost : state.getFastTrackFinalCostReducer,
-    overallAirHelpCost: state.getAirHelpFinalCostReducer,
-    overallFlexTicketCost : state.getFlexibleTicketFinalCostReducer,
-    overallWebCheckinCost : state.getWebCheckinFinalCostReducer,
-    overallParkingPrice: state.getParkPricingFinalCostReducer,
-    ticketPrices: state.ticketPricesReducer,
-    cabinSelection: state.fetchCabinPaxPerSegmentReducer,
-    preSeatSelectedItems: state.fetchPreseatSelectedPaxReducer,
-    seatMapInfo: state.seatMapInfoReducer,
-    langs: state.getLanguagesReducer,
-    selectedSeats: state.fetchSeatSelectionReducer,
-    hasFastTrack: state.hasFastTrackReducer
-    };
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-    changeLanguageHandler: actsMaster.changeLanguageAction,
-    changeCurrencyHandler: actsMaster.changeCurrencyAction,
-  }, dispatch);
-}
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(MasterSideBar);
+export default MasterSideBar;
