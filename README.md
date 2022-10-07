@@ -4,10 +4,3 @@ Front-End Stack : React, ContextAPI
 
 https://lit-sierra-41000.herokuapp.com/
 
-
-TODO
-Translations
-
-general debuging
-
-SSR???
